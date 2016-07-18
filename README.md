@@ -19,7 +19,9 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 ---
 ## Examples
 
-### BundlePath methods
+### NSString Extension
+
+* BundlePath methods
 
 	```objc
 	
@@ -36,10 +38,12 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 		NSString *md5CachePath = [filePath q_appendMD5CachePath];
     	
 		NSString *md5TempPath = [filePath q_appendMD5TempPath];
+		
 	```
-### Base64 methods 
+* Base64 methods 
 
 	```objc
+	
   		NSString *str = @"hello world";
     
     	NSString *base64Str = [str q_base64Encode];
@@ -47,10 +51,12 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
     	NSString *asciiStr = [base64Str q_base64Decode];
    	
     	NSString *authStr = [str q_basic64AuthEncode];
+    	
 	```
-### Hash methods 
+* Hash methods 
 
 	```objc
+	
     	NSString *str = @"hello world";
     	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Info.plist" ofType:nil];
     
@@ -61,45 +67,64 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
     	NSString *timeStr = [str q_timeMD5StringWithKey:@"yourKey"];
     	
     	NSString *fileMD5Str = [filePath q_fileMD5Hash];
-	```
-### FormData methods
-
-- Single File Upload
-
-	```objc
-	
-        #define boundary @"uploadBoundary"
-        
-        NSMutableData *formDataM = [NSMutableData data];
-        
-        [formDataM q_setHttpHeaderFieldWithRequest:request fileBoundary:boundary];
-        
-        [formDataM q_appendPartWithFileURL:fileURL fileBoundary:boundary name:@"userfile" fileName:@"test1.png" mimeType:@"image/png"];
-        
-        [formDataM q_appendPartWithText:@"qian" textName:@"username" fileBoundary:boundary];
-        
-        [formDataM q_appendPartEndingWithFileBoundary:boundary];
-    
-	```	
-- or
-			
-	```objc
-	
-		NSData *formData = [NSData q_formDataWithRequest:request text:@"qian" textName:@"username" fileData:filedata name:@"userfile" fileName:@"test2.png" mimeType:@"image/png"];
-	
-	```
-- Multiple File Upload
-
-	```objc
-	
-    	NSData *formData = [NSData q_formDataWithRequest:request texts:@[@"qian"] textNames:@[@"username"] fileURLs:@[fileURL1, fileURL2] name:@"userfile[]" fileNames:@[@"demoFile1.png", @"demoFile2.jpg"] mimeTypes:@[@"image/png", @"image/jpeg"]];
     	
-	``` 
+	```
 	
-### Progress methods
+### NSData Extension
+
+- FormData methods
+
+	- Single File Upload
+
+		```objc
+	
+        	#define boundary @"uploadBoundary"
+        
+        	NSMutableData *formDataM = [NSMutableData data];
+        
+        	[formDataM q_setHttpHeaderFieldWithRequest:request fileBoundary:boundary];
+        
+        	[formDataM q_appendPartWithFileURL:fileURL fileBoundary:boundary name:@"userfile" fileName:@"test1.png" mimeType:@"image/png"];
+        
+        	[formDataM q_appendPartWithText:@"qian" textName:@"username" fileBoundary:boundary];
+        
+        	[formDataM q_appendPartEndingWithFileBoundary:boundary];
+    
+		```	
+	- or
+			
+		```objc
+	
+			NSData *formData = [NSData q_formDataWithRequest:request text:@"qian" textName:@"username" fileData:filedata name:@"userfile" fileName:@"test2.png" mimeType:@"image/png"];
+		
+		```
+	- Multiple File Upload
+
+		```objc
+	
+    		NSData *formData = [NSData q_formDataWithRequest:request texts:@[@"qian"] textNames:@[@"username"] fileURLs:@[fileURL1, fileURL2] name:@"userfile[]" fileNames:@[@"demoFile1.png", @"demoFile2.jpg"] mimeTypes:@[@"image/png", @"image/jpeg"]];
+    	
+		``` 
+	
+### UIButton Extension
+
+* Progress methods
 
 	```objc
 
 		[button q_setButtonWithProgress:0.5 lineWidth:10 lineColor:nil backgroundColor:[UIColor yellowColor]];	
 	
 	```
+	
+### NSArray Extension
+
+* NSLog methods
+
+	`- (NSString *)descriptionWithLocale:(id)locale;`
+	
+### NSDictionary Extension
+
+* NSLog methods
+
+	`- (NSString *)descriptionWithLocale:(id)locale;`
+
