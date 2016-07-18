@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AB241151D3D3ACC00009983 /* NSString+BundlePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB241141D3D3ACC00009983 /* NSString+BundlePath.m */; };
+		1AB241181D3D3AE400009983 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB241171D3D3AE400009983 /* NSString+Base64.m */; };
+		1AB2411B1D3D3AF000009983 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB2411A1D3D3AF000009983 /* NSString+Hash.m */; };
+		1AB2411E1D3D3AFD00009983 /* NSData+FormData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB2411D1D3D3AFD00009983 /* NSData+FormData.m */; };
+		1AB241211D3D3B0A00009983 /* UIButton+Progress.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB241201D3D3B0A00009983 /* UIButton+Progress.m */; };
+		1AB241241D3D3B1900009983 /* NSArray+LocaleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB241231D3D3B1900009983 /* NSArray+LocaleLog.m */; };
+		1AB241271D3D3B2600009983 /* NSDictionary+LocaleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB241261D3D3B2600009983 /* NSDictionary+LocaleLog.m */; };
 		1AE5F8FF1D3CF1EA0067811A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F8FE1D3CF1EA0067811A /* main.m */; };
 		1AE5F9021D3CF1EA0067811A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F9011D3CF1EA0067811A /* AppDelegate.m */; };
 		1AE5F9051D3CF1EA0067811A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F9041D3CF1EA0067811A /* ViewController.m */; };
@@ -17,13 +24,6 @@
 		1AE5F9231D3CF1EA0067811A /* QExtensionExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F9221D3CF1EA0067811A /* QExtensionExampleUITests.m */; };
 		1AE5F9501D3D098F0067811A /* demo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE5F94E1D3D098F0067811A /* demo1.png */; };
 		1AE5F9511D3D098F0067811A /* demo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1AE5F94F1D3D098F0067811A /* demo2.jpg */; };
-		1AE5F9551D3D19720067811A /* NSString+BundlePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F9541D3D19720067811A /* NSString+BundlePath.m */; };
-		1AE5F9581D3D19850067811A /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F9571D3D19850067811A /* NSString+Base64.m */; };
-		1AE5F95B1D3D19960067811A /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F95A1D3D19960067811A /* NSString+Hash.m */; };
-		1AE5F95E1D3D19A80067811A /* NSData+FormData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F95D1D3D19A80067811A /* NSData+FormData.m */; };
-		1AE5F9611D3D19B70067811A /* UIButton+Progress.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F9601D3D19B70067811A /* UIButton+Progress.m */; };
-		1AE5F9641D3D19CB0067811A /* NSArray+LocaleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F9631D3D19CB0067811A /* NSArray+LocaleLog.m */; };
-		1AE5F96B1D3D19EC0067811A /* NSDictionary+LocaleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F96A1D3D19EC0067811A /* NSDictionary+LocaleLog.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +44,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1AB241131D3D3ACC00009983 /* NSString+BundlePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+BundlePath.h"; path = "QExtension/NSString+BundlePath.h"; sourceTree = SOURCE_ROOT; };
+		1AB241141D3D3ACC00009983 /* NSString+BundlePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+BundlePath.m"; path = "QExtension/NSString+BundlePath.m"; sourceTree = SOURCE_ROOT; };
+		1AB241161D3D3ADC00009983 /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Base64.h"; path = "QExtension/NSString+Base64.h"; sourceTree = SOURCE_ROOT; };
+		1AB241171D3D3AE400009983 /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Base64.m"; path = "QExtension/NSString+Base64.m"; sourceTree = SOURCE_ROOT; };
+		1AB241191D3D3AF000009983 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Hash.h"; path = "QExtension/NSString+Hash.h"; sourceTree = SOURCE_ROOT; };
+		1AB2411A1D3D3AF000009983 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Hash.m"; path = "QExtension/NSString+Hash.m"; sourceTree = SOURCE_ROOT; };
+		1AB2411C1D3D3AFD00009983 /* NSData+FormData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+FormData.h"; path = "QExtension/NSData+FormData.h"; sourceTree = SOURCE_ROOT; };
+		1AB2411D1D3D3AFD00009983 /* NSData+FormData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+FormData.m"; path = "QExtension/NSData+FormData.m"; sourceTree = SOURCE_ROOT; };
+		1AB2411F1D3D3B0A00009983 /* UIButton+Progress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+Progress.h"; path = "QExtension/UIButton+Progress.h"; sourceTree = SOURCE_ROOT; };
+		1AB241201D3D3B0A00009983 /* UIButton+Progress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+Progress.m"; path = "QExtension/UIButton+Progress.m"; sourceTree = SOURCE_ROOT; };
+		1AB241221D3D3B1900009983 /* NSArray+LocaleLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+LocaleLog.h"; path = "QExtension/NSArray+LocaleLog.h"; sourceTree = SOURCE_ROOT; };
+		1AB241231D3D3B1900009983 /* NSArray+LocaleLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+LocaleLog.m"; path = "QExtension/NSArray+LocaleLog.m"; sourceTree = SOURCE_ROOT; };
+		1AB241251D3D3B2600009983 /* NSDictionary+LocaleLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+LocaleLog.h"; path = "QExtension/NSDictionary+LocaleLog.h"; sourceTree = SOURCE_ROOT; };
+		1AB241261D3D3B2600009983 /* NSDictionary+LocaleLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+LocaleLog.m"; path = "QExtension/NSDictionary+LocaleLog.m"; sourceTree = SOURCE_ROOT; };
+		1AB241281D3D3B5A00009983 /* QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QExtension.h; sourceTree = "<group>"; };
 		1AE5F8FA1D3CF1EA0067811A /* QExtensionExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QExtensionExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE5F8FE1D3CF1EA0067811A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1AE5F9001D3CF1EA0067811A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,21 +77,6 @@
 		1AE5F9241D3CF1EA0067811A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AE5F94E1D3D098F0067811A /* demo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = demo1.png; path = "Resources Files/demo1.png"; sourceTree = "<group>"; };
 		1AE5F94F1D3D098F0067811A /* demo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = demo2.jpg; path = "Resources Files/demo2.jpg"; sourceTree = "<group>"; };
-		1AE5F9521D3D195F0067811A /* QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QExtension.h; sourceTree = "<group>"; };
-		1AE5F9531D3D19720067811A /* NSString+BundlePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+BundlePath.h"; path = "QExtension/NSString+BundlePath/NSString+BundlePath.h"; sourceTree = SOURCE_ROOT; };
-		1AE5F9541D3D19720067811A /* NSString+BundlePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+BundlePath.m"; path = "QExtension/NSString+BundlePath/NSString+BundlePath.m"; sourceTree = SOURCE_ROOT; };
-		1AE5F9561D3D19850067811A /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Base64.h"; path = "QExtension/NSString+Base64/NSString+Base64.h"; sourceTree = SOURCE_ROOT; };
-		1AE5F9571D3D19850067811A /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Base64.m"; path = "QExtension/NSString+Base64/NSString+Base64.m"; sourceTree = SOURCE_ROOT; };
-		1AE5F9591D3D19960067811A /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Hash.h"; path = "QExtension/NSString+Hash/NSString+Hash.h"; sourceTree = SOURCE_ROOT; };
-		1AE5F95A1D3D19960067811A /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Hash.m"; path = "QExtension/NSString+Hash/NSString+Hash.m"; sourceTree = SOURCE_ROOT; };
-		1AE5F95C1D3D19A80067811A /* NSData+FormData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+FormData.h"; path = "QExtension/NSData+FormData/NSData+FormData.h"; sourceTree = SOURCE_ROOT; };
-		1AE5F95D1D3D19A80067811A /* NSData+FormData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+FormData.m"; path = "QExtension/NSData+FormData/NSData+FormData.m"; sourceTree = SOURCE_ROOT; };
-		1AE5F95F1D3D19B70067811A /* UIButton+Progress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+Progress.h"; path = "QExtension/UIButton+Progress/UIButton+Progress.h"; sourceTree = SOURCE_ROOT; };
-		1AE5F9601D3D19B70067811A /* UIButton+Progress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+Progress.m"; path = "QExtension/UIButton+Progress/UIButton+Progress.m"; sourceTree = SOURCE_ROOT; };
-		1AE5F9621D3D19CB0067811A /* NSArray+LocaleLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+LocaleLog.h"; path = "QExtension/NSArray+LocaleLog/NSArray+LocaleLog.h"; sourceTree = SOURCE_ROOT; };
-		1AE5F9631D3D19CB0067811A /* NSArray+LocaleLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+LocaleLog.m"; path = "QExtension/NSArray+LocaleLog/NSArray+LocaleLog.m"; sourceTree = SOURCE_ROOT; };
-		1AE5F9691D3D19EC0067811A /* NSDictionary+LocaleLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+LocaleLog.h"; path = "QExtension/NSDictionary+LocaleLog/NSDictionary+LocaleLog.h"; sourceTree = SOURCE_ROOT; };
-		1AE5F96A1D3D19EC0067811A /* NSDictionary+LocaleLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+LocaleLog.m"; path = "QExtension/NSDictionary+LocaleLog/NSDictionary+LocaleLog.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +172,7 @@
 		1AE5F9301D3CF2720067811A /* QExtension */ = {
 			isa = PBXGroup;
 			children = (
-				1AE5F9521D3D195F0067811A /* QExtension.h */,
+				1AB241281D3D3B5A00009983 /* QExtension.h */,
 				1AE5F93B1D3CF5CD0067811A /* NSString+BundlePath */,
 				1AE5F9381D3CF5CD0067811A /* NSString+Base64 */,
 				1AE5F9491D3CFA000067811A /* NSString+Hash */,
@@ -187,8 +187,8 @@
 		1AE5F9321D3CF5CD0067811A /* NSArray+LocaleLog */ = {
 			isa = PBXGroup;
 			children = (
-				1AE5F9621D3D19CB0067811A /* NSArray+LocaleLog.h */,
-				1AE5F9631D3D19CB0067811A /* NSArray+LocaleLog.m */,
+				1AB241221D3D3B1900009983 /* NSArray+LocaleLog.h */,
+				1AB241231D3D3B1900009983 /* NSArray+LocaleLog.m */,
 			);
 			name = "NSArray+LocaleLog";
 			path = "QExtension/NSArray+LocaleLog";
@@ -197,8 +197,8 @@
 		1AE5F9351D3CF5CD0067811A /* NSDictionary+LocaleLog */ = {
 			isa = PBXGroup;
 			children = (
-				1AE5F9691D3D19EC0067811A /* NSDictionary+LocaleLog.h */,
-				1AE5F96A1D3D19EC0067811A /* NSDictionary+LocaleLog.m */,
+				1AB241251D3D3B2600009983 /* NSDictionary+LocaleLog.h */,
+				1AB241261D3D3B2600009983 /* NSDictionary+LocaleLog.m */,
 			);
 			name = "NSDictionary+LocaleLog";
 			path = "QExtension/NSDictionary+LocaleLog";
@@ -207,8 +207,8 @@
 		1AE5F9381D3CF5CD0067811A /* NSString+Base64 */ = {
 			isa = PBXGroup;
 			children = (
-				1AE5F9561D3D19850067811A /* NSString+Base64.h */,
-				1AE5F9571D3D19850067811A /* NSString+Base64.m */,
+				1AB241171D3D3AE400009983 /* NSString+Base64.m */,
+				1AB241161D3D3ADC00009983 /* NSString+Base64.h */,
 			);
 			name = "NSString+Base64";
 			path = "QExtension/NSString+Base64";
@@ -217,8 +217,8 @@
 		1AE5F93B1D3CF5CD0067811A /* NSString+BundlePath */ = {
 			isa = PBXGroup;
 			children = (
-				1AE5F9531D3D19720067811A /* NSString+BundlePath.h */,
-				1AE5F9541D3D19720067811A /* NSString+BundlePath.m */,
+				1AB241131D3D3ACC00009983 /* NSString+BundlePath.h */,
+				1AB241141D3D3ACC00009983 /* NSString+BundlePath.m */,
 			);
 			name = "NSString+BundlePath";
 			path = "QExtension/NSString+BundlePath";
@@ -227,8 +227,8 @@
 		1AE5F93E1D3CF5CD0067811A /* UIButton+Progress */ = {
 			isa = PBXGroup;
 			children = (
-				1AE5F95F1D3D19B70067811A /* UIButton+Progress.h */,
-				1AE5F9601D3D19B70067811A /* UIButton+Progress.m */,
+				1AB2411F1D3D3B0A00009983 /* UIButton+Progress.h */,
+				1AB241201D3D3B0A00009983 /* UIButton+Progress.m */,
 			);
 			name = "UIButton+Progress";
 			path = "QExtension/UIButton+Progress";
@@ -237,8 +237,8 @@
 		1AE5F9461D3CFA000067811A /* NSData+FormData */ = {
 			isa = PBXGroup;
 			children = (
-				1AE5F95C1D3D19A80067811A /* NSData+FormData.h */,
-				1AE5F95D1D3D19A80067811A /* NSData+FormData.m */,
+				1AB2411C1D3D3AFD00009983 /* NSData+FormData.h */,
+				1AB2411D1D3D3AFD00009983 /* NSData+FormData.m */,
 			);
 			name = "NSData+FormData";
 			path = "QExtension/NSData+FormData";
@@ -247,8 +247,8 @@
 		1AE5F9491D3CFA000067811A /* NSString+Hash */ = {
 			isa = PBXGroup;
 			children = (
-				1AE5F9591D3D19960067811A /* NSString+Hash.h */,
-				1AE5F95A1D3D19960067811A /* NSString+Hash.m */,
+				1AB241191D3D3AF000009983 /* NSString+Hash.h */,
+				1AB2411A1D3D3AF000009983 /* NSString+Hash.m */,
 			);
 			name = "NSString+Hash";
 			path = "QExtension/NSString+Hash";
@@ -386,16 +386,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AE5F9641D3D19CB0067811A /* NSArray+LocaleLog.m in Sources */,
-				1AE5F9551D3D19720067811A /* NSString+BundlePath.m in Sources */,
-				1AE5F95B1D3D19960067811A /* NSString+Hash.m in Sources */,
-				1AE5F9581D3D19850067811A /* NSString+Base64.m in Sources */,
 				1AE5F9051D3CF1EA0067811A /* ViewController.m in Sources */,
-				1AE5F96B1D3D19EC0067811A /* NSDictionary+LocaleLog.m in Sources */,
-				1AE5F95E1D3D19A80067811A /* NSData+FormData.m in Sources */,
+				1AB241241D3D3B1900009983 /* NSArray+LocaleLog.m in Sources */,
+				1AB241151D3D3ACC00009983 /* NSString+BundlePath.m in Sources */,
+				1AB2411B1D3D3AF000009983 /* NSString+Hash.m in Sources */,
+				1AB241181D3D3AE400009983 /* NSString+Base64.m in Sources */,
+				1AB241271D3D3B2600009983 /* NSDictionary+LocaleLog.m in Sources */,
+				1AB2411E1D3D3AFD00009983 /* NSData+FormData.m in Sources */,
 				1AE5F9021D3CF1EA0067811A /* AppDelegate.m in Sources */,
+				1AB241211D3D3B0A00009983 /* UIButton+Progress.m in Sources */,
 				1AE5F8FF1D3CF1EA0067811A /* main.m in Sources */,
-				1AE5F9611D3D19B70067811A /* UIButton+Progress.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
