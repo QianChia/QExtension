@@ -23,7 +23,10 @@ UIColor *_lineColor;
 
 /// 设置属性
 
-- (void)q_setButtonWithProgress:(float)progress lineWidth:(CGFloat)lineWidth lineColor:(nullable UIColor *)lineColor backgroundColor:(nullable UIColor *)backgroundColor {
+- (void)q_setButtonWithProgress:(float)progress
+                      lineWidth:(CGFloat)lineWidth
+                      lineColor:(nullable UIColor *)lineColor
+                backgroundColor:(nullable UIColor *)backgroundColor {
 
     _progress = progress;
     _lineWidth = lineWidth ? : 2;

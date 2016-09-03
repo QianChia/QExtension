@@ -10,6 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface NSData (FormData)
 
 #pragma mark - 带请求头上传数据设置
@@ -36,7 +37,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 拼接的待上传文件的二进制数据，fileBoundary 文件分隔符默认设置为 @"qianUploadBoundary"
  */
-+ (NSData *)q_formDataWithRequest:(NSMutableURLRequest *)request fileData:(NSData *)fileData name:(NSString *)name fileName:(NSString *)fileName mimeType:(nullable NSString *)mimeType;
++ (NSData *)q_formDataWithRequest:(NSMutableURLRequest *)request
+                         fileData:(NSData *)fileData
+                             name:(NSString *)name
+                         fileName:(NSString *)fileName
+                         mimeType:(nullable NSString *)mimeType;
 
 /**
  *  指定 “文件路径” 形式上传，不带文本内容，单文件上传
@@ -49,7 +54,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 拼接的待上传文件的二进制数据，fileBoundary 文件分隔符默认设置为 @"qianUploadBoundary"
  */
-+ (NSData *)q_formDataWithRequest:(NSMutableURLRequest *)request fileURL:(NSURL *)fileURL name:(NSString *)name fileName:(nullable NSString *)fileName mimeType:(nullable NSString *)mimeType;
++ (NSData *)q_formDataWithRequest:(NSMutableURLRequest *)request
+                          fileURL:(NSURL *)fileURL
+                             name:(NSString *)name
+                         fileName:(nullable NSString *)fileName
+                         mimeType:(nullable NSString *)mimeType;
 
 /**
  *  指定 “文件数据” 形式上传，带文本内容，单文件上传
@@ -64,7 +73,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 拼接的待上传文件及文本的二进制数据，fileBoundary 文件分隔符默认设置为 @"qianUploadBoundary"
  */
-+ (NSData *)q_formDataWithRequest:(NSMutableURLRequest *)request text:(nullable id)text textName:(nullable NSString *)textName fileData:(NSData *)fileData name:(NSString *)name fileName:(NSString *)fileName mimeType:(nullable NSString *)mimeType;
++ (NSData *)q_formDataWithRequest:(NSMutableURLRequest *)request
+                             text:(nullable id)text
+                         textName:(nullable NSString *)textName
+                         fileData:(NSData *)fileData
+                             name:(NSString *)name
+                         fileName:(NSString *)fileName
+                         mimeType:(nullable NSString *)mimeType;
 
 /**
  *  指定 “文件路径” 形式上传，带文本内容，单文件上传
@@ -79,7 +94,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 拼接的待上传文件及文本的二进制数据，fileBoundary 文件分隔符默认设置为 @"qianUploadBoundary"
  */
-+ (NSData *)q_formDataWithRequest:(NSMutableURLRequest *)request text:(nullable id)text textName:(nullable NSString *)textName fileURL:(NSURL *)fileURL name:(NSString *)name fileName:(nullable NSString *)fileName mimeType:(nullable NSString *)mimeType;
++ (NSData *)q_formDataWithRequest:(NSMutableURLRequest *)request
+                             text:(nullable id)text
+                         textName:(nullable NSString *)textName
+                          fileURL:(NSURL *)fileURL
+                             name:(NSString *)name
+                         fileName:(nullable NSString *)fileName
+                         mimeType:(nullable NSString *)mimeType;
 
 /**
  *  指定 “文件数据” 形式上传，不带文本内容，多文件上传
@@ -89,11 +110,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name         服务器规定的文件字段名
  *  @param fileNames    在服务器端上的文件存储名
  *  @param mimeTypes    文件类型，mimeTypes = nil 或 mimeTypes[] = [NSNull null] 默认设置为 application/octet-stream 通用类型
- *                      mimeTypes != nil 时元素个数必须与其它数组元素个数相同
  *
  *  @return 拼接的待上传文件的二进制数据，fileBoundary 文件分隔符默认设置为 @"qianUploadBoundary"
  */
-+ (NSData *)q_formDataWithRequest:(NSMutableURLRequest *)request fileDatas:(NSArray<NSData *> *)fileDatas name:(NSString *)name fileNames:(NSArray<NSString *> *)fileNames mimeTypes:(nullable NSArray<NSString *> *)mimeTypes;
++ (NSData *)q_formDataWithRequest:(NSMutableURLRequest *)request
+                        fileDatas:(NSArray<NSData *> *)fileDatas
+                             name:(NSString *)name
+                        fileNames:(NSArray<NSString *> *)fileNames
+                        mimeTypes:(nullable NSArray<NSString *> *)mimeTypes;
 
 /**
  *  指定 “文件路径” 形式上传，不带文本内容，多文件上传
@@ -102,13 +126,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param fileURLs     文件路径
  *  @param name         服务器规定的文件字段名
  *  @param fileNames    在服务器端上的文件存储名，fileNames = nil 或 fileName[] = [NSNull null] 默认以文件原来的名字存储
- *                      fileNames != nil 时元素个数必须与其它数组元素个数相同
  *  @param mimeTypes    文件类型，mimeTypes = nil 或 mimeTypes[] = [NSNull null] 默认设置为 application/octet-stream 通用类型
- *                      mimeTypes != nil 时元素个数必须与其它数组元素个数相同
  *
  *  @return 拼接的待上传文件的二进制数据，fileBoundary 文件分隔符默认设置为 @"qianUploadBoundary"
  */
-+ (NSData *)q_formDataWithRequest:(NSMutableURLRequest *)request fileURLs:(NSArray<NSURL *> *)fileURLs name:(NSString *)name fileNames:(nullable NSArray<NSString *> *)fileNames mimeTypes:(nullable NSArray<NSString *> *)mimeTypes;
++ (NSData *)q_formDataWithRequest:(NSMutableURLRequest *)request
+                         fileURLs:(NSArray<NSURL *> *)fileURLs
+                             name:(NSString *)name
+                        fileNames:(nullable NSArray<NSString *> *)fileNames
+                        mimeTypes:(nullable NSArray<NSString *> *)mimeTypes;
 
 /**
  *  指定 “文件数据” 形式上传，带文本内容，多文件上传
@@ -116,16 +142,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param request      网络请求
  *  @param texts        文本内容字符串，texts = nil 或 texts[] = [NSNull null] 默认不添加文本内容
  *  @param textNames    服务器规定的文本内容字段名，textNames = nil 或 textNames[] = [NSNull null] 默认不添加文本内容
- *                      textNames 与 texts 都不等于 nil 时，元素个数必须相同
  *  @param fileDatas    文件数据
  *  @param name         服务器规定的文件字段名
  *  @param fileNames    在服务器端上的文件存储名
  *  @param mimeTypes    文件类型，mimeTypes = nil 或 mimeTypes[] = [NSNull null] 默认设置为 application/octet-stream 通用类型
- *                      mimeTypes != nil 时元素个数必须与其它数组元素个数相同
  *
  *  @return 拼接的待上传文件及文本的二进制数据，fileBoundary 文件分隔符默认设置为 @"qianUploadBoundary"
  */
-+ (NSData *)q_formDataWithRequest:(NSMutableURLRequest *)request texts:(nullable NSArray<id> *)texts textNames:(nullable NSArray<NSString *> *)textNames fileDatas:(NSArray<NSData *> *)fileDatas name:(NSString *)name fileNames:(NSArray<NSString *> *)fileNames mimeTypes:(nullable NSArray<NSString *> *)mimeTypes;
++ (NSData *)q_formDataWithRequest:(NSMutableURLRequest *)request
+                            texts:(nullable NSArray<id> *)texts
+                        textNames:(nullable NSArray<NSString *> *)textNames
+                        fileDatas:(NSArray<NSData *> *)fileDatas
+                             name:(NSString *)name
+                        fileNames:(NSArray<NSString *> *)fileNames
+                        mimeTypes:(nullable NSArray<NSString *> *)mimeTypes;
 
 /**
  *  指定 “文件路径” 形式上传，带文本内容，多文件上传
@@ -133,19 +163,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param request      网络请求
  *  @param texts        文本内容字符串，texts = nil 或 texts[] = [NSNull null] 默认不添加文本内容
  *  @param textNames    服务器规定的文本内容字段名，textNames = nil 或 textNames[] = [NSNull null] 默认不添加文本内容
- *                      textNames 与 texts 都不等于 nil 时，元素个数必须相同
  *  @param fileURLs     文件路径
  *  @param name         服务器规定的文件字段名
  *  @param fileNames    在服务器端上的文件存储名，fileNames = nil 或 fileName[] = [NSNull null] 默认以文件原来的名字存储
- *                      fileNames != nil 时元素个数必须与其它数组元素个数相同
  *  @param mimeTypes    文件类型，mimeTypes = nil 或 mimeTypes[] = [NSNull null] 默认设置为 application/octet-stream 通用类型
- *                      mimeTypes != nil 时元素个数必须与其它数组元素个数相同
  *
  *  @return 拼接的待上传文件及文本的二进制数据，fileBoundary 文件分隔符默认设置为 @"qianUploadBoundary"
  */
-+ (NSData *)q_formDataWithRequest:(NSMutableURLRequest *)request texts:(nullable NSArray<id> *)texts textNames:(nullable NSArray<NSString *> *)textNames fileURLs:(NSArray<NSURL *> *)fileURLs name:(NSString *)name fileNames:(nullable NSArray<NSString *> *)fileNames mimeTypes:(nullable NSArray<NSString *> *)mimeTypes;
++ (NSData *)q_formDataWithRequest:(NSMutableURLRequest *)request
+                            texts:(nullable NSArray<id> *)texts
+                        textNames:(nullable NSArray<NSString *> *)textNames
+                         fileURLs:(NSArray<NSURL *> *)fileURLs
+                             name:(NSString *)name
+                        fileNames:(nullable NSArray<NSString *> *)fileNames
+                        mimeTypes:(nullable NSArray<NSString *> *)mimeTypes;
 
 @end
+
 
 @interface NSMutableData (FormData)
 
@@ -156,13 +190,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  设置上传文件前，需先设置请求头，请求头用的 boundary 和文件拼接用的需相同。
  *
- *  #define boundary @"qianUploadBoundary"
- *  [request setValue:[NSString stringWithFormat:@"multipart/form-data; charset=utf-8; boundary=%@", boundary] forHTTPHeaderField:@"Content-Type"];
- *
  *  @param request      网络请求
  *  @param fileBoundary 文件分隔符，nil 默认设置为 @"qianUploadBoundary"
  */
-- (void)q_setHttpHeaderFieldWithRequest:(NSMutableURLRequest *)request fileBoundary:(nullable NSString *)fileBoundary;
+- (void)q_setHttpHeaderFieldWithRequest:(NSMutableURLRequest *)request
+                           fileBoundary:(nullable NSString *)fileBoundary;
 
 /**
  *  判断并拼接文本内容
@@ -171,7 +203,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param textName     服务器规定的文本内容字段名，textName = nil 或 textName = [NSNull null] 默认不添加文本内容
  *  @param fileBoundary 文件分隔符，nil 默认设置为 @"qianUploadBoundary"
  */
-- (void)q_appendPartWithText:(nullable id)text textName:(nullable NSString *)textName fileBoundary:(nullable NSString *)fileBoundary;
+- (void)q_appendPartWithText:(nullable id)text
+                    textName:(nullable NSString *)textName
+                fileBoundary:(nullable NSString *)fileBoundary;
 
 /**
  *  判断并拼接文件内容，文件数据
@@ -182,7 +216,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param fileName     在服务器端上的文件存储名
  *  @param mimeType     文件类型，mimeType = nil 或 mimeType = [NSNull null] 默认设置为 application/octet-stream 通用类型
  */
-- (void)q_appendPartWithFileData:(NSData *)fileData fileBoundary:(nullable NSString *)fileBoundary name:(NSString *)name fileName:(NSString *)fileName mimeType:(nullable NSString *)mimeType;
+- (void)q_appendPartWithFileData:(NSData *)fileData
+                    fileBoundary:(nullable NSString *)fileBoundary
+                            name:(NSString *)name
+                        fileName:(NSString *)fileName
+                        mimeType:(nullable NSString *)mimeType;
 
 /**
  *  判断并拼接文件内容，文件路径
@@ -193,7 +231,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param fileName     在服务器端上的文件存储名
  *  @param mimeType     文件类型，mimeType = nil 或 mimeType = [NSNull null] 默认设置为 application/octet-stream 通用类型
  */
-- (void)q_appendPartWithFileURL:(NSURL *)fileURL fileBoundary:(nullable NSString *)fileBoundary name:(NSString *)name fileName:(nullable NSString *)fileName mimeType:(nullable NSString *)mimeType;
+- (void)q_appendPartWithFileURL:(NSURL *)fileURL
+                   fileBoundary:(nullable NSString *)fileBoundary
+                           name:(NSString *)name
+                       fileName:(nullable NSString *)fileName
+                       mimeType:(nullable NSString *)mimeType;
 
 /**
  *  拼接数据结束分隔符
