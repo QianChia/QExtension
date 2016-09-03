@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'QExtension'
-  s.version      = '1.0.2'
+  s.version      = '1.0.3'
   s.license      = 'MIT'
   s.authors      = {'QianChia' => 'jhqian0228@icloud.com'}
   s.summary      = 'The extension method for Foundation & UIKit Class'

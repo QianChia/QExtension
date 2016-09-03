@@ -150,12 +150,12 @@
 //                                               mimeTypes:@[@"image/png", @"image/jpeg"]];
     
         NSData *formData = [NSData q_formDataWithRequest:request
-                                                    texts:@[@"qian"]
-                                                textNames:@[@"username"]
-                                                fileDatas:@[filedata1, filedata2]
-                                                     name:@"userfile[]"
-                                                fileNames:@[@"demoFile1.png", @"demoFile2.jpg"]
-                                                mimeTypes:@[@"image/png", @"image/jpeg"]];
+                                                   texts:@[@"qian"]
+                                               textNames:@[@"username"]
+                                               fileDatas:@[filedata1, filedata2]
+                                                    name:@"userfile[]"
+                                               fileNames:@[@"demoFile1.png", @"demoFile2.jpg"]
+                                               mimeTypes:@[@"image/png", @"image/jpeg"]];
     
     [[[NSURLSession sharedSession] uploadTaskWithRequest:request fromData:formData completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSLog(@"文件上传成功：\n%@", [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]);
