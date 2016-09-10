@@ -9,12 +9,17 @@
 #ifndef QExtension_h
 #define QExtension_h
 
+/// Foundation
 
 #import "NSString+BundlePath.h"
 #import "NSString+Base64.h"
 #import "NSString+Hash.h"
 
 #import "NSData+FormData.h"
+
+/// UIKit
+
+#import "QPageView.h"
 
 #import "UIButton+Progress.h"
 
