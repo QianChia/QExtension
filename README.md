@@ -40,11 +40,12 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 		NSString *md5TempPath = [filePath q_appendMD5TempPath];
 		
 	```
+	
 * Base64 methods 
 
 	```objc
 	
-  		NSString *str = @"hello world";
+		NSString *str = @"hello world";
     
     	NSString *base64Str = [str q_base64Encode];
    	
@@ -53,6 +54,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
     	NSString *authStr = [str q_basic64AuthEncode];
     	
 	```
+	
 * Hash methods 
 
 	```objc
@@ -70,6 +72,18 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
     	
 	```
 	
+* Regex methods 
+
+	```objc
+	
+    	NSString *mobileNum = @"15188886666";
+    	BOOL isValidMobileNum = [mobileNum q_isValidMobileNum];
+		
+    	NSString *emailAddress = @"qianchia@icloud.com";
+    	BOOL q_isValidEmailAddress = [emailAddress q_isValidEmailAddress];
+    	
+	```
+
 ### NSData Extension
 
 - FormData methods
@@ -165,19 +179,19 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
     
     	QPageView *pageView = [[QPageView alloc] initWithFrame:CGRectMake(0, 20, 300, 150)];
     
-    	QPageView *pageView = [QPageView pageView];
+    	QPageView *pageView = [QPageView q_pageView];
     
-    	QPageView *pageView = [QPageView pageViewWithImageNames:@[@"img_00", @"img_01", @"img_02"]
-    	                                             autoScroll:YES
-    	                                         autoScrollTime:2.0
-    	                                  pageIndicatorPosition:Right];
+    	QPageView *pageView = [QPageView q_pageViewWithImageNames:@[@"img_00", @"img_01", @"img_02"]
+    	                                               autoScroll:YES
+    	                                           autoScrollTime:2.0
+    	                                    pageIndicatorPosition:Right];
 		
 	```
 
 	```objc
 	
     	// 创建分页视图控件
-    	QPageView *pageView = [QPageView pageView];
+    	QPageView *pageView = [QPageView q_pageView];
     
     	pageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.width / 2);
     
@@ -205,10 +219,10 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
     	NSArray *imageNameArr = @[@"img_00", @"img_01", @"img_02", @"img_03", @"img_04"];
     
     	// 创建分页视图控件
-    	QPageView *pageView = [QPageView pageViewWithImageNames:imageNameArr
-    	                                             autoScroll:YES
-    	                                         autoScrollTime:1.0
-    	                                  pageIndicatorPosition:Center];
+    	QPageView *pageView = [QPageView q_pageViewWithImageNames:imageNameArr
+    	                                               autoScroll:YES
+    	                                           autoScrollTime:1.0
+    	                                    pageIndicatorPosition:Center];
     
     	pageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.width / 2);
     

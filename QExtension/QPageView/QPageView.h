@@ -41,7 +41,7 @@ typedef NS_ENUM(NSInteger, QPageIndicatorPosition) {
 /**
  *  实例化页面视图控件
  */
-+ (instancetype)pageView;
++ (instancetype)q_pageView;
 
 /**
  *  实例化页面视图控件
@@ -51,9 +51,8 @@ typedef NS_ENUM(NSInteger, QPageIndicatorPosition) {
  *  @param time       自动滚动时间间隔，default is 2.0
  *  @param position   页码视图位置，default is Center
  */
-+ (instancetype)pageViewWithImageNames:(NSArray<NSString *> *)imageNames
-                            autoScroll:(BOOL)autoScroll
-                        autoScrollTime:(NSTimeInterval)time
-                 pageIndicatorPosition:(QPageIndicatorPosition)position;
-
++ (instancetype)q_pageViewWithImageNames:(NSArray<NSString *> *)imageNames
+                              autoScroll:(BOOL)autoScroll
+                          autoScrollTime:(NSTimeInterval)time
+                   pageIndicatorPosition:(QPageIndicatorPosition)position;
 @end

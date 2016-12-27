@@ -34,15 +34,15 @@ static int const ImageViewCount = 3;
 
 /// 实例化页面视图控件
 
-+ (instancetype)pageView {
++ (instancetype)q_pageView {
     
-    return [self pageViewWithImageNames:nil autoScroll:YES autoScrollTime:2.0 pageIndicatorPosition:Center];
+    return [self q_pageViewWithImageNames:nil autoScroll:YES autoScrollTime:2.0 pageIndicatorPosition:Center];
 }
 
-+ (instancetype)pageViewWithImageNames:(NSArray<NSString *> *)imageNames
-                            autoScroll:(BOOL)autoScroll
-                        autoScrollTime:(NSTimeInterval)time
-                 pageIndicatorPosition:(QPageIndicatorPosition)position {
++ (instancetype)q_pageViewWithImageNames:(NSArray<NSString *> *)imageNames
+                              autoScroll:(BOOL)autoScroll
+                          autoScrollTime:(NSTimeInterval)time
+                   pageIndicatorPosition:(QPageIndicatorPosition)position {
 
     QPageView *pageView = [[self alloc] init];
     pageView.autoScroll = autoScroll;

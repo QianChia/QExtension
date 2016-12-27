@@ -14,6 +14,7 @@
 #import "NSString+BundlePath.h"
 #import "NSString+Base64.h"
 #import "NSString+Hash.h"
+#import "NSString+Regex.h"
 
 #import "NSData+FormData.h"
 

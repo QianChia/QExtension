@@ -25,6 +25,7 @@
 		1AE5F9231D3CF1EA0067811A /* QExtensionExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F9221D3CF1EA0067811A /* QExtensionExampleUITests.m */; };
 		1AE5F9501D3D098F0067811A /* demo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE5F94E1D3D098F0067811A /* demo1.png */; };
 		1AE5F9511D3D098F0067811A /* demo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1AE5F94F1D3D098F0067811A /* demo2.jpg */; };
+		1AE899311E12B12600B1D414 /* NSString+Regex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE899301E12B12600B1D414 /* NSString+Regex.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,8 @@
 		1AE5F9241D3CF1EA0067811A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AE5F94E1D3D098F0067811A /* demo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = demo1.png; path = "Resources Files/demo1.png"; sourceTree = "<group>"; };
 		1AE5F94F1D3D098F0067811A /* demo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = demo2.jpg; path = "Resources Files/demo2.jpg"; sourceTree = "<group>"; };
+		1AE8992F1E12B12600B1D414 /* NSString+Regex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Regex.h"; sourceTree = "<group>"; };
+		1AE899301E12B12600B1D414 /* NSString+Regex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Regex.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +192,7 @@
 				1AE5F93B1D3CF5CD0067811A /* NSString+BundlePath */,
 				1AE5F9381D3CF5CD0067811A /* NSString+Base64 */,
 				1AE5F9491D3CFA000067811A /* NSString+Hash */,
+				1AE8992E1E12B12600B1D414 /* NSString+Regex */,
 				1AE5F9461D3CFA000067811A /* NSData+FormData */,
 				1AA70D6F1D831A0800CCD474 /* QPageView */,
 				1AE5F93E1D3CF5CD0067811A /* UIButton+Progress */,
@@ -268,6 +272,16 @@
 			path = "QExtension/NSString+Hash";
 			sourceTree = "<group>";
 		};
+		1AE8992E1E12B12600B1D414 /* NSString+Regex */ = {
+			isa = PBXGroup;
+			children = (
+				1AE8992F1E12B12600B1D414 /* NSString+Regex.h */,
+				1AE899301E12B12600B1D414 /* NSString+Regex.m */,
+			);
+			name = "NSString+Regex";
+			path = "QExtension/NSString+Regex";
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -330,7 +344,7 @@
 		1AE5F8F21D3CF1EA0067811A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "QianQian-Studio";
 				TargetAttributes = {
 					1AE5F8F91D3CF1EA0067811A = {
@@ -401,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AA70D721D831A0800CCD474 /* QPageView.m in Sources */,
+				1AE899311E12B12600B1D414 /* NSString+Regex.m in Sources */,
 				1AE5F9051D3CF1EA0067811A /* ViewController.m in Sources */,
 				1ADF3A8D1D7D53A700F14DA5 /* NSArray+LocaleLog.m in Sources */,
 				1ADF3A7E1D7D531800F14DA5 /* NSString+BundlePath.m in Sources */,
@@ -479,8 +494,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -524,8 +541,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
