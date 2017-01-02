@@ -87,8 +87,8 @@
     NSLog(@"isValidMobileNum: %zi", isValidMobileNum);
     
     NSString *emailAddress = @"qianchia@icloud.com";
-    BOOL q_isValidEmailAddress = [emailAddress q_isValidEmailAddress];
-    NSLog(@"isValidEmailAddress: %zi", q_isValidEmailAddress);
+    BOOL isValidEmailAddress = [emailAddress q_isValidEmailAddress];
+    NSLog(@"isValidEmailAddress: %zi", isValidEmailAddress);
 }
 
 /// FormData

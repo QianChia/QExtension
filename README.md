@@ -80,7 +80,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
     	BOOL isValidMobileNum = [mobileNum q_isValidMobileNum];
 		
     	NSString *emailAddress = @"qianchia@icloud.com";
-    	BOOL q_isValidEmailAddress = [emailAddress q_isValidEmailAddress];
+    	BOOL isValidEmailAddress = [emailAddress q_isValidEmailAddress];
     	
 	```
 
