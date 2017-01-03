@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name         = 'QExtension'
   s.version      = '1.0.4'
   s.license      = 'MIT'
-  s.authors      = {'QianChia' => 'jhqian0228@icloud.com'}
+  s.authors      = {'QianChia' => 'qianchia@icloud.com'}
   s.summary      = 'The extension method for Foundation & UIKit Class'
   s.homepage     = 'https://github.com/QianChia/QExtension'
   s.source       = {:git => 'https://github.com/QianChia/QExtension.git', :tag => s.version}
@@ -25,6 +25,11 @@ Pod::Spec.new do |s|
   s.subspec 'NSString+Hash' do |ss|
     ss.source_files = 'QExtension/NSString+Hash/NSString+Hash.{h,m}'
     ss.public_header_files = 'QExtension/NSString+Hash/NSString+Hash.h'
+  end
+
+  s.subspec 'NSString+Regex' do |ss|
+    ss.source_files = 'QExtension/NSString+Regex/NSString+Regex.{h,m}'
+    ss.public_header_files = 'QExtension/NSString+Regex/NSString+Regex.h'
   end
 
   s.subspec 'NSData+FormData' do |ss|
