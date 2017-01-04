@@ -212,6 +212,40 @@
     [sender q_setButtonWithProgress:0.5 lineWidth:10 lineColor:nil backgroundColor:[UIColor yellowColor]];
 }
 
+/// GIF
+
+- (void)gifImageDemo {
+    
+    CGRect frame = CGRectMake(20, 200, self.view.bounds.size.width - 40, (self.view.bounds.size.width - 40) / 3 *2);
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
+    
+    // 加载 gif 动图，不需要写扩展名
+    imageView.image = [UIImage q_gifImageNamed:@"demo3"];
+    
+    [self.view addSubview:imageView];
+}
+
+/// Frame
+
+- (void)viewFrameDemo {
+    
+    UIView *view = [[UIView alloc] initWithFrame:self.view.bounds];
+    view.backgroundColor = [UIColor blueColor];
+    [self.view addSubview:view];
+    
+    // 直接设置控件的位置尺寸值
+    
+    view.x = 20;
+    view.y = 200;
+    view.width = 200;
+    view.height = 100;
+    
+    view.centerX = 160;
+    view.centerY = 300;
+    
+    view.size = CGSizeMake(100, 200);
+}
+
 /// QPageView
 
 - (void)pageViewDemo {
@@ -286,7 +320,7 @@
     
 //    [self hashDemo];
     
-    [self regexDemo];
+//    [self regexDemo];
     
 //    [self formDataDemo1];
     
@@ -295,6 +329,10 @@
 //    [self formDataDemo3];
     
 //    [self formDataDemo4];
+    
+    [self gifImageDemo];
+    
+//    [self viewFrameDemo];
     
 //    [self pageViewDemo1];
     

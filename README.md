@@ -166,9 +166,62 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
     		                                       mimeTypes:@[@"image/png", @"image/jpeg"]];
     	
 		``` 
+
+### UIButton Extension
+
+* Progress methods
+
+	```objc
+
+		[button q_setButtonWithProgress:0.5 lineWidth:10 lineColor:nil backgroundColor:[UIColor yellowColor]];
 	
+	```
+	
+### UIImage Extension
+
+* GIF methods
+	
+	```objc
+	
+		/// 通过名称加载 gif 图片
+		+ (UIImage *)q_gifImageNamed:(NSString *)name;
+		
+		/// 通过数据加载 gif 图片
+		+ (UIImage *)q_gifImageWithData:(NSData *)data;
+		
+		/// 缩放裁剪图片尺寸到指定大小
+		- (UIImage *)q_gifImageByScalingAndCroppingToSize:(CGSize)size;
+	
+	```
+	
+	
+	```objc
+
+    	// 加载 gif 动图，不需要写扩展名
+    	imageView.image = [UIImage q_gifImageNamed:@"demo3"];
+	
+	```
+
 ### UIView Extension
 
+* UIView methods
+ 
+	```objc
+	
+		// 直接设置控件的位置尺寸值
+		    
+		view.x = 20;
+		view.y = 200;
+		view.width = 200;
+		view.height = 100;
+		    
+		view.centerX = 160;
+		view.centerY = 300;
+		    
+		view.size = CGSizeMake(100, 200);
+	
+	```
+	
 * PageView methods
  
 	```objc
@@ -228,16 +281,6 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
     
 	```
 
-### UIButton Extension
-
-* Progress methods
-
-	```objc
-
-		[button q_setButtonWithProgress:0.5 lineWidth:10 lineColor:nil backgroundColor:[UIColor yellowColor]];	
-	
-	```
-	
 ### NSArray Extension
 
 * NSLog methods

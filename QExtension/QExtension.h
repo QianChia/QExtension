@@ -20,9 +20,13 @@
 
 /// UIKit
 
-#import "QPageView.h"
-
 #import "UIButton+Progress.h"
+
+#import "UIImage+GIF.h"
+
+#import "UIView+Frame.h"
+
+#import "QPageView.h"
 
 
 #endif /* QExtension_h */

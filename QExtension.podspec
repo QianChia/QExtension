@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'QExtension'
-  s.version      = '1.0.5'
+  s.version      = '1.0.6'
   s.license      = 'MIT'
   s.authors      = {'QianChia' => 'qianchia@icloud.com'}
   s.summary      = 'The extension method for Foundation & UIKit Class'
@@ -37,14 +37,24 @@ Pod::Spec.new do |s|
     ss.public_header_files = 'QExtension/NSData+FormData/NSData+FormData.h'
   end
 
-  s.subspec 'QPageView' do |ss|
-    ss.source_files = 'QExtension/QPageView/QPageView.{h,m}'
-    ss.public_header_files = 'QExtension/QPageView/QPageView.h'
-  end
-
   s.subspec 'UIButton+Progress' do |ss|
     ss.source_files = 'QExtension/UIButton+Progress/UIButton+Progress.{h,m}'
     ss.public_header_files = 'QExtension/UIButton+Progress/UIButton+Progress.h'
+  end
+
+  s.subspec 'UIImage+GIF' do |ss|
+    ss.source_files = 'QExtension/UIImage+GIF/UIImage+GIF.{h,m}'
+    ss.public_header_files = 'QExtension/UIImage+GIF/UIImage+GIF.h'
+  end
+
+  s.subspec 'UIView+Frame' do |ss|
+    ss.source_files = 'QExtension/UIView+Frame/UIView+Frame.{h,m}'
+    ss.public_header_files = 'QExtension/UIView+Frame/UIView+Frame.h'
+  end
+
+  s.subspec 'QPageView' do |ss|
+    ss.source_files = 'QExtension/QPageView/QPageView.{h,m}'
+    ss.public_header_files = 'QExtension/QPageView/QPageView.h'
   end
 
   s.subspec 'NSArray+LocaleLog' do |ss|
