@@ -9,6 +9,9 @@
 #import "UIImage+GIF.h"
 #import <ImageIO/ImageIO.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
+
 @implementation UIImage (GIF)
 
 /// 通过数据加载 gif 图片
@@ -166,3 +169,6 @@
 }
 
 @end
+
+
+NS_ASSUME_NONNULL_END

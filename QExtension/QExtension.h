@@ -27,6 +27,6 @@
 #import "UIView+Frame.h"
 
 #import "QPageView.h"
-
+#import "QQRCode.h"
 
 #endif /* QExtension_h */

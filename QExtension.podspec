@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'QExtension'
-  s.version      = '1.0.6'
+  s.version      = '1.0.7'
   s.license      = 'MIT'
   s.authors      = {'QianChia' => 'qianchia@icloud.com'}
   s.summary      = 'The extension method for Foundation & UIKit Class'
@@ -55,6 +55,15 @@ Pod::Spec.new do |s|
   s.subspec 'QPageView' do |ss|
     ss.source_files = 'QExtension/QPageView/QPageView.{h,m}'
     ss.public_header_files = 'QExtension/QPageView/QPageView.h'
+  end
+
+  s.subspec 'QQRCode' do |ss|
+    ss.source_files = 'QExtension/QQRCode/*.{h,m}'
+    ss.public_header_files = 'QExtension/QQRCode/QQRCode.h'
+
+      ss.subspec 'Resources' do |sss|
+        sss.source_files = 'QExtension/QQRCode/Resources/*.png'
+      end
   end
 
   s.subspec 'NSArray+LocaleLog' do |ss|
