@@ -1,6 +1,6 @@
 //
 //  QPageView.h
-//  QExtensionExample
+//  QExtension
 //
 //  Created by JHQ0228 on 16/9/10.
 //  Copyright © 2016年 QianQian-Studio. All rights reserved.

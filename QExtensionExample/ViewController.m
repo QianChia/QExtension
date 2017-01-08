@@ -248,6 +248,39 @@
     view.size = CGSizeMake(100, 200);
 }
 
+/// QLockView
+
+- (void)lockViewDemo {
+    
+    // 创建手势锁视图界面，获取滑动结果
+    QLockView *lockView = [QLockView q_lockViewPathResult:^(BOOL isSucceed, NSString *result) {
+        
+        if (isSucceed) {
+            
+            [[[UIAlertView alloc] initWithTitle:@"解锁成功"
+                                        message:result
+                                       delegate:nil
+                              cancelButtonTitle:@"确定"
+                              otherButtonTitles:nil] show];
+        } else {
+            
+            [[[UIAlertView alloc] initWithTitle:@"密码错误"
+                                        message:result
+                                       delegate:nil
+                              cancelButtonTitle:@"确定"
+                              otherButtonTitles:nil] show];
+        }
+    }];
+    
+    // 设置 frame
+    CGFloat margin = 50;
+    CGFloat width = self.view.bounds.size.width - margin * 2;
+    lockView.frame = CGRectMake(margin, 200, width, width);
+    
+    // 添加到当前视图
+    [self.view addSubview:lockView];
+}
+
 /// QPageView
 
 - (void)pageViewDemo {
@@ -422,6 +455,8 @@
 //    [self gifImageDemo];
     
 //    [self viewFrameDemo];
+    
+    [self lockViewDemo];
     
 //    [self pageViewDemo1];
     

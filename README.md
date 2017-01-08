@@ -202,6 +202,10 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	
 	```
 
+	- 效果
+
+		![gifImage1](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_gifImage1.gif)
+
 ### UIView Extension
 
 * UIView methods
@@ -221,7 +225,45 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 		view.size = CGSizeMake(100, 200);
 	
 	```
+
+* QLockView methods
+
+	```objc
 	
+		// 创建手势锁视图界面，获取滑动结果
+		QLockView *lockView = [QLockView q_lockViewPathResult:^(BOOL isSucceed, NSString *result) {
+		    
+			if (isSucceed) {
+		        
+				[[[UIAlertView alloc] initWithTitle:@"解锁成功"
+				                            message:result
+				                           delegate:nil
+				                  cancelButtonTitle:@"确定"
+				                  otherButtonTitles:nil] show];
+			} else {
+		        
+				[[[UIAlertView alloc] initWithTitle:@"密码错误"
+				                            message:result
+				                           delegate:nil
+				                  cancelButtonTitle:@"确定"
+				                  otherButtonTitles:nil] show];
+			}
+		}];
+		
+		// 设置 frame
+		CGFloat margin = 50;
+		CGFloat width = self.view.bounds.size.width - margin * 2;
+		lockView.frame = CGRectMake(margin, 200, width, width);
+		    
+		// 添加到当前视图
+		[self.view addSubview:lockView];
+    
+	```
+
+	- 效果
+
+		![lockView1](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_lockView1.gif)
+
 * QPageView methods
  	
 	```objc
@@ -281,6 +323,10 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
     
 	```
 
+	- 效果
+
+		![pageView1](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_pageView1.gif) _ ![pageView2](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_pageView2.gif)
+
 * QQRCode methods
  
  	- 扫描二维码
@@ -316,6 +362,10 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 			[self presentViewController:qrCode animated:YES completion:nil];
 		
 		```
+		
+		- 效果
+
+			![qrImage1](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_qrImage1.gif) _ 	![qrImage2](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_qrImage2.gif)
 		
  	- 识别二维码
 	
@@ -374,6 +424,10 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 		
 		```
 
+		- 效果
+
+			![qrImage3](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_qrImage3.gif)
+		
 ### NSArray Extension
 
 * NSLog methods

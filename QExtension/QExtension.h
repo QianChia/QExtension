@@ -26,6 +26,7 @@
 
 #import "UIView+Frame.h"
 
+#import "QLockView.h"
 #import "QPageView.h"
 #import "QQRCode.h"
 

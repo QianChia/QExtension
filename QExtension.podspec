@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'QExtension'
-  s.version      = '1.0.7'
+  s.version      = '1.0.8'
   s.license      = 'MIT'
   s.authors      = {'QianChia' => 'qianchia@icloud.com'}
   s.summary      = 'The extension method for Foundation & UIKit Class'
@@ -50,6 +50,15 @@ Pod::Spec.new do |s|
   s.subspec 'UIView+Frame' do |ss|
     ss.source_files = 'QExtension/UIView+Frame/UIView+Frame.{h,m}'
     ss.public_header_files = 'QExtension/UIView+Frame/UIView+Frame.h'
+  end
+
+  s.subspec 'QLockView' do |ss|
+    ss.source_files = 'QExtension/QLockView/QLockView.{h,m}'
+    ss.public_header_files = 'QExtension/QLockView/QLockView.h'
+
+      ss.subspec 'Resources' do |sss|
+        sss.source_files = 'QExtension/QLockView/Resources/*.png'
+      end
   end
 
   s.subspec 'QPageView' do |ss|

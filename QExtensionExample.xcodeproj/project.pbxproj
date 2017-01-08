@@ -33,6 +33,10 @@
 		1A1FE1161E1F63FF004B341B /* UIImage+QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FE1011E1F63FF004B341B /* UIImage+QRCode.m */; };
 		1A1FE1191E1F6430004B341B /* demo5.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A1FE1171E1F6430004B341B /* demo5.png */; };
 		1A1FE11A1E1F6430004B341B /* demo4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A1FE1181E1F6430004B341B /* demo4.png */; };
+		1A2598A61E21FB1900FA334D /* QLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2598A11E21FB1900FA334D /* QLockView.m */; };
+		1A2598A71E21FB1900FA334D /* gesture_node_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A2598A31E21FB1900FA334D /* gesture_node_highlighted.png */; };
+		1A2598A81E21FB1900FA334D /* gesture_node_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A2598A41E21FB1900FA334D /* gesture_node_normal.png */; };
+		1A2598A91E21FB1900FA334D /* gesture_node_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A2598A51E21FB1900FA334D /* gesture_node_selected.png */; };
 		1AA70D721D831A0800CCD474 /* QPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA70D711D831A0800CCD474 /* QPageView.m */; };
 		1ADF3A7E1D7D531800F14DA5 /* NSString+BundlePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADF3A7D1D7D531800F14DA5 /* NSString+BundlePath.m */; };
 		1ADF3A811D7D534F00F14DA5 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADF3A801D7D534F00F14DA5 /* NSString+Base64.m */; };
@@ -103,6 +107,11 @@
 		1A1FE1011E1F63FF004B341B /* UIImage+QRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QRCode.m"; sourceTree = "<group>"; };
 		1A1FE1171E1F6430004B341B /* demo5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo5.png; sourceTree = "<group>"; };
 		1A1FE1181E1F6430004B341B /* demo4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo4.png; sourceTree = "<group>"; };
+		1A2598A01E21FB1900FA334D /* QLockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLockView.h; sourceTree = "<group>"; };
+		1A2598A11E21FB1900FA334D /* QLockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLockView.m; sourceTree = "<group>"; };
+		1A2598A31E21FB1900FA334D /* gesture_node_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture_node_highlighted.png; sourceTree = "<group>"; };
+		1A2598A41E21FB1900FA334D /* gesture_node_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture_node_normal.png; sourceTree = "<group>"; };
+		1A2598A51E21FB1900FA334D /* gesture_node_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture_node_selected.png; sourceTree = "<group>"; };
 		1AA70CD41D81FECB00CCD474 /* QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QExtension.h; path = QExtension/QExtension.h; sourceTree = SOURCE_ROOT; };
 		1AA70D701D831A0800CCD474 /* QPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPageView.h; sourceTree = "<group>"; };
 		1AA70D711D831A0800CCD474 /* QPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPageView.m; sourceTree = "<group>"; };
@@ -227,6 +236,27 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		1A25989F1E21FB1900FA334D /* QLockView */ = {
+			isa = PBXGroup;
+			children = (
+				1A2598A21E21FB1900FA334D /* Resources */,
+				1A2598A01E21FB1900FA334D /* QLockView.h */,
+				1A2598A11E21FB1900FA334D /* QLockView.m */,
+			);
+			name = QLockView;
+			path = QExtension/QLockView;
+			sourceTree = SOURCE_ROOT;
+		};
+		1A2598A21E21FB1900FA334D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1A2598A31E21FB1900FA334D /* gesture_node_highlighted.png */,
+				1A2598A41E21FB1900FA334D /* gesture_node_normal.png */,
+				1A2598A51E21FB1900FA334D /* gesture_node_selected.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		1AA70D6F1D831A0800CCD474 /* QPageView */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +292,7 @@
 			children = (
 				1AE5F9031D3CF1EA0067811A /* ViewController.h */,
 				1AE5F9041D3CF1EA0067811A /* ViewController.m */,
+				1AE5F9061D3CF1EA0067811A /* Main.storyboard */,
 				1AE5F9301D3CF2720067811A /* QExtension */,
 				1AE5F8FD1D3CF1EA0067811A /* Supporting Files */,
 			);
@@ -274,7 +305,6 @@
 				1AE5F8FE1D3CF1EA0067811A /* main.m */,
 				1AE5F9001D3CF1EA0067811A /* AppDelegate.h */,
 				1AE5F9011D3CF1EA0067811A /* AppDelegate.m */,
-				1AE5F9061D3CF1EA0067811A /* Main.storyboard */,
 				1AE5F90B1D3CF1EA0067811A /* LaunchScreen.storyboard */,
 				1AE5F9091D3CF1EA0067811A /* Assets.xcassets */,
 				1AE5F90E1D3CF1EA0067811A /* Info.plist */,
@@ -317,6 +347,7 @@
 				1AE5F93E1D3CF5CD0067811A /* UIButton+Progress */,
 				1A1FDFD61E1DA221004B341B /* UIImage+GIF */,
 				1A1FDFD91E1DA221004B341B /* UIView+Frame */,
+				1A25989F1E21FB1900FA334D /* QLockView */,
 				1AA70D6F1D831A0800CCD474 /* QPageView */,
 				1A1FE0E81E1F63FF004B341B /* QQRCode */,
 				1AE5F9321D3CF5CD0067811A /* NSArray+LocaleLog */,
@@ -511,6 +542,7 @@
 			files = (
 				1AE5F90D1D3CF1EA0067811A /* LaunchScreen.storyboard in Resources */,
 				1A1FE1141E1F63FF004B341B /* scan_navbar@2x.png in Resources */,
+				1A2598A81E21FB1900FA334D /* gesture_node_normal.png in Resources */,
 				1A1FE1131E1F63FF004B341B /* scan_line_green@2x.png in Resources */,
 				1A1FE10F1E1F63FF004B341B /* scan_bg2@2x.png in Resources */,
 				1A1FE10E1E1F63FF004B341B /* scan_bg1@2x.png in Resources */,
@@ -528,8 +560,10 @@
 				1A1FE1081E1F63FF004B341B /* btn_myqrcode_nor@2x.png in Resources */,
 				1A1FE1051E1F63FF004B341B /* btn_back_pressed@2x.png in Resources */,
 				1A1FE1091E1F63FF004B341B /* btn_myqrcode_pressed@2x.png in Resources */,
+				1A2598A71E21FB1900FA334D /* gesture_node_highlighted.png in Resources */,
 				1AE5F9501D3D098F0067811A /* demo1.png in Resources */,
 				1AE5F9081D3CF1EA0067811A /* Main.storyboard in Resources */,
+				1A2598A91E21FB1900FA334D /* gesture_node_selected.png in Resources */,
 				1A1FE1191E1F6430004B341B /* demo5.png in Resources */,
 				1A1FE1071E1F63FF004B341B /* btn_flash_on@2x.png in Resources */,
 				1A1FE11A1E1F6430004B341B /* demo4.png in Resources */,
@@ -574,6 +608,7 @@
 				1ADF3A871D7D537F00F14DA5 /* NSData+FormData.m in Sources */,
 				1A1FDFDD1E1DA221004B341B /* UIView+Frame.m in Sources */,
 				1AE5F9021D3CF1EA0067811A /* AppDelegate.m in Sources */,
+				1A2598A61E21FB1900FA334D /* QLockView.m in Sources */,
 				1ADF3A8A1D7D539300F14DA5 /* UIButton+Progress.m in Sources */,
 				1AE5F8FF1D3CF1EA0067811A /* main.m in Sources */,
 			);

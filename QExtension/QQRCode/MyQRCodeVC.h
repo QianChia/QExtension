@@ -1,6 +1,6 @@
 //
 //  MyQRCodeVC.h
-//  QQRCodeExample
+//  QExtension
 //
 //  Created by JHQ0228 on 2017/1/6.
 //  Copyright © 2017年 QianQian-Studio. All rights reserved.
