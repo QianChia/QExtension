@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'QExtension'
-  s.version      = '1.0.8'
+  s.version      = '1.0.9'
   s.license      = 'MIT'
   s.authors      = {'QianChia' => 'qianchia@icloud.com'}
   s.summary      = 'The extension method for Foundation & UIKit Class'
@@ -40,6 +40,11 @@ Pod::Spec.new do |s|
   s.subspec 'UIButton+Progress' do |ss|
     ss.source_files = 'QExtension/UIButton+Progress/UIButton+Progress.{h,m}'
     ss.public_header_files = 'QExtension/UIButton+Progress/UIButton+Progress.h'
+  end
+
+  s.subspec 'UIImage+Draw' do |ss|
+    ss.source_files = 'QExtension/UIImage+Draw/UIImage+Draw.{h,m}'
+    ss.public_header_files = 'QExtension/UIImage+Draw/UIImage+Draw.h'
   end
 
   s.subspec 'UIImage+GIF' do |ss|

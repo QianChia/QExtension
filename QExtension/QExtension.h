@@ -9,25 +9,25 @@
 #ifndef QExtension_h
 #define QExtension_h
 
-/// Foundation
+// Foundation
 
-#import "NSString+BundlePath.h"
-#import "NSString+Base64.h"
-#import "NSString+Hash.h"
-#import "NSString+Regex.h"
+#import "NSArray+QExtension.h"
 
-#import "NSData+FormData.h"
+#import "NSData+QExtension.h"
 
-/// UIKit
+#import "NSDictionary+QExtension.h"
 
-#import "UIButton+Progress.h"
+#import "NSString+QExtension.h"
 
-#import "UIImage+GIF.h"
+// UIKit
 
-#import "UIView+Frame.h"
+//#import "UIButton+QExtension.h"
+//
+//#import "UIImage+QExtension.h"
+//
+//#import "UIView+QExtension.h"
+//
+//#import "UIViewController+QExtension.h"
 
-#import "QLockView.h"
-#import "QPageView.h"
-#import "QQRCode.h"
 
 #endif /* QExtension_h */

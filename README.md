@@ -179,6 +179,52 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	
 ### UIImage Extension
 
+* Draw methods
+
+	- 调整图片尺寸
+
+		```objc
+		
+			UIImage *image = [UIImage q_imageWithImage:[UIImage imageNamed:@"demo2.jpg"] scaledToSize:CGSizeMake(150, 150)];
+		
+		```
+	
+		- 效果
+	
+			![Quartz2D68](http://images.cnblogs.com/cnblogs_com/QianChia/934664/t_QQ20170110-181343.png) _ ![Quartz2D69](http://images.cnblogs.com/cnblogs_com/QianChia/934664/t_QQ20170110-181447.png)
+
+	- 裁剪圆形图片
+
+		```objc
+		
+			UIImage *image = [UIImage q_imageClipWithImage:[UIImage imageNamed:@"demo2.jpg"]];
+		
+		```
+	
+		- 效果
+	
+			![Quartz2D68](http://images.cnblogs.com/cnblogs_com/QianChia/934664/t_QQ20170110-181343.png) _ ![Quartz2D70](http://images.cnblogs.com/cnblogs_com/QianChia/934664/t_QQ20170110-181849.png)
+
+	- 截取全屏
+
+		```objc
+		
+			UIImage *image = [UIImage q_imageWithScreenShot];
+		
+		```
+	
+	- 截取指定视图
+
+		```objc
+		
+			UIImage *image = [UIImage q_imageWithScreenShotFromView:self.view];
+		
+		```
+	
+		- 效果
+	
+			![Quartz2D71](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_o_QQ20170110-182331.png) _ ![Quartz2D72](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_o_QQ20170110-182349.png)
+
 * GIF methods
 	
 	```objc

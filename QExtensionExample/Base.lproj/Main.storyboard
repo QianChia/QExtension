@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,81 +20,8 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZt-Pk-SqE">
-                                <rect key="frame" x="147.5" y="69" width="80" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="0QQ-gc-zrn"/>
-                                    <constraint firstAttribute="width" constant="80" id="48j-cu-1kn"/>
-                                </constraints>
-                                <state key="normal" title="开始">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="progressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WmL-eM-X3C"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWg-Qb-lZx">
-                                <rect key="frame" x="38" y="617" width="52" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="iF6-X3-d5A"/>
-                                    <constraint firstAttribute="width" constant="52" id="rkZ-dt-EfL"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="扫描"/>
-                                <connections>
-                                    <action selector="scanButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BpR-tx-X9T"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MqR-pK-WKI">
-                                <rect key="frame" x="161" y="615" width="52" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="52" id="8cX-Mx-htE"/>
-                                    <constraint firstAttribute="height" constant="34" id="p2D-r3-t9d"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="识别"/>
-                                <connections>
-                                    <action selector="recognizeButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SCn-Gs-wjf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGn-EL-Lw4">
-                                <rect key="frame" x="288" y="615" width="52" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="EOa-cL-zCt"/>
-                                    <constraint firstAttribute="width" constant="52" id="RjA-XG-h9o"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="生成"/>
-                                <connections>
-                                    <action selector="createButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mbk-TI-NZz"/>
-                                </connections>
-                            </button>
-                            <imageView hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cmw-O3-lqu">
-                                <rect key="frame" x="37" y="284" width="300" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="3xj-60-O3b"/>
-                                    <constraint firstAttribute="height" constant="300" id="7wX-9k-wgx"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="XGn-EL-Lw4" firstAttribute="top" secondItem="Cmw-O3-lqu" secondAttribute="bottom" constant="31" id="7Dq-QX-AIh"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XGn-EL-Lw4" secondAttribute="bottom" constant="18" id="Hh5-Hq-YEG"/>
-                            <constraint firstItem="kZt-Pk-SqE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="49" id="KLM-ZI-qpj"/>
-                            <constraint firstItem="kZt-Pk-SqE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NN4-4O-zl9"/>
-                            <constraint firstItem="Cmw-O3-lqu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Onb-C4-bdL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="XGn-EL-Lw4" secondAttribute="trailing" constant="19" id="eKW-Bz-LAF"/>
-                            <constraint firstItem="MqR-pK-WKI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hGO-u8-8xY"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MqR-pK-WKI" secondAttribute="bottom" constant="18" id="jjF-6j-aD4"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="EWg-Qb-lZx" secondAttribute="bottom" constant="20" id="mv1-bD-5Kh"/>
-                            <constraint firstItem="EWg-Qb-lZx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="22" id="xeJ-Ks-UGc"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="imageView" destination="Cmw-O3-lqu" id="YmS-WH-29v"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
