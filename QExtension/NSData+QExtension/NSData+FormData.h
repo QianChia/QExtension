@@ -13,10 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSData (FormData)
 
-#pragma mark - 带请求头上传数据设置
+#pragma mark - 带请求头文件上传数据设置
 
 /**
- *  指定 “文件数据” 形式上传，不带文本内容，单文件上传
+ *  单文件上传，指定 “文件数据” 形式，不带文本内容
  *
  *  @param request      网络请求
  *  @param fileData     文件数据
@@ -44,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
                          mimeType:(nullable NSString *)mimeType;
 
 /**
- *  指定 “文件路径” 形式上传，不带文本内容，单文件上传
+ *  单文件上传，指定 “文件路径” 形式，不带文本内容
  *
  *  @param request      网络请求
  *  @param fileURL      文件路径
@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
                          mimeType:(nullable NSString *)mimeType;
 
 /**
- *  指定 “文件数据” 形式上传，带文本内容，单文件上传
+ *  单文件上传，指定 “文件数据” 形式，带文本内容
  *
  *  @param request      网络请求
  *  @param text         文本内容字符串，nil 默认不添加文本内容
@@ -82,7 +82,7 @@ NS_ASSUME_NONNULL_BEGIN
                          mimeType:(nullable NSString *)mimeType;
 
 /**
- *  指定 “文件路径” 形式上传，带文本内容，单文件上传
+ *  单文件上传，指定 “文件路径” 形式，带文本内容
  *
  *  @param request      网络请求
  *  @param text         文本内容字符串，nil 默认不添加文本内容
@@ -103,7 +103,7 @@ NS_ASSUME_NONNULL_BEGIN
                          mimeType:(nullable NSString *)mimeType;
 
 /**
- *  指定 “文件数据” 形式上传，不带文本内容，多文件上传
+ *  多文件上传，指定 “文件数据” 形式，不带文本内容
  *
  *  @param request      网络请求
  *  @param fileDatas    文件数据
@@ -120,7 +120,7 @@ NS_ASSUME_NONNULL_BEGIN
                         mimeTypes:(nullable NSArray<NSString *> *)mimeTypes;
 
 /**
- *  指定 “文件路径” 形式上传，不带文本内容，多文件上传
+ *  多文件上传，指定 “文件路径” 形式，不带文本内容
  *
  *  @param request      网络请求
  *  @param fileURLs     文件路径
@@ -137,7 +137,7 @@ NS_ASSUME_NONNULL_BEGIN
                         mimeTypes:(nullable NSArray<NSString *> *)mimeTypes;
 
 /**
- *  指定 “文件数据” 形式上传，带文本内容，多文件上传
+ *  多文件上传，指定 “文件数据” 形式，带文本内容
  *
  *  @param request      网络请求
  *  @param texts        文本内容字符串，texts = nil 或 texts[] = [NSNull null] 默认不添加文本内容
@@ -158,7 +158,7 @@ NS_ASSUME_NONNULL_BEGIN
                         mimeTypes:(nullable NSArray<NSString *> *)mimeTypes;
 
 /**
- *  指定 “文件路径” 形式上传，带文本内容，多文件上传
+ *  多文件上传，指定 “文件路径” 形式，带文本内容
  *
  *  @param request      网络请求
  *  @param texts        文本内容字符串，texts = nil 或 texts[] = [NSNull null] 默认不添加文本内容
@@ -183,7 +183,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSMutableData (FormData)
 
-#pragma mark - 上传数据拼接
+#pragma mark - 文件上传数据拼接
 
 /**
  *  设置文件上传请求头

@@ -8,26 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		1A2599A11E263A7E00FA334D /* NSArray+LocaleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2599541E263A7E00FA334D /* NSArray+LocaleLog.m */; };
-		1A2599A21E263A7E00FA334D /* NSData+FormData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2599581E263A7E00FA334D /* NSData+FormData.m */; };
-		1A2599A31E263A7E00FA334D /* NSDictionary+LocaleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A25995C1E263A7E00FA334D /* NSDictionary+LocaleLog.m */; };
-		1A2599A41E263A7E00FA334D /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2599601E263A7E00FA334D /* NSString+Base64.m */; };
-		1A2599A51E263A7E00FA334D /* NSString+BundlePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2599621E263A7E00FA334D /* NSString+BundlePath.m */; };
-		1A2599A61E263A7E00FA334D /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2599641E263A7E00FA334D /* NSString+Hash.m */; };
-		1A2599A71E263A7E00FA334D /* NSString+Regex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2599671E263A7E00FA334D /* NSString+Regex.m */; };
-		1A2599C81E26421600FA334D /* UIImage+Draw.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2599C71E26421600FA334D /* UIImage+Draw.m */; };
-		1A2599CB1E26424F00FA334D /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2599CA1E26424F00FA334D /* UIImage+GIF.m */; };
-		1A2599CE1E26488400FA334D /* QProgressButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2599CD1E26488400FA334D /* QProgressButton.m */; };
-		1A2599D11E264B3C00FA334D /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2599D01E264B3C00FA334D /* UIView+Frame.m */; };
-		1A2599D41E264C7300FA334D /* QTouchLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2599D31E264C7300FA334D /* QTouchLockView.m */; };
-		1A2599D91E264D0A00FA334D /* gesture_node_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A2599D61E264D0A00FA334D /* gesture_node_highlighted.png */; };
-		1A2599DA1E264D0A00FA334D /* gesture_node_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A2599D71E264D0A00FA334D /* gesture_node_normal.png */; };
-		1A2599DB1E264D0A00FA334D /* gesture_node_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A2599D81E264D0A00FA334D /* gesture_node_selected.png */; };
-		1A2599DE1E26503D00FA334D /* QPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2599DD1E26503D00FA334D /* QPageView.m */; };
-		1A2599E11E2651AB00FA334D /* UIImage+QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2599E01E2651AB00FA334D /* UIImage+QRCode.m */; };
-		1A2599E41E26548700FA334D /* QQRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2599E31E26548700FA334D /* QQRCode.m */; };
-		1A2599E71E2655CF00FA334D /* QQRCodeMine.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2599E61E2655CF00FA334D /* QQRCodeMine.m */; };
-		1A259A791E265E2100FA334D /* QQRCode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1A259A781E265E2100FA334D /* QQRCode.bundle */; };
-		1A259A7B1E265E3B00FA334D /* QTouchLockView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1A259A7A1E265E3B00FA334D /* QTouchLockView.bundle */; };
+		1A82ACF51E2662C700D3F6CA /* NSData+FormData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82ACF31E2662C700D3F6CA /* NSData+FormData.m */; };
+		1A82AD0F1E26797A00D3F6CA /* NSDictionary+LocaleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82AD0D1E26797A00D3F6CA /* NSDictionary+LocaleLog.m */; };
+		1A82AD1A1E267A8600D3F6CA /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82AD121E267A8600D3F6CA /* NSString+Base64.m */; };
+		1A82AD1B1E267A8600D3F6CA /* NSString+BundlePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82AD141E267A8600D3F6CA /* NSString+BundlePath.m */; };
+		1A82AD1C1E267A8600D3F6CA /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82AD161E267A8600D3F6CA /* NSString+Hash.m */; };
+		1A82AD1D1E267A8600D3F6CA /* NSString+Regex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82AD191E267A8600D3F6CA /* NSString+Regex.m */; };
+		1A82AD221E26898200D3F6CA /* QProgressButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82AD201E26898200D3F6CA /* QProgressButton.m */; };
+		1A82AD2E1E26AA8600D3F6CA /* demo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A82AD241E26AA8600D3F6CA /* demo1.png */; };
+		1A82AD2F1E26AA8600D3F6CA /* demo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A82AD251E26AA8600D3F6CA /* demo2.jpg */; };
+		1A82AD301E26AA8600D3F6CA /* demo3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1A82AD261E26AA8600D3F6CA /* demo3.gif */; };
+		1A82AD311E26AA8600D3F6CA /* demo4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A82AD271E26AA8600D3F6CA /* demo4.png */; };
+		1A82AD321E26AA8600D3F6CA /* demo5.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A82AD281E26AA8600D3F6CA /* demo5.png */; };
+		1A82AD401E26EDC100D3F6CA /* UIImage+Draw.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82AD3A1E26EDC100D3F6CA /* UIImage+Draw.m */; };
+		1A82AD411E26EDC100D3F6CA /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82AD3C1E26EDC100D3F6CA /* UIImage+GIF.m */; };
+		1A82AD421E26EDC100D3F6CA /* UIImage+QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82AD3F1E26EDC100D3F6CA /* UIImage+QRCode.m */; };
+		1A82AD451E27078E00D3F6CA /* demo6.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A82AD431E27078E00D3F6CA /* demo6.png */; };
+		1A82AD461E27078E00D3F6CA /* demo7.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A82AD441E27078E00D3F6CA /* demo7.png */; };
+		1A82AD501E270CF000D3F6CA /* QPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82AD491E270CF000D3F6CA /* QPageView.m */; };
+		1A82AD511E270CF000D3F6CA /* QTouchLockView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1A82AD4A1E270CF000D3F6CA /* QTouchLockView.bundle */; };
+		1A82AD521E270CF000D3F6CA /* QTouchLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82AD4C1E270CF000D3F6CA /* QTouchLockView.m */; };
+		1A82AD531E270CF000D3F6CA /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82AD4E1E270CF000D3F6CA /* UIView+Frame.m */; };
+		1A82AD651E271A1500D3F6CA /* page_00.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A82AD601E271A1500D3F6CA /* page_00.png */; };
+		1A82AD661E271A1500D3F6CA /* page_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A82AD611E271A1500D3F6CA /* page_01.png */; };
+		1A82AD671E271A1500D3F6CA /* page_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A82AD621E271A1500D3F6CA /* page_02.png */; };
+		1A82AD681E271A1500D3F6CA /* page_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A82AD631E271A1500D3F6CA /* page_03.png */; };
+		1A82AD691E271A1500D3F6CA /* page_04.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A82AD641E271A1500D3F6CA /* page_04.png */; };
+		1A82AD711E274AA500D3F6CA /* QQRCode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1A82AD6B1E274AA500D3F6CA /* QQRCode.bundle */; };
+		1A82AD721E274AA500D3F6CA /* QQRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82AD6D1E274AA500D3F6CA /* QQRCode.m */; };
+		1A82AD731E274AA500D3F6CA /* QQRCodeMine.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82AD6F1E274AA500D3F6CA /* QQRCodeMine.m */; };
 		1AE5F8FF1D3CF1EA0067811A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F8FE1D3CF1EA0067811A /* main.m */; };
 		1AE5F9021D3CF1EA0067811A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F9011D3CF1EA0067811A /* AppDelegate.m */; };
 		1AE5F9051D3CF1EA0067811A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F9041D3CF1EA0067811A /* ViewController.m */; };
@@ -59,49 +68,58 @@
 		1A2599531E263A7E00FA334D /* NSArray+LocaleLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+LocaleLog.h"; sourceTree = "<group>"; };
 		1A2599541E263A7E00FA334D /* NSArray+LocaleLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LocaleLog.m"; sourceTree = "<group>"; };
 		1A2599551E263A7E00FA334D /* NSArray+QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+QExtension.h"; sourceTree = "<group>"; };
-		1A2599571E263A7E00FA334D /* NSData+FormData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+FormData.h"; sourceTree = "<group>"; };
-		1A2599581E263A7E00FA334D /* NSData+FormData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+FormData.m"; sourceTree = "<group>"; };
-		1A2599591E263A7E00FA334D /* NSData+QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+QExtension.h"; sourceTree = "<group>"; };
-		1A25995B1E263A7E00FA334D /* NSDictionary+LocaleLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LocaleLog.h"; sourceTree = "<group>"; };
-		1A25995C1E263A7E00FA334D /* NSDictionary+LocaleLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LocaleLog.m"; sourceTree = "<group>"; };
-		1A25995D1E263A7E00FA334D /* NSDictionary+QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+QExtension.h"; sourceTree = "<group>"; };
-		1A25995F1E263A7E00FA334D /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
-		1A2599601E263A7E00FA334D /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
-		1A2599611E263A7E00FA334D /* NSString+BundlePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BundlePath.h"; sourceTree = "<group>"; };
-		1A2599621E263A7E00FA334D /* NSString+BundlePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BundlePath.m"; sourceTree = "<group>"; };
-		1A2599631E263A7E00FA334D /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
-		1A2599641E263A7E00FA334D /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
-		1A2599651E263A7E00FA334D /* NSString+QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+QExtension.h"; sourceTree = "<group>"; };
-		1A2599661E263A7E00FA334D /* NSString+Regex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Regex.h"; sourceTree = "<group>"; };
-		1A2599671E263A7E00FA334D /* NSString+Regex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Regex.m"; sourceTree = "<group>"; };
 		1A2599681E263A7E00FA334D /* QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QExtension.h; sourceTree = "<group>"; };
-		1A25996D1E263A7E00FA334D /* UIButton+QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+QExtension.h"; sourceTree = "<group>"; };
-		1A2599751E263A7E00FA334D /* UIImage+QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+QExtension.h"; sourceTree = "<group>"; };
-		1A2599841E263A7E00FA334D /* UIView+QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+QExtension.h"; sourceTree = "<group>"; };
-		1A2599A01E263A7E00FA334D /* UIViewController+QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+QExtension.h"; sourceTree = "<group>"; };
-		1A2599C61E26421600FA334D /* UIImage+Draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Draw.h"; sourceTree = "<group>"; };
-		1A2599C71E26421600FA334D /* UIImage+Draw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Draw.m"; sourceTree = "<group>"; };
-		1A2599C91E26424F00FA334D /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
-		1A2599CA1E26424F00FA334D /* UIImage+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GIF.m"; sourceTree = "<group>"; };
-		1A2599CC1E26488400FA334D /* QProgressButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QProgressButton.h; sourceTree = "<group>"; };
-		1A2599CD1E26488400FA334D /* QProgressButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QProgressButton.m; sourceTree = "<group>"; };
-		1A2599CF1E264B3C00FA334D /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
-		1A2599D01E264B3C00FA334D /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
-		1A2599D21E264C7300FA334D /* QTouchLockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTouchLockView.h; sourceTree = "<group>"; };
-		1A2599D31E264C7300FA334D /* QTouchLockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTouchLockView.m; sourceTree = "<group>"; };
-		1A2599D61E264D0A00FA334D /* gesture_node_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture_node_highlighted.png; sourceTree = "<group>"; };
-		1A2599D71E264D0A00FA334D /* gesture_node_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture_node_normal.png; sourceTree = "<group>"; };
-		1A2599D81E264D0A00FA334D /* gesture_node_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture_node_selected.png; sourceTree = "<group>"; };
-		1A2599DC1E26503D00FA334D /* QPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPageView.h; sourceTree = "<group>"; };
-		1A2599DD1E26503D00FA334D /* QPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPageView.m; sourceTree = "<group>"; };
-		1A2599DF1E2651AB00FA334D /* UIImage+QRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+QRCode.h"; sourceTree = "<group>"; };
-		1A2599E01E2651AB00FA334D /* UIImage+QRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QRCode.m"; sourceTree = "<group>"; };
-		1A2599E21E26548700FA334D /* QQRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQRCode.h; sourceTree = "<group>"; };
-		1A2599E31E26548700FA334D /* QQRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQRCode.m; sourceTree = "<group>"; };
-		1A2599E51E2655CF00FA334D /* QQRCodeMine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQRCodeMine.h; sourceTree = "<group>"; };
-		1A2599E61E2655CF00FA334D /* QQRCodeMine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQRCodeMine.m; sourceTree = "<group>"; };
-		1A259A781E265E2100FA334D /* QQRCode.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = QQRCode.bundle; sourceTree = "<group>"; };
-		1A259A7A1E265E3B00FA334D /* QTouchLockView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = QTouchLockView.bundle; sourceTree = "<group>"; };
+		1A82ACF21E2662C700D3F6CA /* NSData+FormData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+FormData.h"; sourceTree = "<group>"; };
+		1A82ACF31E2662C700D3F6CA /* NSData+FormData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+FormData.m"; sourceTree = "<group>"; };
+		1A82ACF41E2662C700D3F6CA /* NSData+QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+QExtension.h"; sourceTree = "<group>"; };
+		1A82AD0C1E26797A00D3F6CA /* NSDictionary+LocaleLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LocaleLog.h"; sourceTree = "<group>"; };
+		1A82AD0D1E26797A00D3F6CA /* NSDictionary+LocaleLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LocaleLog.m"; sourceTree = "<group>"; };
+		1A82AD0E1E26797A00D3F6CA /* NSDictionary+QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+QExtension.h"; sourceTree = "<group>"; };
+		1A82AD111E267A8600D3F6CA /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
+		1A82AD121E267A8600D3F6CA /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
+		1A82AD131E267A8600D3F6CA /* NSString+BundlePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BundlePath.h"; sourceTree = "<group>"; };
+		1A82AD141E267A8600D3F6CA /* NSString+BundlePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BundlePath.m"; sourceTree = "<group>"; };
+		1A82AD151E267A8600D3F6CA /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		1A82AD161E267A8600D3F6CA /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		1A82AD171E267A8600D3F6CA /* NSString+QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+QExtension.h"; sourceTree = "<group>"; };
+		1A82AD181E267A8600D3F6CA /* NSString+Regex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Regex.h"; sourceTree = "<group>"; };
+		1A82AD191E267A8600D3F6CA /* NSString+Regex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Regex.m"; sourceTree = "<group>"; };
+		1A82AD1F1E26898200D3F6CA /* QProgressButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QProgressButton.h; sourceTree = "<group>"; };
+		1A82AD201E26898200D3F6CA /* QProgressButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QProgressButton.m; sourceTree = "<group>"; };
+		1A82AD211E26898200D3F6CA /* UIButton+QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+QExtension.h"; sourceTree = "<group>"; };
+		1A82AD241E26AA8600D3F6CA /* demo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo1.png; sourceTree = "<group>"; };
+		1A82AD251E26AA8600D3F6CA /* demo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = demo2.jpg; sourceTree = "<group>"; };
+		1A82AD261E26AA8600D3F6CA /* demo3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo3.gif; sourceTree = "<group>"; };
+		1A82AD271E26AA8600D3F6CA /* demo4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo4.png; sourceTree = "<group>"; };
+		1A82AD281E26AA8600D3F6CA /* demo5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo5.png; sourceTree = "<group>"; };
+		1A82AD391E26EDC100D3F6CA /* UIImage+Draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Draw.h"; sourceTree = "<group>"; };
+		1A82AD3A1E26EDC100D3F6CA /* UIImage+Draw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Draw.m"; sourceTree = "<group>"; };
+		1A82AD3B1E26EDC100D3F6CA /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
+		1A82AD3C1E26EDC100D3F6CA /* UIImage+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GIF.m"; sourceTree = "<group>"; };
+		1A82AD3D1E26EDC100D3F6CA /* UIImage+QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+QExtension.h"; sourceTree = "<group>"; };
+		1A82AD3E1E26EDC100D3F6CA /* UIImage+QRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+QRCode.h"; sourceTree = "<group>"; };
+		1A82AD3F1E26EDC100D3F6CA /* UIImage+QRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QRCode.m"; sourceTree = "<group>"; };
+		1A82AD431E27078E00D3F6CA /* demo6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo6.png; sourceTree = "<group>"; };
+		1A82AD441E27078E00D3F6CA /* demo7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo7.png; sourceTree = "<group>"; };
+		1A82AD481E270CF000D3F6CA /* QPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPageView.h; sourceTree = "<group>"; };
+		1A82AD491E270CF000D3F6CA /* QPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPageView.m; sourceTree = "<group>"; };
+		1A82AD4A1E270CF000D3F6CA /* QTouchLockView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = QTouchLockView.bundle; sourceTree = "<group>"; };
+		1A82AD4B1E270CF000D3F6CA /* QTouchLockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTouchLockView.h; sourceTree = "<group>"; };
+		1A82AD4C1E270CF000D3F6CA /* QTouchLockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTouchLockView.m; sourceTree = "<group>"; };
+		1A82AD4D1E270CF000D3F6CA /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		1A82AD4E1E270CF000D3F6CA /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		1A82AD4F1E270CF000D3F6CA /* UIView+QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+QExtension.h"; sourceTree = "<group>"; };
+		1A82AD601E271A1500D3F6CA /* page_00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page_00.png; sourceTree = "<group>"; };
+		1A82AD611E271A1500D3F6CA /* page_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page_01.png; sourceTree = "<group>"; };
+		1A82AD621E271A1500D3F6CA /* page_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page_02.png; sourceTree = "<group>"; };
+		1A82AD631E271A1500D3F6CA /* page_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page_03.png; sourceTree = "<group>"; };
+		1A82AD641E271A1500D3F6CA /* page_04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page_04.png; sourceTree = "<group>"; };
+		1A82AD6B1E274AA500D3F6CA /* QQRCode.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = QQRCode.bundle; sourceTree = "<group>"; };
+		1A82AD6C1E274AA500D3F6CA /* QQRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQRCode.h; sourceTree = "<group>"; };
+		1A82AD6D1E274AA500D3F6CA /* QQRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQRCode.m; sourceTree = "<group>"; };
+		1A82AD6E1E274AA500D3F6CA /* QQRCodeMine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQRCodeMine.h; sourceTree = "<group>"; };
+		1A82AD6F1E274AA500D3F6CA /* QQRCodeMine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQRCodeMine.m; sourceTree = "<group>"; };
+		1A82AD701E274AA500D3F6CA /* UIViewController+QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+QExtension.h"; sourceTree = "<group>"; };
 		1AE5F8FA1D3CF1EA0067811A /* QExtensionExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QExtensionExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE5F8FE1D3CF1EA0067811A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1AE5F9001D3CF1EA0067811A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -150,13 +168,13 @@
 			children = (
 				1A2599681E263A7E00FA334D /* QExtension.h */,
 				1A2599521E263A7E00FA334D /* NSArray+QExtension */,
-				1A2599561E263A7E00FA334D /* NSData+QExtension */,
-				1A25995A1E263A7E00FA334D /* NSDictionary+QExtension */,
-				1A25995E1E263A7E00FA334D /* NSString+QExtension */,
-				1A2599691E263A7E00FA334D /* UIButton+QExtension */,
-				1A25996E1E263A7E00FA334D /* UIImage+QExtension */,
-				1A2599761E263A7E00FA334D /* UIView+QExtension */,
-				1A2599851E263A7E00FA334D /* UIViewController+QExtension */,
+				1A82ACF11E2662C700D3F6CA /* NSData+QExtension */,
+				1A82AD0B1E26797A00D3F6CA /* NSDictionary+QExtension */,
+				1A82AD101E267A8600D3F6CA /* NSString+QExtension */,
+				1A82AD1E1E26898200D3F6CA /* UIButton+QExtension */,
+				1A82AD381E26EDC100D3F6CA /* UIImage+QExtension */,
+				1A82AD471E270CF000D3F6CA /* UIView+QExtension */,
+				1A82AD6A1E274AA500D3F6CA /* UIViewController+QExtension */,
 			);
 			path = QExtension;
 			sourceTree = SOURCE_ROOT;
@@ -171,104 +189,115 @@
 			path = "NSArray+QExtension";
 			sourceTree = "<group>";
 		};
-		1A2599561E263A7E00FA334D /* NSData+QExtension */ = {
+		1A82ACF11E2662C700D3F6CA /* NSData+QExtension */ = {
 			isa = PBXGroup;
 			children = (
-				1A2599591E263A7E00FA334D /* NSData+QExtension.h */,
-				1A2599571E263A7E00FA334D /* NSData+FormData.h */,
-				1A2599581E263A7E00FA334D /* NSData+FormData.m */,
+				1A82ACF41E2662C700D3F6CA /* NSData+QExtension.h */,
+				1A82ACF21E2662C700D3F6CA /* NSData+FormData.h */,
+				1A82ACF31E2662C700D3F6CA /* NSData+FormData.m */,
 			);
 			path = "NSData+QExtension";
 			sourceTree = "<group>";
 		};
-		1A25995A1E263A7E00FA334D /* NSDictionary+QExtension */ = {
+		1A82AD0B1E26797A00D3F6CA /* NSDictionary+QExtension */ = {
 			isa = PBXGroup;
 			children = (
-				1A25995D1E263A7E00FA334D /* NSDictionary+QExtension.h */,
-				1A25995B1E263A7E00FA334D /* NSDictionary+LocaleLog.h */,
-				1A25995C1E263A7E00FA334D /* NSDictionary+LocaleLog.m */,
+				1A82AD0E1E26797A00D3F6CA /* NSDictionary+QExtension.h */,
+				1A82AD0C1E26797A00D3F6CA /* NSDictionary+LocaleLog.h */,
+				1A82AD0D1E26797A00D3F6CA /* NSDictionary+LocaleLog.m */,
 			);
 			path = "NSDictionary+QExtension";
 			sourceTree = "<group>";
 		};
-		1A25995E1E263A7E00FA334D /* NSString+QExtension */ = {
+		1A82AD101E267A8600D3F6CA /* NSString+QExtension */ = {
 			isa = PBXGroup;
 			children = (
-				1A2599651E263A7E00FA334D /* NSString+QExtension.h */,
-				1A25995F1E263A7E00FA334D /* NSString+Base64.h */,
-				1A2599601E263A7E00FA334D /* NSString+Base64.m */,
-				1A2599611E263A7E00FA334D /* NSString+BundlePath.h */,
-				1A2599621E263A7E00FA334D /* NSString+BundlePath.m */,
-				1A2599631E263A7E00FA334D /* NSString+Hash.h */,
-				1A2599641E263A7E00FA334D /* NSString+Hash.m */,
-				1A2599661E263A7E00FA334D /* NSString+Regex.h */,
-				1A2599671E263A7E00FA334D /* NSString+Regex.m */,
+				1A82AD171E267A8600D3F6CA /* NSString+QExtension.h */,
+				1A82AD111E267A8600D3F6CA /* NSString+Base64.h */,
+				1A82AD121E267A8600D3F6CA /* NSString+Base64.m */,
+				1A82AD131E267A8600D3F6CA /* NSString+BundlePath.h */,
+				1A82AD141E267A8600D3F6CA /* NSString+BundlePath.m */,
+				1A82AD151E267A8600D3F6CA /* NSString+Hash.h */,
+				1A82AD161E267A8600D3F6CA /* NSString+Hash.m */,
+				1A82AD181E267A8600D3F6CA /* NSString+Regex.h */,
+				1A82AD191E267A8600D3F6CA /* NSString+Regex.m */,
 			);
-			path = "NSString+QExtension";
+			name = "NSString+QExtension";
+			path = "QExtension/NSString+QExtension";
+			sourceTree = SOURCE_ROOT;
+		};
+		1A82AD1E1E26898200D3F6CA /* UIButton+QExtension */ = {
+			isa = PBXGroup;
+			children = (
+				1A82AD211E26898200D3F6CA /* UIButton+QExtension.h */,
+				1A82AD1F1E26898200D3F6CA /* QProgressButton.h */,
+				1A82AD201E26898200D3F6CA /* QProgressButton.m */,
+			);
+			name = "UIButton+QExtension";
+			path = "QExtension/UIButton+QExtension";
+			sourceTree = SOURCE_ROOT;
+		};
+		1A82AD231E26AA8600D3F6CA /* demoImages */ = {
+			isa = PBXGroup;
+			children = (
+				1A82AD241E26AA8600D3F6CA /* demo1.png */,
+				1A82AD251E26AA8600D3F6CA /* demo2.jpg */,
+				1A82AD261E26AA8600D3F6CA /* demo3.gif */,
+				1A82AD271E26AA8600D3F6CA /* demo4.png */,
+				1A82AD281E26AA8600D3F6CA /* demo5.png */,
+				1A82AD431E27078E00D3F6CA /* demo6.png */,
+				1A82AD441E27078E00D3F6CA /* demo7.png */,
+				1A82AD601E271A1500D3F6CA /* page_00.png */,
+				1A82AD611E271A1500D3F6CA /* page_01.png */,
+				1A82AD621E271A1500D3F6CA /* page_02.png */,
+				1A82AD631E271A1500D3F6CA /* page_03.png */,
+				1A82AD641E271A1500D3F6CA /* page_04.png */,
+			);
+			path = demoImages;
 			sourceTree = "<group>";
 		};
-		1A2599691E263A7E00FA334D /* UIButton+QExtension */ = {
+		1A82AD381E26EDC100D3F6CA /* UIImage+QExtension */ = {
 			isa = PBXGroup;
 			children = (
-				1A25996D1E263A7E00FA334D /* UIButton+QExtension.h */,
-				1A2599CC1E26488400FA334D /* QProgressButton.h */,
-				1A2599CD1E26488400FA334D /* QProgressButton.m */,
-			);
-			path = "UIButton+QExtension";
-			sourceTree = "<group>";
-		};
-		1A25996E1E263A7E00FA334D /* UIImage+QExtension */ = {
-			isa = PBXGroup;
-			children = (
-				1A2599751E263A7E00FA334D /* UIImage+QExtension.h */,
-				1A2599C61E26421600FA334D /* UIImage+Draw.h */,
-				1A2599C71E26421600FA334D /* UIImage+Draw.m */,
-				1A2599C91E26424F00FA334D /* UIImage+GIF.h */,
-				1A2599CA1E26424F00FA334D /* UIImage+GIF.m */,
-				1A2599DF1E2651AB00FA334D /* UIImage+QRCode.h */,
-				1A2599E01E2651AB00FA334D /* UIImage+QRCode.m */,
+				1A82AD3D1E26EDC100D3F6CA /* UIImage+QExtension.h */,
+				1A82AD391E26EDC100D3F6CA /* UIImage+Draw.h */,
+				1A82AD3A1E26EDC100D3F6CA /* UIImage+Draw.m */,
+				1A82AD3B1E26EDC100D3F6CA /* UIImage+GIF.h */,
+				1A82AD3C1E26EDC100D3F6CA /* UIImage+GIF.m */,
+				1A82AD3E1E26EDC100D3F6CA /* UIImage+QRCode.h */,
+				1A82AD3F1E26EDC100D3F6CA /* UIImage+QRCode.m */,
 			);
 			path = "UIImage+QExtension";
 			sourceTree = "<group>";
 		};
-		1A2599761E263A7E00FA334D /* UIView+QExtension */ = {
+		1A82AD471E270CF000D3F6CA /* UIView+QExtension */ = {
 			isa = PBXGroup;
 			children = (
-				1A2599841E263A7E00FA334D /* UIView+QExtension.h */,
-				1A2599CF1E264B3C00FA334D /* UIView+Frame.h */,
-				1A2599D01E264B3C00FA334D /* UIView+Frame.m */,
-				1A2599DC1E26503D00FA334D /* QPageView.h */,
-				1A2599DD1E26503D00FA334D /* QPageView.m */,
-				1A2599D21E264C7300FA334D /* QTouchLockView.h */,
-				1A2599D31E264C7300FA334D /* QTouchLockView.m */,
-				1A259A7A1E265E3B00FA334D /* QTouchLockView.bundle */,
-				1A2599D51E264D0A00FA334D /* Resources */,
+				1A82AD4A1E270CF000D3F6CA /* QTouchLockView.bundle */,
+				1A82AD4F1E270CF000D3F6CA /* UIView+QExtension.h */,
+				1A82AD481E270CF000D3F6CA /* QPageView.h */,
+				1A82AD491E270CF000D3F6CA /* QPageView.m */,
+				1A82AD4B1E270CF000D3F6CA /* QTouchLockView.h */,
+				1A82AD4C1E270CF000D3F6CA /* QTouchLockView.m */,
+				1A82AD4D1E270CF000D3F6CA /* UIView+Frame.h */,
+				1A82AD4E1E270CF000D3F6CA /* UIView+Frame.m */,
 			);
 			path = "UIView+QExtension";
 			sourceTree = "<group>";
 		};
-		1A2599851E263A7E00FA334D /* UIViewController+QExtension */ = {
+		1A82AD6A1E274AA500D3F6CA /* UIViewController+QExtension */ = {
 			isa = PBXGroup;
 			children = (
-				1A2599A01E263A7E00FA334D /* UIViewController+QExtension.h */,
-				1A2599E21E26548700FA334D /* QQRCode.h */,
-				1A2599E31E26548700FA334D /* QQRCode.m */,
-				1A2599E51E2655CF00FA334D /* QQRCodeMine.h */,
-				1A2599E61E2655CF00FA334D /* QQRCodeMine.m */,
-				1A259A781E265E2100FA334D /* QQRCode.bundle */,
+				1A82AD6B1E274AA500D3F6CA /* QQRCode.bundle */,
+				1A82AD701E274AA500D3F6CA /* UIViewController+QExtension.h */,
+				1A82AD6C1E274AA500D3F6CA /* QQRCode.h */,
+				1A82AD6D1E274AA500D3F6CA /* QQRCode.m */,
+				1A82AD6E1E274AA500D3F6CA /* QQRCodeMine.h */,
+				1A82AD6F1E274AA500D3F6CA /* QQRCodeMine.m */,
 			);
-			path = "UIViewController+QExtension";
-			sourceTree = "<group>";
-		};
-		1A2599D51E264D0A00FA334D /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				1A2599D61E264D0A00FA334D /* gesture_node_highlighted.png */,
-				1A2599D71E264D0A00FA334D /* gesture_node_normal.png */,
-				1A2599D81E264D0A00FA334D /* gesture_node_selected.png */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
+			name = "UIViewController+QExtension";
+			path = "QExtension/UIViewController+QExtension";
+			sourceTree = SOURCE_ROOT;
 		};
 		1AE5F8F11D3CF1EA0067811A = {
 			isa = PBXGroup;
@@ -293,11 +322,11 @@
 		1AE5F8FC1D3CF1EA0067811A /* QExtensionExample */ = {
 			isa = PBXGroup;
 			children = (
+				1A2599511E263A7E00FA334D /* QExtension */,
 				1AE5F9031D3CF1EA0067811A /* ViewController.h */,
 				1AE5F9041D3CF1EA0067811A /* ViewController.m */,
-				1AE5F9091D3CF1EA0067811A /* Assets.xcassets */,
 				1AE5F90E1D3CF1EA0067811A /* Info.plist */,
-				1A2599511E263A7E00FA334D /* QExtension */,
+				1A82AD231E26AA8600D3F6CA /* demoImages */,
 				1AE5F8FD1D3CF1EA0067811A /* Supporting Files */,
 			);
 			path = QExtensionExample;
@@ -309,6 +338,7 @@
 				1AE5F8FE1D3CF1EA0067811A /* main.m */,
 				1AE5F9001D3CF1EA0067811A /* AppDelegate.h */,
 				1AE5F9011D3CF1EA0067811A /* AppDelegate.m */,
+				1AE5F9091D3CF1EA0067811A /* Assets.xcassets */,
 				1AE5F9061D3CF1EA0067811A /* Main.storyboard */,
 				1AE5F90B1D3CF1EA0067811A /* LaunchScreen.storyboard */,
 			);
@@ -437,14 +467,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A2599DA1E264D0A00FA334D /* gesture_node_normal.png in Resources */,
 				1AE5F90D1D3CF1EA0067811A /* LaunchScreen.storyboard in Resources */,
+				1A82AD311E26AA8600D3F6CA /* demo4.png in Resources */,
+				1A82AD651E271A1500D3F6CA /* page_00.png in Resources */,
+				1A82AD301E26AA8600D3F6CA /* demo3.gif in Resources */,
 				1AE5F90A1D3CF1EA0067811A /* Assets.xcassets in Resources */,
-				1A259A7B1E265E3B00FA334D /* QTouchLockView.bundle in Resources */,
+				1A82AD711E274AA500D3F6CA /* QQRCode.bundle in Resources */,
+				1A82AD681E271A1500D3F6CA /* page_03.png in Resources */,
+				1A82AD511E270CF000D3F6CA /* QTouchLockView.bundle in Resources */,
+				1A82AD461E27078E00D3F6CA /* demo7.png in Resources */,
+				1A82AD2F1E26AA8600D3F6CA /* demo2.jpg in Resources */,
+				1A82AD451E27078E00D3F6CA /* demo6.png in Resources */,
+				1A82AD2E1E26AA8600D3F6CA /* demo1.png in Resources */,
+				1A82AD321E26AA8600D3F6CA /* demo5.png in Resources */,
+				1A82AD661E271A1500D3F6CA /* page_01.png in Resources */,
+				1A82AD671E271A1500D3F6CA /* page_02.png in Resources */,
+				1A82AD691E271A1500D3F6CA /* page_04.png in Resources */,
 				1AE5F9081D3CF1EA0067811A /* Main.storyboard in Resources */,
-				1A2599D91E264D0A00FA334D /* gesture_node_highlighted.png in Resources */,
-				1A2599DB1E264D0A00FA334D /* gesture_node_selected.png in Resources */,
-				1A259A791E265E2100FA334D /* QQRCode.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,25 +508,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A82AD411E26EDC100D3F6CA /* UIImage+GIF.m in Sources */,
+				1A82AD721E274AA500D3F6CA /* QQRCode.m in Sources */,
 				1AE5F9051D3CF1EA0067811A /* ViewController.m in Sources */,
-				1A2599CE1E26488400FA334D /* QProgressButton.m in Sources */,
-				1A2599DE1E26503D00FA334D /* QPageView.m in Sources */,
-				1A2599A21E263A7E00FA334D /* NSData+FormData.m in Sources */,
-				1A2599E71E2655CF00FA334D /* QQRCodeMine.m in Sources */,
-				1A2599A51E263A7E00FA334D /* NSString+BundlePath.m in Sources */,
-				1A2599C81E26421600FA334D /* UIImage+Draw.m in Sources */,
-				1A2599D11E264B3C00FA334D /* UIView+Frame.m in Sources */,
+				1A82ACF51E2662C700D3F6CA /* NSData+FormData.m in Sources */,
+				1A82AD521E270CF000D3F6CA /* QTouchLockView.m in Sources */,
+				1A82AD501E270CF000D3F6CA /* QPageView.m in Sources */,
+				1A82AD1B1E267A8600D3F6CA /* NSString+BundlePath.m in Sources */,
 				1AE5F9021D3CF1EA0067811A /* AppDelegate.m in Sources */,
-				1A2599CB1E26424F00FA334D /* UIImage+GIF.m in Sources */,
-				1A2599A61E263A7E00FA334D /* NSString+Hash.m in Sources */,
-				1A2599A71E263A7E00FA334D /* NSString+Regex.m in Sources */,
-				1A2599A31E263A7E00FA334D /* NSDictionary+LocaleLog.m in Sources */,
+				1A82AD1C1E267A8600D3F6CA /* NSString+Hash.m in Sources */,
+				1A82AD731E274AA500D3F6CA /* QQRCodeMine.m in Sources */,
+				1A82AD1D1E267A8600D3F6CA /* NSString+Regex.m in Sources */,
+				1A82AD0F1E26797A00D3F6CA /* NSDictionary+LocaleLog.m in Sources */,
+				1A82AD401E26EDC100D3F6CA /* UIImage+Draw.m in Sources */,
 				1AE5F8FF1D3CF1EA0067811A /* main.m in Sources */,
 				1A2599A11E263A7E00FA334D /* NSArray+LocaleLog.m in Sources */,
-				1A2599E11E2651AB00FA334D /* UIImage+QRCode.m in Sources */,
-				1A2599A41E263A7E00FA334D /* NSString+Base64.m in Sources */,
-				1A2599D41E264C7300FA334D /* QTouchLockView.m in Sources */,
-				1A2599E41E26548700FA334D /* QQRCode.m in Sources */,
+				1A82AD421E26EDC100D3F6CA /* UIImage+QRCode.m in Sources */,
+				1A82AD531E270CF000D3F6CA /* UIView+Frame.m in Sources */,
+				1A82AD221E26898200D3F6CA /* QProgressButton.m in Sources */,
+				1A82AD1A1E267A8600D3F6CA /* NSString+Base64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

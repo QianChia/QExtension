@@ -116,6 +116,18 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)q_hmacSHA1StringWithKey:(NSString *)key;
 
 /**
+ *  计算 HMAC SHA224 散列结果
+ *
+ *  终端测试命令：
+ *  @code
+ *  echo -n "string" | openssl sha -sha224 -hmac "key"
+ *  @endcode
+ *
+ *  @return 56 个字符的 HMAC SHA224 散列字符串
+ */
+- (NSString *)q_hmacSHA224StringWithKey:(NSString *)key;
+
+/**
  *  计算 HMAC SHA256 散列结果
  *
  *  终端测试命令：
@@ -126,6 +138,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return 64 个字符的 HMAC SHA256 散列字符串
  */
 - (NSString *)q_hmacSHA256StringWithKey:(NSString *)key;
+
+/**
+ *  计算 HMAC SHA384 散列结果
+ *
+ *  终端测试命令：
+ *  @code
+ *  echo -n "string" | openssl sha -sha384 -hmac "key"
+ *  @endcode
+ *
+ *  @return 96 个字符的 HMAC SHA384 散列字符串
+ */
+- (NSString *)q_hmacSHA384StringWithKey:(NSString *)key;
 
 /**
  *  计算 HMAC SHA512 散列结果

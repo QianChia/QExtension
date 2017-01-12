@@ -40,8 +40,12 @@ NS_ASSUME_NONNULL_BEGIN
     
     // 创建假导航
     
+    NSString *bundlePath = [[[NSBundle mainBundle] resourcePath]
+                            stringByAppendingPathComponent:@"QQRCode.bundle"];
+    
     UIImageView *navImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 64)];
-    navImageView.image = [UIImage imageNamed:@"scan_navbar"];
+    navImageView.image = [UIImage imageWithContentsOfFile:
+                          [bundlePath stringByAppendingPathComponent:@"scan_navbar"]];
     navImageView.userInteractionEnabled = YES;
     [self.view addSubview:navImageView];
     
@@ -52,8 +56,12 @@ NS_ASSUME_NONNULL_BEGIN
     [navImageView addSubview:titleLabel];
     
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backButton setImage:[UIImage imageNamed:@"btn_back_pressed"] forState:UIControlStateHighlighted];
-    [backButton setImage:[UIImage imageNamed:@"btn_back_nor"] forState:UIControlStateNormal];
+    UIImage *backPressed = [UIImage imageWithContentsOfFile:
+                            [bundlePath stringByAppendingPathComponent:@"btn_back_pressed"]];
+    UIImage *backNor = [UIImage imageWithContentsOfFile:
+                        [bundlePath stringByAppendingPathComponent:@"btn_back_nor"]];
+    [backButton setImage:backPressed forState:UIControlStateHighlighted];
+    [backButton setImage:backNor forState:UIControlStateNormal];
     [backButton setFrame:CGRectMake(10, 15, 48, 48)];
     [backButton addTarget:self action:@selector(pressBackButton:) forControlEvents:UIControlEventTouchUpInside];
     [navImageView addSubview:backButton];

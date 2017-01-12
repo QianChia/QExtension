@@ -7,6 +7,7 @@
 //
 
 #import "QTouchLockView.h"
+#import "NSString+Hash.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -32,7 +33,10 @@ NS_ASSUME_NONNULL_BEGIN
     
     QTouchLockView *touchLockView = [[self alloc] init];
     
-    touchLockView.frame = frame;
+    CGRect tmpFrame = frame;
+    tmpFrame.size.height = frame.size.width;
+    
+    touchLockView.frame = tmpFrame;
     touchLockView.resultBlock = result;
     
     return touchLockView;
@@ -45,14 +49,33 @@ NS_ASSUME_NONNULL_BEGIN
         
         self.backgroundColor = [UIColor whiteColor];
         
+        // 添加提示信息框
+        self.alertLabel = [[UILabel alloc] init];
+        self.alertLabel.textAlignment = NSTextAlignmentCenter;
+        self.alertLabel.textColor = [UIColor redColor];
+        self.alertLabel.backgroundColor = [UIColor clearColor];
+        self.alertLabel.numberOfLines = 1;
+        self.alertLabel.adjustsFontSizeToFitWidth = YES;
+        [self addSubview:self.alertLabel];
+        
         // 添加按钮
         for (int i = 0; i < 9; i++){
             
             UIButton *btn = [[UIButton alloc] init];
             
-            [btn setBackgroundImage:[UIImage imageNamed:@"gesture_node_normal"] forState:UIControlStateNormal];
-            [btn setBackgroundImage:[UIImage imageNamed:@"gesture_node_selected"] forState:UIControlStateSelected];
-            [btn setBackgroundImage:[UIImage imageNamed:@"gesture_node_highlighted"] forState:UIControlStateHighlighted];
+            NSString *bundlePath = [[[NSBundle mainBundle] resourcePath]
+                                    stringByAppendingPathComponent:@"QTouchLockView.bundle"];
+            
+            UIImage *normalImage = [UIImage imageWithContentsOfFile:
+                                    [bundlePath stringByAppendingPathComponent:@"gesture_node_normal"]];
+            UIImage *selectedImage = [UIImage imageWithContentsOfFile:
+                                      [bundlePath stringByAppendingPathComponent:@"gesture_node_selected"]];
+            UIImage *highlightedImage = [UIImage imageWithContentsOfFile:
+                                         [bundlePath stringByAppendingPathComponent:@"gesture_node_highlighted"]];
+            
+            [btn setBackgroundImage:normalImage forState:UIControlStateNormal];
+            [btn setBackgroundImage:selectedImage forState:UIControlStateSelected];
+            [btn setBackgroundImage:highlightedImage forState:UIControlStateHighlighted];
             
             // 设置 tag 值，设置按钮对应的密码值
             btn.tag = i + 1;
@@ -66,11 +89,12 @@ NS_ASSUME_NONNULL_BEGIN
     return self;
 }
 
-/// 设置按钮的 frame
+/// 布局控件
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    for (int i = 0; i < self.subviews.count; i++) {
+    // 设置按钮的 frame
+    for (int i = 0; i < self.subviews.count - 1; i++) {
         
         // 列数
         NSInteger cols = 3;
@@ -90,9 +114,12 @@ NS_ASSUME_NONNULL_BEGIN
         CGFloat btnY = row * btnH * 2;
         
         // 设置按钮的 frame
-        UIButton *btn = self.subviews[i];
+        UIButton *btn = self.subviews[i + 1];
         btn.frame = CGRectMake(btnX, btnY, btnW, btnH);
     }
+    
+    // 设置提示信息框的 frame
+    self.alertLabel.frame = CGRectMake(0, -50, self.bounds.size.width, 30);
 }
 
 /// 触摸开始
@@ -107,10 +134,10 @@ NS_ASSUME_NONNULL_BEGIN
         
         // 设置触摸按钮的灵敏度
         CGRect frame = btn.frame;
-        CGRect tmpFrame = CGRectMake(frame.origin.x + frame.size.width / 3,
-                                     frame.origin.y + frame.size.height / 3,
-                                     frame.size.width / 3,
-                                     frame.size.height / 3);
+        CGRect tmpFrame = CGRectMake(frame.origin.x + frame.size.width / 4,
+                                     frame.origin.y + frame.size.height / 4,
+                                     frame.size.width / 2,
+                                     frame.size.height / 2);
         
         // 判断某点在不在其 frame 上
         if (CGRectContainsPoint(tmpFrame, startPoint)) {
@@ -137,10 +164,10 @@ NS_ASSUME_NONNULL_BEGIN
         
         // 设置触摸按钮的灵敏度
         CGRect frame = btn.frame;
-        CGRect tmpFrame = CGRectMake(frame.origin.x + frame.size.width / 3,
-                                     frame.origin.y + frame.size.height / 3,
-                                     frame.size.width / 3,
-                                     frame.size.height / 3);
+        CGRect tmpFrame = CGRectMake(frame.origin.x + frame.size.width / 4,
+                                     frame.origin.y + frame.size.height / 4,
+                                     frame.size.width / 2,
+                                     frame.size.height / 2);
         
         // 判断某点在不在其 frame 上
         if (CGRectContainsPoint(tmpFrame, touchPoint)) {
@@ -167,7 +194,7 @@ NS_ASSUME_NONNULL_BEGIN
         
         // 触摸点数过少
         if (self.resultBlock) {
-            self.resultBlock(NO, @"至少连续绘制四个点");
+            self.resultBlock(NO, @"请至少连续连接四个点");
         }
         
         for (UIButton *btn in self.selectedArray) {
@@ -195,7 +222,10 @@ NS_ASSUME_NONNULL_BEGIN
                 [path appendFormat:@"%ld", btn.tag];
             }
             
-            self.resultBlock(YES, path);
+            // 对滑动获取的密码值进行 MD5 加密
+            NSString *md5Path = [path q_md5String];
+            
+            self.resultBlock(YES, md5Path);
         }
         
         [self clearPath];

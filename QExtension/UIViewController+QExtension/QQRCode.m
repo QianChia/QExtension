@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 扫描二维码
 
 /// 创建扫描二维码界面，开始扫描二维码
-+ (instancetype)q_scanQRCode:(void (^)(BOOL, NSString *))result {
++ (instancetype)q_qrCodeWithResult:(void (^)(BOOL, NSString *))result {
     
     QQRCode *qrCode = [[self alloc] init];
     
@@ -58,8 +58,12 @@ NS_ASSUME_NONNULL_BEGIN
     
     // 创建假导航
     
+    NSString *bundlePath = [[[NSBundle mainBundle] resourcePath]
+                            stringByAppendingPathComponent:@"QQRCode.bundle"];
+    
     UIImageView *navImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 64)];
-    navImageView.image = [UIImage imageNamed:@"scan_navbar"];
+    navImageView.image = [UIImage imageWithContentsOfFile:
+                          [bundlePath stringByAppendingPathComponent:@"scan_navbar"]];
     navImageView.userInteractionEnabled = YES;
     [self.view addSubview:navImageView];
     
@@ -70,15 +74,23 @@ NS_ASSUME_NONNULL_BEGIN
     [navImageView addSubview:titleLabel];
     
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backButton setImage:[UIImage imageNamed:@"btn_back_pressed"] forState:UIControlStateHighlighted];
-    [backButton setImage:[UIImage imageNamed:@"btn_back_nor"] forState:UIControlStateNormal];
+    UIImage *backPressed = [UIImage imageWithContentsOfFile:
+                            [bundlePath stringByAppendingPathComponent:@"btn_back_pressed"]];
+    UIImage *backNor = [UIImage imageWithContentsOfFile:
+                        [bundlePath stringByAppendingPathComponent:@"btn_back_nor"]];
+    [backButton setImage:backPressed forState:UIControlStateHighlighted];
+    [backButton setImage:backNor forState:UIControlStateNormal];
     [backButton setFrame:CGRectMake(10, 15, 48, 48)];
     [backButton addTarget:self action:@selector(pressBackButton:) forControlEvents:UIControlEventTouchUpInside];
     [navImageView addSubview:backButton];
     
     UIButton *otherButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [otherButton setImage:[UIImage imageNamed:@"btn_other_pressed"] forState:UIControlStateHighlighted];
-    [otherButton setImage:[UIImage imageNamed:@"btn_other_nor"] forState:UIControlStateNormal];
+    UIImage *otherPressed = [UIImage imageWithContentsOfFile:
+                            [bundlePath stringByAppendingPathComponent:@"btn_other_pressed"]];
+    UIImage *otherNor = [UIImage imageWithContentsOfFile:
+                        [bundlePath stringByAppendingPathComponent:@"btn_other_nor"]];
+    [otherButton setImage:otherPressed forState:UIControlStateHighlighted];
+    [otherButton setImage:otherNor forState:UIControlStateNormal];
     [otherButton setFrame:CGRectMake(WIDTH - 58, 15, 48, 48)];
     [otherButton addTarget:self action:@selector(pressOtherButton:) forControlEvents:UIControlEventTouchUpInside];
     [navImageView addSubview:otherButton];
@@ -89,7 +101,8 @@ NS_ASSUME_NONNULL_BEGIN
     CGRect scanViewFrame = CGRectMake(margin1, margin1 + 64, WIDTH - margin1 * 2, (WIDTH - margin1 * 2) * 2);
     
     self.scanView = [[UIImageView alloc] initWithFrame:scanViewFrame];
-    self.scanView.image = [UIImage imageNamed:@"scan_bg_50"];
+    self.scanView.image = [UIImage imageWithContentsOfFile:
+                           [bundlePath stringByAppendingPathComponent:@"scan_bg_50"]];
     [self.view addSubview:self.scanView];
     
     // 创建扫描线
@@ -98,7 +111,8 @@ NS_ASSUME_NONNULL_BEGIN
     CGRect scanLineFrame = CGRectMake(margin2, margin2 + 15, WIDTH - margin2 * 2, 4);
     
     self.scanLine = [[UIImageView alloc] initWithFrame:scanLineFrame];
-    self.scanLine.image = [UIImage imageNamed:@"scan_line_blue"];
+    self.scanLine.image = [UIImage imageWithContentsOfFile:
+                           [bundlePath stringByAppendingPathComponent:@"scan_line_blue"]];
     [self.scanView addSubview:self.scanLine];
     
     // 开启扫描线上下移动定时器
@@ -123,7 +137,8 @@ NS_ASSUME_NONNULL_BEGIN
     // 创建扫描框下方选择按钮
     
     UIImageView *toolBarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, HEIGHT - 90, WIDTH, 90)];
-    toolBarImageView.image = [UIImage imageNamed:@"scan_toolbar"];
+    toolBarImageView.image = [UIImage imageWithContentsOfFile:
+                              [bundlePath stringByAppendingPathComponent:@"scan_toolbar"]];
     toolBarImageView.userInteractionEnabled = YES;
     [self.view addSubview:toolBarImageView];
     
@@ -141,13 +156,18 @@ NS_ASSUME_NONNULL_BEGIN
         button.frame = CGRectMake(WIDTH / 3 * i, 0, WIDTH / 3, 90);
         [toolBarImageView addSubview:button];
         
+        UIImage *unSelectImage = [UIImage imageWithContentsOfFile:
+                                 [bundlePath stringByAppendingPathComponent:unSelectImageNames[i]]];
+        UIImage *selectImage = [UIImage imageWithContentsOfFile:
+                             [bundlePath stringByAppendingPathComponent:selectImageNames[i]]];
+        
         if (i == 1) {
-            [button setImage:[UIImage imageNamed:unSelectImageNames[i]] forState:UIControlStateNormal];
-            [button setImage:[UIImage imageNamed:selectImageNames[i]] forState:UIControlStateSelected];
+            [button setImage:unSelectImage forState:UIControlStateNormal];
+            [button setImage:selectImage forState:UIControlStateSelected];
             
         } else {
-            [button setImage:[UIImage imageNamed:unSelectImageNames[i]] forState:UIControlStateNormal];
-            [button setImage:[UIImage imageNamed:selectImageNames[i]] forState:UIControlStateHighlighted];
+            [button setImage:unSelectImage forState:UIControlStateNormal];
+            [button setImage:selectImage forState:UIControlStateHighlighted];
         }
         
         if (i == 0) {
@@ -176,9 +196,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 更多按钮点击事件处理
 - (void)pressOtherButton:(UIButton *)btn {
     
-    [self q_stopScan];
-    
-    //    NSLog(@"pressOtherButton");
+//    NSLog(@"pressOtherButton");
 }
 
 /// 相册按钮点击事件处理

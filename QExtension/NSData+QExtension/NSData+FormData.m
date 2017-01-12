@@ -15,9 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation NSData (FormData)
 
-#pragma mark - 带请求头设置上传数据
+#pragma mark - 带请求头文件上传数据设置
 
-/// 不带文本，单文件上传
+/// 单文件上传，不带文本内容
 
 + (NSData *)q_formDataWithRequest:(NSMutableURLRequest *)request
                          fileData:(NSData *)fileData
@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
                               mimeType:mimeType];
 }
 
-/// 带文本，单文件上传
+/// 单文件上传，带文本内容
 
 + (NSData *)q_formDataWithRequest:(NSMutableURLRequest *)request
                              text:(nullable id)text
@@ -89,7 +89,7 @@ NS_ASSUME_NONNULL_BEGIN
                            mimeType:mimeType];
 }
 
-/// 不带文本，多文件上传
+/// 多文件上传，不带文本内容
 
 + (NSData *)q_formDataWithRequest:(NSMutableURLRequest *)request
                         fileDatas:(NSArray<NSData *> *)fileDatas
@@ -121,7 +121,7 @@ NS_ASSUME_NONNULL_BEGIN
                               mimeTypes:mimeTypes];
 }
 
-/// 带文本，多文件上传
+/// 多文件上传，带文本内容
 
 + (NSData *)q_formDataWithRequest:(NSMutableURLRequest *)request
                             texts:(nullable NSArray<id> *)texts
@@ -574,7 +574,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation NSMutableData (FormData)
 
-#pragma mark - 上传数据拼接
+#pragma mark - 文件上传数据拼接
 
 /// 设置文件上传请求头
 - (void)q_setHttpHeaderFieldWithRequest:(NSMutableURLRequest *)request

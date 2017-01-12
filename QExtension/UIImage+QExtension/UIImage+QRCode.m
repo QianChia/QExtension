@@ -13,32 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation UIImage (QRCode)
 
-/// 识别图片中的二维码
-- (NSString *)q_stringByRecognizeQRCode {
-    
-    CIImage *ciImage = [CIImage imageWithCGImage:self.CGImage];
-    
-    // 初始化扫描仪，设置识别类型和识别质量
-    CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode
-                                              context:nil
-                                              options:@{CIDetectorAccuracy: CIDetectorAccuracyHigh}];
-    
-    // 扫描获取的特征组
-    NSArray *features = [detector featuresInImage:ciImage];
-    
-    if (features.count >= 1) {
-        
-        // 获取扫描结果
-        CIQRCodeFeature *feature = [features objectAtIndex:0];
-        NSString *resultString = feature.messageString;
-        
-        return resultString;
-        
-    } else {
-        return @"该图片中不包含二维码";
-    }
-}
-
 /// 生成二维码图片
 + (UIImage *)q_imageWithQRCodeFromString:(NSString *)string
                                 headIcon:(nullable UIImage *)headIcon
@@ -63,13 +37,12 @@ NS_ASSUME_NONNULL_BEGIN
     
     CIFilter *colorFilter = [CIFilter filterWithName:@"CIFalseColor"
                                        keysAndValues:@"inputImage", filter.outputImage,
-                             @"inputColor0", [CIColor colorWithCGColor:onColor.CGColor],
-                             @"inputColor1", [CIColor colorWithCGColor:offColor.CGColor],
+                                                     @"inputColor0", [CIColor colorWithCGColor:onColor.CGColor],
+                                                     @"inputColor1", [CIColor colorWithCGColor:offColor.CGColor],
                              nil];
     
     // 获取输出的二维码
     CIImage *outputImage = colorFilter.outputImage;
-    // CIImage *outputImage = [filter outputImage];
     
     CIContext *context = [CIContext contextWithOptions:nil];
     CGImageRef cgImage = [context createCGImage:outputImage
@@ -79,6 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
     UIImage *qrImage = [UIImage imageWithCGImage:cgImage
                                            scale:1.0
                                      orientation:UIImageOrientationUp];
+    CGImageRelease(cgImage);
     
     // 重绘 UIImage，默认情况下生成的图片比较模糊
     CGFloat scale = 100;
@@ -91,7 +65,6 @@ NS_ASSUME_NONNULL_BEGIN
     [qrImage drawInRect:CGRectMake(0, 0, width, height)];
     qrImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    CGImageRelease(cgImage);
     
     // 添加头像
     if (headIcon != nil) {
@@ -105,15 +78,41 @@ NS_ASSUME_NONNULL_BEGIN
         CGFloat height = qrImage.size.height / scale;
         CGFloat x = (qrImage.size.width - width) / 2;
         CGFloat y = (qrImage.size.height - height) / 2;
-        [headIcon drawInRect:CGRectMake( x,  y, width, height)];
+        [headIcon drawInRect:CGRectMake(x,  y, width, height)];
         
-        UIImage *newImage =  UIGraphicsGetImageFromCurrentImageContext();
+        UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         
         return newImage;
         
     } else {
         return qrImage;
+    }
+}
+
+/// 识别图片中的二维码
+- (NSString *)q_stringByRecognizeQRCode {
+    
+    CIImage *ciImage = [CIImage imageWithCGImage:self.CGImage];
+    
+    // 初始化扫描仪，设置识别类型和识别质量
+    CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode
+                                              context:nil
+                                              options:@{CIDetectorAccuracy: CIDetectorAccuracyHigh}];
+    
+    // 扫描获取的特征组
+    NSArray *features = [detector featuresInImage:ciImage];
+    
+    if (features.count >= 1) {
+        
+        // 获取扫描结果
+        CIQRCodeFeature *feature = [features objectAtIndex:0];
+        NSString *resultString = feature.messageString;
+        
+        return resultString;
+        
+    } else {
+        return @"该图片中不包含二维码";
     }
 }
 

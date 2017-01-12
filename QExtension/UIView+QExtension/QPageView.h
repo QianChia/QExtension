@@ -42,22 +42,19 @@ typedef NS_ENUM(NSInteger, QPageIndicatorPosition) {
 @property(nonatomic, assign, getter=isScrollDirectionPortrait) BOOL scrollDirectionPortrait;
 
 /**
- *  实例化页面视图控件
- */
-+ (instancetype)q_pageView;
-
-/**
- *  实例化页面视图控件
+ *  创建分页视图控件
  *
- *  @param imageNames 显示的图片名字
- *  @param autoScroll 是否自动滚动，default is YES
- *  @param time       自动滚动时间间隔，default is 2.0
- *  @param position   页码视图位置，default is Center
+ *  @param frame        页面视图控件的 frame
+ *  @param imageNames   显示的图片名字
+ *  @param autoScroll   是否自动滚动，default is YES
+ *  @param time         自动滚动时间间隔，default is 2.0
+ *  @param position     页码视图位置，default is Center
  */
-+ (instancetype)q_pageViewWithImageNames:(NSArray<NSString *> *)imageNames
-                              autoScroll:(BOOL)autoScroll
-                          autoScrollTime:(NSTimeInterval)time
-                   pageIndicatorPosition:(QPageIndicatorPosition)position;
++ (instancetype)q_pageViewWithFrame:(CGRect)frame
+                         imageNames:(nullable NSArray<NSString *> *)imageNames
+                         autoScroll:(BOOL)autoScroll
+                     autoScrollTime:(NSTimeInterval)time
+              pageIndicatorPosition:(QPageIndicatorPosition)position;
 
 @end
 

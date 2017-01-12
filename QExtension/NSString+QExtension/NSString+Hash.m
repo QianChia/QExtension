@@ -92,6 +92,16 @@ NS_ASSUME_NONNULL_BEGIN
     return [self q_stringFromBytes:buffer length:CC_SHA1_DIGEST_LENGTH];
 }
 
+- (NSString *)q_hmacSHA224StringWithKey:(NSString *)key {
+    const char *keyData = key.UTF8String;
+    const char *strData = self.UTF8String;
+    uint8_t buffer[CC_SHA224_DIGEST_LENGTH];
+    
+    CCHmac(kCCHmacAlgSHA224, keyData, strlen(keyData), strData, strlen(strData), buffer);
+    
+    return [self q_stringFromBytes:buffer length:CC_SHA224_DIGEST_LENGTH];
+}
+
 - (NSString *)q_hmacSHA256StringWithKey:(NSString *)key {
     const char *keyData = key.UTF8String;
     const char *strData = self.UTF8String;
@@ -100,6 +110,16 @@ NS_ASSUME_NONNULL_BEGIN
     CCHmac(kCCHmacAlgSHA256, keyData, strlen(keyData), strData, strlen(strData), buffer);
     
     return [self q_stringFromBytes:buffer length:CC_SHA256_DIGEST_LENGTH];
+}
+
+- (NSString *)q_hmacSHA384StringWithKey:(NSString *)key {
+    const char *keyData = key.UTF8String;
+    const char *strData = self.UTF8String;
+    uint8_t buffer[CC_SHA384_DIGEST_LENGTH];
+    
+    CCHmac(kCCHmacAlgSHA384, keyData, strlen(keyData), strData, strlen(strData), buffer);
+    
+    return [self q_stringFromBytes:buffer length:CC_SHA384_DIGEST_LENGTH];
 }
 
 - (NSString *)q_hmacSHA512StringWithKey:(NSString *)key {

@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (Base64)
 
-/*
+/**
  *  从 iOS 7.0 开始，apple 提供了 base64 的编码解码的支持。
  */
 

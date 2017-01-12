@@ -9,8 +9,8 @@
 #ifndef NSString_QExtension_h
 #define NSString_QExtension_h
 
-#import "NSString+BundlePath.h"
 #import "NSString+Base64.h"
+#import "NSString+BundlePath.h"
 #import "NSString+Hash.h"
 #import "NSString+Regex.h"
 

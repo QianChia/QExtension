@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 扫描二维码视图控制器
  */
-+ (instancetype)q_scanQRCode:(void (^)(BOOL isSucceed, NSString *result))result;
++ (instancetype)q_qrCodeWithResult:(void (^)(BOOL isSucceed, NSString *result))result;
 
 @end
 

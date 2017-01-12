@@ -22,7 +22,7 @@ static int const ImageViewCount = 3;
 @property (nonatomic, strong) UIPageControl *pageControl;
 
 /// 定时器
-@property (nonatomic, strong) NSTimer *timer;
+@property (nullable, nonatomic, strong) NSTimer *timer;
 
 /// 是否自动滚动，default is YES
 @property(nonatomic, assign, getter=isAutoScroll) BOOL autoScroll;
@@ -34,23 +34,20 @@ static int const ImageViewCount = 3;
 
 @implementation QPageView
 
-/// 实例化页面视图控件
-
-+ (instancetype)q_pageView {
-    
-    return [self q_pageViewWithImageNames:nil autoScroll:YES autoScrollTime:2.0 pageIndicatorPosition:Center];
-}
-
-+ (instancetype)q_pageViewWithImageNames:(NSArray<NSString *> *)imageNames
-                              autoScroll:(BOOL)autoScroll
-                          autoScrollTime:(NSTimeInterval)time
-                   pageIndicatorPosition:(QPageIndicatorPosition)position {
+/// 创建分页视图控件
++ (instancetype)q_pageViewWithFrame:(CGRect)frame
+                         imageNames:(nullable NSArray<NSString *> *)imageNames
+                         autoScroll:(BOOL)autoScroll
+                     autoScrollTime:(NSTimeInterval)time
+              pageIndicatorPosition:(QPageIndicatorPosition)position {
     
     QPageView *pageView = [[self alloc] init];
+    
+    pageView.frame = frame;
+    pageView.imageNames = imageNames;
     pageView.autoScroll = autoScroll;
     pageView.autoScrollTime = time;
     pageView.pageIndicatorPosition = position;
-    pageView.imageNames = imageNames;
     
     return pageView;
 }
