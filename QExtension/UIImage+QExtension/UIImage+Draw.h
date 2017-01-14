@@ -45,6 +45,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (UIImage *)q_imageByCroppingToRound;
 
+/**
+ *  添加图片水印
+ *
+ *  @param string   添加到水印中的文本内容
+ *  @param attrs    水印文字的属性
+ *  @param image    添加到水印中的图片
+ *  @param frame    水印的位置尺寸
+ *
+ *  @return 添加水印的图片
+ */
+- (UIImage *)q_imageWithWaterMarkString:(nullable NSString *)string
+                             attributes:(nullable NSDictionary<NSString *, id> *)attrs
+                                  image:(nullable UIImage *)image
+                                  frame:(CGRect)frame;
+
 @end
 
 

@@ -121,10 +121,16 @@ NS_ASSUME_NONNULL_BEGIN
         [path stroke];
         
     } else {
-       
+        
         CGFloat w = self.progress * rect.size.width;
         CGFloat h = rect.size.height;
         
+        // 绘制进度条背景
+        path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, rect.size.width, rect.size.height)];
+        [[[UIColor lightGrayColor] colorWithAlphaComponent:0.5] set];
+        [path fill];
+        
+        // 绘制进度条
         path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, w, h)];
         [self.lineColor set];
         [path fill];

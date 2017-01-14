@@ -17,6 +17,9 @@
 @property (nonatomic, strong) QTouchLockView *touchLockView;
 @property (nonatomic, strong) NSMutableArray *passWordArrM;
 
+@property (nonatomic, strong) QTouchClipView *touchClipView;
+@property (nonatomic, strong) UIImageView *imageView;
+
 @property (nonatomic, strong) UIImageView *imageView1;
 @property (nonatomic, strong) UIImageView *imageView2;
 
@@ -46,9 +49,10 @@
     
 //    [self uiViewFrameDemo];
 //    [self uiViewQPageViewDemo];
+    [self uiViewQTouchClipViewDemo];
 //    [self uiViewQTouchLockViewDemo];
     
-    [self uiViewControllerQQRCodeDemo];
+//    [self uiViewControllerQQRCodeDemo];
 }
 
 
@@ -550,8 +554,9 @@
 //    [self imageDrawDemo1];
 //    [self imageDrawDemo2];
 //    [self imageDrawDemo3];
-    [self imageDrawDemo4];
-    
+//    [self imageDrawDemo4];
+    [self imageDrawDemo5];
+//    [self imageDrawDemo6];
 }
 
 - (void)imageDrawDemo1 {
@@ -579,18 +584,52 @@
 - (void)imageDrawDemo3 {
     
     // 调整图片的尺寸
-    UIImage *image = [[UIImage imageNamed:@"demo2.jpg"] q_imageByScalingAndCroppingToSize:CGSizeMake(200, 200)];
+    UIImage *image = [UIImage imageNamed:@"demo2.jpg"];
+    UIImage *newImage = [image q_imageByScalingAndCroppingToSize:CGSizeMake(200, 200)];
     
     self.imageView1.contentMode = UIViewContentModeTopLeft;
-    self.imageView1.image = image;
+    self.imageView1.image = newImage;
 }
 
 - (void)imageDrawDemo4 {
     
     // 裁剪圆形图片
-    UIImage *image = [[UIImage imageNamed:@"demo2.jpg"] q_imageByCroppingToRound];
+    UIImage *image = [UIImage imageNamed:@"demo2.jpg"];
+    UIImage *newImage = [image q_imageByCroppingToRound];
     
-    self.imageView1.image = image;
+    self.imageView1.image = newImage;
+}
+
+- (void)imageDrawDemo5 {
+    
+    // 添加图片水印
+    
+    // 设置水印文本属性
+    NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
+    textAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:50];
+    textAttrs[NSForegroundColorAttributeName] = [[UIColor redColor] colorWithAlphaComponent:0.2];
+    textAttrs[NSStrokeWidthAttributeName] = @5;
+    
+    // 添加图片水印
+    UIImage *image = [UIImage imageNamed:@"demo2.jpg"];
+    UIImage *newImage = [image q_imageWithWaterMarkString:@"QianChia"
+                                               attributes:textAttrs
+                                                    image:[UIImage imageNamed:@"demo5"]
+                                                    frame:CGRectMake(30, 300, 50, 50)];
+    
+    self.imageView1.image = newImage;
+}
+
+- (void)imageDrawDemo6 {
+    
+    // 添加图片水印
+    UIImage *image = [UIImage imageNamed:@"demo8"];
+    UIImage *newImage = [image q_imageWithWaterMarkString:nil
+                                               attributes:nil
+                                                    image:[UIImage imageNamed:@"demo5"]
+                                                    frame:CGRectMake(-1, -1, 88, 88)];
+    
+    self.imageView1.image = newImage;
 }
 
 #pragma mark GIF
@@ -626,8 +665,8 @@
 - (void)uiImageQRCodeDemo {
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(20, self.view.bounds.size.height - 100, 100, 50);
-    [button setTitle:@"开始" forState:UIControlStateNormal];
+    button.frame = CGRectMake(20, self.view.bounds.size.height - 100, 200, 50);
+    [button setTitle:@"生成/识别" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(qrCodeButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
@@ -642,8 +681,8 @@
 - (void)qrCodeButtonClick {
     
 //    [self createQRCodeDemo1];
-//    [self createQRCodeDemo2];
-    [self createQRCodeDemo3];
+    [self createQRCodeDemo2];
+//    [self createQRCodeDemo3];
 }
 
 - (void)createQRCodeDemo1 {
@@ -774,6 +813,67 @@
     
     [self.view addSubview:pageView];
 }
+
+
+#pragma mark QTouchClipView
+
+- (void)uiViewQTouchClipViewDemo {
+    
+    CGRect ivFrame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 44);
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:ivFrame];
+    imageView.image = [UIImage imageNamed:@"demo9.jpg"];
+    [self.view addSubview:imageView];
+    self.imageView = imageView;
+    
+    CGRect toolFrame = CGRectMake(0, self.view.bounds.size.height - 44, self.view.bounds.size.width, 44);
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:toolFrame];
+    UIBarButtonItem *clipButton = [[UIBarButtonItem alloc] initWithTitle:@"选择截屏"
+                                                                   style:UIBarButtonItemStylePlain
+                                                                  target:self
+                                                                  action:@selector(clipButtonClik)];
+    UIBarButtonItem *clearButton = [[UIBarButtonItem alloc] initWithTitle:@"取消"
+                                                                    style:UIBarButtonItemStylePlain
+                                                                   target:self
+                                                                   action:@selector(clearButtonClik)];
+    UIBarButtonItem *flexibleButton = [[UIBarButtonItem alloc]
+                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                       target:nil
+                                       action:nil];
+    toolBar.items = @[clipButton, flexibleButton, clearButton];
+    [self.view addSubview:toolBar];
+}
+
+- (void)clearButtonClik {
+    [self.touchClipView removeFromSuperview];
+}
+
+- (void)clipButtonClik {
+    
+    // 创建手势截屏视图
+    QTouchClipView *touchClipView = [QTouchClipView q_touchClipViewWithView:self.imageView
+                                                                 clipResult:^(UIImage * _Nullable image) {
+                                                                     
+        // 获取处理截屏结果
+        if (image) {
+            UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+        }
+    }];
+    
+    // 添加手势截屏视图
+    [self.view addSubview:touchClipView];
+    
+    self.touchClipView = touchClipView;
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    
+    [[[UIAlertView alloc] initWithTitle:nil
+                                message:@"截取成功，已存储到相册中"
+                               delegate:nil
+                      cancelButtonTitle:@"确定"
+                      otherButtonTitles:nil] show];
+}
+
 
 #pragma mark QTouchLockView
 

@@ -55,7 +55,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 ### 2.1 FormData methods
 
-- 文件上传拼接，指定文件数据
+- 1、文件上传拼接，指定文件数据
 
 	```objc
 	
@@ -87,7 +87,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 						    
 		![o_QExtension3](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension3.png)
 
-- 文件上传拼接，指定文件路径
+- 2、文件上传拼接，指定文件路径
 
 	```objc
 	
@@ -119,7 +119,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	                     
 		![o_QExtension4](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension4.png)
 
-- 单文件上传封装，指定文件数据，不带文本内容
+- 3、单文件上传封装，指定文件数据，不带文本内容
 
 	```objc
 	
@@ -138,7 +138,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	
 		![o_QExtension5](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension5.png)
 
-- 单文件上传封装，指定文件路径，不带文本内容
+- 4、单文件上传封装，指定文件路径，不带文本内容
 
 	```objc
 	
@@ -157,7 +157,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	
 		![o_QExtension6](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension6.png)
 
-- 单文件上传封装，指定文件数据，带文本内容
+- 5、单文件上传封装，指定文件数据，带文本内容
 
 	```objc
 	
@@ -178,7 +178,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	
 		![o_QExtension7](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension7.png)
 
-- 单文件上传封装，指定文件路径，带文本内容
+- 6、单文件上传封装，指定文件路径，带文本内容
 
 	```objc
 	
@@ -199,7 +199,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	
 		![o_QExtension8](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension8.png)
 
-- 多文件上传封装，指定文件数据，不带文本内容
+- 7、多文件上传封装，指定文件数据，不带文本内容
 
 	```objc
 	
@@ -219,7 +219,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	
 		![o_QExtension9](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension9.png)
 
-- 多文件上传封装，指定文件路径，不带文本内容
+- 8、多文件上传封装，指定文件路径，不带文本内容
 
 	```objc
 	
@@ -239,7 +239,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	
 		![o_QExtension10](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension10.png)
 
-- 多文件上传封装，指定文件数据，带文本内容
+- 9、多文件上传封装，指定文件数据，带文本内容
 
 	```objc
 	
@@ -261,7 +261,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	
 		![o_QExtension11](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension11.png)
 
-- 多文件上传封装，指定文件路径，带文本内容
+- 10、多文件上传封装，指定文件路径，带文本内容
 
 	```objc
 	
@@ -529,7 +529,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 ### 6.1 Draw methods
 
-- 截取全屏幕图
+- 1、截取全屏幕图
 
 	```objc
 	
@@ -541,7 +541,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	
 		![ot_QExtension23](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension23.png)  ![o_QExtension24](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension24.png)
 
-- 截取指定视图控件屏幕图
+- 2、截取指定视图控件屏幕图
 
 	```objc
 	
@@ -553,29 +553,70 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	
 		![o_QExtension25](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension25.png)  ![o_QExtension26](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension26.png)
 
-- 调整图片的尺寸
+- 3、调整图片的尺寸
 
 	```objc
-	
-		UIImage *image = [[UIImage imageNamed:@"demo2.jpg"] q_imageByScalingAndCroppingToSize:CGSizeMake(200, 200)];
-	
+		
+    	UIImage *image = [UIImage imageNamed:@"demo2.jpg"];
+    	UIImage *newImage = [image q_imageByScalingAndCroppingToSize:CGSizeMake(200, 200)];
+		
 	```
 	
 	- 效果
 	
 		![o_QExtension27](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension27.png)  ![o_QExtension28](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension28.png)
 
-- 裁剪圆形图片
+- 4、裁剪圆形图片
 
 	```objc
 	
-		UIImage *image = [[UIImage imageNamed:@"demo2.jpg"] q_imageByCroppingToRound];
+    	UIImage *image = [UIImage imageNamed:@"demo2.jpg"];
+    	UIImage *newImage = [image q_imageByCroppingToRound];
 	
 	```
 	
 	- 效果
 	
 		![o_QExtension29](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension29.png)  ![o_QExtension30](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension30.png)
+
+
+- 5、添加图片水印
+
+	```objc
+	
+		// 设置水印文本属性
+		NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
+		textAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:50];
+		textAttrs[NSForegroundColorAttributeName] = [[UIColor redColor] colorWithAlphaComponent:0.2];
+		textAttrs[NSStrokeWidthAttributeName] = @5;
+		    
+		// 添加图片水印
+    	UIImage *image = [UIImage imageNamed:@"demo2.jpg"];
+    	UIImage *newImage = [image q_imageWithWaterMarkString:@"QianChia"
+    	                                           attributes:textAttrs
+    	                                                image:[UIImage imageNamed:@"demo5"]
+    	                                                frame:CGRectMake(30, 300, 50, 50)];
+		
+	```
+
+	- 效果
+	
+		![o_QExtension29](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension29.png)  ![o_QExtension45](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension45.png)
+
+	```objc
+		
+		// 添加图片水印
+    	UIImage *image = [UIImage imageNamed:@"demo8"];
+    	UIImage *newImage = [image q_imageWithWaterMarkString:nil
+    	                                           attributes:nil
+    	                                                image:[UIImage imageNamed:@"demo5"]
+    	                                                frame:CGRectMake(-1, -1, 88, 88)];
+		
+	```
+	
+	- 效果
+	
+		![o_QExtension32](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension32.png)  ![o_QExtension46](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension46.png)
 
 ### 6.2 GIF methods
 
@@ -709,7 +750,30 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 		![o_QExtension36](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension36.gif)
 
-### 7.3 QTouchLockView methods
+### 7.3 QTouchClipView methods
+
+- 手势截屏
+
+	```objc
+		// 创建手势截屏视图
+		QTouchClipView *touchClipView = [QTouchClipView q_touchClipViewWithView:self.imageView
+		                                                             clipResult:^(UIImage * _Nullable image) {
+		                                                                 
+		    // 获取处理截屏结果
+		    if (image) {
+		        UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+		    }
+		}];
+		    
+		// 添加手势截屏视图
+		[self.view addSubview:touchClipView];
+	```
+
+	- 效果
+
+		![o_QExtension47](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension47.png)  ![Quartz2D101](http://images2015.cnblogs.com/blog/993906/201701/993906-20170115053253447-1602764499.gif)
+
+### 7.4 QTouchLockView methods
 
 - 手势锁
 
@@ -793,14 +857,14 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 
-		![o_QExtension37](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension37.gif)
+		![o_QExtension49](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension49.png)  ![o_QExtension37](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension37.gif)
 
 
 ## 8、UIViewController Extension
 
 ### 8.1 QQRCode
 
-- 创建二维码扫描视图控制器
+- 1、创建二维码扫描视图控制器
 
 	```objc
 	
@@ -840,7 +904,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 		![o_QExtension41](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension41.PNG) _ ![o_QExtension44](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension44.gif)
 
-- 生成二维码
+- 2、生成二维码
 
 	```objc
 
@@ -860,7 +924,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 		![o_QExtension32](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension32.png)  ![o_QExtension33](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension33.png)
 
-- 识别二维码
+- 3、识别二维码
 	
 	```objc
 	

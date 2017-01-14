@@ -54,15 +54,17 @@ NS_ASSUME_NONNULL_BEGIN
                                      orientation:UIImageOrientationUp];
     CGImageRelease(cgImage);
     
-    // 重绘 UIImage，默认情况下生成的图片比较模糊
+    // 重绘二维码图片，默认情况下生成的图片比较模糊
+    
     CGFloat scale = 100;
     CGFloat width = qrImage.size.width * scale;
     CGFloat height = qrImage.size.height * scale;
+    CGRect backRect = CGRectMake(0, 0, width, height);
     
-    UIGraphicsBeginImageContext(CGSizeMake(width, height));
-    CGContextRef context1 = UIGraphicsGetCurrentContext();
-    CGContextSetInterpolationQuality(context1, kCGInterpolationNone);
-    [qrImage drawInRect:CGRectMake(0, 0, width, height)];
+    UIGraphicsBeginImageContext(backRect.size);
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGContextSetInterpolationQuality(ctx, kCGInterpolationNone);
+    [qrImage drawInRect:backRect];
     qrImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
@@ -70,21 +72,24 @@ NS_ASSUME_NONNULL_BEGIN
     if (headIcon != nil) {
         
         UIGraphicsBeginImageContext(qrImage.size);
-        [qrImage drawInRect:CGRectMake(0, 0, qrImage.size.width, qrImage.size.height)];
+        [qrImage drawInRect:backRect];
         
-        // 设置头像的大小
         CGFloat scale = 5;
         CGFloat width = qrImage.size.width / scale;
         CGFloat height = qrImage.size.height / scale;
         CGFloat x = (qrImage.size.width - width) / 2;
         CGFloat y = (qrImage.size.height - height) / 2;
-        [headIcon drawInRect:CGRectMake(x,  y, width, height)];
+        CGRect headRect = CGRectMake(x, y, width, height);
         
+        // 绘制头像
+        [headIcon drawInRect:headRect];
+        
+        // 获取添加头像后的图片
         UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+        
         UIGraphicsEndImageContext();
         
         return newImage;
-        
     } else {
         return qrImage;
     }
