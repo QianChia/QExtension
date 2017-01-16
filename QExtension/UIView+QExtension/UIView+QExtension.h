@@ -10,6 +10,7 @@
 #define UIView_QExtension_h
 
 #import "QPageView.h"
+#import "QPaintBoardView.h"
 #import "QTouchClipView.h"
 #import "QTouchLockView.h"
 

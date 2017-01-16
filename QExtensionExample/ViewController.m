@@ -23,6 +23,8 @@
 @property (nonatomic, strong) UIImageView *imageView1;
 @property (nonatomic, strong) UIImageView *imageView2;
 
+@property (nonatomic, strong) QPaintBoardView *paintBoardView;
+
 @end
 
 @implementation ViewController
@@ -49,7 +51,9 @@
     
 //    [self uiViewFrameDemo];
 //    [self uiViewQPageViewDemo];
-    [self uiViewQTouchClipViewDemo];
+//    [self uiViewQPaintBoardViewDemo1];
+    [self uiViewQPaintBoardViewDemo2];
+//    [self uiViewQTouchClipViewDemo];
 //    [self uiViewQTouchLockViewDemo];
     
 //    [self uiViewControllerQQRCodeDemo];
@@ -812,6 +816,95 @@
                                    pageIndicatorPosition:Center];
     
     [self.view addSubview:pageView];
+}
+
+
+#pragma mark - QPaintBoardView
+
+// 绘制简单画板
+- (void)uiViewQPaintBoardViewDemo1 {
+    
+    self.view.backgroundColor = [UIColor lightGrayColor];
+    
+    UIButton *undoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    undoButton.frame = CGRectMake(20, 280, 50, 30);
+    [undoButton setTitle:@"撤销" forState:UIControlStateNormal];
+    [undoButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [undoButton setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+    [undoButton addTarget:self action:@selector(undoButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:undoButton];
+    
+    UIButton *clearButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    clearButton.frame = CGRectMake(100, 280, 50, 30);
+    [clearButton setTitle:@"清除" forState:UIControlStateNormal];
+    [clearButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [clearButton setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+    [clearButton addTarget:self action:@selector(clearButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:clearButton];
+    
+    UIButton *saveButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    saveButton.frame = CGRectMake(180, 280, 50, 30);
+    [saveButton setTitle:@"保存" forState:UIControlStateNormal];
+    [saveButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [saveButton setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+    [saveButton addTarget:self action:@selector(saveButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:saveButton];
+    
+    // 创建简单画板
+    
+    CGRect frame = CGRectMake(20, 50, self.view.bounds.size.width - 40, 200);
+    
+    QPaintBoardView *paintBoardView = [QPaintBoardView q_paintBoardViewWithFrame:frame];
+    
+    // 可选属性值设置
+    paintBoardView.paintLineWidth = 5;                         // default is 1
+    paintBoardView.paintLineColor = [UIColor redColor];        // default is blackColor
+    paintBoardView.paintBoardColor = [UIColor cyanColor];      // default is whiteColor
+    
+    [self.view addSubview:paintBoardView];
+    self.paintBoardView = paintBoardView;
+}
+
+- (void)undoButtonClick {
+    
+    // 撤销绘画结果
+    [self.paintBoardView q_back];
+}
+
+- (void)clearButtonClick {
+    
+    // 清除绘画结果
+    [self.paintBoardView q_clear];
+}
+
+- (void)saveButtonClick {
+    
+    // 获取绘画结果
+    UIImage *image = [self.paintBoardView q_getPaintImage];
+    
+    if (image) {
+        NSData *data = UIImagePNGRepresentation(image);
+        [data writeToFile:@"/Users/JHQ0228/Desktop/Images/pic.png" atomically:YES];
+    }
+}
+
+// 绘制画板
+- (void)uiViewQPaintBoardViewDemo2 {
+    
+    // 创建画板
+    QPaintBoardView *paintBoard = [QPaintBoardView q_paintBoardViewWithFrame:self.view.bounds
+                                                                   lineWidth:0
+                                                                   lineColor:nil
+                                                                  boardColor:nil
+                                                                 paintResult:^(UIImage * _Nullable image) {
+                                                                     
+         if (image) {
+             NSData *data = UIImagePNGRepresentation(image);
+             [data writeToFile:@"/Users/JHQ0228/Desktop/Images/pic.png" atomically:YES];
+         }
+     }];
+    
+    [self.view addSubview:paintBoard];
 }
 
 

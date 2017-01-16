@@ -11,6 +11,9 @@
 		1A49E66D1E2A4C1000495DE9 /* demo8.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A49E66C1E2A4C1000495DE9 /* demo8.png */; };
 		1A49E6B51E2AD1B200495DE9 /* QTouchClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A49E6B41E2AD1B200495DE9 /* QTouchClipView.m */; };
 		1A49E6B71E2AD38900495DE9 /* demo9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A49E6B61E2AD38900495DE9 /* demo9.jpg */; };
+		1A49E70A1E2C7ABC00495DE9 /* QPaintBoardPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A49E7061E2C7ABC00495DE9 /* QPaintBoardPath.m */; };
+		1A49E70B1E2C7ABC00495DE9 /* QPaintBoardView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1A49E7071E2C7ABC00495DE9 /* QPaintBoardView.bundle */; };
+		1A49E70C1E2C7ABC00495DE9 /* QPaintBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A49E7091E2C7ABC00495DE9 /* QPaintBoardView.m */; };
 		1A82ACF51E2662C700D3F6CA /* NSData+FormData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82ACF31E2662C700D3F6CA /* NSData+FormData.m */; };
 		1A82AD0F1E26797A00D3F6CA /* NSDictionary+LocaleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82AD0D1E26797A00D3F6CA /* NSDictionary+LocaleLog.m */; };
 		1A82AD1A1E267A8600D3F6CA /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82AD121E267A8600D3F6CA /* NSString+Base64.m */; };
@@ -76,6 +79,11 @@
 		1A49E6B31E2AD1B200495DE9 /* QTouchClipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTouchClipView.h; sourceTree = "<group>"; };
 		1A49E6B41E2AD1B200495DE9 /* QTouchClipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTouchClipView.m; sourceTree = "<group>"; };
 		1A49E6B61E2AD38900495DE9 /* demo9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = demo9.jpg; sourceTree = "<group>"; };
+		1A49E7051E2C7ABC00495DE9 /* QPaintBoardPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPaintBoardPath.h; sourceTree = "<group>"; };
+		1A49E7061E2C7ABC00495DE9 /* QPaintBoardPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPaintBoardPath.m; sourceTree = "<group>"; };
+		1A49E7071E2C7ABC00495DE9 /* QPaintBoardView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = QPaintBoardView.bundle; sourceTree = "<group>"; };
+		1A49E7081E2C7ABC00495DE9 /* QPaintBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPaintBoardView.h; sourceTree = "<group>"; };
+		1A49E7091E2C7ABC00495DE9 /* QPaintBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPaintBoardView.m; sourceTree = "<group>"; };
 		1A82ACF21E2662C700D3F6CA /* NSData+FormData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+FormData.h"; sourceTree = "<group>"; };
 		1A82ACF31E2662C700D3F6CA /* NSData+FormData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+FormData.m"; sourceTree = "<group>"; };
 		1A82ACF41E2662C700D3F6CA /* NSData+QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+QExtension.h"; sourceTree = "<group>"; };
@@ -283,9 +291,14 @@
 			isa = PBXGroup;
 			children = (
 				1A82AD4A1E270CF000D3F6CA /* QTouchLockView.bundle */,
+				1A49E7071E2C7ABC00495DE9 /* QPaintBoardView.bundle */,
 				1A82AD4F1E270CF000D3F6CA /* UIView+QExtension.h */,
 				1A82AD481E270CF000D3F6CA /* QPageView.h */,
 				1A82AD491E270CF000D3F6CA /* QPageView.m */,
+				1A49E7081E2C7ABC00495DE9 /* QPaintBoardView.h */,
+				1A49E7091E2C7ABC00495DE9 /* QPaintBoardView.m */,
+				1A49E7051E2C7ABC00495DE9 /* QPaintBoardPath.h */,
+				1A49E7061E2C7ABC00495DE9 /* QPaintBoardPath.m */,
 				1A49E6B31E2AD1B200495DE9 /* QTouchClipView.h */,
 				1A49E6B41E2AD1B200495DE9 /* QTouchClipView.m */,
 				1A82AD4B1E270CF000D3F6CA /* QTouchLockView.h */,
@@ -484,6 +497,7 @@
 				1A82AD301E26AA8600D3F6CA /* demo3.gif in Resources */,
 				1AE5F90A1D3CF1EA0067811A /* Assets.xcassets in Resources */,
 				1A82AD711E274AA500D3F6CA /* QQRCode.bundle in Resources */,
+				1A49E70B1E2C7ABC00495DE9 /* QPaintBoardView.bundle in Resources */,
 				1A82AD681E271A1500D3F6CA /* page_03.png in Resources */,
 				1A49E6B71E2AD38900495DE9 /* demo9.jpg in Resources */,
 				1A49E66D1E2A4C1000495DE9 /* demo8.png in Resources */,
@@ -523,6 +537,7 @@
 			files = (
 				1A82AD411E26EDC100D3F6CA /* UIImage+GIF.m in Sources */,
 				1A82AD721E274AA500D3F6CA /* QQRCode.m in Sources */,
+				1A49E70A1E2C7ABC00495DE9 /* QPaintBoardPath.m in Sources */,
 				1AE5F9051D3CF1EA0067811A /* ViewController.m in Sources */,
 				1A82ACF51E2662C700D3F6CA /* NSData+FormData.m in Sources */,
 				1A82AD521E270CF000D3F6CA /* QTouchLockView.m in Sources */,
@@ -532,6 +547,7 @@
 				1A82AD1C1E267A8600D3F6CA /* NSString+Hash.m in Sources */,
 				1A82AD731E274AA500D3F6CA /* QQRCodeMine.m in Sources */,
 				1A82AD1D1E267A8600D3F6CA /* NSString+Regex.m in Sources */,
+				1A49E70C1E2C7ABC00495DE9 /* QPaintBoardView.m in Sources */,
 				1A82AD0F1E26797A00D3F6CA /* NSDictionary+LocaleLog.m in Sources */,
 				1A82AD401E26EDC100D3F6CA /* UIImage+Draw.m in Sources */,
 				1AE5F8FF1D3CF1EA0067811A /* main.m in Sources */,

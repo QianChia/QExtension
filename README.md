@@ -46,9 +46,9 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	
 	- 效果，使用前后对比
 	
-		![o_QExtension1](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension1.png)
+	![o_QExtension1](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension1.png)
 
-		![o_QExtension2](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension2.png)
+	![o_QExtension2](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension2.png)
 
 
 ## 2、NSData Extension
@@ -85,7 +85,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 						    
-		![o_QExtension3](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension3.png)
+	![o_QExtension3](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension3.png)
 
 - 2、文件上传拼接，指定文件路径
 
@@ -117,7 +117,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 	                     
-		![o_QExtension4](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension4.png)
+	![o_QExtension4](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension4.png)
 
 - 3、单文件上传封装，指定文件数据，不带文本内容
 
@@ -136,7 +136,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 	
-		![o_QExtension5](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension5.png)
+	![o_QExtension5](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension5.png)
 
 - 4、单文件上传封装，指定文件路径，不带文本内容
 
@@ -155,7 +155,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 	
-		![o_QExtension6](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension6.png)
+	![o_QExtension6](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension6.png)
 
 - 5、单文件上传封装，指定文件数据，带文本内容
 
@@ -176,7 +176,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 	
-		![o_QExtension7](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension7.png)
+	![o_QExtension7](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension7.png)
 
 - 6、单文件上传封装，指定文件路径，带文本内容
 
@@ -197,7 +197,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 	
-		![o_QExtension8](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension8.png)
+	![o_QExtension8](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension8.png)
 
 - 7、多文件上传封装，指定文件数据，不带文本内容
 
@@ -217,7 +217,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 	
-		![o_QExtension9](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension9.png)
+	![o_QExtension9](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension9.png)
 
 - 8、多文件上传封装，指定文件路径，不带文本内容
 
@@ -237,7 +237,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 	
-		![o_QExtension10](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension10.png)
+	![o_QExtension10](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension10.png)
 
 - 9、多文件上传封装，指定文件数据，带文本内容
 
@@ -259,7 +259,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 	
-		![o_QExtension11](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension11.png)
+	![o_QExtension11](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension11.png)
 
 - 10、多文件上传封装，指定文件路径，带文本内容
 
@@ -281,7 +281,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 	
-		![o_QExtension12](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension12.png)
+	![o_QExtension12](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension12.png)
 
 
 ## 3、NSDictionary Extension
@@ -310,9 +310,9 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	
 	- 效果，使用前后对比
 	
-		![o_QExtension13](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension13.png)
+	![o_QExtension13](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension13.png)
 
-		![o_QExtension14](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension14.png)
+	![o_QExtension14](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension14.png)
 
 
 ## 4、NSString Extension
@@ -341,7 +341,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	
 	- 效果
 
-		![o_QExtension15](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension15.png)
+	![o_QExtension15](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension15.png)
 	
 ### 4.2 BundlePath methods
 
@@ -379,7 +379,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 
-		![o_QExtension16](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension16.png)
+	![o_QExtension16](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension16.png)
 
 ### 4.3 Hash methods 
 
@@ -453,7 +453,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 
-		![o_QExtension17](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension17.png)
+	![o_QExtension17](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension17.png)
 		
 ### 4.4 Regex methods 
 
@@ -485,7 +485,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 
-		![o_QExtension18](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension18.png)
+	![o_QExtension18](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension18.png)
 
 
 ## 5、UIButton Extension
@@ -521,9 +521,9 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 
-		![o_QExtension19](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension19.gif)  ![o_QExtension20](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension20.gif)
+	![o_QExtension19](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension19.gif)  ![o_QExtension20](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension20.gif)
 
-		![o_QExtension21](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension21.gif)  ![o_QExtension22](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension22.gif)
+	![o_QExtension21](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension21.gif)  ![o_QExtension22](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension22.gif)
 
 ## 6、UIImage Extension
 
@@ -539,7 +539,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	
 	- 效果
 	
-		![ot_QExtension23](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension23.png)  ![o_QExtension24](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension24.png)
+	![ot_QExtension23](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension23.png)  ![o_QExtension24](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension24.png)
 
 - 2、截取指定视图控件屏幕图
 
@@ -551,7 +551,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	
 	- 效果
 	
-		![o_QExtension25](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension25.png)  ![o_QExtension26](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension26.png)
+	![o_QExtension25](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension25.png)  ![o_QExtension26](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension26.png)
 
 - 3、调整图片的尺寸
 
@@ -564,7 +564,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	
 	- 效果
 	
-		![o_QExtension27](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension27.png)  ![o_QExtension28](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension28.png)
+	![o_QExtension27](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension27.png)  ![o_QExtension28](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension28.png)
 
 - 4、裁剪圆形图片
 
@@ -577,7 +577,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	
 	- 效果
 	
-		![o_QExtension29](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension29.png)  ![o_QExtension30](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension30.png)
+	![o_QExtension29](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension29.png)  ![o_QExtension30](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension30.png)
 
 
 - 5、添加图片水印
@@ -601,7 +601,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 	
-		![o_QExtension29](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension29.png)  ![o_QExtension45](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension45.png)
+	![o_QExtension29](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension29.png)  ![o_QExtension45](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension45.png)
 
 	```objc
 		
@@ -616,7 +616,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	
 	- 效果
 	
-		![o_QExtension32](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension32.png)  ![o_QExtension46](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension46.png)
+	![o_QExtension32](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension32.png)  ![o_QExtension46](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension46.png)
 
 ### 6.2 GIF methods
 
@@ -635,7 +635,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 
-		![o_QExtension31](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension31.gif)
+	![o_QExtension31](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension31.gif)
 
 ### 6.3 QRCode methods
 
@@ -657,7 +657,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 
-		![o_QExtension32](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension32.png)  ![o_QExtension33](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension33.png)
+	![o_QExtension32](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension32.png)  ![o_QExtension33](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension33.png)
 
 - 识别二维码
 
@@ -669,7 +669,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 
-		![o_QExtension34](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension34.gif)
+	![o_QExtension34](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension34.gif)
 
 
 ## 7、UIView Extension
@@ -694,7 +694,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 
-		![o_QExtension35](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension35.gif)
+	![o_QExtension35](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension35.gif)
 
 ### 7.2 QPageView methods
  	
@@ -748,9 +748,68 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 
-		![o_QExtension36](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension36.gif)
+	![o_QExtension36](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension36.gif)
 
-### 7.3 QTouchClipView methods
+### 7.3 QPaintBoardView methods
+
+- 1、创建简单画板
+
+	```objc
+		// 创建简单画板
+		CGRect frame = CGRectMake(20, 50, self.view.bounds.size.width - 40, 200);
+		    
+		QPaintBoardView *paintBoardView = [QPaintBoardView q_paintBoardViewWithFrame:frame];
+		    
+		// 可选属性值设置
+		paintBoardView.paintLineWidth = 5;                         // default is 1
+		paintBoardView.paintLineColor = [UIColor redColor];        // default is blackColor
+		paintBoardView.paintBoardColor = [UIColor cyanColor];      // default is whiteColor
+		
+		[self.view addSubview:paintBoardView];
+		self.paintBoardView = paintBoardView;
+		
+		// 撤销绘画结果
+		[self.paintBoardView q_back];
+		    
+		// 清除绘画结果
+		[self.paintBoardView q_clear];
+		    
+		// 获取绘画结果
+		UIImage *image = [self.paintBoardView q_getPaintImage];
+	```
+	
+	- 效果
+	
+	![Quartz2D104](http://images2015.cnblogs.com/blog/993906/201701/993906-20170116114100286-802324412.png)  ![Quartz2D105](http://images2015.cnblogs.com/blog/993906/201701/993906-20170116114109661-8869302.gif)
+
+- 2、创建画板
+
+	```objc
+		// 创建画板
+		QPaintBoardView *paintBoard = [QPaintBoardView q_paintBoardViewWithFrame:self.view.bounds
+		                                                               lineWidth:0
+		                                                               lineColor:nil
+		                                                              boardColor:nil
+		                                                             paintResult:^(UIImage * _Nullable image) {
+		                                                                 
+		    if (image) {
+		        NSData *data = UIImagePNGRepresentation(image);
+		        [data writeToFile:@"/Users/JHQ0228/Desktop/Images/pic.png" atomically:YES];
+		    }
+		}];
+		    
+		[self.view addSubview:paintBoard];
+	```
+	
+	- 效果
+	
+	![Quartz2D106](http://images2015.cnblogs.com/blog/993906/201701/993906-20170116114130771-1515603518.png)  ![Quartz2D107](http://images2015.cnblogs.com/blog/993906/201701/993906-20170116114141599-1947261351.gif)
+
+	![Quartz2D108](http://images2015.cnblogs.com/blog/993906/201701/993906-20170116114153552-1511552583.png)  ![Quartz2D109](http://images2015.cnblogs.com/blog/993906/201701/993906-20170116114202271-1386250266.gif)
+
+	![Quartz2D110](http://images2015.cnblogs.com/blog/993906/201701/993906-20170116114210474-405321350.png)   ![Quartz2D111](http://images2015.cnblogs.com/blog/993906/201701/993906-20170116114219802-1647308203.gif)
+
+### 7.4 QTouchClipView methods
 
 - 手势截屏
 
@@ -771,9 +830,9 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 
-		![o_QExtension47](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension47.png)  ![Quartz2D101](http://images2015.cnblogs.com/blog/993906/201701/993906-20170115053253447-1602764499.gif)
+	![o_QExtension47](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension47.png)  ![Quartz2D101](http://images2015.cnblogs.com/blog/993906/201701/993906-20170115053253447-1602764499.gif)
 
-### 7.4 QTouchLockView methods
+### 7.5 QTouchLockView methods
 
 - 手势锁
 
@@ -857,7 +916,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 
-		![o_QExtension49](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension49.png)  ![o_QExtension37](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension37.gif)
+	![o_QExtension49](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension49.png)  ![o_QExtension37](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension37.gif)
 
 
 ## 8、UIViewController Extension
@@ -900,9 +959,9 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	
 	- 效果
 
-		![o_QExtension39](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension39.PNG) _ ![o_QExtension40](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension40.PNG)
+	![o_QExtension39](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension39.PNG) _ ![o_QExtension40](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension40.PNG)
 
-		![o_QExtension41](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension41.PNG) _ ![o_QExtension44](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension44.gif)
+	![o_QExtension41](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension41.PNG) _ ![o_QExtension44](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension44.gif)
 
 - 2、生成二维码
 
@@ -922,7 +981,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 
-		![o_QExtension32](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension32.png)  ![o_QExtension33](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension33.png)
+	![o_QExtension32](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension32.png)  ![o_QExtension33](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension33.png)
 
 - 3、识别二维码
 	
@@ -957,7 +1016,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	- 效果
 
-		![o_QExtension34](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension34.gif)
+	![o_QExtension34](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension34.gif)
 
 
 
