@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIColor *lineColor;
 
 /// 按钮的背景颜色
-@property (nonatomic, strong) UIColor *backgroundColor;
+@property (nonatomic, strong) UIColor *backColor;
 
 /// 按钮是否显示为圆形
 @property (nonatomic, assign, getter=isRound) BOOL round;
@@ -35,14 +35,14 @@ NS_ASSUME_NONNULL_BEGIN
                                 lineWidth:(CGFloat)lineWidth
                                 lineColor:(nullable UIColor *)lineColor
                                 textColor:(nullable UIColor *)textColor
-                          backgroundColor:(nullable UIColor *)backgroundColor
+                                backColor:(nullable UIColor *)backColor
                                   isRound:(BOOL)isRound {
     
     QProgressButton *progressButton = [[self alloc] init];
     
     progressButton.lineWidth = lineWidth ? : 2;
     progressButton.lineColor = lineColor ? : [UIColor colorWithRed:76/255.0 green:217/255.0 blue:100/255.0 alpha:1.0];
-    progressButton.backgroundColor = backgroundColor ? : [UIColor clearColor];
+    progressButton.backColor = backColor ? : [UIColor clearColor];
     progressButton.round = isRound;
     
     // 设置按钮的实际 frame
@@ -71,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
     
     // 绘制按钮的背景颜色
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:rect];
-    [self.backgroundColor set];
+    [self.backColor set];
     [path fill];
     
     // 设置进度终止时显示的内容

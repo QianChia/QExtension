@@ -490,7 +490,7 @@
                                                                        lineWidth:10
                                                                        lineColor:[UIColor blueColor]
                                                                        textColor:[UIColor redColor]
-                                                                 backgroundColor:[UIColor yellowColor]
+                                                                       backColor:[UIColor yellowColor]
                                                                          isRound:YES];
     
     // 设置按钮点击事件
@@ -1169,6 +1169,9 @@
     [self qMarqueeViewDemo6];
     
     [self qMarqueeViewDemo7];
+    [self qMarqueeViewDemo8];
+    [self qMarqueeViewDemo9];
+    [self qMarqueeViewDemo10];
 }
 
 - (void)qMarqueeViewDemo1 {
@@ -1254,7 +1257,7 @@
     
     // 设置显示的内容
     marqueeView.contentTexts = showList;
-    marqueeView.contentImage = [UIImage imageNamed:@"waring2"];
+    marqueeView.contentIcon = [UIImage imageNamed:@"waring2"];
     
     // 设置动画时间，0 不滚动
     marqueeView.animationDuration = 0;
@@ -1279,7 +1282,7 @@
     
     // 设置显示的内容
     marqueeView.contentTexts = showList;
-    marqueeView.contentImage = [UIImage imageNamed:@"waring2"];
+    marqueeView.contentIcon = [UIImage imageNamed:@"waring2"];
     
     // 设置动画时间
     marqueeView.animationDuration = 0.5;
@@ -1304,10 +1307,11 @@
                                                                texts:showList
                                                                color:[UIColor whiteColor]
                                                                 font:nil
-                                                               image:[UIImage imageNamed:@"waring1"]
-                                                            duration:1.0
+                                                               align:NSTextAlignmentLeft
+                                                                icon:[UIImage imageNamed:@"waring1"]
                                                            direction:QMarqueeViewDirectionDown
-                                                               align:NSTextAlignmentCenter
+                                                            duration:1.0
+                                                               delay:0
                                                               target:self];
     
     marqueeView.layer.cornerRadius = 15;
@@ -1327,10 +1331,11 @@
                                                                texts:showList
                                                                color:[UIColor whiteColor]
                                                                 font:nil
-                                                               image:[UIImage imageNamed:@"waring1"]
-                                                            duration:0.5
-                                                           direction:QMarqueeViewDirectionUp
                                                                align:NSTextAlignmentLeft
+                                                                icon:[UIImage imageNamed:@"waring1"]
+                                                           direction:QMarqueeViewDirectionUp
+                                                            duration:0.5
+                                                               delay:0
                                                               target:self];
     
     marqueeView.layer.cornerRadius = 15;
@@ -1342,16 +1347,11 @@
 - (void)qMarqueeViewDemo7 {
     
     // 设置显示的内容
-//    NSArray *showList = @[@"1. Hello World",
-//                          @"2. 欢迎大家关注哦！",
-//                          @"3. GitHub：QianChia",
-//                          @"4. 新浪微博：QianChia0123",
-//                          @"5. 个人博客：cnblogs.com/QianChia"];
-    
     NSArray *showList = @[@"1. Hello World",
-                          @"2. 欢迎大家关注哦！"];
-    
-//    NSArray *showList = @[@"1. Hello World"];
+                          @"2. 欢迎大家关注哦！",
+                          @"3. GitHub：QianChia",
+                          @"4. 新浪微博：QianChia0123",
+                          @"5. 个人博客：cnblogs.com/QianChia"];
     
     // 创建滚动视图
     CGRect frame = CGRectMake(0, 350, self.view.bounds.size.width, 30);
@@ -1378,6 +1378,108 @@
     // 开始滚动
     [marqueeView q_startAnimation];
 }
+
+- (void)qMarqueeViewDemo8 {
+    
+    // 设置显示的内容
+    NSArray *showList = @[@"1. Hello World",
+                          @"2. 欢迎大家关注哦！",
+                          @"3. GitHub：QianChia",
+                          @"4. 新浪微博：QianChia0123",
+                          @"5. 个人博客：cnblogs.com/QianChia"];
+    
+    // 创建滚动视图
+    CGRect frame = CGRectMake(0, 400, self.view.bounds.size.width, 30);
+    QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
+    
+    
+    // 设置代理，响应滚动视图点击
+    marqueeView.delegate = self;
+    
+    // 设置显示的内容
+    marqueeView.contentTexts = showList;
+    marqueeView.contentTextColor = [UIColor whiteColor];
+    marqueeView.contentTextFont = [UIFont boldSystemFontOfSize:18];
+    
+    // 设置动画时间
+    marqueeView.animationDuration = 5.0;
+    
+    // 设置动画方向
+    marqueeView.animationDirection = QMarqueeViewDirectionRight;
+    
+    marqueeView.backgroundColor = [UIColor colorWithRed:102/255.0f green:133/255.0f blue:253/255.0f alpha:1];
+    [self.view addSubview:marqueeView];
+    
+    // 开始滚动
+    [marqueeView q_startAnimation];
+}
+
+- (void)qMarqueeViewDemo9 {
+    
+    // 设置显示的内容
+    NSArray *showList = @[@"1. Hello World",
+                          @"2. 欢迎大家关注哦！",
+                          @"3. GitHub：QianChia",
+                          @"4. 新浪微博：QianChia0123",
+                          @"5. 个人博客：cnblogs.com/QianChia"];
+    
+    // 创建滚动视图
+    CGRect frame = CGRectMake(30, 450, self.view.bounds.size.width - 150, 30);
+    QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
+    
+    // 设置显示的内容
+    marqueeView.contentTexts = showList;
+    marqueeView.contentTextColor = [UIColor redColor];
+    marqueeView.contentIcon = [UIImage imageNamed:@"waring2"];
+    
+    // 设置动画时间
+    marqueeView.animationDuration = 5.0;
+    
+    // 设置动画方向
+    marqueeView.animationDirection = QMarqueeViewDirectionLeft;
+    
+    marqueeView.layer.cornerRadius = 15;
+    marqueeView.layer.masksToBounds = YES;
+    marqueeView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.5];
+    [self.view addSubview:marqueeView];
+    
+    // 开始滚动
+    [marqueeView q_startAnimation];
+}
+
+- (void)qMarqueeViewDemo10 {
+    
+    // 设置显示的内容
+    NSArray *showList = @[@"1. Hello World",
+                          @"2. 欢迎大家关注哦！",
+                          @"3. GitHub：QianChia",
+                          @"4. 新浪微博：QianChia0123",
+                          @"5. 个人博客：cnblogs.com/QianChia"];
+    
+    // 创建滚动视图
+    CGRect frame = CGRectMake(30, 500, self.view.bounds.size.width - 150, 30);
+    QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
+    
+    // 设置显示的内容
+    marqueeView.contentTexts = showList;
+    marqueeView.contentTextColor = [UIColor whiteColor];
+    marqueeView.contentIcon = [UIImage imageNamed:@"waring1"];
+    
+    // 设置动画时间
+    marqueeView.animationDuration = 5.0;
+    
+    // 设置动画方向
+    marqueeView.animationDirection = QMarqueeViewDirectionRight;
+    
+    marqueeView.layer.cornerRadius = 15;
+    marqueeView.layer.masksToBounds = YES;
+    marqueeView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.5];
+    [self.view addSubview:marqueeView];
+    
+    // 开始滚动
+    [marqueeView q_startAnimation];
+}
+
 
 
 

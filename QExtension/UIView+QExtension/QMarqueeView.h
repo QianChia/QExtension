@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - QMarqueeViewDelegate
 
+/// 跑马灯内容点击处理协议
 @protocol QMarqueeViewDelegate <NSObject>
 
 - (void)didClickContentAtIndex:(NSInteger)index;
@@ -22,9 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - QMarqueeView
 
-/// 跑马灯滚动方向
+/// 跑马灯滚动方向枚举
 typedef NS_ENUM(NSUInteger, QMarqueeViewDirection) {
-    
     QMarqueeViewDirectionUp,
     QMarqueeViewDirectionDown,
     QMarqueeViewDirectionLeft,
@@ -45,26 +45,23 @@ typedef NS_ENUM(NSUInteger, QMarqueeViewDirection) {
 /// 显示的文本内容对齐方式，default is NSTextAlignmentLeft
 @property (nonatomic, assign) NSTextAlignment contentTextAlign;
 
-/// 显示的图片内容
-@property (nonatomic, strong) UIImage *contentImage;
+/// 显示的图标内容，可以为 nil 不显示图标
+@property (nonatomic, strong) UIImage *contentIcon;
 
-/// 滚动方向，default is QMarqueeViewDirectionUp
+/// 动画方向，default is QMarqueeViewDirectionUp
 @property (nonatomic, assign) QMarqueeViewDirection animationDirection;
 
 /// 动画时间，等于 0 时不滚动
 @property (nonatomic, assign) NSTimeInterval animationDuration;
 
-/// 两个动画之间的时间间隔，default is 1.0 秒
+/// 动画停顿时间，default is 1.0 秒
 @property (nonatomic, assign) NSTimeInterval animationDelay;
-
-/// 水平滚动时两个字符串之间的间隔，default is 20
-@property (nonatomic, assign) CGFloat horizontalSpace;
 
 /// 代理
 @property (nonatomic, weak) id<QMarqueeViewDelegate> delegate;
 
 /**
- *  开始滚动
+ *  开始动画
  */
 - (void)q_startAnimation;
 
@@ -73,11 +70,13 @@ typedef NS_ENUM(NSUInteger, QMarqueeViewDirection) {
  *
  *  @param frame        跑马灯对象的 frame
  *  @param texts        显示的文本内容
- *  @param color        显示的文本内容颜色
- *  @param font         变化时间
- *  @param image        显示的文本内容字体
- *  @param duration     动画时间
- *  @param align        显示的文本内容对齐方式
+ *  @param color        显示的文本内容颜色，default is redColor
+ *  @param font         显示的文本内容字体，default is 15.0
+ *  @param align        显示的文本内容对齐方式，default is NSTextAlignmentLeft
+ *  @param icon         显示的图片内容
+ *  @param direction    动画方向，default is QMarqueeViewDirectionUp
+ *  @param duration     动画时间，等于 0 时不滚动
+ *  @param delay        动画停顿时间，default is 1.0 秒
  *  @param target       代理
  *
  *  @return 跑马灯对象
@@ -86,10 +85,11 @@ typedef NS_ENUM(NSUInteger, QMarqueeViewDirection) {
                                  texts:(NSArray *)texts
                                  color:(nullable UIColor *)color
                                   font:(nullable UIFont *)font
-                                 image:(nullable UIImage *)image
-                              duration:(NSTimeInterval)duartion
-                             direction:(QMarqueeViewDirection)direction
                                  align:(NSTextAlignment)align
+                                  icon:(nullable UIImage *)icon
+                             direction:(QMarqueeViewDirection)direction
+                              duration:(NSTimeInterval)duartion
+                                 delay:(NSTimeInterval)delay
                                 target:(id<QMarqueeViewDelegate>)target;
 
 @end

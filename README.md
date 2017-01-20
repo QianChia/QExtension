@@ -502,7 +502,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 		                                                                   lineWidth:10
 		                                                                   lineColor:[UIColor blueColor]
 		                                                                   textColor:[UIColor redColor]
-		                                                             backgroundColor:[UIColor yellowColor]
+		                                                                   backColor:[UIColor yellowColor]
 		                                                                     isRound:YES];
 		    
 		// 设置按钮点击事件
