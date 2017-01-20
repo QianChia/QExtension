@@ -23,7 +23,11 @@
 
 #import "UIButton+QExtension.h"
 
+#import "UIColor+QExtension.h"
+
 #import "UIImage+QExtension.h"
+
+#import "UILabel+QExtension.h"
 
 #import "UIView+QExtension.h"
 

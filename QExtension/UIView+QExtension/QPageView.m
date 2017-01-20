@@ -82,7 +82,7 @@ static int const ImageViewCount = 3;
         self.autoScroll = YES;
         self.scrollDirectionPortrait = NO;
         self.hidePageIndicator = NO;
-        self.pageIndicatorPosition = Center;
+        self.pageIndicatorPosition = QPageIndicatorPositionCenter;
     }
     return self;
 }
@@ -113,28 +113,28 @@ static int const ImageViewCount = 3;
     CGFloat pageX = (scrollW - pageW) / 2;
     CGFloat pageY = scrollH - pageH;
     
-    if (self.pageIndicatorPosition == Left) {
+    if (self.pageIndicatorPosition == QPageIndicatorPositionLeft) {
         
         pageX = margin;
         pageY = scrollH - pageH - margin;
         
-    } else if (self.pageIndicatorPosition == Center) {
+    } else if (self.pageIndicatorPosition == QPageIndicatorPositionCenter) {
         
         pageY = scrollH - pageH - margin;
         
-    } else if (self.pageIndicatorPosition == Right) {
+    } else if (self.pageIndicatorPosition == QPageIndicatorPositionRight) {
         
         pageX = scrollW - pageW - margin;
         pageY = scrollH - pageH - margin;
         
-    } else if (self.pageIndicatorPosition == LeftCenter) {
+    } else if (self.pageIndicatorPosition == QPageIndicatorPositionLeftCenter) {
         
         self.pageControl.transform = CGAffineTransformMakeRotation(0.5 * M_PI);
         
         pageX = (pageH - pageW) / 2;
         pageY = (scrollH - pageH) / 2;
         
-    } else if (self.pageIndicatorPosition == RightCenter) {
+    } else if (self.pageIndicatorPosition == QPageIndicatorPositionRightCenter) {
         
         self.pageControl.transform = CGAffineTransformMakeRotation(0.5 * M_PI);
         

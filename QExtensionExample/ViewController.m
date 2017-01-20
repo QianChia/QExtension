@@ -10,7 +10,7 @@
 
 #import "QExtension.h"
 
-@interface ViewController ()
+@interface ViewController () <QMarqueeViewDelegate>
 
 @property (nonatomic, strong) QProgressButton *progressButton;
 
@@ -24,6 +24,8 @@
 @property (nonatomic, strong) UIImageView *imageView2;
 
 @property (nonatomic, strong) QPaintBoardView *paintBoardView;
+
+@property (nonatomic, strong) QCountingLabel *countingLabel;
 
 @end
 
@@ -45,6 +47,8 @@
     
 //    [self uiButtonQProgressButtonDemo];
     
+//    [self uiColorHexDemo];
+    
 //    [self uiImageDrawDemo];
 //    [self uiImageGIFDemo];
 //    [self uiImageQRCodeDemo];
@@ -52,11 +56,19 @@
 //    [self uiViewFrameDemo];
 //    [self uiViewQPageViewDemo];
 //    [self uiViewQPaintBoardViewDemo1];
-    [self uiViewQPaintBoardViewDemo2];
+//    [self uiViewQPaintBoardViewDemo2];
 //    [self uiViewQTouchClipViewDemo];
 //    [self uiViewQTouchLockViewDemo];
+    [self uiViewQMarqueeViewDemo];
     
 //    [self uiViewControllerQQRCodeDemo];
+    
+//    [self qCountingLabelDemo1];
+//    [self qCountingLabelDemo2];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
 }
 
 
@@ -466,7 +478,7 @@
 }
 
 
-#pragma mark - UIButton_QExtension
+#pragma mark - UIButton+QExtension
 
 #pragma mark QProgressButton
 
@@ -521,6 +533,26 @@
         // 设置按钮的进度终止标题，一旦设置了此标题进度条就会停止
         self.progressButton.stopTitle = @"下载完成";
     }
+}
+
+
+#pragma mark - UIColor+QExtension
+
+#pragma mark Hex
+
+- (void)uiColorHexDemo {
+    
+//    self.view.backgroundColor = [UIColor blueColor];
+    
+    UIView *vi = [[UIView alloc] initWithFrame:CGRectMake(20, 30, 100, 100)];
+    [self.view addSubview:vi];
+    
+    // 由十六进制颜色值创建 RGB 颜色值
+//    UIColor *color = [UIColor colorWithHexString:@"0Xc83c23"];
+    
+    UIColor *color = [UIColor colorWithHexString:@"0Xc83c23" alpha:0.5];
+    
+    vi.backgroundColor = color;
 }
 
 
@@ -685,8 +717,10 @@
 - (void)qrCodeButtonClick {
     
 //    [self createQRCodeDemo1];
-    [self createQRCodeDemo2];
+//    [self createQRCodeDemo2];
 //    [self createQRCodeDemo3];
+//    [self createQRCodeDemo4];
+    [self createQRCodeDemo5];
 }
 
 - (void)createQRCodeDemo1 {
@@ -708,10 +742,29 @@
                                                       color:[UIColor blackColor]
                                                   backColor:[UIColor whiteColor]];
 
+    NSData *data = UIImagePNGRepresentation(qrImage);
+    [data writeToFile:@"/Users/JHQ0228/Desktop/Images/pic.png" atomically:YES];
+    
     self.imageView1.image = qrImage;
 }
 
 - (void)createQRCodeDemo3 {
+    
+    // 生成指定图片大小的二维码
+    UIImage *qrImage = [UIImage q_imageWithQRCodeFromString:@"http://weixin.qq.com/r/xUqbg1-ENgJJrRvg9x-X"
+                                                  imageSize:CGSizeMake(2048, 2048)
+                                                   headIcon:[UIImage imageNamed:@"demo6"]
+                                                   headFrame:CGRectMake(819, 819, 410, 410)
+                                                      color:nil
+                                                  backColor:nil];
+    
+    NSData *data = UIImagePNGRepresentation(qrImage);
+    [data writeToFile:@"/Users/JHQ0228/Desktop/Images/pic.png" atomically:YES];
+    
+    self.imageView1.image = qrImage;
+}
+
+- (void)createQRCodeDemo4 {
     
     // 创建图片，添加长按手势
     self.imageView1.image = [UIImage imageNamed:@"demo4"];
@@ -737,6 +790,21 @@
                           cancelButtonTitle:@"确定"
                           otherButtonTitles:nil] show];
     }
+}
+
+- (void)createQRCodeDemo5 {
+    
+    // 生成指定图片大小的条形码
+    UIImage *qrImage = [UIImage q_imageWithBarCodeFromString:@"QianChia"
+                                                   imageSize:CGSizeMake(1024, 512)
+                                                         red:0
+                                                       green:0.4
+                                                        blue:0.6];
+    
+    NSData *data = UIImagePNGRepresentation(qrImage);
+    [data writeToFile:@"/Users/JHQ0228/Desktop/Images/pic.png" atomically:YES];
+    
+    self.imageView1.image = qrImage;
 }
 
 
@@ -789,7 +857,7 @@
     pageView.pageIndicatorColor = [UIColor greenColor];
     
     // 设置页码视图的位置
-    pageView.pageIndicatorPosition = Right;
+    pageView.pageIndicatorPosition = QPageIndicatorPositionRight;
     
     // 设置是否隐藏页码视图
     pageView.hidePageIndicator = NO;
@@ -813,13 +881,13 @@
                                               imageNames:imageNameArr
                                               autoScroll:YES
                                           autoScrollTime:3.0
-                                   pageIndicatorPosition:Center];
+                                   pageIndicatorPosition:QPageIndicatorPositionCenter];
     
     [self.view addSubview:pageView];
 }
 
 
-#pragma mark - QPaintBoardView
+#pragma mark QPaintBoardView
 
 // 绘制简单画板
 - (void)uiViewQPaintBoardViewDemo1 {
@@ -1087,6 +1155,256 @@
     }
 }
 
+#pragma mark QMarqueeView
+
+- (void)uiViewQMarqueeViewDemo {
+    
+    self.view.backgroundColor = [UIColor colorWithRed:240/255.0f green:240/255.0f blue:240/255.0f alpha:1];
+    
+    [self qMarqueeViewDemo1];
+    [self qMarqueeViewDemo2];
+    [self qMarqueeViewDemo3];
+    [self qMarqueeViewDemo4];
+    [self qMarqueeViewDemo5];
+    [self qMarqueeViewDemo6];
+    
+    [self qMarqueeViewDemo7];
+}
+
+- (void)qMarqueeViewDemo1 {
+    
+    // 设置显示的内容
+    NSArray *showList = @[@"1. Hello World",
+                          @"2. 欢迎大家关注哦！",
+                          @"3. GitHub：QianChia",
+                          @"4. 新浪微博：QianChia0123",
+                          @"5. 个人博客：cnblogs.com/QianChia"];
+    
+    // 创建滚动视图
+    CGRect frame = CGRectMake(0, 50, self.view.bounds.size.width, 30);
+    QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
+    
+    
+    // 设置代理，响应滚动视图点击
+    marqueeView.delegate = self;
+    
+    // 设置显示的内容
+    marqueeView.contentTexts = showList;
+    marqueeView.contentTextColor = [UIColor whiteColor];
+    marqueeView.contentTextFont = [UIFont boldSystemFontOfSize:18];
+    
+    // 设置动画时间
+    marqueeView.animationDuration = 0.2;
+    
+    // 设置动画方向
+    marqueeView.animationDirection = QMarqueeViewDirectionUp;
+    
+    marqueeView.backgroundColor = [UIColor colorWithRed:102/255.0f green:133/255.0f blue:253/255.0f alpha:1];
+    [self.view addSubview:marqueeView];
+    
+    // 开始滚动
+    [marqueeView q_startAnimation];
+}
+
+- (void)qMarqueeViewDemo2 {
+    
+    // 设置显示的内容
+    NSArray *showList = @[@"1. Hello World",
+                          @"2. 欢迎大家关注哦！",
+                          @"3. GitHub：QianChia",
+                          @"4. 新浪微博：QianChia0123",
+                          @"5. 个人博客：cnblogs.com/QianChia"];
+    
+    // 创建滚动视图
+    CGRect frame = CGRectMake(0, 100, self.view.bounds.size.width, 30);
+    QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
+    
+    // 设置代理，响应滚动视图点击
+    marqueeView.delegate = self;
+    
+    // 设置显示的内容
+    marqueeView.contentTexts = showList;
+    marqueeView.contentTextColor = [UIColor whiteColor];
+    marqueeView.contentTextFont = [UIFont boldSystemFontOfSize:18];
+    
+    // 设置动画时间
+    marqueeView.animationDuration = 0.5;
+    
+    // 设置显示的内容对齐方式
+    marqueeView.contentTextAlign = NSTextAlignmentCenter;
+    
+    // 设置动画方向
+    marqueeView.animationDirection = QMarqueeViewDirectionUp;
+    
+    marqueeView.backgroundColor = [UIColor colorWithRed:102/255.0f green:133/255.0f blue:253/255.0f alpha:1];
+    [self.view addSubview:marqueeView];
+    
+    // 开始滚动
+    [marqueeView q_startAnimation];
+}
+
+- (void)qMarqueeViewDemo3 {
+    
+    // 设置显示的内容
+    NSArray *showList = @[@"Hello World"];
+    
+    // 创建滚动视图
+    CGRect frame = CGRectMake(30, 150, self.view.bounds.size.width - 150, 30);
+    QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
+    
+    // 设置显示的内容
+    marqueeView.contentTexts = showList;
+    marqueeView.contentImage = [UIImage imageNamed:@"waring2"];
+    
+    // 设置动画时间，0 不滚动
+    marqueeView.animationDuration = 0;
+    
+    marqueeView.layer.cornerRadius = 15;
+    marqueeView.layer.masksToBounds = YES;
+    marqueeView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.5];
+    [self.view addSubview:marqueeView];
+    
+    // 开始滚动
+    [marqueeView q_startAnimation];
+}
+
+- (void)qMarqueeViewDemo4 {
+    
+    // 设置显示的内容
+    NSArray *showList = @[@"GitHub：QianChia"];
+    
+    // 创建滚动视图
+    CGRect frame = CGRectMake(30, 200, self.view.bounds.size.width - 150, 30);
+    QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
+    
+    // 设置显示的内容
+    marqueeView.contentTexts = showList;
+    marqueeView.contentImage = [UIImage imageNamed:@"waring2"];
+    
+    // 设置动画时间
+    marqueeView.animationDuration = 0.5;
+    
+    marqueeView.layer.cornerRadius = 15;
+    marqueeView.layer.masksToBounds = YES;
+    marqueeView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.5];
+    [self.view addSubview:marqueeView];
+    
+    // 开始滚动
+    [marqueeView q_startAnimation];
+}
+
+- (void)qMarqueeViewDemo5 {
+    
+    // 设置显示的内容
+    NSArray *showList = @[@"新浪微博：QianChia0123"];
+    
+    // 创建滚动视图，开始滚动
+    CGRect frame = CGRectMake(30, 250, self.view.bounds.size.width - 100, 30);
+    QMarqueeView *marqueeView = [QMarqueeView q_marqueeViewWithFrame:frame
+                                                               texts:showList
+                                                               color:[UIColor whiteColor]
+                                                                font:nil
+                                                               image:[UIImage imageNamed:@"waring1"]
+                                                            duration:1.0
+                                                           direction:QMarqueeViewDirectionDown
+                                                               align:NSTextAlignmentCenter
+                                                              target:self];
+    
+    marqueeView.layer.cornerRadius = 15;
+    marqueeView.layer.masksToBounds = YES;
+    marqueeView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.5];
+    [self.view addSubview:marqueeView];
+}
+
+- (void)qMarqueeViewDemo6 {
+    
+    // 设置显示的内容
+    NSArray *showList = @[@"个人博客：cnblogs.com/QianChia"];
+    
+    // 创建滚动视图，开始滚动
+    CGRect frame = CGRectMake(30, 300, self.view.bounds.size.width - 60, 30);
+    QMarqueeView *marqueeView = [QMarqueeView q_marqueeViewWithFrame:frame
+                                                               texts:showList
+                                                               color:[UIColor whiteColor]
+                                                                font:nil
+                                                               image:[UIImage imageNamed:@"waring1"]
+                                                            duration:0.5
+                                                           direction:QMarqueeViewDirectionUp
+                                                               align:NSTextAlignmentLeft
+                                                              target:self];
+    
+    marqueeView.layer.cornerRadius = 15;
+    marqueeView.layer.masksToBounds = YES;
+    marqueeView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.5];
+    [self.view addSubview:marqueeView];
+}
+
+- (void)qMarqueeViewDemo7 {
+    
+    // 设置显示的内容
+//    NSArray *showList = @[@"1. Hello World",
+//                          @"2. 欢迎大家关注哦！",
+//                          @"3. GitHub：QianChia",
+//                          @"4. 新浪微博：QianChia0123",
+//                          @"5. 个人博客：cnblogs.com/QianChia"];
+    
+    NSArray *showList = @[@"1. Hello World",
+                          @"2. 欢迎大家关注哦！"];
+    
+//    NSArray *showList = @[@"1. Hello World"];
+    
+    // 创建滚动视图
+    CGRect frame = CGRectMake(0, 350, self.view.bounds.size.width, 30);
+    QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
+    
+    
+    // 设置代理，响应滚动视图点击
+    marqueeView.delegate = self;
+    
+    // 设置显示的内容
+    marqueeView.contentTexts = showList;
+    marqueeView.contentTextColor = [UIColor whiteColor];
+    marqueeView.contentTextFont = [UIFont boldSystemFontOfSize:18];
+    
+    // 设置动画时间
+    marqueeView.animationDuration = 5.0;
+    
+    // 设置动画方向
+    marqueeView.animationDirection = QMarqueeViewDirectionLeft;
+    
+    marqueeView.backgroundColor = [UIColor colorWithRed:102/255.0f green:133/255.0f blue:253/255.0f alpha:1];
+    [self.view addSubview:marqueeView];
+    
+    // 开始滚动
+    [marqueeView q_startAnimation];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/// 跑马灯内容点击协议方法
+- (void)didClickContentAtIndex:(NSInteger)index {
+    
+    NSLog(@"%ld", index);
+}
+
 
 #pragma mark - UIViewController+QExtension
 
@@ -1133,6 +1451,121 @@
     // 打开扫描视图控制器
     [self presentViewController:qrCode animated:YES completion:nil];
 }
+
+
+#pragma mark - UILabel+QExtension
+
+#pragma mark QCountingLabel
+
+- (void)qCountingLabelDemo1 {
+    
+    [self.countingLabel removeFromSuperview];
+    
+    // 创建 QCountingLabel 对象
+    self.countingLabel = [[QCountingLabel alloc] initWithFrame:CGRectMake(0, 0, 300, 120)];
+    [self.view addSubview:self.countingLabel];
+    
+    // 常规设置，QCountingLabel 继承 UILabel, 设置和 UILabel 一样
+    self.countingLabel.center = self.view.center;
+    self.countingLabel.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.5];
+    self.countingLabel.font = [UIFont systemFontOfSize:50];
+    self.countingLabel.textColor = [UIColor redColor];
+    self.countingLabel.textAlignment = NSTextAlignmentCenter;
+    
+//    [self countingLabelDemo1];
+//    [self countingLabelDemo2];
+//    [self countingLabelDemo3];
+    [self countingLabelDemo4];
+}
+
+- (void)countingLabelDemo1 {
+    
+    // 设置文本样式
+    self.countingLabel.format = @"%d";
+    
+    // 设置变化范围及动画时间
+    [self.countingLabel q_countFromValue:10 toValue:1000 withDuration:1.0f];
+}
+
+- (void)countingLabelDemo2 {
+    
+    // 设置文本样式，使用 block 可以根据不同的值设置多种不同的样式
+    self.countingLabel.formatBlock = ^NSString *(CGFloat value) {
+        
+        NSInteger years = value / 12;
+        NSInteger months = (NSInteger)value % 12;
+        
+        if (years == 0) {
+            
+            return [NSString stringWithFormat: @"%ld 个月", (long)months];
+            
+        } else {
+            
+            return [NSString stringWithFormat: @"%ld 年, %ld 个月", (long)years, (long)months];
+        }
+    };
+    
+    // 设置文本变化方式，默认为 EaseInOut
+    self.countingLabel.method = QCountingMethodLinear;
+    
+    // 设置变化范围及动画时间
+    [self.countingLabel q_countFromValue:0 toValue:50 withDuration:15.0f];
+    
+    // 设置变化完成时的回调
+    self.countingLabel.completionBlock = ^void () {
+        
+        NSLog(@"completion");
+    };
+}
+
+- (void)countingLabelDemo3 {
+    
+    // 设置文本样式
+    self.countingLabel.format = @"%.2f";
+    
+    // 设置变化范围及动画时间
+    [self.countingLabel q_countFromValue:0 toValue:3198.23 withDuration:1.0f];
+}
+
+- (void)countingLabelDemo4 {
+    
+    // 设置文本样式
+    self.countingLabel.format = @"%.2f";
+    
+    // 设置分隔符样式
+    self.countingLabel.positiveFormat = @"###,###.##";
+    
+    // 设置变化范围及动画时间
+    [self.countingLabel q_countFromValue:0 toValue:3048.64 withDuration:1.0f];
+}
+
+- (void)qCountingLabelDemo2 {
+    
+    [self.countingLabel removeFromSuperview];
+    
+    // 创建 QCountingLabel 对象
+    self.countingLabel = [QCountingLabel q_countingLabelWithFrame:CGRectMake(50, 100, 300, 100)
+                                                           format:@"%f"
+                                                   positiveFormat:@"###,###.##"
+                                                           method:QCountingMethodEaseOut
+                                                        fromValue:20
+                                                          toValue:3048.64
+                                                     withDuration:10.0f 
+                                                       completion:^{
+        
+        NSLog(@"completion");
+    }];
+    
+    [self.view addSubview:self.countingLabel];
+    
+    // 常规设置
+    self.countingLabel.center = self.view.center;
+    self.countingLabel.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.5];
+    self.countingLabel.font = [UIFont systemFontOfSize:50];
+    self.countingLabel.textColor = [UIColor redColor];
+    self.countingLabel.textAlignment = NSTextAlignmentCenter;
+}
+
 
 
 @end

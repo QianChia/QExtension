@@ -7,10 +7,28 @@
 //
 
 #import "QPaintBoardView.h"
-#import "QPaintBoardPath.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+#pragma mark - QPaintBoardPath
+
+@interface QPaintBoardPath : UIBezierPath
+
+/// 线的颜色
+@property (nonatomic, strong) UIColor *pathColor;
+
+/// 线的宽度
+@property (nonatomic, assign) CGFloat pathWidth;
+
+@end
+
+@implementation QPaintBoardPath
+
+@end
+
+
+#pragma mark - QPaintBoardView
 
 @interface QPaintBoardView ()
 
@@ -45,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation QPaintBoardView
 
-#pragma mark - 创建画板
+#pragma mark 创建画板
 
 /// 创建画板视图控件，获取绘画结果
 + (instancetype)q_paintBoardViewWithFrame:(CGRect)frame
@@ -55,9 +73,6 @@ NS_ASSUME_NONNULL_BEGIN
                               paintResult:(void (^)(UIImage * _Nullable image))result {
     
     QPaintBoardView *paintBoardView = [[self alloc] init];
-    
-//    CGRect tmpFrame = frame;
-//    tmpFrame.size.height = frame.size.height + 44;
     
     paintBoardView.frame = frame;
     paintBoardView.paintLineWidth = (lineWidth > 30 ? 30 : lineWidth) ? : 1;
@@ -80,7 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
     return paintBoardView;
 }
 
-#pragma mark - 自定义画板
+#pragma mark 自定义画板
 
 /// 初始化，自定义画板界面
 - (instancetype)init {
@@ -516,7 +531,7 @@ NS_ASSUME_NONNULL_BEGIN
     }
 }
 
-#pragma mark - 绘制图案
+#pragma mark 绘制图案
 
 /// 触摸开始
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {

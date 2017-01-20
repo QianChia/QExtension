@@ -643,15 +643,25 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	```objc
 
+		// 生成普通的二维码
 		UIImage *qrImage = [UIImage q_imageWithQRCodeFromString:@"http://weixin.qq.com/r/xUqbg1-ENgJJrRvg9x-X"
 		                                               headIcon:nil
 		                                                  color:nil
 		                                              backColor:nil];
 		    
+		// 生成带头像的二维码
 		UIImage *qrImage = [UIImage q_imageWithQRCodeFromString:@"http://weixin.qq.com/r/xUqbg1-ENgJJrRvg9x-X"
 		                                               headIcon:[UIImage imageNamed:@"demo6"]
 		                                                  color:[UIColor blackColor]
 		                                              backColor:[UIColor whiteColor]];
+
+		// 生成指定图片大小的二维码
+		UIImage *qrImage = [UIImage q_imageWithQRCodeFromString:@"http://weixin.qq.com/r/xUqbg1-ENgJJrRvg9x-X"
+		                                              imageSize:CGSizeMake(2048, 2048)
+		                                               headIcon:[UIImage imageNamed:@"demo6"]
+		                                              headFrame:CGRectMake(819, 819, 410, 410)
+		                                                  color:nil
+		                                              backColor:nil];
 
 	```
 
@@ -670,6 +680,23 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	- 效果
 
 	![o_QExtension34](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension34.gif)
+
+- 生成条形码
+
+	```objc
+
+		// 生成指定图片大小的条形码
+		UIImage *qrImage = [UIImage q_imageWithBarCodeFromString:@"QianChia"
+		                                               imageSize:CGSizeMake(1024, 512)
+		                                                     red:0
+		                                                   green:0.4
+		                                                    blue:0.6];
+
+	```
+
+	- 效果
+
+	![o_QExtension50](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension50.png)
 
 
 ## 7、UIView Extension
@@ -715,7 +742,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 		pageView.pageIndicatorColor = [UIColor greenColor];
 		    
 		// 设置页码视图的位置
-		pageView.pageIndicatorPosition = Right;
+		pageView.pageIndicatorPosition = QPageIndicatorPositionRight;
 		    
 		// 设置是否隐藏页码视图
 		pageView.hidePageIndicator = NO;
@@ -740,7 +767,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 		                                          imageNames:imageNameArr
 		                                          autoScroll:YES
 		                                      autoScrollTime:3.0
-		                               pageIndicatorPosition:Center];
+		                               pageIndicatorPosition:QPageIndicatorPositionCenter];
 		    
 		[self.view addSubview:pageView];
     
@@ -967,15 +994,25 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	```objc
 
+		// 生成普通的二维码
 		UIImage *qrImage = [UIImage q_imageWithQRCodeFromString:@"http://weixin.qq.com/r/xUqbg1-ENgJJrRvg9x-X"
 		                                               headIcon:nil
 		                                                  color:nil
 		                                              backColor:nil];
 		    
+		// 生成带头像的二维码
 		UIImage *qrImage = [UIImage q_imageWithQRCodeFromString:@"http://weixin.qq.com/r/xUqbg1-ENgJJrRvg9x-X"
 		                                               headIcon:[UIImage imageNamed:@"demo6"]
 		                                                  color:[UIColor blackColor]
 		                                              backColor:[UIColor whiteColor]];
+
+		// 生成指定图片大小的二维码
+		UIImage *qrImage = [UIImage q_imageWithQRCodeFromString:@"http://weixin.qq.com/r/xUqbg1-ENgJJrRvg9x-X"
+		                                              imageSize:CGSizeMake(2048, 2048)
+		                                               headIcon:[UIImage imageNamed:@"demo6"]
+		                                              headFrame:CGRectMake(819, 819, 410, 410)
+		                                                  color:nil
+		                                              backColor:nil];
 
 	```
 
@@ -1017,6 +1054,153 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	- 效果
 
 	![o_QExtension34](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension34.gif)
+
+- 生成条形码
+
+	```objc
+
+		// 生成指定图片大小的条形码
+		UIImage *qrImage = [UIImage q_imageWithBarCodeFromString:@"QianChia"
+		                                               imageSize:CGSizeMake(1024, 512)
+		                                                     red:0
+		                                                   green:0.4
+		                                                    blue:0.6];
+
+	```
+
+	- 效果
+
+	![o_QExtension50](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension50.png)
+
+
+## 9、UIColor Extension
+
+### 9.1 Hex
+
+- 由十六进制颜色值创建 RGB 颜色值
+
+	```objc
+
+		// 0X 前缀格式
+    	UIColor *color = [UIColor colorWithHexString:@"0Xc83c23"];
+    	UIColor *color = [UIColor colorWithHexString:@"0Xc83c23" alpha:0.5];
+    
+		// # 前缀格式
+    	UIColor *color = [UIColor colorWithHexString:@"#c83c23"];
+    	UIColor *color = [UIColor colorWithHexString:@"#c83c23" alpha:0.5];
+    
+		// 无前缀格式
+    	UIColor *color = [UIColor colorWithHexString:@"c83c23"];
+    	UIColor *color = [UIColor colorWithHexString:@"c83c23" alpha:0.5];
+
+	```
+
+
+## 10、UILabel Extension
+
+### 10.1 QCountingLabel
+
+- 1、整数样式数字的变化
+
+	```objc
+		@property (nonatomic, strong) QCountingLabel *countingLabel;
+		
+		// 创建 QCountingLabel 对象
+		self.countingLabel = [[QCountingLabel alloc] initWithFrame:CGRectMake(0, 0, 300, 120)];
+		[self.view addSubview:self.countingLabel];
+		    
+		// 常规设置，QCountingLabel 继承 UILabel, 设置和 UILabel 一样
+		self.countingLabel.center = self.view.center;
+		self.countingLabel.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.5];
+		self.countingLabel.font = [UIFont systemFontOfSize:50];
+		self.countingLabel.textColor = [UIColor redColor];
+		self.countingLabel.textAlignment = NSTextAlignmentCenter;
+		    
+		// 设置文本样式
+		self.countingLabel.format = @"%d";
+		    
+		// 设置变化范围及动画时间
+		[self.countingLabel q_countFromValue:10 toValue:1000 withDuration:1.0f];
+	```
+	
+	- 效果
+		
+		![Label3](http://images2015.cnblogs.com/blog/993906/201701/993906-20170120002106531-658410176.gif)
+
+- 2、浮点数样式数字的变化
+
+	```objc
+		@property (nonatomic, strong) QCountingLabel *countingLabel;
+		
+		// 创建 QCountingLabel 对象
+		self.countingLabel = [[QCountingLabel alloc] initWithFrame:CGRectMake(0, 0, 300, 120)];
+		[self.view addSubview:self.countingLabel];
+		    
+		// 常规设置，QCountingLabel 继承 UILabel, 设置和 UILabel 一样
+		self.countingLabel.center = self.view.center;
+		self.countingLabel.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.5];
+		self.countingLabel.font = [UIFont systemFontOfSize:50];
+		self.countingLabel.textColor = [UIColor redColor];
+		self.countingLabel.textAlignment = NSTextAlignmentCenter;
+		    
+		// 设置文本样式
+		self.countingLabel.format = @"%.2f";
+		    
+		// 设置变化范围及动画时间
+		[self.countingLabel q_countFromValue:0 toValue:3198.23 withDuration:1.0f];
+	```
+	
+	- 效果
+		
+		![Label4](http://images2015.cnblogs.com/blog/993906/201701/993906-20170120002150484-1012661664.gif)
+
+- 3、带有千分位分隔符的浮点数
+
+	```objc
+		@property (nonatomic, strong) QCountingLabel *countingLabel;
+		
+		// 创建 QCountingLabel 对象
+		self.countingLabel = [[QCountingLabel alloc] initWithFrame:CGRectMake(0, 0, 300, 120)];
+		[self.view addSubview:self.countingLabel];
+		    
+		// 常规设置，QCountingLabel 继承 UILabel, 设置和 UILabel 一样
+		self.countingLabel.center = self.view.center;
+		self.countingLabel.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.5];
+		self.countingLabel.font = [UIFont systemFontOfSize:50];
+		self.countingLabel.textColor = [UIColor redColor];
+		self.countingLabel.textAlignment = NSTextAlignmentCenter;
+		    
+		// 设置文本样式
+		self.countingLabel.format = @"%.2f";
+
+		// 设置分隔符样式
+		self.countingLabel.positiveFormat = @"###,###.##";
+		
+		// 设置变化范围及动画时间
+		[self.countingLabel q_countFromValue:0 toValue:3048.64 withDuration:1.0f];
+	```
+	
+	- 效果
+		
+		![Label5](http://images2015.cnblogs.com/blog/993906/201701/993906-20170120002223140-1869427595.gif)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

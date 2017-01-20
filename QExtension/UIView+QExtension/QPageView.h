@@ -14,11 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// 页码视图位置枚举
 typedef NS_ENUM(NSInteger, QPageIndicatorPosition) {
     
-    Left          = 0,
-    Center        = 1,    // default
-    Right         = 2,
-    LeftCenter    = 3,
-    RightCenter   = 4,
+    QPageIndicatorPositionLeft          = 0,
+    QPageIndicatorPositionCenter        = 1,    // default
+    QPageIndicatorPositionRight         = 2,
+    QPageIndicatorPositionLeftCenter    = 3,
+    QPageIndicatorPositionRightCenter   = 4,
 };
 
 @interface QPageView : UIView
