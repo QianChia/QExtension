@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'QExtension'
-  s.version      = '1.1.1'
+  s.version      = '1.1.2'
   s.license      = 'MIT'
   s.authors      = {'QianChia' => 'qianchia@icloud.com'}
   s.summary      = 'The extension method for Foundation & UIKit Class'
@@ -11,6 +11,11 @@ Pod::Spec.new do |s|
 
   s.source_files        = 'QExtension/QExtension.h'
   s.public_header_files = 'QExtension/QExtension.h'
+
+  s.subspec 'NSObject+QExtension' do |ss|
+    ss.source_files         = 'QExtension/NSObject+QExtension/*.{h,m}'
+    ss.public_header_files  = 'QExtension/NSObject+QExtension/NSObject+QExtension.h'
+  end
 
   s.subspec 'NSArray+QExtension' do |ss|
     ss.source_files         = 'QExtension/NSArray+QExtension/*.{h,m}'
@@ -37,9 +42,19 @@ Pod::Spec.new do |s|
     ss.public_header_files  = 'QExtension/UIButton+QExtension/UIButton+QExtension.h'
   end
 
+  s.subspec 'UIColor+QExtension' do |ss|
+    ss.source_files         = 'QExtension/UIColor+QExtension/*.{h,m}'
+    ss.public_header_files  = 'QExtension/UIColor+QExtension/UIColor+QExtension.h'
+  end
+
   s.subspec 'UIImage+QExtension' do |ss|
     ss.source_files         = 'QExtension/UIImage+QExtension/*.{h,m}'
     ss.public_header_files  = 'QExtension/UIImage+QExtension/UIImage+QExtension.h'
+  end
+
+  s.subspec 'UILabel+QExtension' do |ss|
+    ss.source_files         = 'QExtension/UILabel+QExtension/*.{h,m}'
+    ss.public_header_files  = 'QExtension/UILabel+QExtension/UILabel+QExtension.h'
   end
 
   s.subspec 'UIView+QExtension' do |ss|

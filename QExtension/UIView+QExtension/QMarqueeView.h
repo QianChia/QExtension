@@ -66,7 +66,7 @@ typedef NS_ENUM(NSUInteger, QMarqueeViewDirection) {
 - (void)q_startAnimation;
 
 /**
- *  创建跑马灯对象，开始滚动
+ *  创建跑马灯视图控件，开始滚动
  *
  *  @param frame        跑马灯对象的 frame
  *  @param texts        显示的文本内容
@@ -79,7 +79,7 @@ typedef NS_ENUM(NSUInteger, QMarqueeViewDirection) {
  *  @param delay        动画停顿时间，default is 1.0 秒
  *  @param target       代理
  *
- *  @return 跑马灯对象
+ *  @return 跑马灯视图控件
  */
 + (instancetype)q_marqueeViewWithFrame:(CGRect)frame
                                  texts:(NSArray *)texts
@@ -90,7 +90,7 @@ typedef NS_ENUM(NSUInteger, QMarqueeViewDirection) {
                              direction:(QMarqueeViewDirection)direction
                               duration:(NSTimeInterval)duartion
                                  delay:(NSTimeInterval)delay
-                                target:(id<QMarqueeViewDelegate>)target;
+                                target:(nullable id<QMarqueeViewDelegate>)target;
 
 @end
 

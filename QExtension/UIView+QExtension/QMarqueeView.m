@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation QMarqueeView
 
-/// 创建跑马灯对象，开始滚动
+/// 创建跑马灯视图控件，开始滚动
 + (instancetype)q_marqueeViewWithFrame:(CGRect)frame
                                  texts:(NSArray *)texts
                                  color:(nullable UIColor *)color
@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
                              direction:(QMarqueeViewDirection)direction
                               duration:(NSTimeInterval)duartion
                                  delay:(NSTimeInterval)delay
-                                target:(id<QMarqueeViewDelegate>)target {
+                                target:(nullable id<QMarqueeViewDelegate>)target {
     
     QMarqueeView *marqueeView = [[self alloc] initWithFrame:frame];
     
@@ -89,7 +89,7 @@ NS_ASSUME_NONNULL_BEGIN
         [iconBackView addSubview:self.imageView];
         
         // 计算 Texts 的 frame 值
-        self.contentX = margin + SELF_HEIGHT + margin;
+        self.contentX = margin + SELF_HEIGHT;
         self.contentWidth = SELF_WIDTH - self.contentX - margin;
         
     } else {
@@ -101,14 +101,14 @@ NS_ASSUME_NONNULL_BEGIN
     self.contentHeight = SELF_HEIGHT;
     
     // 创建第一个 label
-    CGRect frame1 = CGRectMake(self.contentX, 0, self.contentWidth, self.contentHeight);
+    CGRect frame1 = CGRectMake(0, 0, self.contentWidth, self.contentHeight);
     self.firstContentLabel = [[UILabel alloc] initWithFrame:frame1];
     [self setLabel:self.firstContentLabel];
     
     // 创建第二个 label
     if (self.animationDirection <= 1) {
         
-        CGRect frame2 = CGRectMake(self.contentX, SELF_HEIGHT, self.contentWidth, self.contentHeight);
+        CGRect frame2 = CGRectMake(0, SELF_HEIGHT, self.contentWidth, self.contentHeight);
         self.secondContentLabel = [[UILabel alloc] initWithFrame:frame2];
         [self setLabel:self.secondContentLabel];
     }
@@ -116,6 +116,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 设置 label 属性
 - (void)setLabel:(UILabel *)label {
+    
+    // 设置 label 背景视图
+    CGRect frame;
+    if (self.contentIcon == nil && self.animationDirection > 1) {
+        frame = CGRectMake(0, 0, SELF_WIDTH, self.contentHeight);
+    } else {
+        frame = CGRectMake(self.contentX, 0, self.contentWidth, self.contentHeight);
+    }
+    UIView *textBackView = [[UIView alloc] initWithFrame:frame];
+    textBackView.backgroundColor = [UIColor clearColor];
+    textBackView.clipsToBounds = YES;
+    [self addSubview:textBackView];
     
     // 设置默认值
     UIColor *textColor = self.contentTextColor ? : [UIColor redColor];
@@ -131,7 +143,7 @@ NS_ASSUME_NONNULL_BEGIN
     label.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(contentClick)];
     [label addGestureRecognizer:tap1];
-    [self addSubview:label];
+    [textBackView addSubview:label];
 }
 
 /// 开启滚动动画
@@ -139,6 +151,8 @@ NS_ASSUME_NONNULL_BEGIN
     
     // 设置默认值
     NSTimeInterval delay = 0;
+    NSTimeInterval duration = 0;
+    CGFloat currentContentWidth = self.contentWidth;
     
     // 设置第一个 label 显示的内容
     self.firstContentLabel.text = self.contentTexts[self.currentIndex];
@@ -147,20 +161,22 @@ NS_ASSUME_NONNULL_BEGIN
     if (0 == self.animationDuration) {
         return;
     } else {
-        if (self.animationDirection > 1) {
+        if (self.animationDirection > 1) {  // 左右滚动
             
-            // 左右滚动时不停顿
+            // 不停顿
             delay = 0;
             
             // 计算文本内容长度
-            CGFloat currentContentWidth = [self.firstContentLabel.text sizeWithAttributes:@{NSFontAttributeName:(self.contentTextFont ? : [UIFont systemFontOfSize:15.0f])}].width;
+            currentContentWidth = [self.firstContentLabel.text sizeWithAttributes:@{NSFontAttributeName:(self.contentTextFont ? : [UIFont systemFontOfSize:15.0f])}].width;
             
-            self.contentWidth = currentContentWidth;
+            duration = self.animationDuration * currentContentWidth / 150;
             
-        } else {
+        } else {    // 垂直滚动
             
             // 动画停顿时间，默认为 1.0 秒
             delay = self.animationDelay ? : 1.0f;
+            
+            duration = self.animationDuration;
             
             // 设置第二个 label 显示的内容
             NSInteger secondCurrentIndex  = self.currentIndex + 1;
@@ -206,16 +222,16 @@ NS_ASSUME_NONNULL_BEGIN
         
         case QMarqueeViewDirectionLeft: {
             
-            firstContentLastStartX = SELF_WIDTH;
-            firstContentLastEndX =  -self.contentWidth;
+            firstContentLastStartX = self.contentWidth;
+            firstContentLastEndX = -currentContentWidth;
             
             break;
         }
         
         case QMarqueeViewDirectionRight: {
             
-            firstContentLastStartX = -self.contentWidth;
-            firstContentLastEndX =  SELF_WIDTH;
+            firstContentLastStartX = -currentContentWidth;
+            firstContentLastEndX = self.contentWidth;
             
             break;
         }
@@ -228,10 +244,10 @@ NS_ASSUME_NONNULL_BEGIN
     CGRect frame1;
     CGRect frame2;
     if (self.animationDirection > 1) {
-        frame1 = CGRectMake(firstContentLastStartX, 0, self.contentWidth, self.contentHeight);
+        frame1 = CGRectMake(firstContentLastStartX, 0, currentContentWidth, self.contentHeight);
     } else {
-        frame1 = CGRectMake(self.contentX, firstContentLastStartY, self.contentWidth, self.contentHeight);
-        frame2 = CGRectMake(self.contentX, secondContentLastStartY, self.contentWidth, self.contentHeight);
+        frame1 = CGRectMake(0, firstContentLastStartY, self.contentWidth, self.contentHeight);
+        frame2 = CGRectMake(0, secondContentLastStartY, self.contentWidth, self.contentHeight);
     }
     self.firstContentLabel.frame = frame1;
     self.secondContentLabel.frame = frame2;
@@ -239,7 +255,7 @@ NS_ASSUME_NONNULL_BEGIN
     // 开始一次滚动动画
     [UIView beginAnimations:@"" context:nil];
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    [UIView setAnimationDuration:(self.animationDuration)];
+    [UIView setAnimationDuration:duration];
     [UIView setAnimationDelay:delay];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(loopAnimationDidStop:finished:context:)];
@@ -248,10 +264,10 @@ NS_ASSUME_NONNULL_BEGIN
     CGRect frame3;
     CGRect frame4;
     if (self.animationDirection > 1) {
-        frame3 = CGRectMake(firstContentLastEndX, 0, self.contentWidth, self.contentHeight);
+        frame3 = CGRectMake(firstContentLastEndX, 0, currentContentWidth, self.contentHeight);
     } else {
-        frame3 = CGRectMake(self.contentX, firstContentLastEndY, self.contentWidth, self.contentHeight);
-        frame4 = CGRectMake(self.contentX, secondContentLastEndY, self.contentWidth, self.contentHeight);
+        frame3 = CGRectMake(0, firstContentLastEndY, self.contentWidth, self.contentHeight);
+        frame4 = CGRectMake(0, secondContentLastEndY, self.contentWidth, self.contentHeight);
     }
     self.firstContentLabel.frame = frame3;
     self.secondContentLabel.frame = frame4;

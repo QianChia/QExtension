@@ -59,16 +59,68 @@
 //    [self uiViewQPaintBoardViewDemo2];
 //    [self uiViewQTouchClipViewDemo];
 //    [self uiViewQTouchLockViewDemo];
-    [self uiViewQMarqueeViewDemo];
+//    [self uiViewQMarqueeViewDemo];
+//    [self uiViewQBulletScreenViewDemo];
     
 //    [self uiViewControllerQQRCodeDemo];
     
 //    [self qCountingLabelDemo1];
 //    [self qCountingLabelDemo2];
+    
+    [self nsObjectQRSAEncryptorDemo];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
+}
+
+
+#pragma mark - NSObject+QExtension
+
+#pragma mark QRSAEncryptor
+
+- (void)nsObjectQRSAEncryptorDemo {
+    
+//    [self encryptDemoWithfile];
+    [self encryptDemoWithKeyString];
+}
+
+- (void)encryptDemoWithfile {
+    
+    // 原始数据
+    NSString *originalString = @"这是一段将要使用 '.der' 文件加密的字符串!";
+    NSLog(@"加密前: %@", originalString);
+    
+    // 秘钥证书文件 .der 和 .p12 路径
+    NSString *public_key_path = [[NSBundle mainBundle] pathForResource:@"public_key" ofType:@"der"];
+    NSString *private_key_path = [[NSBundle mainBundle] pathForResource:@"private_key" ofType:@"p12"];
+    
+    // 加密
+    NSString *encryptStr = [QRSAEncryptor q_encryptWithString:originalString publicKeyFilePath:public_key_path];
+    NSLog(@"加密后: %@", encryptStr);
+    
+    // 解密
+    NSString *DencryptStr = [QRSAEncryptor q_decryptWithString:encryptStr privateKeyFilePath:private_key_path password:@"qianchia"];
+    NSLog(@"解密后: %@", DencryptStr);
+}
+
+- (void)encryptDemoWithKeyString {
+    
+    // 原始数据
+    NSString *originalString = @"这是一段将要使用 '秘钥字符串' 进行加密的字符串!";
+    NSLog(@"加密前: %@", originalString);
+    
+    // 加密
+    NSString *publicKeyStr = @"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDsQ44uzMg83T6z7/dvNn2B1KHlzGwccgo055PeimXdBbzUVBECE0nQeNGb9tkO3mVnu8R4Iu5faoX7MY/muiTVZ3NDAvtk+WBjXfNqHmWvlMfj5jwxnITosnHMLVgrqDFc9q1yfmbTLhd8cJhMXsVBlduCSYbdNitA2z4B3hKS5wIDAQAB";
+    
+    NSString *encryptStr = [QRSAEncryptor q_encryptWithString:originalString publicKey:publicKeyStr];
+    NSLog(@"加密后: %@", encryptStr);
+    
+    // 解密
+    NSString *privateKeyStr = @"MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAOxDji7MyDzdPrPv9282fYHUoeXMbBxyCjTnk96KZd0FvNRUEQITSdB40Zv22Q7eZWe7xHgi7l9qhfsxj+a6JNVnc0MC+2T5YGNd82oeZa+Ux+PmPDGchOiyccwtWCuoMVz2rXJ+ZtMuF3xwmExexUGV24JJht02K0DbPgHeEpLnAgMBAAECgYB1cuPEihJkh0t7YagsRfdASjatKOD5hwth31kXwM8Af7CuEJhf4rzIALeag6zFgnMAjUwOuLatAiRWif3SIejapMaY/DcXWM/5ugYNi1exS1U8BeBjAOyZuQf/onOn0c0eBqT912CFnjEO5iNuNDkheRQK/FBv2XuMpnAI1FbGQQJBAPmmJkXtEDoM90PxPcL/+ecoNCe2aabiN/D9JlHtOE64DJzRQG4HHpizsvzxMQ00+ItTsG089BjpZPPHuLMO3AcCQQDyRjwPri2lyRC7GHgkgjB03NFL16ENkNER5/7X6TE15uqH/kdrKwrVUNNFwq9a11CHKtJqZOSgy0iN6rKF1JohAkBihAR6d7B9l/xDnYFn4Ce35o+eVEehCYhV2zAyCFC+D7c6cwDf6oNScydg1bUrpwmlwaLPmMwiwIeMA/aJAoYlAkEAoFjJwZsHDTWRBDNCuO8NgRrwzuBs8FyLcu135pCpCELHsLAjtpMrPVmcKwyaIGZnHr7BurcB9kX0xDC0bQzz4QJBAKKCz52lxwWboqo5h4lmk0F3R17O7bUNOaSn1kauX5ADBoQ2zsfl3LrPNB2Tt+97+wRyjnF9Gkwjg2okUc4V1MY=";
+    
+    NSString *dencryptStr = [QRSAEncryptor q_decryptWithString:encryptStr privateKey:privateKeyStr];
+    NSLog(@"解密后: %@", dencryptStr);
 }
 
 
@@ -1161,20 +1213,23 @@
     
     self.view.backgroundColor = [UIColor colorWithRed:240/255.0f green:240/255.0f blue:240/255.0f alpha:1];
     
-    [self qMarqueeViewDemo1];
-    [self qMarqueeViewDemo2];
-    [self qMarqueeViewDemo3];
-    [self qMarqueeViewDemo4];
-    [self qMarqueeViewDemo5];
-    [self qMarqueeViewDemo6];
+//    [self qMarqueeViewDemo1];
+//    [self qMarqueeViewDemo2];
+//    [self qMarqueeViewDemo3];
+//    [self qMarqueeViewDemo4];
+//    [self qMarqueeViewDemo5];
+//    [self qMarqueeViewDemo6];
     
-    [self qMarqueeViewDemo7];
-    [self qMarqueeViewDemo8];
+//    [self qMarqueeViewDemo7];
+//    [self qMarqueeViewDemo8];
     [self qMarqueeViewDemo9];
-    [self qMarqueeViewDemo10];
 }
 
 - (void)qMarqueeViewDemo1 {
+    
+    // 创建跑马灯视图控件
+    CGRect frame = CGRectMake(0, 50, self.view.bounds.size.width, 30);
+    QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
     
     // 设置显示的内容
     NSArray *showList = @[@"1. Hello World",
@@ -1183,15 +1238,6 @@
                           @"4. 新浪微博：QianChia0123",
                           @"5. 个人博客：cnblogs.com/QianChia"];
     
-    // 创建滚动视图
-    CGRect frame = CGRectMake(0, 50, self.view.bounds.size.width, 30);
-    QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
-    
-    
-    // 设置代理，响应滚动视图点击
-    marqueeView.delegate = self;
-    
-    // 设置显示的内容
     marqueeView.contentTexts = showList;
     marqueeView.contentTextColor = [UIColor whiteColor];
     marqueeView.contentTextFont = [UIFont boldSystemFontOfSize:18];
@@ -1199,9 +1245,7 @@
     // 设置动画时间
     marqueeView.animationDuration = 0.2;
     
-    // 设置动画方向
-    marqueeView.animationDirection = QMarqueeViewDirectionUp;
-    
+    // 常规设置
     marqueeView.backgroundColor = [UIColor colorWithRed:102/255.0f green:133/255.0f blue:253/255.0f alpha:1];
     [self.view addSubview:marqueeView];
     
@@ -1211,6 +1255,10 @@
 
 - (void)qMarqueeViewDemo2 {
     
+    // 创建跑马灯视图控件
+    CGRect frame = CGRectMake(0, 100, self.view.bounds.size.width, 30);
+    QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
+    
     // 设置显示的内容
     NSArray *showList = @[@"1. Hello World",
                           @"2. 欢迎大家关注哦！",
@@ -1218,27 +1266,17 @@
                           @"4. 新浪微博：QianChia0123",
                           @"5. 个人博客：cnblogs.com/QianChia"];
     
-    // 创建滚动视图
-    CGRect frame = CGRectMake(0, 100, self.view.bounds.size.width, 30);
-    QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
-    
-    // 设置代理，响应滚动视图点击
-    marqueeView.delegate = self;
-    
-    // 设置显示的内容
     marqueeView.contentTexts = showList;
     marqueeView.contentTextColor = [UIColor whiteColor];
     marqueeView.contentTextFont = [UIFont boldSystemFontOfSize:18];
     
     // 设置动画时间
-    marqueeView.animationDuration = 0.5;
+    marqueeView.animationDuration = 0.2;
     
     // 设置显示的内容对齐方式
     marqueeView.contentTextAlign = NSTextAlignmentCenter;
     
-    // 设置动画方向
-    marqueeView.animationDirection = QMarqueeViewDirectionUp;
-    
+    // 常规设置
     marqueeView.backgroundColor = [UIColor colorWithRed:102/255.0f green:133/255.0f blue:253/255.0f alpha:1];
     [self.view addSubview:marqueeView];
     
@@ -1248,23 +1286,25 @@
 
 - (void)qMarqueeViewDemo3 {
     
-    // 设置显示的内容
-    NSArray *showList = @[@"Hello World"];
-    
-    // 创建滚动视图
+    // 创建跑马灯视图控件
     CGRect frame = CGRectMake(30, 150, self.view.bounds.size.width - 150, 30);
     QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
     
     // 设置显示的内容
+    NSArray *showList = @[@"GitHub：QianChia"];
     marqueeView.contentTexts = showList;
-    marqueeView.contentIcon = [UIImage imageNamed:@"waring2"];
+    marqueeView.contentTextColor = [UIColor whiteColor];
     
-    // 设置动画时间，0 不滚动
-    marqueeView.animationDuration = 0;
+    // 设置显示的图标
+    marqueeView.contentIcon = [UIImage imageNamed:@"waring1"];
     
+    // 设置动画时间
+    marqueeView.animationDuration = 0.5;
+    
+    // 常规设置
     marqueeView.layer.cornerRadius = 15;
     marqueeView.layer.masksToBounds = YES;
-    marqueeView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.5];
+    marqueeView.backgroundColor = [UIColor colorWithRed:102/255.0f green:133/255.0f blue:253/255.0f alpha:1];
     [self.view addSubview:marqueeView];
     
     // 开始滚动
@@ -1273,23 +1313,26 @@
 
 - (void)qMarqueeViewDemo4 {
     
-    // 设置显示的内容
-    NSArray *showList = @[@"GitHub：QianChia"];
-    
-    // 创建滚动视图
+    // 创建跑马灯视图控件
     CGRect frame = CGRectMake(30, 200, self.view.bounds.size.width - 150, 30);
     QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
     
     // 设置显示的内容
+    NSArray *showList = @[@"GitHub：QianChia"];
     marqueeView.contentTexts = showList;
-    marqueeView.contentIcon = [UIImage imageNamed:@"waring2"];
+    marqueeView.contentTextColor = [UIColor whiteColor];
+    marqueeView.contentIcon = [UIImage imageNamed:@"waring1"];
     
     // 设置动画时间
     marqueeView.animationDuration = 0.5;
     
+    // 设置动画方向
+    marqueeView.animationDirection = QMarqueeViewDirectionDown;
+    
+    // 常规设置
     marqueeView.layer.cornerRadius = 15;
     marqueeView.layer.masksToBounds = YES;
-    marqueeView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.5];
+    marqueeView.backgroundColor = [UIColor colorWithRed:102/255.0f green:133/255.0f blue:253/255.0f alpha:1];
     [self.view addSubview:marqueeView];
     
     // 开始滚动
@@ -1299,9 +1342,9 @@
 - (void)qMarqueeViewDemo5 {
     
     // 设置显示的内容
-    NSArray *showList = @[@"新浪微博：QianChia0123"];
+    NSArray *showList = @[@"1. Hello World"];
     
-    // 创建滚动视图，开始滚动
+    // 创建跑马灯视图控件，开始滚动
     CGRect frame = CGRectMake(30, 250, self.view.bounds.size.width - 100, 30);
     QMarqueeView *marqueeView = [QMarqueeView q_marqueeViewWithFrame:frame
                                                                texts:showList
@@ -1310,10 +1353,11 @@
                                                                align:NSTextAlignmentLeft
                                                                 icon:[UIImage imageNamed:@"waring1"]
                                                            direction:QMarqueeViewDirectionDown
-                                                            duration:1.0
+                                                            duration:0.5
                                                                delay:0
                                                               target:self];
     
+    // 常规设置
     marqueeView.layer.cornerRadius = 15;
     marqueeView.layer.masksToBounds = YES;
     marqueeView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.5];
@@ -1323,21 +1367,26 @@
 - (void)qMarqueeViewDemo6 {
     
     // 设置显示的内容
-    NSArray *showList = @[@"个人博客：cnblogs.com/QianChia"];
+    NSArray *showList = @[@"1. Hello World",
+                          @"2. 欢迎大家关注哦！",
+                          @"3. GitHub：QianChia",
+                          @"4. 新浪微博：QianChia0123",
+                          @"5. 个人博客：cnblogs.com/QianChia"];
     
-    // 创建滚动视图，开始滚动
+    // 创建跑马灯视图控件，开始滚动
     CGRect frame = CGRectMake(30, 300, self.view.bounds.size.width - 60, 30);
     QMarqueeView *marqueeView = [QMarqueeView q_marqueeViewWithFrame:frame
                                                                texts:showList
                                                                color:[UIColor whiteColor]
                                                                 font:nil
-                                                               align:NSTextAlignmentLeft
+                                                               align:NSTextAlignmentCenter
                                                                 icon:[UIImage imageNamed:@"waring1"]
                                                            direction:QMarqueeViewDirectionUp
                                                             duration:0.5
                                                                delay:0
                                                               target:self];
     
+    // 常规设置
     marqueeView.layer.cornerRadius = 15;
     marqueeView.layer.masksToBounds = YES;
     marqueeView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.5];
@@ -1346,6 +1395,10 @@
 
 - (void)qMarqueeViewDemo7 {
     
+    // 创建跑马灯视图控件
+    CGRect frame = CGRectMake(50, 350, self.view.bounds.size.width - 100, 30);
+    QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
+    
     // 设置显示的内容
     NSArray *showList = @[@"1. Hello World",
                           @"2. 欢迎大家关注哦！",
@@ -1353,18 +1406,10 @@
                           @"4. 新浪微博：QianChia0123",
                           @"5. 个人博客：cnblogs.com/QianChia"];
     
-    // 创建滚动视图
-    CGRect frame = CGRectMake(0, 350, self.view.bounds.size.width, 30);
-    QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
-    
-    
-    // 设置代理，响应滚动视图点击
-    marqueeView.delegate = self;
-    
-    // 设置显示的内容
     marqueeView.contentTexts = showList;
     marqueeView.contentTextColor = [UIColor whiteColor];
     marqueeView.contentTextFont = [UIFont boldSystemFontOfSize:18];
+    marqueeView.contentIcon = [UIImage imageNamed:@"waring1"];
     
     // 设置动画时间
     marqueeView.animationDuration = 5.0;
@@ -1372,6 +1417,9 @@
     // 设置动画方向
     marqueeView.animationDirection = QMarqueeViewDirectionLeft;
     
+    // 常规设置
+    marqueeView.layer.cornerRadius = 15;
+    marqueeView.layer.masksToBounds = YES;
     marqueeView.backgroundColor = [UIColor colorWithRed:102/255.0f green:133/255.0f blue:253/255.0f alpha:1];
     [self.view addSubview:marqueeView];
     
@@ -1381,6 +1429,10 @@
 
 - (void)qMarqueeViewDemo8 {
     
+    // 创建跑马灯视图控件
+    CGRect frame = CGRectMake(50, 400, self.view.bounds.size.width - 100, 30);
+    QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
+    
     // 设置显示的内容
     NSArray *showList = @[@"1. Hello World",
                           @"2. 欢迎大家关注哦！",
@@ -1388,18 +1440,10 @@
                           @"4. 新浪微博：QianChia0123",
                           @"5. 个人博客：cnblogs.com/QianChia"];
     
-    // 创建滚动视图
-    CGRect frame = CGRectMake(0, 400, self.view.bounds.size.width, 30);
-    QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
-    
-    
-    // 设置代理，响应滚动视图点击
-    marqueeView.delegate = self;
-    
-    // 设置显示的内容
     marqueeView.contentTexts = showList;
     marqueeView.contentTextColor = [UIColor whiteColor];
     marqueeView.contentTextFont = [UIFont boldSystemFontOfSize:18];
+    marqueeView.contentIcon = [UIImage imageNamed:@"waring1"];
     
     // 设置动画时间
     marqueeView.animationDuration = 5.0;
@@ -1407,6 +1451,9 @@
     // 设置动画方向
     marqueeView.animationDirection = QMarqueeViewDirectionRight;
     
+    // 常规设置
+    marqueeView.layer.cornerRadius = 15;
+    marqueeView.layer.masksToBounds = YES;
     marqueeView.backgroundColor = [UIColor colorWithRed:102/255.0f green:133/255.0f blue:253/255.0f alpha:1];
     [self.view addSubview:marqueeView];
     
@@ -1423,31 +1470,51 @@
                           @"4. 新浪微博：QianChia0123",
                           @"5. 个人博客：cnblogs.com/QianChia"];
     
-    // 创建滚动视图
-    CGRect frame = CGRectMake(30, 450, self.view.bounds.size.width - 150, 30);
-    QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
+    // 创建跑马灯视图控件，开始滚动
+    CGRect frame = CGRectMake(30, 450, self.view.bounds.size.width - 60, 30);
+    QMarqueeView *marqueeView = [QMarqueeView q_marqueeViewWithFrame:frame
+                                                               texts:showList
+                                                               color:nil
+                                                                font:nil
+                                                               align:0
+                                                                icon:[UIImage imageNamed:@"waring2"]
+                                                           direction:QMarqueeViewDirectionLeft
+                                                            duration:4.0
+                                                               delay:0
+                                                              target:self];
     
-    // 设置显示的内容
-    marqueeView.contentTexts = showList;
-    marqueeView.contentTextColor = [UIColor redColor];
-    marqueeView.contentIcon = [UIImage imageNamed:@"waring2"];
-    
-    // 设置动画时间
-    marqueeView.animationDuration = 5.0;
-    
-    // 设置动画方向
-    marqueeView.animationDirection = QMarqueeViewDirectionLeft;
-    
+    // 常规设置
     marqueeView.layer.cornerRadius = 15;
     marqueeView.layer.masksToBounds = YES;
     marqueeView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.5];
     [self.view addSubview:marqueeView];
-    
-    // 开始滚动
-    [marqueeView q_startAnimation];
 }
 
-- (void)qMarqueeViewDemo10 {
+/// 跑马灯内容点击协议方法
+- (void)didClickContentAtIndex:(NSInteger)index {
+    
+    NSLog(@"%ld", index);
+}
+
+
+#pragma mark QBulletScreenView
+
+- (void)uiViewQBulletScreenViewDemo {
+    
+    self.view.backgroundColor = [UIColor colorWithRed:240/255.0f green:240/255.0f blue:240/255.0f alpha:1];
+    
+//    [self qBulletScreenViewDemo1];
+//    [self qBulletScreenViewDemo2];
+    
+//    [self qBulletScreenViewDemo3];
+    [self qBulletScreenViewDemo4];
+}
+
+- (void)qBulletScreenViewDemo1 {
+    
+    // 创建弹幕视图控件
+    CGRect frame = CGRectMake(0, 100, 0, 30);   // x, width 设置无效
+    QBulletScreenView *bulletScreenView = [[QBulletScreenView alloc] initWithFrame:frame];
     
     // 设置显示的内容
     NSArray *showList = @[@"1. Hello World",
@@ -1456,55 +1523,131 @@
                           @"4. 新浪微博：QianChia0123",
                           @"5. 个人博客：cnblogs.com/QianChia"];
     
-    // 创建滚动视图
-    CGRect frame = CGRectMake(30, 500, self.view.bounds.size.width - 150, 30);
-    QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
-    
-    // 设置显示的内容
-    marqueeView.contentTexts = showList;
-    marqueeView.contentTextColor = [UIColor whiteColor];
-    marqueeView.contentIcon = [UIImage imageNamed:@"waring1"];
+    bulletScreenView.contentTexts = showList;
+    bulletScreenView.contentTextColor = [UIColor whiteColor];
+    bulletScreenView.contentTextFont = [UIFont boldSystemFontOfSize:18];
+    bulletScreenView.contentIcon = [UIImage imageNamed:@"waring1"];
     
     // 设置动画时间
-    marqueeView.animationDuration = 5.0;
+    bulletScreenView.animationDuration = 5.0;
     
     // 设置动画方向
-    marqueeView.animationDirection = QMarqueeViewDirectionRight;
+    bulletScreenView.animationDirection = QBulletScreenViewDirectionLeft;
     
-    marqueeView.layer.cornerRadius = 15;
-    marqueeView.layer.masksToBounds = YES;
-    marqueeView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.5];
-    [self.view addSubview:marqueeView];
+    // 常规设置
+    bulletScreenView.layer.cornerRadius = 15;
+    bulletScreenView.layer.masksToBounds = YES;
+    bulletScreenView.backgroundColor = [UIColor colorWithRed:102/255.0f green:133/255.0f blue:253/255.0f alpha:1];
+    [self.view addSubview:bulletScreenView];
     
     // 开始滚动
-    [marqueeView q_startAnimation];
+    [bulletScreenView q_startAnimation];
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/// 跑马灯内容点击协议方法
-- (void)didClickContentAtIndex:(NSInteger)index {
+- (void)qBulletScreenViewDemo2 {
     
-    NSLog(@"%ld", index);
+    // 设置显示的内容
+    NSArray *showList = @[@"1. Hello World",
+                          @"2. 欢迎大家关注哦！",
+                          @"3. GitHub：QianChia",
+                          @"4. 新浪微博：QianChia0123",
+                          @"5. 个人博客：cnblogs.com/QianChia"];
+    
+    // 创建弹幕视图控件
+    CGRect frame = CGRectMake(0, 200, 0, 30);   // x, width 设置无效
+    QBulletScreenView *bulletScreenView = [QBulletScreenView q_bulletScreenWithFrame:frame
+                                                                               texts:showList
+                                                                               color:[UIColor whiteColor]
+                                                                                font:nil
+                                                                                icon:[UIImage imageNamed:@"waring1"]
+                                                                           direction:QBulletScreenViewDirectionRight
+                                                                            duration:5.0
+                                                                              target:nil];
+    
+    // 常规设置
+    bulletScreenView.layer.cornerRadius = 15;
+    bulletScreenView.layer.masksToBounds = YES;
+    bulletScreenView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+    [self.view addSubview:bulletScreenView];
+    
+    // 开始滚动
+    [bulletScreenView q_startAnimation];
+}
+
+- (void)qBulletScreenViewDemo3 {
+    
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 500,
+                                                                self.view.bounds.size.height, 200)];
+    backView.backgroundColor = [UIColor yellowColor];
+    backView.clipsToBounds = YES;
+    [self.view addSubview:backView];
+    
+    // 创建弹幕视图控件
+    CGRect frame = CGRectMake(10, 0, 0, 30);   // y, width 设置无效
+    QBulletScreenView *bulletScreenView = [[QBulletScreenView alloc] initWithFrame:frame];
+    
+    // 设置显示的内容
+    NSArray *showList = @[@"1. Hello World",
+                          @"2. 欢迎大家关注哦！",
+                          @"3. GitHub：QianChia",
+                          @"4. 新浪微博：QianChia0123",
+                          @"5. 个人博客：cnblogs.com/QianChia"];
+    
+    bulletScreenView.contentTexts = showList;
+    bulletScreenView.contentTextColor = [UIColor whiteColor];
+    bulletScreenView.contentTextFont = [UIFont boldSystemFontOfSize:18];
+    bulletScreenView.contentIcon = [UIImage imageNamed:@"waring1"];
+    
+    // 设置动画时间
+    bulletScreenView.animationDuration = 2.0;
+    
+    // 设置动画方向
+    bulletScreenView.animationDirection = QBulletScreenViewDirectionUp;
+    
+    // 常规设置
+    bulletScreenView.layer.cornerRadius = 15;
+    bulletScreenView.layer.masksToBounds = YES;
+    bulletScreenView.backgroundColor = [UIColor colorWithRed:102/255.0f green:133/255.0f blue:253/255.0f alpha:1];
+    [backView addSubview:bulletScreenView];
+    
+    // 开始滚动
+    [bulletScreenView q_startAnimation];
+}
+
+- (void)qBulletScreenViewDemo4 {
+    
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 500,
+                                                                self.view.bounds.size.height, 200)];
+    backView.backgroundColor = [UIColor yellowColor];
+    backView.clipsToBounds = YES;
+    [self.view addSubview:backView];
+    
+    // 设置显示的内容
+    NSArray *showList = @[@"1. Hello World",
+                          @"2. 欢迎大家关注哦！",
+                          @"3. GitHub：QianChia",
+                          @"4. 新浪微博：QianChia0123",
+                          @"5. 个人博客：cnblogs.com/QianChia"];
+    
+    // 创建弹幕视图控件
+    CGRect frame = CGRectMake(10, 0, 0, 30);   // y, width 设置无效
+    QBulletScreenView *bulletScreenView = [QBulletScreenView q_bulletScreenWithFrame:frame
+                                                                               texts:showList
+                                                                               color:[UIColor whiteColor]
+                                                                                font:[UIFont boldSystemFontOfSize:18]
+                                                                                icon:[UIImage imageNamed:@"waring1"]
+                                                                           direction:QBulletScreenViewDirectionDown
+                                                                            duration:2.0
+                                                                              target:nil];
+    
+    // 常规设置
+    bulletScreenView.layer.cornerRadius = 15;
+    bulletScreenView.layer.masksToBounds = YES;
+    bulletScreenView.backgroundColor = [UIColor colorWithRed:102/255.0f green:133/255.0f blue:253/255.0f alpha:1];
+    [backView addSubview:bulletScreenView];
+    
+    // 开始滚动
+    [bulletScreenView q_startAnimation];
 }
 
 

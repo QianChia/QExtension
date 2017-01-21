@@ -19,6 +19,8 @@
 
 #import "NSString+QExtension.h"
 
+#import "NSObject+QExtension.h"
+
 // UIKit
 
 #import "UIButton+QExtension.h"
