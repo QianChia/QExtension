@@ -1647,7 +1647,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 			NSLog(@"解密后: %@", DencryptStr);
 		```
 		
-	- 效果
+		- 效果
 	
 		![safe20](http://images2015.cnblogs.com/blog/993906/201701/993906-20170121221659906-1718704320.png)
 
@@ -1673,7 +1673,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 			NSLog(@"解密后: %@", dencryptStr);
 		```
 		
-	- 效果
+		- 效果
 	
 		![safe21](http://images2015.cnblogs.com/blog/993906/201701/993906-20170121221645937-1116149198.png)
 
