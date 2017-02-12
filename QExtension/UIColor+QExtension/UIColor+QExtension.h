@@ -10,6 +10,7 @@
 #define UIColor_QExtension_h
 
 #import "UIColor+Hex.h"
+#import "UIColor+RGB.h"
 
 
 #endif /* UIColor_QExtension_h */

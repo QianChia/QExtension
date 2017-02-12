@@ -136,7 +136,7 @@ NS_ASSUME_NONNULL_BEGIN
     [self q_setTextValue:self.q_getCurrentValue];
 }
 
-#pragma mark - 工具方法
+#pragma mark - 助手方法
 
 /// 定时器定时响应事件处理
 - (void)q_timerUpdate:(NSTimer *)timer {

@@ -12,6 +12,7 @@
 #import "UIImage+Draw.h"
 #import "UIImage+GIF.h"
 #import "UIImage+QRCode.h"
+#import "UIImage+Bundle.h"
 
 
 #endif /* UIImage_QExtension_h */

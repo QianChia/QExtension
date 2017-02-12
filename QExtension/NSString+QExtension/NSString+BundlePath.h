@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (BundlePath)
 
+#pragma mark - 拼接文件路径
+
 /**
  *  拼接文档目录
  *
@@ -54,6 +56,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return 沙盒下的 tmp/"self.md5" 路径
  */
 - (NSString *)q_appendMD5TempPath;
+
+#pragma mark - 设置文件路径属性
+
+/**
+ *  添加文件不备份属性
+ *
+ * <p> 对指定的文件路径及路径文件夹内的文件夹和文件设置不备份到 iTunes 和 iCloud 属性 <p>
+ *
+ *  @return 设置是否成功
+ */
+- (BOOL)q_addSkipBackupAttribute;
 
 @end
 

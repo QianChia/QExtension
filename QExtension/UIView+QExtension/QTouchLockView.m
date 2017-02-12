@@ -8,6 +8,9 @@
 
 #import "QTouchLockView.h"
 #import "NSString+Hash.h"
+#import "UIImage+Bundle.h"
+
+#define BUNDLE_IMAGE(name)  [UIImage q_imageNamed:(name) fromBundle:@"QTouchLockView"]
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -63,19 +66,9 @@ NS_ASSUME_NONNULL_BEGIN
             
             UIButton *btn = [[UIButton alloc] init];
             
-            NSString *bundlePath = [[[NSBundle mainBundle] resourcePath]
-                                    stringByAppendingPathComponent:@"QTouchLockView.bundle"];
-            
-            UIImage *normalImage = [UIImage imageWithContentsOfFile:
-                                    [bundlePath stringByAppendingPathComponent:@"gesture_node_normal"]];
-            UIImage *selectedImage = [UIImage imageWithContentsOfFile:
-                                      [bundlePath stringByAppendingPathComponent:@"gesture_node_selected"]];
-            UIImage *highlightedImage = [UIImage imageWithContentsOfFile:
-                                         [bundlePath stringByAppendingPathComponent:@"gesture_node_highlighted"]];
-            
-            [btn setBackgroundImage:normalImage forState:UIControlStateNormal];
-            [btn setBackgroundImage:selectedImage forState:UIControlStateSelected];
-            [btn setBackgroundImage:highlightedImage forState:UIControlStateHighlighted];
+            [btn setBackgroundImage:BUNDLE_IMAGE(@"gesture_node_normal") forState:UIControlStateNormal];
+            [btn setBackgroundImage:BUNDLE_IMAGE(@"gesture_node_selected") forState:UIControlStateSelected];
+            [btn setBackgroundImage:BUNDLE_IMAGE(@"gesture_node_highlighted") forState:UIControlStateHighlighted];
             
             // 设置 tag 值，设置按钮对应的密码值
             btn.tag = i + 1;

@@ -161,7 +161,7 @@ NS_ASSUME_NONNULL_BEGIN
                            mimeTypes:mimeTypes];
 }
 
-#pragma mark - 工具方法
+#pragma mark - 助手方法
 
 /**
  *  设置文件上传请求头
@@ -273,7 +273,7 @@ NS_ASSUME_NONNULL_BEGIN
     
     NSMutableArray<NSString *> *uploadNames = [NSMutableArray arrayWithCapacity:count];
     NSMutableArray<NSData *> *uploadDatas = [NSMutableArray arrayWithCapacity:count];
-    NSArray *uploadNameAndData = [[NSArray alloc] init];
+    NSArray *uploadNameAndData = nil;
     
     for (int i = 0; i < count; i ++) {
         uploadNameAndData = [self q_uploadNameAndDataWithFileName:fileNamesM[i] fileURL:fileURLsM[i]];

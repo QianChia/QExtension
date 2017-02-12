@@ -120,7 +120,6 @@ NS_ASSUME_NONNULL_BEGIN
     
     // 设置默认值
     NSTimeInterval duration = 0;
-    CGFloat currentContentWidth = self.contentWidth;
     
     // 设置第一个 label 显示的内容
     self.contentLabel.text = self.contentTexts[self.currentIndex];
@@ -131,7 +130,7 @@ NS_ASSUME_NONNULL_BEGIN
     } else {
         
         // 计算文本内容长度
-        currentContentWidth = [self.contentLabel.text sizeWithAttributes:@{NSFontAttributeName:(self.contentTextFont ? : [UIFont systemFontOfSize:15.0f])}].width;
+        CGFloat currentContentWidth = [self.contentLabel.text sizeWithAttributes:@{NSFontAttributeName:(self.contentTextFont ? : [UIFont systemFontOfSize:15.0f])}].width;
         
         CGRect frame = CGRectMake(self.contentX, 0, currentContentWidth, self.contentHeight);
         self.contentLabel.frame = frame;

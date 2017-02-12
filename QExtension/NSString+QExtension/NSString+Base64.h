@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return base64 编码的字符串
  */
-- (NSString *)q_base64Encode;
+- (NSString *)q_base64Encode NS_AVAILABLE(10_9, 7_0);
 
 /**
  *  对 base64 编码的字符串进行解码
@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return ASCII 编码的字符串
  */
-- (NSString *)q_base64Decode;
+- (NSString *)q_base64Decode NS_AVAILABLE(10_9, 7_0);
 
 /**
  *  生成服务器 base64 编码授权字符串
@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return @"BASIC (username:password).base64" 格式的字符串
  */
-- (NSString *)q_basic64AuthEncode;
+- (NSString *)q_basic64AuthEncode NS_AVAILABLE(10_9, 7_0);
 
 @end
 

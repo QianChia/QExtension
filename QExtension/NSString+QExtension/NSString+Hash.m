@@ -151,7 +151,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #define FileHashDefaultChunkSizeForReadingData 4096
 
-- (NSString *)q_fileMD5Hash {
+- (NSString * __nullable)q_fileMD5Hash {
     NSFileHandle *fp = [NSFileHandle fileHandleForReadingAtPath:self];
     if (fp == nil) {
         return nil;
@@ -179,7 +179,7 @@ NS_ASSUME_NONNULL_BEGIN
     return [self q_stringFromBytes:buffer length:CC_MD5_DIGEST_LENGTH];
 }
 
-- (NSString *)q_fileSHA1Hash {
+- (NSString * __nullable)q_fileSHA1Hash {
     NSFileHandle *fp = [NSFileHandle fileHandleForReadingAtPath:self];
     if (fp == nil) {
         return nil;
@@ -207,7 +207,7 @@ NS_ASSUME_NONNULL_BEGIN
     return [self q_stringFromBytes:buffer length:CC_SHA1_DIGEST_LENGTH];
 }
 
-- (NSString *)q_fileSHA256Hash {
+- (NSString * __nullable)q_fileSHA256Hash {
     NSFileHandle *fp = [NSFileHandle fileHandleForReadingAtPath:self];
     if (fp == nil) {
         return nil;
@@ -235,7 +235,7 @@ NS_ASSUME_NONNULL_BEGIN
     return [self q_stringFromBytes:buffer length:CC_SHA256_DIGEST_LENGTH];
 }
 
-- (NSString *)q_fileSHA512Hash {
+- (NSString * __nullable)q_fileSHA512Hash {
     NSFileHandle *fp = [NSFileHandle fileHandleForReadingAtPath:self];
     if (fp == nil) {
         return nil;

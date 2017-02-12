@@ -13,6 +13,7 @@
 #import "NSString+BundlePath.h"
 #import "NSString+Hash.h"
 #import "NSString+Regex.h"
+#import "NSString+Net.h"
 
 
 #endif /* NSString_QExtension_h */

@@ -10,6 +10,9 @@
 
 #import "QExtension.h"
 
+#define WIDTH   [UIScreen mainScreen].bounds.size.width
+#define HEIGHT  [UIScreen mainScreen].bounds.size.height
+
 @interface ViewController () <QMarqueeViewDelegate>
 
 @property (nonatomic, strong) QProgressButton *progressButton;
@@ -39,19 +42,23 @@
 //    [self nsDataFormDataDemo];
     
 //    [self nsDictionaryLocaleLogDemo];
-    
+    [self nsDictionaryNetDemo];
+
 //    [self nsStringBase64Demo];
 //    [self nsStringBundlePathDemo];
 //    [self nsStringHashDemo];
 //    [self nsStringRegexDemo];
+//    [self nsStringNetDemo];
     
 //    [self uiButtonQProgressButtonDemo];
     
 //    [self uiColorHexDemo];
+//    [self uiColorRGBDemo];
     
 //    [self uiImageDrawDemo];
 //    [self uiImageGIFDemo];
 //    [self uiImageQRCodeDemo];
+//    [self uiImageBundleDemo];
     
 //    [self uiViewFrameDemo];
 //    [self uiViewQPageViewDemo];
@@ -67,7 +74,7 @@
 //    [self qCountingLabelDemo1];
 //    [self qCountingLabelDemo2];
     
-    [self nsObjectQRSAEncryptorDemo];
+//    [self nsObjectQRSAEncryptorDemo];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -171,8 +178,8 @@
     
 //    NSData *formData = [self fileFormDataWithRequest7:request];
 //    NSData *formData = [self fileFormDataWithRequest8:request];
-//    NSData *formData = [self fileFormDataWithRequest9:request];
-    NSData *formData = [self fileFormDataWithRequest10:request];
+    NSData *formData = [self fileFormDataWithRequest9:request];
+//    NSData *formData = [self fileFormDataWithRequest10:request];
     
     [[[NSURLSession sharedSession] uploadTaskWithRequest:request
                                                 fromData:formData
@@ -383,6 +390,22 @@
     NSLog(@"%@", localeDictionary);
 }
 
+#pragma mark Net
+
+- (void)nsDictionaryNetDemo {
+    
+    // 获取当前 Wifi 信息
+    NSDictionary *wifiInfo = [NSDictionary q_getCurrentWifiInfo];
+    
+    NSLog(@"%@", wifiInfo);
+    
+    NSString *bssid = wifiInfo[BSSIDKey];
+    NSString *ssid = wifiInfo[SSIDKey];
+    NSString *ssidData = [[NSString alloc] initWithData:wifiInfo[SSIDDATAKey] encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"%@\n %@\n %@", bssid, ssid, ssidData);
+}
+
 
 #pragma mark - NSString+QExtension
 
@@ -435,6 +458,14 @@
     
     NSString *md5TempPath = [filePath q_appendMD5TempPath];
     NSLog(@"md5TempPath: \n%@\n\n", md5TempPath);
+    
+    // 添加文件不备份属性
+    
+    NSString *filePath1 = @"~/Desktop/Test";
+    [filePath1 q_addSkipBackupAttribute];
+    
+    NSURL *fileURL1 = [NSURL fileURLWithPath:filePath1];
+    [fileURL1.path q_addSkipBackupAttribute];
 }
 
 #pragma mark Hash
@@ -529,6 +560,16 @@
     NSLog(@"EmailAddress2: %zi", isValidEmailAddress2);
 }
 
+#pragma mark Net
+
+- (void)nsStringNetDemo {
+    
+    // 获取本地 IP 地址
+    NSString *ipStr = [NSString q_getIPAddress];
+    
+    NSLog(@"%@", ipStr);
+}
+
 
 #pragma mark - UIButton+QExtension
 
@@ -594,17 +635,30 @@
 
 - (void)uiColorHexDemo {
     
-//    self.view.backgroundColor = [UIColor blueColor];
-    
     UIView *vi = [[UIView alloc] initWithFrame:CGRectMake(20, 30, 100, 100)];
     [self.view addSubview:vi];
     
     // 由十六进制颜色值创建 RGB 颜色值
-//    UIColor *color = [UIColor colorWithHexString:@"0Xc83c23"];
+//    UIColor *color = [UIColor q_colorWithHexString:@"0Xc83c23"];
     
-    UIColor *color = [UIColor colorWithHexString:@"0Xc83c23" alpha:0.5];
+    UIColor *color = [UIColor q_colorWithHexString:@"0Xc83c23" alpha:0.5];
     
     vi.backgroundColor = color;
+}
+
+#pragma mark RGB
+
+- (void)uiColorRGBDemo {
+    
+    // 获取 UIColor 的 RGB 值
+    NSArray *rgbComponents = [[UIColor cyanColor] q_getRGBComponents];
+    
+    CGFloat r = [rgbComponents[0] floatValue];
+    CGFloat g = [rgbComponents[1] floatValue];
+    CGFloat b = [rgbComponents[2] floatValue];
+    CGFloat a = [rgbComponents[3] floatValue];
+    
+    NSLog(@"R: %f, G: %f B:%f, A: %f", r, g, b, a);
 }
 
 
@@ -615,13 +669,13 @@
 - (void)uiImageDrawDemo {
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(20, self.view.bounds.size.height - 100, 100, 50);
+    button.frame = CGRectMake(20, HEIGHT - 100, 100, 50);
     [button setTitle:@"开始" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(drawButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
-    CGRect frame1 = CGRectMake(20, 40, self.view.bounds.size.width - 40, self.view.bounds.size.width - 40);
+    CGRect frame1 = CGRectMake(20, 40, WIDTH - 40, WIDTH - 40);
     UIImageView *imv1 = [[UIImageView alloc] initWithFrame:frame1];
     imv1.layer.borderWidth = 1;
 //    imv1.image = [UIImage imageNamed:@"demo5"];
@@ -629,7 +683,7 @@
     [self.view addSubview:imv1];
     self.imageView1 = imv1;
     
-    CGRect frame2 = CGRectMake(20, 40, self.view.bounds.size.width - 40, (self.view.bounds.size.width - 40) * 1.5);
+    CGRect frame2 = CGRectMake(20, 40, WIDTH - 40, (WIDTH - 40) * 1.5);
     UIImageView *imv2 = [[UIImageView alloc] initWithFrame:frame2];
     imv2.layer.borderWidth = 1;
     imv2.hidden = YES;
@@ -724,7 +778,7 @@
 
 - (void)uiImageGIFDemo {
     
-    CGRect frame1 = CGRectMake(20, 200, self.view.bounds.size.width - 40, (self.view.bounds.size.width - 40) / 3 * 2);
+    CGRect frame1 = CGRectMake(20, 200, WIDTH - 40, (WIDTH - 40) / 3 * 2);
     UIImageView *imv1 = [[UIImageView alloc] initWithFrame:frame1];
     imv1.layer.borderWidth = 1;
     [self.view addSubview:imv1];
@@ -753,13 +807,13 @@
 - (void)uiImageQRCodeDemo {
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(20, self.view.bounds.size.height - 100, 200, 50);
+    button.frame = CGRectMake(20, HEIGHT - 100, 200, 50);
     [button setTitle:@"生成/识别" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(qrCodeButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
-    CGRect frame1 = CGRectMake(20, 40, self.view.bounds.size.width - 40, self.view.bounds.size.width - 40);
+    CGRect frame1 = CGRectMake(20, 40, WIDTH - 40, WIDTH - 40);
     UIImageView *imv1 = [[UIImageView alloc] initWithFrame:frame1];
     imv1.layer.borderWidth = 1;
     [self.view addSubview:imv1];
@@ -770,9 +824,12 @@
     
 //    [self createQRCodeDemo1];
 //    [self createQRCodeDemo2];
-//    [self createQRCodeDemo3];
+    [self createQRCodeDemo3];
+    
 //    [self createQRCodeDemo4];
-    [self createQRCodeDemo5];
+    
+//    [self createQRCodeDemo5];
+//    [self createQRCodeDemo6];
 }
 
 - (void)createQRCodeDemo1 {
@@ -788,7 +845,7 @@
 
 - (void)createQRCodeDemo2 {
     
-    // 生成二维码
+    // 生成二维码，带头像
     UIImage *qrImage = [UIImage q_imageWithQRCodeFromString:@"http://weixin.qq.com/r/xUqbg1-ENgJJrRvg9x-X"
                                                    headIcon:[UIImage imageNamed:@"demo6"]
                                                       color:[UIColor blackColor]
@@ -846,17 +903,58 @@
 
 - (void)createQRCodeDemo5 {
     
-    // 生成指定图片大小的条形码
-    UIImage *qrImage = [UIImage q_imageWithBarCodeFromString:@"QianChia"
-                                                   imageSize:CGSizeMake(1024, 512)
-                                                         red:0
-                                                       green:0.4
-                                                        blue:0.6];
+    // 生成条形码
+    UIImage *qrImage = [UIImage q_imageWithBarCodeFromString:@"cnblogs: QianChia"
+                                                       color:nil
+                                                   backColor:nil];
     
     NSData *data = UIImagePNGRepresentation(qrImage);
     [data writeToFile:@"/Users/JHQ0228/Desktop/Images/pic.png" atomically:YES];
     
+    self.imageView1.frame = CGRectMake(self.imageView1.frame.origin.x,
+                                       self.imageView1.frame.origin.y,
+                                       self.imageView1.frame.size.width,
+                                       self.imageView1.frame.size.width / 3);
     self.imageView1.image = qrImage;
+}
+
+- (void)createQRCodeDemo6 {
+    
+    // 生成指定图片大小的条形码
+    UIImage *qrImage = [UIImage q_imageWithBarCodeFromString:@"cnblogs: QianChia"
+                                                   imageSize:CGSizeMake(1024, 512)
+                                                       color:[UIColor blueColor]
+                                                   backColor:[UIColor redColor]];
+    
+    NSData *data = UIImagePNGRepresentation(qrImage);
+    [data writeToFile:@"/Users/JHQ0228/Desktop/Images/pic.png" atomically:YES];
+    
+    self.imageView1.frame = CGRectMake(self.imageView1.frame.origin.x,
+                                       self.imageView1.frame.origin.y,
+                                       self.imageView1.frame.size.width,
+                                       self.imageView1.frame.size.width / 2);
+    self.imageView1.image = qrImage;
+}
+
+#pragma mark Bundle
+
+- (void)uiImageBundleDemo {
+    
+    CGRect frame1 = CGRectMake(20, 40, WIDTH - 40, WIDTH - 40);
+    UIImageView *imv1 = [[UIImageView alloc] initWithFrame:frame1];
+    imv1.layer.borderWidth = 1;
+    [self.view addSubview:imv1];
+    self.imageView1 = imv1;
+    
+    // 从 Bundle 文件中加载图片
+    
+    // 不带扩展名
+    // UIImage *image = [UIImage q_imageNamed:@"demoPic" fromBundle:@"demoBundle"];
+    
+    // 带扩展名
+    UIImage *image = [UIImage q_imageNamed:@"demoPic" fromBundle:@"demoBundle.bundle"];
+    
+    self.imageView1.image = image;
 }
 
 
@@ -897,7 +995,7 @@
 - (void)qPageViewDemo1 {
     
     // 创建分页视图控件
-    CGRect frame = CGRectMake(0, 20, self.view.bounds.size.width, self.view.bounds.size.width / 2);
+    CGRect frame = CGRectMake(0, 20, WIDTH, WIDTH / 2);
     
     QPageView *pageView = [[QPageView alloc] initWithFrame:frame];
     
@@ -926,8 +1024,7 @@
     NSArray *imageNameArr = @[@"page_00", @"page_01", @"page_02", @"page_03", @"page_04"];
     
     // 创建分页视图控件
-    CGRect frame = CGRectMake(0, 50 + self.view.bounds.size.width / 2,
-                              self.view.bounds.size.width, self.view.bounds.size.width / 2);
+    CGRect frame = CGRectMake(0, 50 + WIDTH / 2, WIDTH, WIDTH / 2);
     
     QPageView *pageView = [QPageView q_pageViewWithFrame:frame
                                               imageNames:imageNameArr
@@ -937,7 +1034,6 @@
     
     [self.view addSubview:pageView];
 }
-
 
 #pragma mark QPaintBoardView
 
@@ -972,7 +1068,7 @@
     
     // 创建简单画板
     
-    CGRect frame = CGRectMake(20, 50, self.view.bounds.size.width - 40, 200);
+    CGRect frame = CGRectMake(20, 50, WIDTH - 40, 200);
     
     QPaintBoardView *paintBoardView = [QPaintBoardView q_paintBoardViewWithFrame:frame];
     
@@ -1032,13 +1128,13 @@
 
 - (void)uiViewQTouchClipViewDemo {
     
-    CGRect ivFrame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 44);
+    CGRect ivFrame = CGRectMake(0, 0, WIDTH, HEIGHT - 44);
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:ivFrame];
     imageView.image = [UIImage imageNamed:@"demo9.jpg"];
     [self.view addSubview:imageView];
     self.imageView = imageView;
     
-    CGRect toolFrame = CGRectMake(0, self.view.bounds.size.height - 44, self.view.bounds.size.width, 44);
+    CGRect toolFrame = CGRectMake(0, HEIGHT - 44, WIDTH, 44);
     UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:toolFrame];
     UIBarButtonItem *clipButton = [[UIBarButtonItem alloc] initWithTitle:@"选择截屏"
                                                                    style:UIBarButtonItemStylePlain
@@ -1050,8 +1146,8 @@
                                                                    action:@selector(clearButtonClik)];
     UIBarButtonItem *flexibleButton = [[UIBarButtonItem alloc]
                                        initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                       target:nil
-                                       action:nil];
+                                                            target:nil
+                                                            action:nil];
     toolBar.items = @[clipButton, flexibleButton, clearButton];
     [self.view addSubview:toolBar];
 }
@@ -1093,7 +1189,7 @@
 - (void)uiViewQTouchLockViewDemo {
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(20, self.view.bounds.size.height - 50, 50, 30);
+    button.frame = CGRectMake(20, HEIGHT - 50, 50, 30);
     [button setTitle:@"清除" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
@@ -1101,7 +1197,7 @@
     [self.view addSubview:button];
     
     UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    button1.frame = CGRectMake(100, self.view.bounds.size.height - 50, 50, 30);
+    button1.frame = CGRectMake(100, HEIGHT - 50, 50, 30);
     [button1 setTitle:@"查看" forState:UIControlStateNormal];
     [button1 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [button1 setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
@@ -1137,7 +1233,7 @@
     
     // 设置 frame
     CGFloat margin = 50;
-    CGFloat width = self.view.bounds.size.width - margin * 2;
+    CGFloat width = WIDTH - margin * 2;
     CGRect frame = CGRectMake(margin, 200, width, width);
     
     // 创建手势锁视图界面，获取滑动结果
@@ -1228,7 +1324,7 @@
 - (void)qMarqueeViewDemo1 {
     
     // 创建跑马灯视图控件
-    CGRect frame = CGRectMake(0, 50, self.view.bounds.size.width, 30);
+    CGRect frame = CGRectMake(0, 50, WIDTH, 30);
     QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
     
     // 设置显示的内容
@@ -1256,7 +1352,7 @@
 - (void)qMarqueeViewDemo2 {
     
     // 创建跑马灯视图控件
-    CGRect frame = CGRectMake(0, 100, self.view.bounds.size.width, 30);
+    CGRect frame = CGRectMake(0, 100, WIDTH, 30);
     QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
     
     // 设置显示的内容
@@ -1287,7 +1383,7 @@
 - (void)qMarqueeViewDemo3 {
     
     // 创建跑马灯视图控件
-    CGRect frame = CGRectMake(30, 150, self.view.bounds.size.width - 150, 30);
+    CGRect frame = CGRectMake(30, 150, WIDTH - 150, 30);
     QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
     
     // 设置显示的内容
@@ -1314,7 +1410,7 @@
 - (void)qMarqueeViewDemo4 {
     
     // 创建跑马灯视图控件
-    CGRect frame = CGRectMake(30, 200, self.view.bounds.size.width - 150, 30);
+    CGRect frame = CGRectMake(30, 200, WIDTH - 150, 30);
     QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
     
     // 设置显示的内容
@@ -1345,7 +1441,7 @@
     NSArray *showList = @[@"1. Hello World"];
     
     // 创建跑马灯视图控件，开始滚动
-    CGRect frame = CGRectMake(30, 250, self.view.bounds.size.width - 100, 30);
+    CGRect frame = CGRectMake(30, 250, WIDTH - 100, 30);
     QMarqueeView *marqueeView = [QMarqueeView q_marqueeViewWithFrame:frame
                                                                texts:showList
                                                                color:[UIColor whiteColor]
@@ -1374,7 +1470,7 @@
                           @"5. 个人博客：cnblogs.com/QianChia"];
     
     // 创建跑马灯视图控件，开始滚动
-    CGRect frame = CGRectMake(30, 300, self.view.bounds.size.width - 60, 30);
+    CGRect frame = CGRectMake(30, 300, WIDTH - 60, 30);
     QMarqueeView *marqueeView = [QMarqueeView q_marqueeViewWithFrame:frame
                                                                texts:showList
                                                                color:[UIColor whiteColor]
@@ -1396,7 +1492,7 @@
 - (void)qMarqueeViewDemo7 {
     
     // 创建跑马灯视图控件
-    CGRect frame = CGRectMake(50, 350, self.view.bounds.size.width - 100, 30);
+    CGRect frame = CGRectMake(50, 350, WIDTH - 100, 30);
     QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
     
     // 设置显示的内容
@@ -1430,7 +1526,7 @@
 - (void)qMarqueeViewDemo8 {
     
     // 创建跑马灯视图控件
-    CGRect frame = CGRectMake(50, 400, self.view.bounds.size.width - 100, 30);
+    CGRect frame = CGRectMake(50, 400, WIDTH - 100, 30);
     QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
     
     // 设置显示的内容
@@ -1471,7 +1567,7 @@
                           @"5. 个人博客：cnblogs.com/QianChia"];
     
     // 创建跑马灯视图控件，开始滚动
-    CGRect frame = CGRectMake(30, 450, self.view.bounds.size.width - 60, 30);
+    CGRect frame = CGRectMake(30, 450, WIDTH - 60, 30);
     QMarqueeView *marqueeView = [QMarqueeView q_marqueeViewWithFrame:frame
                                                                texts:showList
                                                                color:nil
@@ -1576,8 +1672,7 @@
 
 - (void)qBulletScreenViewDemo3 {
     
-    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 500,
-                                                                self.view.bounds.size.height, 200)];
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT - 500, HEIGHT, 200)];
     backView.backgroundColor = [UIColor yellowColor];
     backView.clipsToBounds = YES;
     [self.view addSubview:backView];
@@ -1616,8 +1711,7 @@
 
 - (void)qBulletScreenViewDemo4 {
     
-    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 500,
-                                                                self.view.bounds.size.height, 200)];
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT - 500, HEIGHT, 200)];
     backView.backgroundColor = [UIColor yellowColor];
     backView.clipsToBounds = YES;
     [self.view addSubview:backView];
@@ -1658,7 +1752,7 @@
 - (void)uiViewControllerQQRCodeDemo {
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(20, self.view.bounds.size.height - 50, 100, 30);
+    button.frame = CGRectMake(20, HEIGHT - 50, 100, 30);
     [button setTitle:@"二维码" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];

@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - QBulletScreenViewDelegate
 
-/// 跑马灯内容点击处理协议
+/// 弹幕内容点击处理协议
 @protocol QBulletScreenViewDelegate <NSObject>
 
 - (void)didClickContentAtIndex:(NSInteger)index;

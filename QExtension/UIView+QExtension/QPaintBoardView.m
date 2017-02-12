@@ -7,6 +7,9 @@
 //
 
 #import "QPaintBoardView.h"
+#import "UIImage+Bundle.h"
+
+#define BUNDLE_IMAGE(name)  [UIImage q_imageNamed:(name) fromBundle:@"QPaintBoardView"]
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -117,12 +120,12 @@ NS_ASSUME_NONNULL_BEGIN
             
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             button.tag = i;
-            [button setBackgroundImage:[self q_getBundleImageWithName:imageNames[i]] forState:UIControlStateNormal];
+            [button setBackgroundImage:[self getImageWithName:imageNames[i]] forState:UIControlStateNormal];
             [button addTarget:self action:@selector(toolButtonClick:) forControlEvents:UIControlEventTouchUpInside];
             [self.toolView addSubview:button];
             
             if (i < 3) {
-                [button setBackgroundImage:[self q_getBundleImageWithName:selectedImageNames[i]] forState:UIControlStateSelected];
+                [button setBackgroundImage:[self getImageWithName:selectedImageNames[i]] forState:UIControlStateSelected];
             }
         }
         
@@ -665,13 +668,10 @@ NS_ASSUME_NONNULL_BEGIN
     self.backgroundColor = paintBoardColor;
 }
 
-/// 加载 bundle 中的图片
-- (UIImage *)q_getBundleImageWithName:(NSString *)name {
+/// 加载处理 bundle 中的图片
+- (UIImage *)getImageWithName:(NSString *)name {
     
-    NSString *bundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"QPaintBoardView.bundle"];
-    
-    UIImage *image = [[UIImage imageWithContentsOfFile:[bundlePath stringByAppendingPathComponent:name]]
-                      imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *image = [BUNDLE_IMAGE(name) imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     return image;
 }
 

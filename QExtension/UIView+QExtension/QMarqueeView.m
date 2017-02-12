@@ -248,9 +248,10 @@ NS_ASSUME_NONNULL_BEGIN
     } else {
         frame1 = CGRectMake(0, firstContentLastStartY, self.contentWidth, self.contentHeight);
         frame2 = CGRectMake(0, secondContentLastStartY, self.contentWidth, self.contentHeight);
+        
+        self.secondContentLabel.frame = frame2;
     }
     self.firstContentLabel.frame = frame1;
-    self.secondContentLabel.frame = frame2;
     
     // 开始一次滚动动画
     [UIView beginAnimations:@"" context:nil];
@@ -268,9 +269,10 @@ NS_ASSUME_NONNULL_BEGIN
     } else {
         frame3 = CGRectMake(0, firstContentLastEndY, self.contentWidth, self.contentHeight);
         frame4 = CGRectMake(0, secondContentLastEndY, self.contentWidth, self.contentHeight);
+        
+        self.secondContentLabel.frame = frame4;
     }
     self.firstContentLabel.frame = frame3;
-    self.secondContentLabel.frame = frame4;
     
     // 结束一次滚动动画
     [UIView commitAnimations];

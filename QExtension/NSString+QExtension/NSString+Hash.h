@@ -188,7 +188,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 32 个字符的 MD5 散列字符串
  */
-- (NSString *)q_fileMD5Hash;
+- (NSString  * __nullable)q_fileMD5Hash;
 
 /**
  *  计算文件的 SHA1 散列结果
@@ -200,7 +200,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 40 个字符的 SHA1 散列字符串
  */
-- (NSString *)q_fileSHA1Hash;
+- (NSString * __nullable)q_fileSHA1Hash;
 
 /**
  *  计算文件的 SHA256 散列结果
@@ -212,7 +212,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 64 个字符的 SHA256 散列字符串
  */
-- (NSString *)q_fileSHA256Hash;
+- (NSString * __nullable)q_fileSHA256Hash;
 
 /**
  *  计算文件的 SHA512 散列结果
@@ -224,7 +224,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 128 个字符的 SHA512 散列字符串
  */
-- (NSString *)q_fileSHA512Hash;
+- (NSString * __nullable)q_fileSHA512Hash;
 
 @end
 

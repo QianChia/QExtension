@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return RGB 颜色值
  */
-+ (UIColor *)colorWithHexString:(NSString *)color;
++ (UIColor *)q_colorWithHexString:(NSString *)color;
 
 /**
  *  由十六进制颜色值创建 RGB 颜色值
@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return RGB 颜色值
  */
-+ (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alpha;
++ (UIColor *)q_colorWithHexString:(NSString *)color alpha:(CGFloat)alpha;
 
 @end
 

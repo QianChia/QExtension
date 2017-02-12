@@ -314,6 +314,23 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	![o_QExtension14](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension14.png)
 
+### 3.2 Net methods
+
+- 获取当前 Wifi 信息
+
+	```objc
+		
+		NSDictionary *wifiInfo = [NSDictionary q_getCurrentWifiInfo];
+		    
+		NSLog(@"%@", wifiInfo);
+		    
+		NSString *bssid = wifiInfo[BSSIDKey];
+		NSString *ssid = wifiInfo[SSIDKey];
+		NSString *ssidData = [[NSString alloc] initWithData:wifiInfo[SSIDDATAKey] encoding:NSUTF8StringEncoding];
+		    
+		NSLog(@"%@\n %@\n %@", bssid, ssid, ssidData);
+		
+	```
 
 ## 4、NSString Extension
 
@@ -374,6 +391,14 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 		    
 		NSString *md5TempPath = [filePath q_appendMD5TempPath];
 		NSLog(@"md5TempPath: \n%@\n\n", md5TempPath);
+    
+		// 添加文件不备份属性
+		
+		NSString *filePath1 = @"~/Desktop/Test";
+		[filePath1 q_addSkipBackupAttribute];
+		    
+		NSURL *fileURL1 = [NSURL fileURLWithPath:filePath1];
+		[fileURL1.path q_addSkipBackupAttribute];
 		
 	```
 
@@ -487,6 +512,16 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	![o_QExtension18](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension18.png)
 
+### 4.5 Net methods 
+
+- 网络
+
+	```objc
+	
+		// 获取本地 IP 地址
+		NSString *ipStr = [NSString q_getIPAddress];
+    
+	```
 
 ## 5、UIButton Extension
 
@@ -524,6 +559,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	![o_QExtension19](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension19.gif)  ![o_QExtension20](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension20.gif)
 
 	![o_QExtension21](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension21.gif)  ![o_QExtension22](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension22.gif)
+
 
 ## 6、UIImage Extension
 
@@ -685,18 +721,34 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	```objc
 
+		// 生成条形码
+		UIImage *qrImage = [UIImage q_imageWithBarCodeFromString:@"cnblogs: QianChia"
+		                                                   color:nil
+		                                               backColor:nil];
+		
 		// 生成指定图片大小的条形码
-		UIImage *qrImage = [UIImage q_imageWithBarCodeFromString:@"QianChia"
+		UIImage *qrImage = [UIImage q_imageWithBarCodeFromString:@"cnblogs: QianChia"
 		                                               imageSize:CGSizeMake(1024, 512)
-		                                                     red:0
-		                                                   green:0.4
-		                                                    blue:0.6];
+		                                                   color:[UIColor blueColor]
+		                                               backColor:[UIColor redColor]];
 
 	```
 
 	- 效果
 
-	![o_QExtension50](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension50.png)
+	![QRCode26](http://images2015.cnblogs.com/blog/993906/201701/993906-20170128200902347-587966568.png)   ![QRCode27](http://images2015.cnblogs.com/blog/993906/201701/993906-20170128200911909-1533281313.png)
+
+### 6.4 Bundle methods
+
+- 从 Bundle 文件中加载图片
+
+	```objc
+    	// 不带扩展名
+    	UIImage *image = [UIImage q_imageNamed:@"demoPic" fromBundle:@"demoBundle"];
+    	
+    	// 带扩展名
+    	UIImage *image = [UIImage q_imageNamed:@"demoPic" fromBundle:@"demoBundle.bundle"];
+	```
 
 
 ## 7、UIView Extension
@@ -1386,11 +1438,11 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 ### 8.1 QQRCode
 
-- 1、创建二维码扫描视图控制器
+- 1、创建二维码/条码扫描视图控制器
 
 	```objc
 	
-		// 创建二维码扫描视图控制器
+		// 创建二维码/条码扫描视图控制器
 		QQRCode *qrCode = [QQRCode q_qrCodeWithResult:^(BOOL isSucceed, NSString *result) {
 		    
 		    if (isSucceed) {
@@ -1422,9 +1474,9 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	
 	- 效果
 
-	![o_QExtension39](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension39.PNG) _ ![o_QExtension40](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension40.PNG)
+	![o_QExtension39](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension39.PNG) _ ![o_QExtension44](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension44.gif)
 
-	![o_QExtension41](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension41.PNG) _ ![o_QExtension44](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension44.gif)
+	![o_QExtension40](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension40.PNG) _ ![o_QExtension41](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension41.PNG)
 
 - 2、生成二维码
 
@@ -1491,22 +1543,26 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	![o_QExtension34](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension34.gif)
 
-- 生成条形码
+- 4、生成条形码
 
 	```objc
-
+		
+		// 生成条形码
+		UIImage *qrImage = [UIImage q_imageWithBarCodeFromString:@"cnblogs: QianChia"
+		                                                   color:nil
+		                                               backColor:nil];
+		
 		// 生成指定图片大小的条形码
-		UIImage *qrImage = [UIImage q_imageWithBarCodeFromString:@"QianChia"
+		UIImage *qrImage = [UIImage q_imageWithBarCodeFromString:@"cnblogs: QianChia"
 		                                               imageSize:CGSizeMake(1024, 512)
-		                                                     red:0
-		                                                   green:0.4
-		                                                    blue:0.6];
-
+		                                                   color:[UIColor blueColor]
+		                                               backColor:[UIColor redColor]];
+		
 	```
 
 	- 效果
 
-	![o_QExtension50](http://images.cnblogs.com/cnblogs_com/QianChia/934664/o_QExtension50.png)
+	![QRCode26](http://images2015.cnblogs.com/blog/993906/201701/993906-20170128200902347-587966568.png)   ![QRCode27](http://images2015.cnblogs.com/blog/993906/201701/993906-20170128200911909-1533281313.png)
 
 
 ## 9、UIColor Extension
@@ -1518,18 +1574,43 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	```objc
 
 		// 0X 前缀格式
-    	UIColor *color = [UIColor colorWithHexString:@"0Xc83c23"];
-    	UIColor *color = [UIColor colorWithHexString:@"0Xc83c23" alpha:0.5];
+    	UIColor *color = [UIColor q_colorWithHexString:@"0Xc83c23"];
+    	UIColor *color = [UIColor q_colorWithHexString:@"0Xc83c23" alpha:0.5];
     
 		// # 前缀格式
-    	UIColor *color = [UIColor colorWithHexString:@"#c83c23"];
-    	UIColor *color = [UIColor colorWithHexString:@"#c83c23" alpha:0.5];
+    	UIColor *color = [UIColor q_colorWithHexString:@"#c83c23"];
+    	UIColor *color = [UIColor q_colorWithHexString:@"#c83c23" alpha:0.5];
     
 		// 无前缀格式
-    	UIColor *color = [UIColor colorWithHexString:@"c83c23"];
-    	UIColor *color = [UIColor colorWithHexString:@"c83c23" alpha:0.5];
+    	UIColor *color = [UIColor q_colorWithHexString:@"c83c23"];
+    	UIColor *color = [UIColor q_colorWithHexString:@"c83c23" alpha:0.5];
 
 	```
+
+### 9.2 RGB
+
+- 获取 UIColor 的 RGB 值
+
+	```objc
+
+		NSArray *rgbComponents = [[UIColor cyanColor] q_getRGBComponents];
+		    
+		CGFloat r = [rgbComponents[0] floatValue];
+		CGFloat g = [rgbComponents[1] floatValue];
+		CGFloat b = [rgbComponents[2] floatValue];
+		CGFloat a = [rgbComponents[3] floatValue];
+		    
+		NSLog(@"R: %f, G: %f B:%f, A: %f", r, g, b, a);
+
+	```
+
+	- 输出结果为
+
+		```objc
+
+			- R: 0.000000, G: 1.000000 B:1.000000, A: 1.000000
+
+		```
 
 
 ## 10、UILabel Extension

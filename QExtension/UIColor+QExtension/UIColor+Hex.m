@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @implementation UIColor (Hex)
 
 /// 由十六进制颜色值创建 RGB 颜色值，带透明度设置
-+ (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alpha {
++ (UIColor *)q_colorWithHexString:(NSString *)color alpha:(CGFloat)alpha {
     
     NSString *cString = [[color stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
     
@@ -49,13 +49,16 @@ NS_ASSUME_NONNULL_BEGIN
     [[NSScanner scannerWithString:gString] scanHexInt:&g];
     [[NSScanner scannerWithString:bString] scanHexInt:&b];
     
-    return [UIColor colorWithRed:((float) r / 255.0f) green:((float) g / 255.0f) blue:((float) b / 255.0f) alpha:alpha];
+    return [UIColor colorWithRed:((float) r / 255.0f)
+                           green:((float) g / 255.0f)
+                            blue:((float) b / 255.0f)
+                           alpha:alpha];
 }
 
 /// 由十六进制颜色值创建 RGB 颜色值
-+ (UIColor *)colorWithHexString:(NSString *)color {
++ (UIColor *)q_colorWithHexString:(NSString *)color {
     
-    return [UIColor colorWithHexString:color alpha:1.0f];
+    return [self q_colorWithHexString:color alpha:1.0f];
 }
 
 @end

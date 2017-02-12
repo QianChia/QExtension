@@ -14,10 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 文本数字变化方式枚举
 typedef NS_ENUM(NSUInteger, QCountingMethod) {
     
-    QCountingMethodEaseInOut,     // 开始结束慢，中间快
-    QCountingMethodEaseIn,        // 开始慢，结束快
-    QCountingMethodEaseOut,       // 开始快，结束慢
-    QCountingMethodLinear         // 匀速
+    QCountingMethodEaseInOut,     // 渐进渐出，开始结束慢，中间快
+    QCountingMethodEaseIn,        // 渐进，开始慢，结束快
+    QCountingMethodEaseOut,       // 渐出，开始快，结束慢
+    QCountingMethodLinear         // 线性，匀速
 };
 
 @interface QCountingLabel : UILabel

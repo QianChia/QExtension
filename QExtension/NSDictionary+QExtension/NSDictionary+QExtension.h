@@ -10,6 +10,7 @@
 #define NSDictionary_QExtension_h
 
 #import "NSDictionary+LocaleLog.h"
+#import "NSDictionary+Net.h"
 
 
 #endif /* NSDictionary_QExtension_h */

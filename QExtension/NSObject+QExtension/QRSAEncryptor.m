@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 /// 获取公钥
-+ (SecKeyRef)getPublicKeyRefWithContentsOfFile:(NSString *)filePath {
++ (SecKeyRef __nullable)getPublicKeyRefWithContentsOfFile:(NSString *)filePath {
     
     NSData *certData = [NSData dataWithContentsOfFile:filePath];
     if (!certData) {
@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 /// 使用公钥加密字符串
-+ (NSString *)encryptString:(NSString *)str publicKeyRef:(SecKeyRef)publicKeyRef {
++ (NSString * __nullable)encryptString:(NSString *)str publicKeyRef:(SecKeyRef)publicKeyRef {
     
     if (![str dataUsingEncoding:NSUTF8StringEncoding]) {
         return nil;
@@ -85,7 +85,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 /// 获取私钥
-+ (SecKeyRef)getPrivateKeyRefWithContentsOfFile:(NSString *)filePath password:(NSString*)password {
++ (SecKeyRef __nullable)getPrivateKeyRefWithContentsOfFile:(NSString *)filePath password:(NSString*)password {
     
     NSData *p12Data = [NSData dataWithContentsOfFile:filePath];
     if (!p12Data) {
@@ -133,7 +133,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 /// 使用公钥字符串加密数据
-+ (NSData *)encryptData:(NSData *)data publicKey:(NSString *)pubKey {
++ (NSData * __nullable)encryptData:(NSData *)data publicKey:(NSString *)pubKey {
     
     if (!data || !pubKey) {
         return nil;
@@ -146,7 +146,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 /// 添加公钥
-+ (SecKeyRef)addPublicKey:(NSString *)key {
++ (SecKeyRef __nullable)addPublicKey:(NSString *)key {
     
     NSRange spos = [key rangeOfString:@"-----BEGIN PUBLIC KEY-----"];
     NSRange epos = [key rangeOfString:@"-----END PUBLIC KEY-----"];
@@ -210,7 +210,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 /// 去掉公钥头
-+ (NSData *)stripPublicKeyHeader:(NSData *)d_key {
++ (NSData * __nullable)stripPublicKeyHeader:(NSData *)d_key {
     
     // Skip ASN.1 public key header
     if (d_key == nil) return(nil);
@@ -262,7 +262,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 /// 使用私钥字符串解密数据
-+ (NSData *)decryptData:(NSData *)data privateKey:(NSString *)privKey {
++ (NSData * __nullable)decryptData:(NSData *)data privateKey:(NSString *)privKey {
     
     if (!data || !privKey) {
         return nil;
@@ -275,7 +275,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 /// 添加私钥
-+ (SecKeyRef)addPrivateKey:(NSString *)key {
++ (SecKeyRef __nullable)addPrivateKey:(NSString *)key {
     
     NSRange spos = [key rangeOfString:@"-----BEGIN RSA PRIVATE KEY-----"];
     NSRange epos = [key rangeOfString:@"-----END RSA PRIVATE KEY-----"];
@@ -339,7 +339,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 /// 去掉私钥头
-+ (NSData *)stripPrivateKeyHeader:(NSData *)d_key {
++ (NSData * __nullable)stripPrivateKeyHeader:(NSData *)d_key {
     
     // Skip ASN.1 private key header
     if (d_key == nil) return(nil);
@@ -381,7 +381,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 辅助方法
 
 /// 使用公钥加密数据
-+ (NSData *)encryptData:(NSData *)data withKeyRef:(SecKeyRef) keyRef {
++ (NSData * __nullable)encryptData:(NSData *)data withKeyRef:(SecKeyRef) keyRef {
     
     const uint8_t *srcbuf = (const uint8_t *)[data bytes];
     size_t srclen = (size_t)data.length;
@@ -422,7 +422,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 /// 使用私钥解密数据
-+ (NSData *)decryptData:(NSData *)data withKeyRef:(SecKeyRef) keyRef {
++ (NSData * __nullable)decryptData:(NSData *)data withKeyRef:(SecKeyRef) keyRef {
     
     const uint8_t *srcbuf = (const uint8_t *)[data bytes];
     size_t srclen = (size_t)data.length;

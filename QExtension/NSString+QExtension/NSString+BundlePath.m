@@ -8,11 +8,14 @@
 
 #import "NSString+BundlePath.h"
 #import "NSString+Hash.h"
+#import "sys/xattr.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 
 @implementation NSString (BundlePath)
+
+#pragma mark - 拼接文件路径
 
 /// 拼接文档目录
 
@@ -54,6 +57,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString *)q_appendMD5TempPath {
     return [NSTemporaryDirectory() stringByAppendingPathComponent:[self q_md5String]];
+}
+
+#pragma mark - 设置文件路径属性
+
+/// 添加文件不备份属性
+- (BOOL)q_addSkipBackupAttribute {
+    
+    const char *filePath = [self fileSystemRepresentation];
+    const char *attrName = "com.apple.MobileBackup";
+    u_int8_t attrValue = 1;
+    
+    int result = setxattr(filePath, attrName, &attrValue, sizeof(attrValue), 0, 0);
+    return result == 0;
 }
 
 @end
