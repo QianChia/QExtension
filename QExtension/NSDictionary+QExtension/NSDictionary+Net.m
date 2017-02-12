@@ -29,6 +29,7 @@ NSString * const SSIDDATAKey = @"SSIDDATA";
     if (arrayRef != nil) {
         
         CFDictionaryRef dicRef = CNCopyCurrentNetworkInfo(CFArrayGetValueAtIndex(arrayRef, 0));
+        CFRelease(arrayRef);
         
         if (dicRef != nil) {
             
