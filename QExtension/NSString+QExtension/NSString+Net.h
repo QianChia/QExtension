@@ -20,6 +20,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSString *)q_getIPAddress;
 
+/**
+ *  由域名获取 IP 地址
+ *
+ *  @param domain  域名字符串
+ *
+ *  @return 32 位 IP 地址字符串
+ */
++ (NSString *_Nullable)q_getIPWithDomain:(NSString *)domain;
+
 @end
 
 

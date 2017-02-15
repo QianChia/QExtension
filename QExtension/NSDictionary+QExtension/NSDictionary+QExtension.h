@@ -11,6 +11,7 @@
 
 #import "NSDictionary+LocaleLog.h"
 #import "NSDictionary+Net.h"
+#import "NSDictionary+JSON.h"
 
 
 #endif /* NSDictionary_QExtension_h */

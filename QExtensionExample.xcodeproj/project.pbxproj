@@ -31,6 +31,10 @@
 		1A49E9701E33A8C900495DE9 /* QRSAEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A49E96F1E33A8C900495DE9 /* QRSAEncryptor.m */; };
 		1A49E9781E33AB0500495DE9 /* private_key.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 1A49E9761E33AB0500495DE9 /* private_key.p12 */; };
 		1A49E9791E33AB0500495DE9 /* public_key.der in Resources */ = {isa = PBXBuildFile; fileRef = 1A49E9771E33AB0500495DE9 /* public_key.der */; };
+		1A769D961E54D58D008FB153 /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A769D951E54D58D008FB153 /* NSDictionary+JSON.m */; };
+		1A769D991E54D9DC008FB153 /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A769D981E54D9DC008FB153 /* NSString+JSON.m */; };
+		1A769D9C1E54E30C008FB153 /* NSObject+JSONValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A769D9B1E54E30C008FB153 /* NSObject+JSONValidator.m */; };
+		1A769D9F1E54EADF008FB153 /* QJSONValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A769D9E1E54EADF008FB153 /* QJSONValidator.m */; };
 		1A82ACF51E2662C700D3F6CA /* NSData+FormData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82ACF31E2662C700D3F6CA /* NSData+FormData.m */; };
 		1A82AD0F1E26797A00D3F6CA /* NSDictionary+LocaleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82AD0D1E26797A00D3F6CA /* NSDictionary+LocaleLog.m */; };
 		1A82AD1A1E267A8600D3F6CA /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82AD121E267A8600D3F6CA /* NSString+Base64.m */; };
@@ -128,6 +132,14 @@
 		1A49E9761E33AB0500495DE9 /* private_key.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = private_key.p12; sourceTree = "<group>"; };
 		1A49E9771E33AB0500495DE9 /* public_key.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = public_key.der; sourceTree = "<group>"; };
 		1A49E97A1E33AC8A00495DE9 /* QExtensionExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QExtensionExample.entitlements; sourceTree = "<group>"; };
+		1A769D941E54D58D008FB153 /* NSDictionary+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSON.h"; sourceTree = "<group>"; };
+		1A769D951E54D58D008FB153 /* NSDictionary+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSON.m"; sourceTree = "<group>"; };
+		1A769D971E54D9DC008FB153 /* NSString+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSON.h"; sourceTree = "<group>"; };
+		1A769D981E54D9DC008FB153 /* NSString+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSON.m"; sourceTree = "<group>"; };
+		1A769D9A1E54E30C008FB153 /* NSObject+JSONValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSONValidator.h"; sourceTree = "<group>"; };
+		1A769D9B1E54E30C008FB153 /* NSObject+JSONValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JSONValidator.m"; sourceTree = "<group>"; };
+		1A769D9D1E54EADF008FB153 /* QJSONValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QJSONValidator.h; sourceTree = "<group>"; };
+		1A769D9E1E54EADF008FB153 /* QJSONValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QJSONValidator.m; sourceTree = "<group>"; };
 		1A82ACF21E2662C700D3F6CA /* NSData+FormData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+FormData.h"; sourceTree = "<group>"; };
 		1A82ACF31E2662C700D3F6CA /* NSData+FormData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+FormData.m"; sourceTree = "<group>"; };
 		1A82ACF41E2662C700D3F6CA /* NSData+QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+QExtension.h"; sourceTree = "<group>"; };
@@ -276,6 +288,10 @@
 				1A49E9741E33A90100495DE9 /* NSObject+QExtension.h */,
 				1A49E96E1E33A8C900495DE9 /* QRSAEncryptor.h */,
 				1A49E96F1E33A8C900495DE9 /* QRSAEncryptor.m */,
+				1A769D9A1E54E30C008FB153 /* NSObject+JSONValidator.h */,
+				1A769D9B1E54E30C008FB153 /* NSObject+JSONValidator.m */,
+				1A769D9D1E54EADF008FB153 /* QJSONValidator.h */,
+				1A769D9E1E54EADF008FB153 /* QJSONValidator.m */,
 			);
 			path = "NSObject+QExtension";
 			sourceTree = "<group>";
@@ -308,6 +324,8 @@
 				1A82AD0D1E26797A00D3F6CA /* NSDictionary+LocaleLog.m */,
 				1A2CFAB71E4FA3F00069B469 /* NSDictionary+Net.h */,
 				1A2CFAB81E4FA3F00069B469 /* NSDictionary+Net.m */,
+				1A769D941E54D58D008FB153 /* NSDictionary+JSON.h */,
+				1A769D951E54D58D008FB153 /* NSDictionary+JSON.m */,
 			);
 			path = "NSDictionary+QExtension";
 			sourceTree = "<group>";
@@ -326,6 +344,8 @@
 				1A82AD191E267A8600D3F6CA /* NSString+Regex.m */,
 				1A2CFAB11E4F91110069B469 /* NSString+Net.h */,
 				1A2CFAB21E4F91110069B469 /* NSString+Net.m */,
+				1A769D971E54D9DC008FB153 /* NSString+JSON.h */,
+				1A769D981E54D9DC008FB153 /* NSString+JSON.m */,
 			);
 			name = "NSString+QExtension";
 			path = "QExtension/NSString+QExtension";
@@ -667,10 +687,14 @@
 				1A2599A11E263A7E00FA334D /* NSArray+LocaleLog.m in Sources */,
 				1A2CFAB31E4F91110069B469 /* NSString+Net.m in Sources */,
 				1A49E8DB1E328C0C00495DE9 /* QBulletScreenView.m in Sources */,
+				1A769D9C1E54E30C008FB153 /* NSObject+JSONValidator.m in Sources */,
 				1A82AD421E26EDC100D3F6CA /* UIImage+QRCode.m in Sources */,
 				1A216FC81E3CD09800669B32 /* UIColor+RGB.m in Sources */,
 				1A82AD531E270CF000D3F6CA /* UIView+Frame.m in Sources */,
+				1A769D991E54D9DC008FB153 /* NSString+JSON.m in Sources */,
 				1A21535B1E3CE6DC00D47CAC /* UIImage+Bundle.m in Sources */,
+				1A769D9F1E54EADF008FB153 /* QJSONValidator.m in Sources */,
+				1A769D961E54D58D008FB153 /* NSDictionary+JSON.m in Sources */,
 				1A82AD221E26898200D3F6CA /* QProgressButton.m in Sources */,
 				1A49E6B51E2AD1B200495DE9 /* QTouchClipView.m in Sources */,
 				1A82AD1A1E267A8600D3F6CA /* NSString+Base64.m in Sources */,

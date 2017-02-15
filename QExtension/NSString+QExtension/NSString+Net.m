@@ -10,6 +10,7 @@
 
 #import <arpa/inet.h>
 #import <ifaddrs.h>
+#import <netdb.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -50,6 +51,21 @@ NS_ASSUME_NONNULL_BEGIN
     // Free memory
     freeifaddrs(interfaces);
     return address;
+}
+
+/// 由域名获取 IP 地址
++ (NSString * _Nullable)q_getIPWithDomain:(NSString *)domain {
+    
+    struct sockaddr_in server;
+    
+    struct hostent *hs = gethostbyname(domain.UTF8String);
+    
+    if (hs != NULL) {
+        
+        server.sin_addr = *((struct in_addr *)hs->h_addr_list[0]);
+        return [NSString stringWithUTF8String:inet_ntoa(server.sin_addr)];
+    }
+    return nil;
 }
 
 @end

@@ -14,6 +14,7 @@
 #import "NSString+Hash.h"
 #import "NSString+Regex.h"
 #import "NSString+Net.h"
+#import "NSString+JSON.h"
 
 
 #endif /* NSString_QExtension_h */

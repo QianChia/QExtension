@@ -332,6 +332,19 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 		
 	```
 
+### 3.3 JSON methods 
+
+- JSON
+
+	```objc
+		
+		NSString *jsonStr = @"{\"msgType\":\"msg\",\"fromUser\":\"rose\",\"toUser\":\"jack\"}";
+    
+    	// JSON 字符串转换成字典
+    	NSDictionary *dic = [NSDictionary q_dictionaryWithJSONString:jsonStr];
+		
+	```
+
 ## 4、NSString Extension
 
 ### 4.1 Base64 methods 
@@ -517,10 +530,29 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 - 网络
 
 	```objc
-	
+		
 		// 获取本地 IP 地址
 		NSString *ipStr = [NSString q_getIPAddress];
-    
+    	
+    	// 由域名获取 IP 地址
+    	NSString *ipStr = [NSString q_getIPWithDomain:@"www.baidu.com"];
+    	
+	```
+
+### 4.6 JSON methods 
+
+- JSON
+
+	```objc
+		
+		NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+		[dic setValue:@"msg" forKey:@"msgType"];
+		[dic setValue:@"rose" forKey:@"fromUser"];
+		[dic setValue:@"jack" forKey:@"toUser"];
+    	
+    	// 字典转换成 JSON 字符串
+    	NSString *jsonStr = [NSString q_jsonStringWithDictionary:dic];
+    	
 	```
 
 ## 5、UIButton Extension
@@ -1436,7 +1468,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 ## 8、UIViewController Extension
 
-### 8.1 QQRCode
+### 8.1 QQRCode methods
 
 - 1、创建二维码/条码扫描视图控制器
 
@@ -1567,7 +1599,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 ## 9、UIColor Extension
 
-### 9.1 Hex
+### 9.1 Hex methods
 
 - 由十六进制颜色值创建 RGB 颜色值
 
@@ -1587,7 +1619,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	```
 
-### 9.2 RGB
+### 9.2 RGB methods
 
 - 获取 UIColor 的 RGB 值
 
@@ -1615,7 +1647,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 ## 10、UILabel Extension
 
-### 10.1 QCountingLabel
+### 10.1 QCountingLabel methods
 
 - 1、整数样式数字的变化
 
@@ -1704,7 +1736,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 ## 11、NSObject Extension
 
-### 11.1 QRSAEncryptor
+### 11.1 QRSAEncryptor methods
 
 - 1、使用秘钥证书文件进行加密解密
 
@@ -1758,19 +1790,274 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 	
 		![safe21](http://images2015.cnblogs.com/blog/993906/201701/993906-20170121221645937-1116149198.png)
 
+### 11.2 QJSONValidator methods
 
+- 1、Validate JSON
 
+	- Given
 
+		```objc
+			NSDictionary *json = @{
+			                       @"phoneNumber" : @"123-555-6789",
+			                       @"name" : @"Johnny Ringo",
+			                       @"age" : @"BANANA",
+			                       @"weight" : @"130.3",
+			                       @"ssn" : [NSNull null],
+			                       @"children" : @[],
+			                       @"parents" : @[
+			                                       @{
+			                                           @"name" : @"Mickey"
+			                                        },
+			                                       @{
+			                                           @"name" : @"Minnie"
+			                                        }
+			                                    ]
+			                       };
+		```
 
+	- Before
 
+		```objc
+			BOOL validated = YES;
+			    
+			NSString *phoneNumber = [json objectForKey:@"phoneNumber"];
+			if (!phoneNumber || ![phoneNumber isKindOfClass:[NSString class]] || [phoneNumber length] < 7) {
+			    NSLog(@"Phone number didn't validate (not found or not an NSString or length < 7)");
+			    validated = NO;
+			}
+			    
+			NSString *name = [json objectForKey:@"name"];
+			if (!name || ![phoneNumber isKindOfClass:[NSString class]]) {
+			    NSLog(@"Phone number didn't validate (not found or not an NSString)");
+			    validated = NO;
+			}
+			    
+			NSNumber *age = [json objectForKey:@"age"];
+			if (age && ![age isKindOfClass:[NSNumber class]]) {
+			    NSLog(@"Age exists but didn't validate (not an NSNumber)");
+			    validated = NO;
+			}
+			    
+			NSNumber *weight = [json objectForKey:@"weight"];
+			if (weight && ![weight isKindOfClass:[NSString class]]) {
+			    NSLog(@"Weight exists but didn't validate (not an NSString)");
+			    validated = NO;
+			}
+			    
+			NSString *ssn = [json objectForKey:@"ssn"];
+			if (ssn != [NSNull null]) {
+			    NSLog(@"ssn should be null");
+			    validated = NO;
+			}
+			    
+			NSString *height = [json objectForKey:@"height"];
+			if(height && ![weight isKindOfClass:[NSString class]]) {
+			    NSLog(@"Height exists but didn't validate (not an NSString)");
+			    validated = NO;
+			}
+			    
+			NSArray *children = [json objectForKey:@"children"];
+			if(children && ![children isKindOfClass:[NSArray class]]) {
+			    NSLog(@"Children exists but didn't validate (not an NSArray)");
+			    validated = NO;
+			}
+			    
+			NSArray *parents = [json objectForKey:@"parents"];
+			if(parents && ![parents isKindOfClass:[NSArray class]] && [parents count] <= 1) {
+			    NSLog(@"Parents exists but didn't validate (not an NSArray or count <= 1)");
+			    validated = NO;
+			}
+			    
+			if (validated) {
+			    NSLog(@"Woohoo, no errors!");
+			}
+		```
 
+	- After
 
+		```objc
+		    NSError *error;
+		    
+		    [QJSONValidator q_validateValuesFrom:json
+		                        withRequirements:@{
+		                                          @"phoneNumber" : [QValidatorPredicate.isString lengthIsGreaterThanOrEqualTo:@7],
+		                                          @"name"        : QValidatorPredicate.isString,
+		                                          @"age"         : QValidatorPredicate.isNumber.isOptional,
+		                                          @"weight"      : QValidatorPredicate.isString,
+		                                          @"ssn"         : QValidatorPredicate.isNull,
+		                                          @"height"      : QValidatorPredicate.isString,
+		                                          @"children"    : QValidatorPredicate.isArray,
+		                                          @"parents"     : [QValidatorPredicate.isArray lengthIsGreaterThan:@1]
+		                                          }
+		                                   error:&error];
+		    
+		    if (error) {
+		        NSLog(@"%@", [QJSONValidator q_prettyStringGivenQJSONValidatorError:error]);
+		    } else {
+		        NSLog(@"Woohoo, no errors!");
+		    }
+		```
 
+- 2、Pretty Printing
 
+	```objc
+		NSDictionary *json = @{...};
+		NSError *error;
+		
+		[RPJSONValidator validateValuesFrom:json
+		                   withRequirements:@{...}
+		                              error:&error];
+		
+		NSLog(@"%@", [RPJSONValidator prettyStringGivenRPJSONValidatorError:error];
+		
+		2014-03-19 23:08:02.451 RPJSONValidator[42273:60b] 
+		* age
+		     * Requires NSNumber, given (__NSCFConstantString)
+		* height
+		     * Key not found
+		* parents
+		     * Requires NSString, given (__NSArrayI)
+		     * Requires length or count less than or equal to (3)
+	```
 
+- 3、Sub-JSON Validating
 
+	```objc
+		NSDictionary *json = @{
+		                       @"car" : @{
+		                                    @"make" : @"Ford",
+		                                    @"model" : @"Mustang"
+		                               },
+		                       };
+		    
+		NSError *error;
+		    
+		[QJSONValidator q_validateValuesFrom:json
+		                    withRequirements:@{
+		                                      @"car" : @{
+		                                              @"make"  : [QValidatorPredicate valueIsEqualTo:@"Ford"],
+		                                              @"model" : [QValidatorPredicate valueIsEqualTo:@"Mustang"]
+		                                              }
+		                                      }
+		                               error:&error];
+		    
+		if (error) {
+		    NSLog(@"%@", [QJSONValidator q_prettyStringGivenQJSONValidatorError:error]);
+		} else {
+		    NSLog(@"Woohoo, no errors!");
+		}
+	```
 
+- 4、Validate by Index
 
+	```objc
+		NSDictionary *json = @{
+		                       @"cars" : @[
+		                                    @{
+		                                       @"make" : @"Ford",
+		                                       @"model" : @"Mustang"
+		                                    },
+		                                    @{
+		                                       @"make" : @"Tesla Motors",
+		                                       @"model" : @"Model S"
+		                                    },
+		                               ],
+		                       };
+		    
+		NSError *error;
+		    
+		[QJSONValidator q_validateValuesFrom:json
+		                    withRequirements:@{
+		                                      @"cars" : @{
+		                                              @0 : @{   // Access the first element
+		                                                      @"make"  : QValidatorPredicate.isString,
+		                                                      @"model" : QValidatorPredicate.isString
+		                                                      }
+		                                              }
+		                                      }
+		                               error:&error];
+		    
+		if (error) {
+		    NSLog(@"%@", [QJSONValidator q_prettyStringGivenQJSONValidatorError:error]);
+		} else {
+		    NSLog(@"Woohoo, no errors!");
+		}
+	```
+
+- 5、Validate an array
+
+	```objc
+		NSDictionary *json = @{
+		                       @"friends" :  @[
+		                               @{@"name" : @"Anna", @"age" : @25},
+		                               @{@"name" : @"Maria", @"age" : @19},
+		                               @{@"name" : @"WrongObject", @"counry" : @"UA"}]
+		                       };
+		    
+		NSError *error;
+		[QJSONValidator q_validateValuesFrom:json
+		                    withRequirements:@{
+		                                      @"friends" : [QValidatorPredicate.isArray valuesWithRequirements:
+		                                                    @{
+		                                                      @"name" : QValidatorPredicate.isString,
+		                                                      @"age"  : QValidatorPredicate.isNumber
+		                                                    }]
+		                                      }
+		                               error:&error];
+		    
+		if (error) {
+		    NSLog(@"%@", [QJSONValidator q_prettyStringGivenQJSONValidatorError:error]);
+		} else {
+		    NSLog(@"Woohoo, no errors!");
+		}
+	```
+
+### 11.3 JSONValidator methods
+
+- 1、Validate JSON
+
+	```objc
+		NSDictionary *json = @{
+		                       @"tag1": @"star",
+		                       @"tag2": @"jason",
+		                       @"totalNum": @(1616),
+		                       @"start_index": @"60",
+		                       @"return_number": @(30),
+		                       @"data" : @[@"1", @"2"],
+		                       @"tags" : [NSNull null],
+		                       @"config" : @{
+		                               @"max_num" : @(30000),
+		                               @"tag" : [NSNull null]
+		                               }
+		                       };
+		    
+		// Normal
+		NSDictionary *configDic1 = [json objectForKey:@"config"];
+		if (configDic1 != nil && [configDic1 isKindOfClass:[NSDictionary class]]) {
+		    
+		    id number = [configDic1 objectForKey:@"max_num"];
+		    if ([number isKindOfClass:[NSNumber class]] || [number isKindOfClass:[NSString class]]) {
+		        NSInteger maxNum = [number integerValue];
+		        NSLog(@"maxNum: %@", @(maxNum));
+		    }
+		}
+		    
+		// Or just this!
+		NSInteger maxNum = [[json q_dictionaryKey:@"config"] q_integerKey:@"max_num"];
+		NSLog(@"maxNum: %@", @(maxNum));
+		    
+		// default value
+		NSInteger minNum = [[json q_dictionaryKey:@"config"] q_integerKey:@"min_num" defaultValue:-1];
+		NSLog(@"minNum: %@", @(minNum));
+		    
+		// Handle NSNull
+		NSArray *tags = [json q_arrayKey:@"tags"];
+		NSLog(@"%@", tags);
+		    
+		// Handle wrong type
+		NSString *string = [[json q_dictionaryKey:@"data"] q_stringKey:@"1"];
+		NSLog(@"%@", string);
+	```
 
 
 

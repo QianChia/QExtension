@@ -42,13 +42,15 @@
 //    [self nsDataFormDataDemo];
     
 //    [self nsDictionaryLocaleLogDemo];
-    [self nsDictionaryNetDemo];
+//    [self nsDictionaryNetDemo];
+//    [self nsDictionaryJSONDemo];
 
 //    [self nsStringBase64Demo];
 //    [self nsStringBundlePathDemo];
 //    [self nsStringHashDemo];
 //    [self nsStringRegexDemo];
 //    [self nsStringNetDemo];
+//    [self nsStringJSONDemo];
     
 //    [self uiButtonQProgressButtonDemo];
     
@@ -75,59 +77,12 @@
 //    [self qCountingLabelDemo2];
     
 //    [self nsObjectQRSAEncryptorDemo];
+//    [self nsObjectQJSONValidatorDemo];
+    [self nsObjectJSONValidatorDemo];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
-}
-
-
-#pragma mark - NSObject+QExtension
-
-#pragma mark QRSAEncryptor
-
-- (void)nsObjectQRSAEncryptorDemo {
-    
-//    [self encryptDemoWithfile];
-    [self encryptDemoWithKeyString];
-}
-
-- (void)encryptDemoWithfile {
-    
-    // 原始数据
-    NSString *originalString = @"这是一段将要使用 '.der' 文件加密的字符串!";
-    NSLog(@"加密前: %@", originalString);
-    
-    // 秘钥证书文件 .der 和 .p12 路径
-    NSString *public_key_path = [[NSBundle mainBundle] pathForResource:@"public_key" ofType:@"der"];
-    NSString *private_key_path = [[NSBundle mainBundle] pathForResource:@"private_key" ofType:@"p12"];
-    
-    // 加密
-    NSString *encryptStr = [QRSAEncryptor q_encryptWithString:originalString publicKeyFilePath:public_key_path];
-    NSLog(@"加密后: %@", encryptStr);
-    
-    // 解密
-    NSString *DencryptStr = [QRSAEncryptor q_decryptWithString:encryptStr privateKeyFilePath:private_key_path password:@"qianchia"];
-    NSLog(@"解密后: %@", DencryptStr);
-}
-
-- (void)encryptDemoWithKeyString {
-    
-    // 原始数据
-    NSString *originalString = @"这是一段将要使用 '秘钥字符串' 进行加密的字符串!";
-    NSLog(@"加密前: %@", originalString);
-    
-    // 加密
-    NSString *publicKeyStr = @"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDsQ44uzMg83T6z7/dvNn2B1KHlzGwccgo055PeimXdBbzUVBECE0nQeNGb9tkO3mVnu8R4Iu5faoX7MY/muiTVZ3NDAvtk+WBjXfNqHmWvlMfj5jwxnITosnHMLVgrqDFc9q1yfmbTLhd8cJhMXsVBlduCSYbdNitA2z4B3hKS5wIDAQAB";
-    
-    NSString *encryptStr = [QRSAEncryptor q_encryptWithString:originalString publicKey:publicKeyStr];
-    NSLog(@"加密后: %@", encryptStr);
-    
-    // 解密
-    NSString *privateKeyStr = @"MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAOxDji7MyDzdPrPv9282fYHUoeXMbBxyCjTnk96KZd0FvNRUEQITSdB40Zv22Q7eZWe7xHgi7l9qhfsxj+a6JNVnc0MC+2T5YGNd82oeZa+Ux+PmPDGchOiyccwtWCuoMVz2rXJ+ZtMuF3xwmExexUGV24JJht02K0DbPgHeEpLnAgMBAAECgYB1cuPEihJkh0t7YagsRfdASjatKOD5hwth31kXwM8Af7CuEJhf4rzIALeag6zFgnMAjUwOuLatAiRWif3SIejapMaY/DcXWM/5ugYNi1exS1U8BeBjAOyZuQf/onOn0c0eBqT912CFnjEO5iNuNDkheRQK/FBv2XuMpnAI1FbGQQJBAPmmJkXtEDoM90PxPcL/+ecoNCe2aabiN/D9JlHtOE64DJzRQG4HHpizsvzxMQ00+ItTsG089BjpZPPHuLMO3AcCQQDyRjwPri2lyRC7GHgkgjB03NFL16ENkNER5/7X6TE15uqH/kdrKwrVUNNFwq9a11CHKtJqZOSgy0iN6rKF1JohAkBihAR6d7B9l/xDnYFn4Ce35o+eVEehCYhV2zAyCFC+D7c6cwDf6oNScydg1bUrpwmlwaLPmMwiwIeMA/aJAoYlAkEAoFjJwZsHDTWRBDNCuO8NgRrwzuBs8FyLcu135pCpCELHsLAjtpMrPVmcKwyaIGZnHr7BurcB9kX0xDC0bQzz4QJBAKKCz52lxwWboqo5h4lmk0F3R17O7bUNOaSn1kauX5ADBoQ2zsfl3LrPNB2Tt+97+wRyjnF9Gkwjg2okUc4V1MY=";
-    
-    NSString *dencryptStr = [QRSAEncryptor q_decryptWithString:encryptStr privateKey:privateKeyStr];
-    NSLog(@"解密后: %@", dencryptStr);
 }
 
 
@@ -406,6 +361,18 @@
     NSLog(@"%@\n %@\n %@", bssid, ssid, ssidData);
 }
 
+#pragma mark JSON
+
+- (void)nsDictionaryJSONDemo {
+    
+    NSString *jsonStr = @"{\"msgType\":\"msg\",\"fromUser\":\"rose\",\"toUser\":\"jack\"}";
+    
+    // JSON 字符串转换成字典
+    NSDictionary *dic = [NSDictionary q_dictionaryWithJSONString:jsonStr];
+    
+    NSLog(@"%@", dic);
+}
+
 
 #pragma mark - NSString+QExtension
 
@@ -427,7 +394,6 @@
     NSString *authStr = [str q_basic64AuthEncode];
     NSLog(@"authStr: %@", authStr);
 }
-
 
 #pragma mark BundlePath
 
@@ -564,10 +530,39 @@
 
 - (void)nsStringNetDemo {
     
+//    [self stringNetDemo1];
+    [self stringNetDemo2];
+}
+
+- (void)stringNetDemo1 {
+    
     // 获取本地 IP 地址
     NSString *ipStr = [NSString q_getIPAddress];
     
     NSLog(@"%@", ipStr);
+}
+
+- (void)stringNetDemo2 {
+    
+    // 由域名获取 IP 地址
+    NSString *ipStr = [NSString q_getIPWithDomain:@"www.baidu.com"];
+    
+    NSLog(@"%@", ipStr);
+}
+
+#pragma mark JSON
+
+- (void)nsStringJSONDemo {
+    
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setValue:@"msg" forKey:@"msgType"];
+    [dic setValue:@"rose" forKey:@"fromUser"];
+    [dic setValue:@"jack" forKey:@"toUser"];
+    
+    // 字典转换成 JSON 字符串
+    NSString *jsonStr = [NSString q_jsonStringWithDictionary:dic];
+    
+    NSLog(@"%@", jsonStr);
 }
 
 
@@ -1904,6 +1899,312 @@
     self.countingLabel.textColor = [UIColor redColor];
     self.countingLabel.textAlignment = NSTextAlignmentCenter;
 }
+
+
+#pragma mark - NSObject+QExtension
+
+#pragma mark QRSAEncryptor
+
+- (void)nsObjectQRSAEncryptorDemo {
+    
+    //    [self encryptDemoWithfile];
+    [self encryptDemoWithKeyString];
+}
+
+- (void)encryptDemoWithfile {
+    
+    // 原始数据
+    NSString *originalString = @"这是一段将要使用 '.der' 文件加密的字符串!";
+    NSLog(@"加密前: %@", originalString);
+    
+    // 秘钥证书文件 .der 和 .p12 路径
+    NSString *public_key_path = [[NSBundle mainBundle] pathForResource:@"public_key" ofType:@"der"];
+    NSString *private_key_path = [[NSBundle mainBundle] pathForResource:@"private_key" ofType:@"p12"];
+    
+    // 加密
+    NSString *encryptStr = [QRSAEncryptor q_encryptWithString:originalString publicKeyFilePath:public_key_path];
+    NSLog(@"加密后: %@", encryptStr);
+    
+    // 解密
+    NSString *DencryptStr = [QRSAEncryptor q_decryptWithString:encryptStr privateKeyFilePath:private_key_path password:@"qianchia"];
+    NSLog(@"解密后: %@", DencryptStr);
+}
+
+- (void)encryptDemoWithKeyString {
+    
+    // 原始数据
+    NSString *originalString = @"这是一段将要使用 '秘钥字符串' 进行加密的字符串!";
+    NSLog(@"加密前: %@", originalString);
+    
+    // 加密
+    NSString *publicKeyStr = @"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDsQ44uzMg83T6z7/dvNn2B1KHlzGwccgo055PeimXdBbzUVBECE0nQeNGb9tkO3mVnu8R4Iu5faoX7MY/muiTVZ3NDAvtk+WBjXfNqHmWvlMfj5jwxnITosnHMLVgrqDFc9q1yfmbTLhd8cJhMXsVBlduCSYbdNitA2z4B3hKS5wIDAQAB";
+    
+    NSString *encryptStr = [QRSAEncryptor q_encryptWithString:originalString publicKey:publicKeyStr];
+    NSLog(@"加密后: %@", encryptStr);
+    
+    // 解密
+    NSString *privateKeyStr = @"MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAOxDji7MyDzdPrPv9282fYHUoeXMbBxyCjTnk96KZd0FvNRUEQITSdB40Zv22Q7eZWe7xHgi7l9qhfsxj+a6JNVnc0MC+2T5YGNd82oeZa+Ux+PmPDGchOiyccwtWCuoMVz2rXJ+ZtMuF3xwmExexUGV24JJht02K0DbPgHeEpLnAgMBAAECgYB1cuPEihJkh0t7YagsRfdASjatKOD5hwth31kXwM8Af7CuEJhf4rzIALeag6zFgnMAjUwOuLatAiRWif3SIejapMaY/DcXWM/5ugYNi1exS1U8BeBjAOyZuQf/onOn0c0eBqT912CFnjEO5iNuNDkheRQK/FBv2XuMpnAI1FbGQQJBAPmmJkXtEDoM90PxPcL/+ecoNCe2aabiN/D9JlHtOE64DJzRQG4HHpizsvzxMQ00+ItTsG089BjpZPPHuLMO3AcCQQDyRjwPri2lyRC7GHgkgjB03NFL16ENkNER5/7X6TE15uqH/kdrKwrVUNNFwq9a11CHKtJqZOSgy0iN6rKF1JohAkBihAR6d7B9l/xDnYFn4Ce35o+eVEehCYhV2zAyCFC+D7c6cwDf6oNScydg1bUrpwmlwaLPmMwiwIeMA/aJAoYlAkEAoFjJwZsHDTWRBDNCuO8NgRrwzuBs8FyLcu135pCpCELHsLAjtpMrPVmcKwyaIGZnHr7BurcB9kX0xDC0bQzz4QJBAKKCz52lxwWboqo5h4lmk0F3R17O7bUNOaSn1kauX5ADBoQ2zsfl3LrPNB2Tt+97+wRyjnF9Gkwjg2okUc4V1MY=";
+    
+    NSString *dencryptStr = [QRSAEncryptor q_decryptWithString:encryptStr privateKey:privateKeyStr];
+    NSLog(@"解密后: %@", dencryptStr);
+}
+
+#pragma mark QJSONValidator
+
+- (void)nsObjectQJSONValidatorDemo {
+    
+//    [self qJSONValidatorDemo1];
+//    [self qJSONValidatorDemo2];
+//    [self qJSONValidatorDemo3];
+    [self qJSONValidatorDemo4];
+}
+
+- (void)qJSONValidatorDemo1 {
+    
+    NSDictionary *json = @{
+                           @"phoneNumber" : @"123-555-6789",
+                           @"name" : @"Johnny Ringo",
+                           @"age" : @"BANANA",
+                           @"weight" : @"130.3",
+                           @"ssn" : [NSNull null],
+                           @"children" : @[],
+                           @"parents" : @[
+                                           @{
+                                               @"name" : @"Mickey"
+                                            },
+                                           @{
+                                               @"name" : @"Minnie"
+                                            }
+                                        ]
+                           };
+    
+    // Before
+    
+    BOOL validated = YES;
+    
+    NSString *phoneNumber = [json objectForKey:@"phoneNumber"];
+    if (!phoneNumber || ![phoneNumber isKindOfClass:[NSString class]] || [phoneNumber length] < 7) {
+        NSLog(@"Phone number didn't validate (not found or not an NSString or length < 7)");
+        validated = NO;
+    }
+    
+    NSString *name = [json objectForKey:@"name"];
+    if (!name || ![phoneNumber isKindOfClass:[NSString class]]) {
+        NSLog(@"Phone number didn't validate (not found or not an NSString)");
+        validated = NO;
+    }
+    
+    NSNumber *age = [json objectForKey:@"age"];
+    if (age && ![age isKindOfClass:[NSNumber class]]) {
+        NSLog(@"Age exists but didn't validate (not an NSNumber)");
+        validated = NO;
+    }
+    
+    NSNumber *weight = [json objectForKey:@"weight"];
+    if (weight && ![weight isKindOfClass:[NSString class]]) {
+        NSLog(@"Weight exists but didn't validate (not an NSString)");
+        validated = NO;
+    }
+    
+    NSString *ssn = [json objectForKey:@"ssn"];
+    if (ssn != [NSNull null]) {
+        NSLog(@"ssn should be null");
+        validated = NO;
+    }
+    
+    NSString *height = [json objectForKey:@"height"];
+    if(height && ![weight isKindOfClass:[NSString class]]) {
+        NSLog(@"Height exists but didn't validate (not an NSString)");
+        validated = NO;
+    }
+    
+    NSArray *children = [json objectForKey:@"children"];
+    if(children && ![children isKindOfClass:[NSArray class]]) {
+        NSLog(@"Children exists but didn't validate (not an NSArray)");
+        validated = NO;
+    }
+    
+    NSArray *parents = [json objectForKey:@"parents"];
+    if(parents && ![parents isKindOfClass:[NSArray class]] && [parents count] <= 1) {
+        NSLog(@"Parents exists but didn't validate (not an NSArray or count <= 1)");
+        validated = NO;
+    }
+    
+    if (validated) {
+        NSLog(@"Woohoo, no errors!");
+    }
+    
+    // After
+    
+    NSError *error;
+    
+    [QJSONValidator q_validateValuesFrom:json
+                        withRequirements:@{
+                                          @"phoneNumber" : [QValidatorPredicate.isString lengthIsGreaterThanOrEqualTo:@7],
+                                          @"name"        : QValidatorPredicate.isString,
+                                          @"age"         : QValidatorPredicate.isNumber.isOptional,
+                                          @"weight"      : QValidatorPredicate.isString,
+                                          @"ssn"         : QValidatorPredicate.isNull,
+                                          @"height"      : QValidatorPredicate.isString,
+                                          @"children"    : QValidatorPredicate.isArray,
+                                          @"parents"     : [QValidatorPredicate.isArray lengthIsGreaterThan:@1]
+                                          }
+                                   error:&error];
+    
+    if (error) {
+        NSLog(@"%@", [QJSONValidator q_prettyStringGivenQJSONValidatorError:error]);
+    } else {
+        NSLog(@"Woohoo, no errors!");
+    }
+}
+
+- (void)qJSONValidatorDemo2 {
+    
+    NSDictionary *json = @{
+                           @"car" : @{
+                                        @"make" : @"Ford",
+                                        @"model" : @"Mustang"
+                                   },
+                           };
+    
+    NSError *error;
+    
+    [QJSONValidator q_validateValuesFrom:json
+                        withRequirements:@{
+                                          @"car" : @{
+                                                  @"make"  : [QValidatorPredicate valueIsEqualTo:@"Ford"],
+                                                  @"model" : [QValidatorPredicate valueIsEqualTo:@"Mustang"]
+                                                  }
+                                          }
+                                   error:&error];
+    
+    if (error) {
+        NSLog(@"%@", [QJSONValidator q_prettyStringGivenQJSONValidatorError:error]);
+    } else {
+        NSLog(@"Woohoo, no errors!");
+    }
+}
+
+- (void)qJSONValidatorDemo3 {
+    
+    NSDictionary *json = @{
+                           @"cars" : @[
+                                        @{
+                                           @"make" : @"Ford",
+                                           @"model" : @"Mustang"
+                                        },
+                                        @{
+                                           @"make" : @"Tesla Motors",
+                                           @"model" : @"Model S"
+                                        },
+                                   ],
+                           };
+    
+    NSError *error;
+    
+    [QJSONValidator q_validateValuesFrom:json
+                        withRequirements:@{
+                                          @"cars" : @{
+                                                  @0 : @{   // Access the first element
+                                                          @"make"  : QValidatorPredicate.isString,
+                                                          @"model" : QValidatorPredicate.isString
+                                                          }
+                                                  }
+                                          }
+                                   error:&error];
+    
+    if (error) {
+        NSLog(@"%@", [QJSONValidator q_prettyStringGivenQJSONValidatorError:error]);
+    } else {
+        NSLog(@"Woohoo, no errors!");
+    }
+}
+
+- (void)qJSONValidatorDemo4 {
+    
+    NSDictionary *json = @{
+                           @"friends" :  @[
+                                   @{@"name" : @"Anna", @"age" : @25},
+                                   @{@"name" : @"Maria", @"age" : @19},
+                                   @{@"name" : @"WrongObject", @"counry" : @"UA"}]
+                           };
+    
+    NSError *error;
+    [QJSONValidator q_validateValuesFrom:json
+                        withRequirements:@{
+                                          @"friends" : [QValidatorPredicate.isArray valuesWithRequirements:
+                                                        @{
+                                                          @"name" : QValidatorPredicate.isString,
+                                                          @"age"  : QValidatorPredicate.isNumber
+                                                        }]
+                                          }
+                                   error:&error];
+    
+    if (error) {
+        NSLog(@"%@", [QJSONValidator q_prettyStringGivenQJSONValidatorError:error]);
+    } else {
+        NSLog(@"Woohoo, no errors!");
+    }
+}
+
+#pragma mark JSONValidator
+
+- (void)nsObjectJSONValidatorDemo {
+    
+    NSDictionary *json = @{
+                           @"tag1": @"star",
+                           @"tag2": @"jason",
+                           @"totalNum": @(1616),
+                           @"start_index": @"60",
+                           @"return_number": @(30),
+                           @"data" : @[@"1", @"2"],
+                           @"tags" : [NSNull null],
+                           @"config" : @{
+                                   @"max_num" : @(30000),
+                                   @"tag" : [NSNull null]
+                                   }
+                           };
+    
+    // Normal
+    NSDictionary *configDic1 = [json objectForKey:@"config"];
+    if (configDic1 != nil && [configDic1 isKindOfClass:[NSDictionary class]]) {
+        
+        id number = [configDic1 objectForKey:@"max_num"];
+        if ([number isKindOfClass:[NSNumber class]] || [number isKindOfClass:[NSString class]]) {
+            NSInteger maxNum = [number integerValue];
+            NSLog(@"maxNum: %@", @(maxNum));
+        }
+    }
+    
+    // Or just this!
+    NSInteger maxNum = [[json q_dictionaryKey:@"config"] q_integerKey:@"max_num"];
+    NSLog(@"maxNum: %@", @(maxNum));
+    
+    // default value
+    NSInteger minNum = [[json q_dictionaryKey:@"config"] q_integerKey:@"min_num" defaultValue:-1];
+    NSLog(@"minNum: %@", @(minNum));
+    
+    // Handle NSNull
+    NSArray *tags = [json q_arrayKey:@"tags"];
+    NSLog(@"%@", tags);
+    
+    // Handle wrong type
+    NSString *string = [[json q_dictionaryKey:@"data"] q_stringKey:@"1"];
+    NSLog(@"%@", string);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
