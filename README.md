@@ -1167,7 +1167,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	![Label10](http://images2015.cnblogs.com/blog/993906/201701/993906-20170121073756125-342698684.gif)   ![Label11](http://images2015.cnblogs.com/blog/993906/201701/993906-20170121073803359-1029206042.gif)
 
-- 5、垂直滚动，由 Block 创建
+- 5、垂直滚动，由类方法创建
 
 	```objc
 		// 设置显示的内容
@@ -1279,7 +1279,7 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
 
 	![Label16](http://images2015.cnblogs.com/blog/993906/201701/993906-20170121073912250-1589655881.gif)   ![Label17](http://images2015.cnblogs.com/blog/993906/201701/993906-20170121073920890-890161397.gif)
 
-- 8、水平滚动，由 Block 创建
+- 8、水平滚动，由类方法创建
 
 	```objc
 		// 设置显示的内容
