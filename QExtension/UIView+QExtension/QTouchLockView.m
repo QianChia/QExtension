@@ -7,12 +7,12 @@
 //
 
 #import "QTouchLockView.h"
-#import "../NSString+QExtension/NSString+Hash.h"
-#import "../UIImage+QExtension/UIImage+Bundle.h"
-
-#define BUNDLE_IMAGE(name)  [UIImage q_imageNamed:(name) fromBundle:@"QTouchLockView"]
+#import <CommonCrypto/CommonCrypto.h>
 
 NS_ASSUME_NONNULL_BEGIN
+
+
+#define BUNDLE_IMAGE(name)  [self q_imageNamed:(name) fromBundle:@"QTouchLockView"]
 
 
 @interface QTouchLockView ()
@@ -216,7 +216,7 @@ NS_ASSUME_NONNULL_BEGIN
             }
             
             // 对滑动获取的密码值进行 MD5 加密
-            NSString *md5Path = [path q_md5String];
+            NSString *md5Path = [self q_md5String:path];
             
             self.resultBlock(YES, md5Path);
         }
@@ -282,6 +282,72 @@ NS_ASSUME_NONNULL_BEGIN
         _selectedArray = [NSMutableArray array];
     }
     return _selectedArray;
+}
+
+#pragma mark - 助手方法
+
+/**
+ *  从 Bundle 文件中加载图片
+ *
+ *  @param name         图片名称
+ *  @param bundleName   Bundle 文件名称
+ *
+ *  <p> #define BUNDLE_IMAGE(name)  [self q_imageNamed:(name) fromBundle:@"DemoBundle"] <p>
+ *
+ *  @return 加载的图片
+ */
+- (UIImage *)q_imageNamed:(NSString *)name fromBundle:(NSString *)bundleName {
+    
+    NSMutableString *bundleN = [NSMutableString stringWithString:bundleName];
+    
+    if ([bundleName hasSuffix:@".bundle"] == NO) {
+        [bundleN appendString:@".bundle"];
+    }
+    
+    NSString *bundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:bundleN];
+    NSString *filePath = [bundlePath stringByAppendingPathComponent:name];
+    
+    return [UIImage imageWithContentsOfFile:filePath];
+}
+
+/**
+ *  计算 MD5 散列结果
+ *
+ *  终端测试命令：
+ *  @code
+ *  md5 -s "string"
+ *  @endcode
+ *
+ *  <p>提示：随着 MD5 碰撞生成器的出现，MD5 算法不应被用于任何软件完整性检查或代码签名的用途。<p>
+ *
+ *  @param  string  待求散列值的字符串
+ *
+ *  @return 32 个字符的 MD5 散列字符串
+ */
+- (NSString *)q_md5String:(NSString *)string {
+    const char *str = string.UTF8String;
+    uint8_t buffer[CC_MD5_DIGEST_LENGTH];
+    
+    CC_MD5(str, (CC_LONG)strlen(str), buffer);
+    
+    return [self q_stringFromBytes:buffer length:CC_MD5_DIGEST_LENGTH];
+}
+
+/**
+ *  返回二进制 Bytes 流的字符串表示形式
+ *
+ *  @param bytes  二进制 Bytes 数组
+ *  @param length 数组长度
+ *
+ *  @return 字符串表示形式
+ */
+- (NSString *)q_stringFromBytes:(uint8_t *)bytes length:(int)length {
+    NSMutableString *strM = [NSMutableString string];
+    
+    for (int i = 0; i < length; i++) {
+        [strM appendFormat:@"%02x", bytes[i]];
+    }
+    return [strM copy];
 }
 
 @end

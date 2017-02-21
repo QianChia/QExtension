@@ -7,8 +7,6 @@
 //
 
 #import "QQRCode.h"
-#import "../UIImage+QExtension/UIImage+QRCode.h"
-#import "../UIImage+QExtension/UIImage+Bundle.h"
 #import <AVFoundation/AVFoundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -17,8 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 #define WIDTH   [UIScreen mainScreen].bounds.size.width
 #define HEIGHT  [UIScreen mainScreen].bounds.size.height
 
-#define BUNDLE_IMAGE(name)  [UIImage q_imageNamed:(name) fromBundle:@"QQRCode"]
+#define BUNDLE_IMAGE(name)  [QQRCodeMine q_imageNamed:(name) fromBundle:@"QQRCode"]
+
 #define BUNDLE_APP_NAME     [[NSBundle mainBundle].infoDictionary objectForKey:(NSString *)kCFBundleNameKey]
+
 
 #pragma mark - QQRCodeMine
 
@@ -84,10 +84,10 @@ NS_ASSUME_NONNULL_BEGIN
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
     [self.view addSubview:imageView];
     
-    UIImage *qrImage = [UIImage q_imageWithQRCodeFromString:self.myQRCodeInfo
-                                                   headIcon:self.headIcon
-                                                      color:nil
-                                                  backColor:nil];
+    UIImage *qrImage = [self q_imageWithQRCodeFromString:self.myQRCodeInfo
+                                                headIcon:self.headIcon
+                                                   color:nil
+                                               backColor:nil];
     imageView.image = qrImage;
 }
 
@@ -95,6 +95,153 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)pressBackButton:(UIButton *)btn {
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - 助手方法
+
+/**
+ *  从 Bundle 文件中加载图片
+ *
+ *  @param name         图片名称
+ *  @param bundleName   Bundle 文件名称
+ *
+ *  <p> #define BUNDLE_IMAGE(name)  [QQRCodeMine q_imageNamed:(name) fromBundle:@"DemoBundle"] <p>
+ *
+ *  @return 加载的图片
+ */
++ (UIImage *)q_imageNamed:(NSString *)name fromBundle:(NSString *)bundleName {
+    
+    NSMutableString *bundleN = [NSMutableString stringWithString:bundleName];
+    
+    if ([bundleName hasSuffix:@".bundle"] == NO) {
+        [bundleN appendString:@".bundle"];
+    }
+    
+    NSString *bundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:bundleN];
+    NSString *filePath = [bundlePath stringByAppendingPathComponent:name];
+    
+    return [UIImage imageWithContentsOfFile:filePath];
+}
+
+/**
+ *  生成二维码图片
+ *
+ *  <p> 图片大小默认为 1242 * 1242，头像大小为图片的五分之一 248.4 * 248.4，位置居中 <p>
+ *
+ *  @param string       生成二维码的字符串
+ *  @param headIcon     二维码中的头像图片
+ *  @param color        二维码的颜色，default is blackColor
+ *  @param backColor    二维码的背景颜色，default is whiteColor
+ *
+ *  @return 生成的二维码图片
+ */
+- (UIImage *)q_imageWithQRCodeFromString:(NSString *)string
+                                headIcon:(nullable UIImage *)headIcon
+                                   color:(nullable UIColor *)color
+                               backColor:(nullable UIColor *)backColor {
+    
+    // 默认图片大小 1242 * 1242
+    CGSize imageSize = CGSizeMake(1242, 1242);
+    
+    // 默认头像图片大小 248.4 * 248.4
+    CGFloat scale = 5;
+    CGFloat width = imageSize.width / scale;
+    CGFloat height = imageSize.height / scale;
+    CGFloat x = (imageSize.width - width) / 2;
+    CGFloat y = (imageSize.height - height) / 2;
+    CGRect headFrame = CGRectMake(x, y, width, height);
+    
+    return [self q_imageWithQRCodeFromString:string
+                                   imageSize:imageSize
+                                    headIcon:headIcon
+                                   headFrame:headFrame
+                                       color:color
+                                   backColor:backColor];
+}
+
+/**
+ *  生成指定大小的二维码图片
+ *
+ *  @param string       生成二维码的字符串
+ *  @param imageSize    生成的二维码图片的大小
+ *  @param headIcon     二维码中的头像图片
+ *  @param headFrame    二维码中头像图片的位置大小
+ *  @param color        二维码的颜色，default is blackColor
+ *  @param backColor    二维码的背景颜色，default is whiteColor
+ *
+ *  @return 生成的二维码图片
+ */
+- (UIImage *)q_imageWithQRCodeFromString:(NSString *)string
+                               imageSize:(CGSize)imageSize
+                                headIcon:(nullable UIImage *)headIcon
+                               headFrame:(CGRect)headFrame
+                                   color:(nullable UIColor *)color
+                               backColor:(nullable UIColor *)backColor {
+    
+    // 创建过滤器
+    CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
+    
+    // 恢复默认
+    [filter setDefaults];
+    
+    // 给过滤器添加数据
+    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
+    
+    // 通过 KVO 设置滤镜 inputMessage 数据
+    [filter setValue:data forKey:@"inputMessage"];
+    
+    // 设置二维码颜色
+    UIColor *onColor = color ? : [UIColor blackColor];
+    UIColor *offColor = backColor ? : [UIColor whiteColor];
+    
+    CIFilter *colorFilter = [CIFilter filterWithName:@"CIFalseColor"
+                                       keysAndValues:@"inputImage", filter.outputImage,
+                             @"inputColor0", [CIColor colorWithCGColor:onColor.CGColor],
+                             @"inputColor1", [CIColor colorWithCGColor:offColor.CGColor],
+                             nil];
+    
+    // 获取输出的二维码
+    CIImage *outputImage = colorFilter.outputImage;
+    
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CGImageRef cgImage = [context createCGImage:outputImage
+                                       fromRect:[outputImage extent]];
+    
+    // 将 CIImage 转换成 UIImage，并放大显示
+    UIImage *qrImage = [UIImage imageWithCGImage:cgImage
+                                           scale:1.0
+                                     orientation:UIImageOrientationUp];
+    CGImageRelease(cgImage);
+    
+    // 重绘二维码图片，默认情况下生成的图片比较模糊
+    
+    CGRect backRect = CGRectMake(0, 0, imageSize.width, imageSize.height);
+    
+    UIGraphicsBeginImageContext(backRect.size);
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGContextSetInterpolationQuality(ctx, kCGInterpolationNone);
+    [qrImage drawInRect:backRect];
+    qrImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    // 添加头像
+    if (headIcon != nil) {
+        
+        UIGraphicsBeginImageContext(backRect.size);
+        [qrImage drawInRect:backRect];
+        
+        // 绘制头像
+        [headIcon drawInRect:headFrame];
+        
+        // 获取添加头像后的图片
+        UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+        
+        UIGraphicsEndImageContext();
+        
+        return newImage;
+    } else {
+        return qrImage;
+    }
 }
 
 @end
@@ -512,7 +659,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 识别二维码
 - (void)q_recognizeQRCodeFromImage:(UIImage *)image {
     
-    NSString *resultString = [image q_stringByRecognizeQRCode];
+    NSString *resultString = [self q_stringByRecognizeQRCodeImage:image];
     
     if ([resultString isEqualToString:@"该图片中不包含二维码"]) {
         
@@ -524,6 +671,40 @@ NS_ASSUME_NONNULL_BEGIN
         if (self.resultBlock) {
             self.resultBlock(YES, resultString);
         }
+    }
+}
+
+#pragma mark - 助手方法
+
+/**
+ *  识别图片中的二维码
+ *
+ *  @param  image  待识别的图片
+ *
+ *  @return 二维码识别结果字符串
+ */
+- (NSString *)q_stringByRecognizeQRCodeImage:(UIImage *)image {
+    
+    CIImage *ciImage = [CIImage imageWithCGImage:image.CGImage];
+    
+    // 初始化扫描仪，设置识别类型和识别质量
+    CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode
+                                              context:nil
+                                              options:@{CIDetectorAccuracy:CIDetectorAccuracyHigh}];
+    
+    // 扫描获取的特征组
+    NSArray *features = [detector featuresInImage:ciImage];
+    
+    if (features.count >= 1) {
+        
+        // 获取扫描结果
+        CIQRCodeFeature *feature = [features objectAtIndex:0];
+        NSString *resultString = feature.messageString;
+        
+        return resultString;
+        
+    } else {
+        return @"该图片中不包含二维码";
     }
 }
 

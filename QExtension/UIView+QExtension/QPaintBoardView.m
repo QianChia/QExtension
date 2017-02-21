@@ -7,11 +7,11 @@
 //
 
 #import "QPaintBoardView.h"
-#import "../UIImage+QExtension/UIImage+Bundle.h"
-
-#define BUNDLE_IMAGE(name)  [UIImage q_imageNamed:(name) fromBundle:@"QPaintBoardView"]
 
 NS_ASSUME_NONNULL_BEGIN
+
+
+#define BUNDLE_IMAGE(name)  [self q_imageNamed:(name) fromBundle:@"QPaintBoardView"]
 
 
 #pragma mark - QPaintBoardPath
@@ -673,6 +673,32 @@ NS_ASSUME_NONNULL_BEGIN
     
     UIImage *image = [BUNDLE_IMAGE(name) imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     return image;
+}
+
+#pragma mark - 助手方法
+
+/**
+ *  从 Bundle 文件中加载图片
+ *
+ *  @param name         图片名称
+ *  @param bundleName   Bundle 文件名称
+ *
+ *  <p> #define BUNDLE_IMAGE(name)  [self q_imageNamed:(name) fromBundle:@"DemoBundle"] <p>
+ *
+ *  @return 加载的图片
+ */
+- (UIImage *)q_imageNamed:(NSString *)name fromBundle:(NSString *)bundleName {
+    
+    NSMutableString *bundleN = [NSMutableString stringWithString:bundleName];
+    
+    if ([bundleName hasSuffix:@".bundle"] == NO) {
+        [bundleN appendString:@".bundle"];
+    }
+    
+    NSString *bundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:bundleN];
+    NSString *filePath = [bundlePath stringByAppendingPathComponent:name];
+    
+    return [UIImage imageWithContentsOfFile:filePath];
 }
 
 @end

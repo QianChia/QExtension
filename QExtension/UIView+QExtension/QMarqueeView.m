@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 #define SELF_WIDTH      self.frame.size.width
 #define SELF_HEIGHT     self.frame.size.height
 
+
 @interface QMarqueeView ()
 
 /// 两个 label 循环滚动

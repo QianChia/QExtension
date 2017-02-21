@@ -8,13 +8,13 @@
 
 #import "QCountingLabel.h"
 
-/* Definition of `kQLabelCounterRate'. */
+NS_ASSUME_NONNULL_BEGIN
 
+
+/// Definition of `kQLabelCounterRate'
 #ifndef kQLabelCounterRate
 #define kQLabelCounterRate 3.0
 #endif
-
-NS_ASSUME_NONNULL_BEGIN
 
 
 @interface QCountingLabel ()

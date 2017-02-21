@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 #define SELF_WIDTH      self.frame.size.width
 #define SELF_HEIGHT     self.frame.size.height
 
+
 @interface QBulletScreenView ()
 
 /// label

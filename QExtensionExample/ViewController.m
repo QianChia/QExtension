@@ -67,7 +67,7 @@
 //    [self uiViewQPaintBoardViewDemo1];
 //    [self uiViewQPaintBoardViewDemo2];
 //    [self uiViewQTouchClipViewDemo];
-//    [self uiViewQTouchLockViewDemo];
+    [self uiViewQTouchLockViewDemo];
 //    [self uiViewQMarqueeViewDemo];
 //    [self uiViewQBulletScreenViewDemo];
     
@@ -78,7 +78,7 @@
     
 //    [self nsObjectQRSAEncryptorDemo];
 //    [self nsObjectQJSONValidatorDemo];
-    [self nsObjectJSONValidatorDemo];
+//    [self nsObjectJSONValidatorDemo];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
