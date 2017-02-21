@@ -7,7 +7,6 @@
 //
 
 #import "NSString+Net.h"
-
 #import <arpa/inet.h>
 #import <ifaddrs.h>
 #import <netdb.h>

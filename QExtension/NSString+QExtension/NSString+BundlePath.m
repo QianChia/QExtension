@@ -8,7 +8,7 @@
 
 #import "NSString+BundlePath.h"
 #import "NSString+Hash.h"
-#import "sys/xattr.h"
+#import <sys/xattr.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

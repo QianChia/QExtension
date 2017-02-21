@@ -7,7 +7,7 @@
 //
 
 #import "QPaintBoardView.h"
-#import "UIImage+Bundle.h"
+#import "../UIImage+QExtension/UIImage+Bundle.h"
 
 #define BUNDLE_IMAGE(name)  [UIImage q_imageNamed:(name) fromBundle:@"QPaintBoardView"]
 

@@ -7,8 +7,8 @@
 //
 
 #import "QTouchLockView.h"
-#import "NSString+Hash.h"
-#import "UIImage+Bundle.h"
+#import "../NSString+QExtension/NSString+Hash.h"
+#import "../UIImage+QExtension/UIImage+Bundle.h"
 
 #define BUNDLE_IMAGE(name)  [UIImage q_imageNamed:(name) fromBundle:@"QTouchLockView"]
 
@@ -71,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
             [btn setBackgroundImage:BUNDLE_IMAGE(@"gesture_node_highlighted") forState:UIControlStateHighlighted];
             
             // 设置 tag 值，设置按钮对应的密码值
-            btn.tag = i + 1;
+            btn.tag = (long)i + 1;
             
             // 关闭按钮的交互，响应触摸事件
             btn.userInteractionEnabled = NO;
@@ -90,7 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
     for (int i = 0; i < self.subviews.count - 1; i++) {
         
         // 列数
-        int cols = 3;
+        NSInteger cols = 3;
         
         // 设置按钮尺寸
         CGFloat W = self.bounds.size.width;
@@ -99,11 +99,11 @@ NS_ASSUME_NONNULL_BEGIN
         CGFloat btnH = H / 5;
         
         // 计算按钮的 x 坐标值
-        int col = i % cols;
+        NSInteger col = i % cols;
         CGFloat btnX = col * btnW * 2;
         
         // 计算按钮的 y 坐标值
-        int row = i / cols;
+        NSInteger row = i / cols;
         CGFloat btnY = row * btnH * 2;
         
         // 设置按钮的 frame
@@ -212,7 +212,7 @@ NS_ASSUME_NONNULL_BEGIN
             // 获取触摸结果
             NSMutableString *path = [NSMutableString string];
             for (UIButton *btn in self.selectedArray) {
-                [path appendFormat:@"%ld", btn.tag];
+                [path appendFormat:@"%ld", (long)btn.tag];
             }
             
             // 对滑动获取的密码值进行 MD5 加密

@@ -7,7 +7,6 @@
 //
 
 #import "NSDictionary+Net.h"
-
 #import <SystemConfiguration/CaptiveNetwork.h>
 
 NS_ASSUME_NONNULL_BEGIN

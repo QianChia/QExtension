@@ -14,57 +14,46 @@ Pod::Spec.new do |s|
 
   s.subspec 'NSObject+QExtension' do |ss|
     ss.source_files         = 'QExtension/NSObject+QExtension/*.{h,m}'
-    ss.public_header_files  = 'QExtension/NSObject+QExtension/NSObject+QExtension.h'
   end
 
   s.subspec 'NSArray+QExtension' do |ss|
     ss.source_files         = 'QExtension/NSArray+QExtension/*.{h,m}'
-    ss.public_header_files  = 'QExtension/NSArray+QExtension/NSArray+QExtension.h'
   end
 
   s.subspec 'NSData+QExtension' do |ss|
     ss.source_files         = 'QExtension/NSData+QExtension/*.{h,m}'
-    ss.public_header_files  = 'QExtension/NSData+QExtension/NSData+QExtension.h'
   end
 
   s.subspec 'NSDictionary+QExtension' do |ss|
     ss.source_files         = 'QExtension/NSDictionary+QExtension/*.{h,m}'
-    ss.public_header_files  = 'QExtension/NSDictionary+QExtension/NSDictionary+QExtension.h'
   end
 
   s.subspec 'NSString+QExtension' do |ss|
     ss.source_files         = 'QExtension/NSString+QExtension/*.{h,m}'
-    ss.public_header_files  = 'QExtension/NSString+QExtension/NSString+QExtension.h'
   end
 
   s.subspec 'UIButton+QExtension' do |ss|
     ss.source_files         = 'QExtension/UIButton+QExtension/*.{h,m}'
-    ss.public_header_files  = 'QExtension/UIButton+QExtension/UIButton+QExtension.h'
   end
 
   s.subspec 'UIColor+QExtension' do |ss|
     ss.source_files         = 'QExtension/UIColor+QExtension/*.{h,m}'
-    ss.public_header_files  = 'QExtension/UIColor+QExtension/UIColor+QExtension.h'
   end
 
   s.subspec 'UIImage+QExtension' do |ss|
     ss.source_files         = 'QExtension/UIImage+QExtension/*.{h,m}'
-    ss.public_header_files  = 'QExtension/UIImage+QExtension/UIImage+QExtension.h'
   end
 
   s.subspec 'UILabel+QExtension' do |ss|
     ss.source_files         = 'QExtension/UILabel+QExtension/*.{h,m}'
-    ss.public_header_files  = 'QExtension/UILabel+QExtension/UILabel+QExtension.h'
   end
 
   s.subspec 'UIView+QExtension' do |ss|
     ss.source_files         = 'QExtension/UIView+QExtension/*.{h,m,bundle}'
-    ss.public_header_files  = 'QExtension/UIView+QExtension/UIView+QExtension.h'
   end
 
   s.subspec 'UIViewController+QExtension' do |ss|
     ss.source_files         = 'QExtension/UIViewController+QExtension/*.{h,m,bundle}'
-    ss.public_header_files  = 'QExtension/UIViewController+QExtension/UIViewController+QExtension.h'
   end
 
 end

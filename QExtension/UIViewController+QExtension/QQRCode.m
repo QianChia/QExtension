@@ -7,8 +7,8 @@
 //
 
 #import "QQRCode.h"
-#import "UIImage+QRCode.h"
-#import "UIImage+Bundle.h"
+#import "../UIImage+QExtension/UIImage+QRCode.h"
+#import "../UIImage+QExtension/UIImage+Bundle.h"
 #import <AVFoundation/AVFoundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
