@@ -9,7 +9,6 @@
 #ifndef NSArray_QExtension_h
 #define NSArray_QExtension_h
 
-#import "NSArray+LocaleLog.h"
 
 
 #endif /* NSArray_QExtension_h */

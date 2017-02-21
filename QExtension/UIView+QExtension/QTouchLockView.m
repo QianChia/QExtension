@@ -90,7 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
     for (int i = 0; i < self.subviews.count - 1; i++) {
         
         // 列数
-        NSInteger cols = 3;
+        int cols = 3;
         
         // 设置按钮尺寸
         CGFloat W = self.bounds.size.width;

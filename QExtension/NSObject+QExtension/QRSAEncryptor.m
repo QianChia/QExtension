@@ -95,7 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
     NSMutableDictionary * options = [[NSMutableDictionary alloc] init];
     [options setObject: password forKey:(__bridge id)kSecImportExportPassphrase];
     CFArrayRef items = CFArrayCreate(NULL, 0, 0, NULL);
-    OSStatus securityError = SecPKCS12Import((__bridge CFDataRef) p12Data, (__bridge CFDictionaryRef)options, &items);
+    int securityError = SecPKCS12Import((__bridge CFDataRef) p12Data, (__bridge CFDictionaryRef)options, &items);
     if (securityError == noErr && CFArrayGetCount(items) > 0) {
         CFDictionaryRef identityDict = CFArrayGetValueAtIndex(items, 0);
         SecIdentityRef identityApp = (SecIdentityRef)CFDictionaryGetValue(identityDict, kSecImportItemIdentity);
@@ -187,7 +187,7 @@ NS_ASSUME_NONNULL_BEGIN
      kSecReturnPersistentRef];
     
     CFTypeRef persistKey = nil;
-    OSStatus status = SecItemAdd((__bridge CFDictionaryRef)publicKey, &persistKey);
+    int status = SecItemAdd((__bridge CFDictionaryRef)publicKey, &persistKey);
     if (persistKey != nil) {
         CFRelease(persistKey);
     }
@@ -316,7 +316,7 @@ NS_ASSUME_NONNULL_BEGIN
      kSecReturnPersistentRef];
     
     CFTypeRef persistKey = nil;
-    OSStatus status = SecItemAdd((__bridge CFDictionaryRef)privateKey, &persistKey);
+    int status = SecItemAdd((__bridge CFDictionaryRef)privateKey, &persistKey);
     if (persistKey != nil){
         CFRelease(persistKey);
     }
@@ -399,7 +399,7 @@ NS_ASSUME_NONNULL_BEGIN
         }
         
         size_t outlen = block_size;
-        OSStatus status = noErr;
+        int status = noErr;
         status = SecKeyEncrypt(keyRef,
                                kSecPaddingPKCS1,
                                srcbuf + idx,
@@ -440,7 +440,7 @@ NS_ASSUME_NONNULL_BEGIN
         }
         
         size_t outlen = block_size;
-        OSStatus status = noErr;
+        int status = noErr;
         status = SecKeyDecrypt(keyRef,
                                kSecPaddingNone,
                                srcbuf + idx,

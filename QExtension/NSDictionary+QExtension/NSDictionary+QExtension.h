@@ -9,7 +9,6 @@
 #ifndef NSDictionary_QExtension_h
 #define NSDictionary_QExtension_h
 
-#import "NSDictionary+LocaleLog.h"
 #import "NSDictionary+Net.h"
 #import "NSDictionary+JSON.h"
 

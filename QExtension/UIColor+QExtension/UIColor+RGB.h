@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return R、G、B 值
  */
-- (NSArray<NSNumber *> *)q_getRGBComponents;
+- (NSArray<NSNumber *> * _Nullable)q_getRGBComponents;
 
 @end
 
