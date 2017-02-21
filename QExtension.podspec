@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'QExtension'
-  s.version      = '1.1.5'
+  s.version      = '1.1.6'
   s.license      = 'MIT'
   s.authors      = {'QianChia' => 'qianchia@icloud.com'}
   s.summary      = 'The extension method for Foundation & UIKit Class'
@@ -49,11 +49,13 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'UIView+QExtension' do |ss|
-    ss.source_files         = 'QExtension/UIView+QExtension/*.{h,m,bundle}'
+    ss.source_files         = 'QExtension/UIView+QExtension/*.{h,m}'
+    ss.resource             = 'QExtension/UIView+QExtension/*.bundle'
   end
 
   s.subspec 'UIViewController+QExtension' do |ss|
-    ss.source_files         = 'QExtension/UIViewController+QExtension/*.{h,m,bundle}'
+    ss.source_files         = 'QExtension/UIViewController+QExtension/*.{h,m}'
+    ss.resource             = 'QExtension/UIViewController+QExtension/*.bundle'
   end
 
 end
