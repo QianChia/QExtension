@@ -99,11 +99,11 @@ NS_ASSUME_NONNULL_BEGIN
         CGFloat btnH = H / 5;
         
         // 计算按钮的 x 坐标值
-        NSUInteger col = i % cols;
+        int col = i % cols;
         CGFloat btnX = col * btnW * 2;
         
         // 计算按钮的 y 坐标值
-        NSUInteger row = i / cols;
+        int row = i / cols;
         CGFloat btnY = row * btnH * 2;
         
         // 设置按钮的 frame
