@@ -11,10 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-/// Definition of `kQLabelCounterRate'
-#ifndef kQLabelCounterRate
-#define kQLabelCounterRate 3.0
-#endif
+#define COUNTER_RATE  3.0
 
 
 @interface QCountingLabel ()
@@ -222,7 +219,7 @@ NS_ASSUME_NONNULL_BEGIN
         case QCountingMethodEaseInOut: {
             
             int sign = 1;
-            int r = (int)kQLabelCounterRate;
+            int r = (int)COUNTER_RATE;
             
             if (r % 2 == 0) {
                 sign = -1;
@@ -231,9 +228,9 @@ NS_ASSUME_NONNULL_BEGIN
             t *= 2;
             
             if (t < 1) {
-                return 0.5f * powf(t, kQLabelCounterRate);
+                return 0.5f * powf(t, COUNTER_RATE);
             } else {
-                return sign * 0.5f * (powf(t - 2, kQLabelCounterRate) + sign * 2);
+                return sign * 0.5f * (powf(t - 2, COUNTER_RATE) + sign * 2);
             }
             
             break;
@@ -241,14 +238,14 @@ NS_ASSUME_NONNULL_BEGIN
             
         case QCountingMethodEaseIn: {
             
-            return powf(t, kQLabelCounterRate);
+            return powf(t, COUNTER_RATE);
             
             break;
         }
             
         case QCountingMethodEaseOut: {
             
-            return 1.0 - powf((1.0 - t), kQLabelCounterRate);
+            return 1.0 - powf((1.0 - t), COUNTER_RATE);
             
             break;
         }

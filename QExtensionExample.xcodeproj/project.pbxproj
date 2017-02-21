@@ -63,6 +63,7 @@
 		1A82AD691E271A1500D3F6CA /* page_04.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A82AD641E271A1500D3F6CA /* page_04.png */; };
 		1A82AD711E274AA500D3F6CA /* QQRCode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1A82AD6B1E274AA500D3F6CA /* QQRCode.bundle */; };
 		1A82AD721E274AA500D3F6CA /* QQRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82AD6D1E274AA500D3F6CA /* QQRCode.m */; };
+		1AA5DF8A1E5CCA2A00335846 /* NSString+Date.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA5DF891E5CCA2A00335846 /* NSString+Date.m */; };
 		1AE5F8FF1D3CF1EA0067811A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F8FE1D3CF1EA0067811A /* main.m */; };
 		1AE5F9021D3CF1EA0067811A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F9011D3CF1EA0067811A /* AppDelegate.m */; };
 		1AE5F9051D3CF1EA0067811A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F9041D3CF1EA0067811A /* ViewController.m */; };
@@ -189,6 +190,8 @@
 		1A82AD6C1E274AA500D3F6CA /* QQRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQRCode.h; sourceTree = "<group>"; };
 		1A82AD6D1E274AA500D3F6CA /* QQRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQRCode.m; sourceTree = "<group>"; };
 		1A82AD701E274AA500D3F6CA /* UIViewController+QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+QExtension.h"; sourceTree = "<group>"; };
+		1AA5DF881E5CCA2A00335846 /* NSString+Date.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Date.h"; sourceTree = "<group>"; };
+		1AA5DF891E5CCA2A00335846 /* NSString+Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Date.m"; sourceTree = "<group>"; };
 		1AE5F8FA1D3CF1EA0067811A /* QExtensionExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QExtensionExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE5F8FE1D3CF1EA0067811A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1AE5F9001D3CF1EA0067811A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -346,6 +349,8 @@
 				1A2CFAB21E4F91110069B469 /* NSString+Net.m */,
 				1A769D971E54D9DC008FB153 /* NSString+JSON.h */,
 				1A769D981E54D9DC008FB153 /* NSString+JSON.m */,
+				1AA5DF881E5CCA2A00335846 /* NSString+Date.h */,
+				1AA5DF891E5CCA2A00335846 /* NSString+Date.m */,
 			);
 			name = "NSString+QExtension";
 			path = "QExtension/NSString+QExtension";
@@ -694,6 +699,7 @@
 				1A769D991E54D9DC008FB153 /* NSString+JSON.m in Sources */,
 				1A21535B1E3CE6DC00D47CAC /* UIImage+Bundle.m in Sources */,
 				1A769D9F1E54EADF008FB153 /* QJSONValidator.m in Sources */,
+				1AA5DF8A1E5CCA2A00335846 /* NSString+Date.m in Sources */,
 				1A769D961E54D58D008FB153 /* NSDictionary+JSON.m in Sources */,
 				1A82AD221E26898200D3F6CA /* QProgressButton.m in Sources */,
 				1A49E6B51E2AD1B200495DE9 /* QTouchClipView.m in Sources */,

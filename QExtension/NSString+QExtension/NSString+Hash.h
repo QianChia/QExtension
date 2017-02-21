@@ -188,7 +188,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 32 个字符的 MD5 散列字符串
  */
-- (NSString  * __nullable)q_fileMD5Hash;
+- (NSString * __nullable)q_fileMD5Hash;
 
 /**
  *  计算文件的 SHA1 散列结果

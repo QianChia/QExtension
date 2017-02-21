@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param dic 字典
  *
  *  @return JSON 字符串
- **/
+ */
 + (NSString * _Nullable)q_jsonStringWithDictionary:(NSDictionary *)dic;
 
 @end

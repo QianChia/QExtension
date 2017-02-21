@@ -555,6 +555,94 @@ GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](
     	
 	```
 
+### 4.7 Date methods 
+
+- Date
+
+	```objc
+			
+		NSDate *date1 = [NSDate dateWithTimeInterval:-60 * 60 * 25 sinceDate:[NSDate date]];
+		NSString *dateStr1 = [NSString q_dateStringFromDate:date1
+		                                         dateFormat:@"MM HH:mm"
+		                                         showYTTDay:YES
+		                                          showCYear:YES];
+		
+		NSDate *date2 = [NSDate dateWithTimeInterval:0 sinceDate:[NSDate date]];
+		NSString *dateStr2 = [NSString q_dateStringFromDate:date2
+		                                         dateFormat:@"dd HH:mm"
+		                                         showYTTDay:YES
+		                                          showCYear:YES];
+		   
+		NSDate *date3 = [NSDate dateWithTimeInterval:60 * 60 * 25 sinceDate:[NSDate date]];
+		NSString *dateStr3 = [NSString q_dateStringFromDate:date3
+		                                         dateFormat:@"MM-dd HH:mm"
+		                                         showYTTDay:YES
+		                                          showCYear:YES];
+		   
+		NSDate *date4 = [NSDate dateWithTimeInterval:-60 * 60 * 50 sinceDate:[NSDate date]];
+		NSString *dateStr4 = [NSString q_dateStringFromDate:date4
+		                                         dateFormat:@"MM-dd HH:mm"
+		                                         showYTTDay:YES
+		                                          showCYear:YES];
+		   
+		NSDate *date5 = [NSDate dateWithTimeInterval:-60 * 60 * 24 * 30 * 12 sinceDate:[NSDate date]];
+		NSString *dateStr5 = [NSString q_dateStringFromDate:date5
+		                                         dateFormat:@"yyyy-MM-dd HH:mm"
+		                                         showYTTDay:NO
+		                                          showCYear:NO];
+		   
+		NSDate *date6 = [NSDate dateWithTimeInterval:0 sinceDate:[NSDate date]];
+		NSString *dateStr6 = [NSString q_dateStringFromDate:date6
+		                                         dateFormat:@"yyyy-MM-dd HH:mm"
+		                                         showYTTDay:NO
+		                                          showCYear:NO];
+		   
+		NSDate *date7 = [NSDate dateWithTimeInterval:-60 * 60 * 24 sinceDate:[NSDate date]];
+		NSString *dateStr7 = [NSString q_dateStringFromDate:date7
+		                                         dateFormat:@"yyyy-MM-dd HH:mm"
+		                                         showYTTDay:YES
+		                                          showCYear:YES];
+		   
+		NSDate *date8 = [NSDate dateWithTimeInterval:0 sinceDate:[NSDate date]];
+		NSString *dateStr8 = [NSString q_dateStringFromDate:date8
+		                                         dateFormat:@"yy-MM-dd HH:mm"
+		                                         showYTTDay:YES
+		                                          showCYear:NO];
+		   
+		NSDate *date9 = [NSDate dateWithTimeInterval:-60 * 60 * 24 sinceDate:[NSDate date]];
+		NSString *dateStr9 = [NSString q_dateJudgeStringFromDate:date9];
+		    
+		NSDate *date10 = [NSDate dateWithTimeInterval:0 sinceDate:[NSDate date]];
+		NSString *dateStr10 = [NSString q_dateJudgeStringFromDate:date10];
+		   
+		NSString *dateStr11 = [NSString q_dateStringFromDateSeconds:1437494603
+		                                                 dateFormat:@"yyyy-MM-dd HH:mm"
+		                                                 showYTTDay:NO
+		                                                  showCYear:YES];
+		   
+		NSString *dateStr12 = [NSString q_dateJudgeStringFromDateSeconds:1437494603];
+		
+	```
+
+	- 效果
+
+	```objc
+		
+		QExtensionExample[56246:849192] 昨天 06:10
+		QExtensionExample[56246:849192] 今天 07:10
+		QExtensionExample[56246:849192] 明天 08:10
+		QExtensionExample[56246:849192] 02-20 05:10
+		QExtensionExample[56246:849192] 2016-02-28 07:10
+		QExtensionExample[56246:849192] 02-22 07:10
+		QExtensionExample[56246:849192] 昨天 07:10
+		QExtensionExample[56246:849192] 今天 07:10
+		QExtensionExample[56246:849192] 1 天前
+		QExtensionExample[56246:849192] 刚刚
+		QExtensionExample[56246:849192] 2015-07-22 00:03
+		QExtensionExample[56246:849192] 1 年前
+		
+	```
+
 ## 5、UIButton Extension
 
 ### 5.1 QProgressButton methods
