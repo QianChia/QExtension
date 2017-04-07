@@ -41,6 +41,9 @@
     
 //    [self nsDataFormDataDemo];
     
+//    [self nsDateFormatterDemo];
+//    [self nsDateCalculationDemo];
+    
 //    [self nsDictionaryLocaleLogDemo];
 //    [self nsDictionaryNetDemo];
 //    [self nsDictionaryJSONDemo];
@@ -51,12 +54,13 @@
 //    [self nsStringRegexDemo];
 //    [self nsStringNetDemo];
 //    [self nsStringJSONDemo];
-    [self nsStringDateDemo];
+//    [self nsStringLanguageDemo];
     
+//    [self uiButtonIndexPathDemo];
 //    [self uiButtonQProgressButtonDemo];
     
 //    [self uiColorHexDemo];
-//    [self uiColorRGBDemo];
+    [self uiColorRGBDemo];
     
 //    [self uiImageDrawDemo];
 //    [self uiImageGIFDemo];
@@ -71,9 +75,11 @@
 //    [self uiViewQTouchLockViewDemo];
 //    [self uiViewQMarqueeViewDemo];
 //    [self uiViewQBulletScreenViewDemo];
+//    [self uiViewQCircularProgressViewDemo];
     
 //    [self uiViewControllerQQRCodeDemo];
     
+//    [self uiLabelAttributedTextDemo];
 //    [self qCountingLabelDemo1];
 //    [self qCountingLabelDemo2];
     
@@ -335,6 +341,128 @@
 }
 
 
+#pragma mark - NSDate+QExtension
+
+#pragma mark Formatter
+
+- (void)nsDateFormatterDemo {
+    
+    //
+    NSDate *date0 = [NSDate dateWithTimeInterval:-60 * 60 * 25 sinceDate:[NSDate date]];
+    NSString *dateStr0 = [date0 q_stringWithFormat:@"yyyy-MM-dd HH:mm:ss.sss"];
+    NSLog(@"%@", dateStr0);
+    
+    //
+    NSString *str1 = [date0 q_dayStringValue];
+    NSString *str2 = [NSDate q_currentdayStringValue];
+    NSLog(@"%@", str1);
+    NSLog(@"%@", str2);
+    
+    NSString *str3 = [date0 q_weekStringValue];
+    NSString *str4 = [NSDate q_currentWeekStringValue];
+    NSLog(@"%@", str3);
+    NSLog(@"%@", str4);
+    
+    NSString *str5 = [date0 q_monthStringValue];
+    NSString *str6 = [NSDate q_currentMonthStringValue];
+    NSLog(@"%@", str5);
+    NSLog(@"%@", str6);
+    
+    NSString *str7 = [date0 q_yearStringValue];
+    NSString *str8 = [NSDate q_currentYearStringValue];
+    NSLog(@"%@", str7);
+    NSLog(@"%@", str8);
+    
+    //
+    NSDate *date1 = [NSDate dateWithTimeInterval:-60 * 60 * 25 sinceDate:[NSDate date]];
+    NSString *dateStr1 = [date1 q_stringWithFormat:@"MM HH:mm" showYTTDay:YES showCYear:YES];
+    NSLog(@"%@", dateStr1);
+    
+    NSDate *date2 = [NSDate dateWithTimeInterval:0 sinceDate:[NSDate date]];
+    NSString *dateStr2 = [date2 q_stringWithFormat:@"dd HH:mm" showYTTDay:YES showCYear:YES];
+    NSLog(@"%@", dateStr2);
+    
+    NSDate *date3 = [NSDate dateWithTimeInterval:60 * 60 * 25 sinceDate:[NSDate date]];
+    NSString *dateStr3 = [date3 q_stringWithFormat:@"MM-dd HH:mm" showYTTDay:YES showCYear:YES];
+    NSLog(@"%@", dateStr3);
+    
+    NSDate *date4 = [NSDate dateWithTimeInterval:-60 * 60 * 50 sinceDate:[NSDate date]];
+    NSString *dateStr4 = [date4 q_stringWithFormat:@"MM-dd HH:mm" showYTTDay:YES showCYear:YES];
+    NSLog(@"%@", dateStr4);
+    
+    NSDate *date5 = [NSDate dateWithTimeInterval:-60 * 60 * 24 * 30 * 12 sinceDate:[NSDate date]];
+    NSString *dateStr5 = [date5 q_stringWithFormat:@"yyyy-MM-dd HH:mm" showYTTDay:NO showCYear:NO];
+    NSLog(@"%@", dateStr5);
+    
+    NSDate *date6 = [NSDate dateWithTimeInterval:0 sinceDate:[NSDate date]];
+    NSString *dateStr6 = [date6 q_stringWithFormat:@"yyyy-MM-dd HH:mm" showYTTDay:NO showCYear:NO];
+    NSLog(@"%@", dateStr6);
+    
+    NSDate *date7 = [NSDate dateWithTimeInterval:-60 * 60 * 24 sinceDate:[NSDate date]];
+    NSString *dateStr7 = [date7 q_stringWithFormat:@"yyyy-MM-dd HH:mm" showYTTDay:YES showCYear:YES];
+    NSLog(@"%@", dateStr7);
+    
+    NSDate *date8 = [NSDate dateWithTimeInterval:0 sinceDate:[NSDate date]];
+    NSString *dateStr8 = [date8 q_stringWithFormat:@"yy-MM-dd HH:mm" showYTTDay:YES showCYear:NO];
+    NSLog(@"%@", dateStr8);
+    
+    //
+    NSDate *date9 = [NSDate dateWithTimeInterval:-60 * 60 * 24 sinceDate:[NSDate date]];
+    NSString *dateStr9 = [date9 q_dateRangeJudge];
+    NSLog(@"%@", dateStr9);
+    
+    NSDate *date10 = [NSDate dateWithTimeInterval:0 sinceDate:[NSDate date]];
+    NSString *dateStr10 = [date10 q_dateRangeJudge];
+    NSLog(@"%@", dateStr10);
+    
+    //
+    NSString *dateStr11 = [NSDate q_stringWithFormat:@"yyyy-MM-dd HH:mm"
+                                         dateSeconds:1437494603
+                                          showYTTDay:NO
+                                           showCYear:YES];
+    NSLog(@"%@", dateStr11);
+    
+    //
+    NSString *dateStr12 = [NSDate q_dateRangeJudgeFromDateSeconds:1437494603];
+    NSLog(@"%@", dateStr12);
+}
+
+#pragma mark Calculation
+
+- (void)nsDateCalculationDemo {
+    
+    NSDate *date1 = [NSDate dateWithTimeInterval:-60 * 60 * 25 sinceDate:[NSDate date]];
+    BOOL bl1 = [date1 q_isPastDay];
+    NSLog(@"%zi", bl1);
+    
+    NSDate *date2 = [NSDate dateWithTimeInterval:0 sinceDate:[NSDate date]];
+    BOOL bl2 = [date2 q_isToday];
+    NSLog(@"%zi", bl2);
+    
+    NSDate *date3 = [NSDate dateWithTimeInterval:60 * 60 * 25 sinceDate:[NSDate date]];
+    BOOL bl3 = [date3 q_isFutureDay];
+    NSLog(@"%zi", bl3);
+    
+    BOOL bl4 = [date2 q_isMorning];
+    NSLog(@"%zi", bl4);
+    
+    BOOL bl5 = [date2 q_isAfternoon];
+    NSLog(@"%zi", bl5);
+    
+    BOOL bl6 = [date2 q_isEvening];
+    NSLog(@"%zi", bl6);
+    
+    NSDate *startDate = [date2 q_startOfDay];
+    NSLog(@"%@", [startDate q_stringWithFormat:@"yyyy-MM-dd HH:mm:ss.sss"]);
+    
+    NSDate *endDate = [date2 q_endOfDay];
+    NSLog(@"%@", [endDate q_stringWithFormat:@"yyyy-MM-dd HH:mm:ss.sss"]);
+    
+    NSInteger n = [date2 q_weekday];
+    NSLog(@"%ld", n);
+}
+
+
 #pragma mark - NSDictionary+QExtension
 
 #pragma mark LocaleLog
@@ -566,85 +694,27 @@
     NSLog(@"%@", jsonStr);
 }
 
-#pragma mark Date
+#pragma mark Language
 
-- (void)nsStringDateDemo {
+- (void)nsStringLanguageDemo {
     
-    NSDate *date1 = [NSDate dateWithTimeInterval:-60 * 60 * 25 sinceDate:[NSDate date]];
-    NSString *dateStr1 = [NSString q_dateStringFromDate:date1
-                                             dateFormat:@"MM HH:mm"
-                                             showYTTDay:YES
-                                              showCYear:YES];
-    NSLog(@"%@", dateStr1);
+    NSString *lang = [NSString q_getPreferredLanguage];
     
-    NSDate *date2 = [NSDate dateWithTimeInterval:0 sinceDate:[NSDate date]];
-    NSString *dateStr2 = [NSString q_dateStringFromDate:date2
-                                             dateFormat:@"dd HH:mm"
-                                             showYTTDay:YES
-                                              showCYear:YES];
-    NSLog(@"%@", dateStr2);
-    
-    NSDate *date3 = [NSDate dateWithTimeInterval:60 * 60 * 25 sinceDate:[NSDate date]];
-    NSString *dateStr3 = [NSString q_dateStringFromDate:date3
-                                             dateFormat:@"MM-dd HH:mm"
-                                             showYTTDay:YES
-                                              showCYear:YES];
-    NSLog(@"%@", dateStr3);
-    
-    NSDate *date4 = [NSDate dateWithTimeInterval:-60 * 60 * 50 sinceDate:[NSDate date]];
-    NSString *dateStr4 = [NSString q_dateStringFromDate:date4
-                                             dateFormat:@"MM-dd HH:mm"
-                                             showYTTDay:YES
-                                              showCYear:YES];
-    NSLog(@"%@", dateStr4);
-    
-    NSDate *date5 = [NSDate dateWithTimeInterval:-60 * 60 * 24 * 30 * 12 sinceDate:[NSDate date]];
-    NSString *dateStr5 = [NSString q_dateStringFromDate:date5
-                                             dateFormat:@"yyyy-MM-dd HH:mm"
-                                             showYTTDay:NO
-                                              showCYear:NO];
-    NSLog(@"%@", dateStr5);
-    
-    NSDate *date6 = [NSDate dateWithTimeInterval:0 sinceDate:[NSDate date]];
-    NSString *dateStr6 = [NSString q_dateStringFromDate:date6
-                                             dateFormat:@"yyyy-MM-dd HH:mm"
-                                             showYTTDay:NO
-                                              showCYear:NO];
-    NSLog(@"%@", dateStr6);
-    
-    NSDate *date7 = [NSDate dateWithTimeInterval:-60 * 60 * 24 sinceDate:[NSDate date]];
-    NSString *dateStr7 = [NSString q_dateStringFromDate:date7
-                                             dateFormat:@"yyyy-MM-dd HH:mm"
-                                             showYTTDay:YES
-                                              showCYear:YES];
-    NSLog(@"%@", dateStr7);
-    
-    NSDate *date8 = [NSDate dateWithTimeInterval:0 sinceDate:[NSDate date]];
-    NSString *dateStr8 = [NSString q_dateStringFromDate:date8
-                                             dateFormat:@"yy-MM-dd HH:mm"
-                                             showYTTDay:YES
-                                              showCYear:NO];
-    NSLog(@"%@", dateStr8);
-    
-    NSDate *date9 = [NSDate dateWithTimeInterval:-60 * 60 * 24 sinceDate:[NSDate date]];
-    NSString *dateStr9 = [NSString q_dateJudgeStringFromDate:date9];
-    NSLog(@"%@", dateStr9);
-    
-    NSDate *date10 = [NSDate dateWithTimeInterval:0 sinceDate:[NSDate date]];
-    NSString *dateStr10 = [NSString q_dateJudgeStringFromDate:date10];
-    NSLog(@"%@", dateStr10);
-    
-    NSString *dateStr11 = [NSString q_dateStringFromDateSeconds:1437494603
-                                                     dateFormat:@"yyyy-MM-dd HH:mm"
-                                                     showYTTDay:NO
-                                                      showCYear:YES];
-    NSLog(@"%@", dateStr11);
-    
-    NSString *dateStr12 = [NSString q_dateJudgeStringFromDateSeconds:1437494603];
-    NSLog(@"%@", dateStr12);
+    NSLog(@"%@", lang);
 }
 
+
 #pragma mark - UIButton+QExtension
+
+#pragma IndexPath
+
+- (void)uiButtonIndexPathDemo {
+    
+    UIButton *button = [[UIButton alloc] init];
+    button.q_indexPath = [NSIndexPath indexPathForRow:2 inSection:1];
+
+    NSLog(@"section: %ld, row: %ld", button.q_indexPath.section, button.q_indexPath.row);
+}
 
 #pragma mark QProgressButton
 
@@ -723,6 +793,25 @@
 
 - (void)uiColorRGBDemo {
     
+    [self colorRGBDemo1];
+//    [self colorRGBDemo2];
+}
+
+- (void)colorRGBDemo1 {
+    
+    UIView *vi = [[UIView alloc] initWithFrame:CGRectMake(20, 30, 100, 100)];
+    [self.view addSubview:vi];
+    
+    // 由 R、G、B 值创建 RGB 颜色值
+//    UIColor *color = [UIColor q_colorWithRed:50 green:120 blue:100];
+    
+    UIColor *color = [UIColor q_colorWithRed:50 green:120 blue:100 alpha:0.5];
+    
+    vi.backgroundColor = color;
+}
+
+- (void)colorRGBDemo2 {
+    
     // 获取 UIColor 的 RGB 值
     NSArray *rgbComponents = [[UIColor cyanColor] q_getRGBComponents];
     
@@ -733,7 +822,6 @@
     
     NSLog(@"R: %f, G: %f B:%f, A: %f", r, g, b, a);
 }
-
 
 #pragma mark - UIImage+QExtension
 
@@ -1817,6 +1905,57 @@
     [bulletScreenView q_startAnimation];
 }
 
+#pragma mark QCircularProgressView
+
+- (void)uiViewQCircularProgressViewDemo {
+    
+    CGRect frame = CGRectMake(50, 100, WIDTH - 100, WIDTH - 100);
+    QCircularProgressView *circular = [[QCircularProgressView alloc] initWithFrame:frame];
+    circular.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:circular];
+    
+    circular.progressAngle = 80.0f;
+    circular.progressRotationAngle = 0.0f;
+    
+    circular.showValueString = YES;
+    circular.showTargetValueString = YES;
+    circular.value = 12.0f;                 // 圆圈中心值
+    circular.insideValue = 15.0f;           // 内圈进度值，insideValue／maxValue
+    circular.outsideValue = 28.0f;          // 外圈进度值，outsideValue／maxValue
+    circular.maxValue = 30.0f;              // 进度最大值
+    circular.targetValue = 30;              // 圆圈结尾处目标值
+    circular.valueFontSize = -1;
+    circular.valueFontName = @"HelveticaNeue-Thin";
+    circular.valueFontColor = [UIColor blackColor];
+    circular.valueOffset = CGPointMake(0, 0);
+    circular.showValueDecimal = NO;
+    circular.valueDecimalPlaces = 0;
+    circular.valueDecimalFontSize = -1;
+    circular.countdown = NO;
+    
+    circular.showUnitString = NO;
+    circular.unitString = @"%";
+    circular.unitFontSize = -1;
+    circular.unitFontName = @"HelveticaNeue-Thin";
+    circular.unitFontColor = [UIColor blackColor];
+    circular.unitOffset = CGPointMake(0, 0);
+    
+    circular.emptyLineWidth = 6.0f;
+    circular.emptyLineColor = [UIColor colorWithRed:208/255.0 green:218/255.0 blue:218/255.0 alpha:1];
+    circular.emptyLineStrokeColor = [UIColor colorWithRed:88/255.0 green:89/255.0 blue:91/255.0 alpha:1];
+    circular.emptyLineCapType = kCGLineCapRound;
+    
+    circular.insideLineWidth = 10.0f;
+    circular.insideLineColor = [UIColor colorWithRed:55/255.0 green:146/255.0 blue:207/255.0 alpha:1];
+    circular.insideLineStrokeColor = [UIColor colorWithRed:55/255.0 green:146/255.0 blue:207/255.0 alpha:1];
+    circular.insideLineCapType = kCGLineCapRound;
+    
+    circular.outsideLineWidth = 14.0f;
+    circular.outsideLineColor = [UIColor colorWithRed:245/255.0 green:175/255.0 blue:63/255.0 alpha:1];
+    circular.outsideLineStrokeColor = [UIColor colorWithRed:245/255.0 green:175/255.0 blue:63/255.0 alpha:1];
+    circular.outsideLineCapType = kCGLineCapRound;
+}
+
 
 #pragma mark - UIViewController+QExtension
 
@@ -1866,6 +2005,31 @@
 
 
 #pragma mark - UILabel+QExtension
+
+#pragma mark AttributedText
+
+- (void)uiLabelAttributedTextDemo {
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 50)];
+    [self.view addSubview:label];
+    label.center = self.view.center;
+    label.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.5];
+    label.font = [UIFont systemFontOfSize:50];
+    label.textColor = [UIColor redColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    
+    NSAttributedString *str1 = [[NSAttributedString alloc] initWithString:@"hello"
+                                                               attributes:@{NSForegroundColorAttributeName:[UIColor redColor],
+                                                                            NSFontAttributeName:[UIFont systemFontOfSize:25]}];
+    NSAttributedString *str2 = [[NSAttributedString alloc] initWithString:@" word"
+                                                               attributes:@{NSForegroundColorAttributeName:[UIColor greenColor],
+                                                                            NSFontAttributeName:[UIFont systemFontOfSize:23]}];
+    NSAttributedString *str3 = [[NSAttributedString alloc] initWithString:@" hehe"
+                                                               attributes:@{NSForegroundColorAttributeName:[UIColor blueColor],
+                                                                            NSFontAttributeName:[UIFont systemFontOfSize:30]}];
+    
+    label.q_attributedStrings = @[str1, str2, str3];
+}
 
 #pragma mark QCountingLabel
 
@@ -2085,7 +2249,7 @@
     }
     
     NSString *ssn = [json objectForKey:@"ssn"];
-    if (ssn != [NSNull null]) {
+    if (ssn != nil) {
         NSLog(@"ssn should be null");
         validated = NO;
     }

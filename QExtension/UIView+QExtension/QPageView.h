@@ -24,22 +24,22 @@ typedef NS_ENUM(NSInteger, QPageIndicatorPosition) {
 @interface QPageView : UIView
 
 /// 显示的图片名字
-@property (nonatomic, strong) NSArray<NSString *> *imageNames;
+@property (nonatomic, strong) IBInspectable NSArray<NSString *> *imageNames;
 
 /// 页码视图位置
-@property(nonatomic)QPageIndicatorPosition pageIndicatorPosition;
+@property(nonatomic) IBInspectable QPageIndicatorPosition pageIndicatorPosition;
 
 /// 当前页面指示器颜色，default is whiteColor
-@property (nonatomic, strong) UIColor *currentPageIndicatorColor;
+@property (nonatomic, strong) IBInspectable UIColor *currentPageIndicatorColor;
 
 /// 其他页面指示器颜色，default is grayColor
-@property (nonatomic, strong) UIColor *pageIndicatorColor;
+@property (nonatomic, strong) IBInspectable UIColor *pageIndicatorColor;
 
 /// 是否隐藏页面指示器，default is NO
-@property(nonatomic, assign, getter=isHidePageIndicator) BOOL hidePageIndicator;
+@property(nonatomic, assign, getter=isHidePageIndicator) IBInspectable BOOL hidePageIndicator;
 
 /// 是否竖屏滚动，default is NO
-@property(nonatomic, assign, getter=isScrollDirectionPortrait) BOOL scrollDirectionPortrait;
+@property(nonatomic, assign, getter=isScrollDirectionPortrait) IBInspectable BOOL scrollDirectionPortrait;
 
 /**
  *  创建分页视图控件

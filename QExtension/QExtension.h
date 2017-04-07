@@ -4,6 +4,8 @@
 //
 //  Created by JHQ0228 on 16/7/18.
 //  Copyright © 2016年 QianQian-Studio. All rights reserved.
+//  GitHub https://github.com/QianChia
+//  Blog   http://www.cnblogs.com/QianChia/
 //
 
 #ifndef QExtension_h
@@ -14,6 +16,8 @@
 #import "NSArray+QExtension.h"
 
 #import "NSData+QExtension.h"
+
+#import "NSDate+QExtension.h"
 
 #import "NSDictionary+QExtension.h"
 

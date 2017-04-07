@@ -14,10 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface QProgressButton : UIButton
 
 /// 进度值，范围 0 ～ 1
-@property (nonatomic, assign) CGFloat progress;
+@property (nonatomic, assign) IBInspectable CGFloat progress;
 
 /// 进度终止状态标题，一旦设置了此标题进度条就会停止
-@property (nonatomic, strong) NSString *stopTitle;
+@property (nonatomic, strong) IBInspectable NSString *stopTitle;
 
 /**
  *  创建带进度条的按钮

@@ -23,16 +23,16 @@ typedef NS_ENUM(NSUInteger, QCountingMethod) {
 @interface QCountingLabel : UILabel
 
 /// 文本数字样式，默认为 @"%f"
-@property (nonatomic, strong) NSString *format;
+@property (nonatomic, strong) IBInspectable NSString *format;
 
 /// 文本数字分隔符样式，例如 @"###,###.##"
-@property (nonatomic, strong) NSString *positiveFormat;
+@property (nonatomic, strong) IBInspectable NSString *positiveFormat;
 
 /// 文本数字变化方式，默认为 EaseInOut
-@property (nonatomic, assign) QCountingMethod method;
+@property (nonatomic, assign) IBInspectable QCountingMethod method;
 
 /// 文本数字变化时间，默认为 2.0
-@property (nonatomic, assign) NSTimeInterval animationDuration;
+@property (nonatomic, assign) IBInspectable NSTimeInterval animationDuration;
 
 /// 文本数字样式 Block
 @property (nonatomic, copy) NSString *(^formatBlock)(CGFloat);

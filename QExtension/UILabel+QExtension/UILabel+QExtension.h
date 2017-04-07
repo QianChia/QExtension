@@ -9,6 +9,7 @@
 #ifndef UILabel_QExtension_h
 #define UILabel_QExtension_h
 
+#import "UILabel+AttributedText.h"
 #import "QCountingLabel.h"
 
 

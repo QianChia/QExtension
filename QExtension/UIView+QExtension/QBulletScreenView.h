@@ -34,25 +34,25 @@ typedef NS_ENUM(NSUInteger, QBulletScreenViewDirection) {
 @interface QBulletScreenView : UIView
 
 /// 显示的文本内容
-@property (nonatomic, strong) NSArray *contentTexts;
+@property (nonatomic, strong) IBInspectable NSArray *contentTexts;
 
 /// 显示的文本内容颜色，default is redColor
-@property (nonatomic, strong) UIColor *contentTextColor;
+@property (nonatomic, strong) IBInspectable UIColor *contentTextColor;
 
 /// 显示的文本内容字体，default is 15.0
-@property (nonatomic, strong) UIFont *contentTextFont;
+@property (nonatomic, strong) IBInspectable UIFont *contentTextFont;
 
 /// 显示的图标内容，可以为 nil 不显示图标
-@property (nonatomic, strong) UIImage *contentIcon;
+@property (nonatomic, strong) IBInspectable UIImage *contentIcon;
 
 /// 动画方向，default is QBulletScreenViewDirectionLeft
-@property (nonatomic, assign) QBulletScreenViewDirection animationDirection;
+@property (nonatomic, assign) IBInspectable QBulletScreenViewDirection animationDirection;
 
 /// 动画时间，等于 0 时不滚动
-@property (nonatomic, assign) NSTimeInterval animationDuration;
+@property (nonatomic, assign) IBInspectable NSTimeInterval animationDuration;
 
 /// 代理
-@property (nonatomic, weak) id<QBulletScreenViewDelegate> delegate;
+@property (nonatomic, weak) IBInspectable id<QBulletScreenViewDelegate> delegate;
 
 /**
  *  开始动画

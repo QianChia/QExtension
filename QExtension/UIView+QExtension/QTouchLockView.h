@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface QTouchLockView : UIView
 
 /// 提示信息框
-@property (nonatomic, strong) UILabel *alertLabel;
+@property (nonatomic, strong) IBInspectable UILabel *alertLabel;
 
 /**
  *  创建手势锁视图控件，获取滑动手势结果

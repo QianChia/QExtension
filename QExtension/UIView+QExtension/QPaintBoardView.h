@@ -14,13 +14,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface QPaintBoardView : UIView
 
 /// 画线的宽度，default is 1，max is 30
-@property (nonatomic, assign) CGFloat paintLineWidth;
+@property (nonatomic, assign) IBInspectable CGFloat paintLineWidth;
 
 /// 画笔的颜色，default is blackColor
-@property (nonatomic, strong) UIColor *paintLineColor;
+@property (nonatomic, strong) IBInspectable UIColor *paintLineColor;
 
 /// 画板的颜色，default is whiteColor
-@property (nonatomic, strong) UIColor *paintBoardColor;
+@property (nonatomic, strong) IBInspectable UIColor *paintBoardColor;
 
 /**
  *  创建画板视图控件，获取绘画结果

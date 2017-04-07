@@ -14,8 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface QQRCode : UIViewController
 
 /// 生成我的二维码信息
-@property (nonatomic, strong) NSString *myQRCodeInfo;
-@property (nonatomic, strong) UIImage *headIcon;
+@property (nonatomic, strong) IBInspectable NSString *myQRCodeInfo;
+@property (nonatomic, strong) IBInspectable UIImage *headIcon;
 
 /**
  *  创建扫描二维码界面，开始扫描二维码
