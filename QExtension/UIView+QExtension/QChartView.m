@@ -372,6 +372,8 @@ NS_ASSUME_NONNULL_BEGIN
             formatter = [[ChartMaxDataValueDoubleFormatter alloc] initWithYDataVals:yVals];
         } else if (maxValueFormatter == 2) {
             formatter = [[ChartMaxDataValueIntergerFormatter alloc] initWithYDataVals:yVals];
+        } else {
+            formatter = [[ChartMaxDataValueNoneFormatter alloc] initWithYDataVals:yVals];
         }
         
     } else {
