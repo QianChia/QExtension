@@ -74,10 +74,11 @@ NS_ASSUME_NONNULL_BEGIN
     // 初始化
     superView.clipsToBounds = YES;
     
+    CGFloat height = (frame.size.height >= 12) ? frame.size.height : 12;
     CGRect barFrame = CGRectMake(-10,
-                                 -frame.size.height * 0.3,
+                                 -height * 2.0 - 0.5,
                                  frame.size.width + 20,
-                                 frame.size.height + frame.size.height * 0.6);
+                                 height + height * 4.0);
     
     HorizontalBarChartView *barChartView = [[HorizontalBarChartView alloc] initWithFrame:barFrame];
     [superView addSubview:barChartView];
@@ -154,7 +155,11 @@ NS_ASSUME_NONNULL_BEGIN
     BarChartDataSet *set1 = [[BarChartDataSet alloc] initWithValues:chartVals1 label:nil];
     
     set1.colors = @[barColor];
-    set1.drawValuesEnabled = YES;
+    if (frame.size.height >= 12) {
+        set1.drawValuesEnabled = YES;
+    } else {
+        set1.drawValuesEnabled = NO;
+    }
     set1.highlightEnabled = NO;
     
     NSMutableArray *dataSets = [[NSMutableArray alloc] init];

@@ -1959,8 +1959,8 @@
 - (void)uiViewQChartViewDemo {
     
 //    [self qChartViewDemo1];
-//    [self qChartViewDemo2];
-    [self qChartViewDemo3];
+    [self qChartViewDemo2];
+//    [self qChartViewDemo3];
 }
 
 - (void)qChartViewDemo1 {
@@ -1972,7 +1972,7 @@
 
 - (void)qChartViewDemo2 {
     
-    CGRect frame = CGRectMake(20, 100, Q_SCREEN_WIDTH_FLOAT - 40, 50);
+    CGRect frame = CGRectMake(20, 100, Q_SCREEN_WIDTH_FLOAT - 40, 30);
     UIView *backView = [[UIView alloc] initWithFrame:frame];
     backView.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:backView];
