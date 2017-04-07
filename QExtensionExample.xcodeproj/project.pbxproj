@@ -39,7 +39,6 @@
 		1AE5F9231D3CF1EA0067811A /* QExtensionExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F9221D3CF1EA0067811A /* QExtensionExampleUITests.m */; };
 		A40AFBD71E9746CC0066B1C5 /* QChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A40AFBD61E9746CC0066B1C5 /* QChartView.m */; };
 		A40AFBDC1E9747680066B1C5 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40AFBDB1E9747680066B1C5 /* Charts.framework */; };
-		A40AFBDD1E97476F0066B1C5 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40AFBDB1E9747680066B1C5 /* Charts.framework */; };
 		A40AFBDE1E97476F0066B1C5 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A40AFBDB1E9747680066B1C5 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A430D2111E97298300561BBA /* NSArray+LocaleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = A430D1AF1E97298300561BBA /* NSArray+LocaleLog.m */; };
 		A430D2121E97298300561BBA /* NSData+FormData.m in Sources */ = {isa = PBXBuildFile; fileRef = A430D1B31E97298300561BBA /* NSData+FormData.m */; };
@@ -253,7 +252,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A40AFBDC1E9747680066B1C5 /* Charts.framework in Frameworks */,
-				A40AFBDD1E97476F0066B1C5 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,7 +632,7 @@
 		1AE5F8F21D3CF1EA0067811A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "QianQian-Studio";
 				TargetAttributes = {
 					1AE5F8F91D3CF1EA0067811A = {
