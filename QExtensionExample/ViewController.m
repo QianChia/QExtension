@@ -27,6 +27,8 @@
 
 @property (nonatomic, strong) QCountingLabel *countingLabel;
 
+@property (nonatomic, strong) QCircularProgressView *circular;
+
 @end
 
 @implementation ViewController
@@ -72,8 +74,8 @@
 //    [self uiViewQTouchLockViewDemo];
 //    [self uiViewQMarqueeViewDemo];
 //    [self uiViewQBulletScreenViewDemo];
-//    [self uiViewQCircularProgressViewDemo];
-    [self uiViewQChartViewDemo];
+    [self uiViewQCircularProgressViewDemo];
+//    [self uiViewQChartViewDemo];
     
 //    [self uiViewControllerQQRCodeDemo];
     
@@ -745,7 +747,7 @@
                                    userInfo:nil
                                     repeats:YES];
     
-    // 移除按钮点击事件放置重复点击
+    // 移除按钮点击事件防止重复点击
     [self.progressButton removeTarget:self action:@selector(progressUpdate:) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -1908,50 +1910,82 @@
 - (void)uiViewQCircularProgressViewDemo {
     
     CGRect frame = CGRectMake(50, 100, Q_SCREEN_WIDTH_FLOAT - 100, Q_SCREEN_WIDTH_FLOAT - 100);
-    QCircularProgressView *circular = [[QCircularProgressView alloc] initWithFrame:frame];
-    circular.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:circular];
+    self.circular = [[QCircularProgressView alloc] initWithFrame:frame];
+    self.circular.backgroundColor = Q_COLOR_LIGHTGRAY;
+    [self.view addSubview:self.circular];
     
-    circular.progressAngle = 80.0f;
-    circular.progressRotationAngle = 0.0f;
+    self.circular.progressAngle = 80.0f;
+    self.circular.progressRotationAngle = 0.0f;
     
-    circular.showValueString = YES;
-    circular.showTargetValueString = YES;
-    circular.value = 12.0f;                 // 圆圈中心值
-    circular.insideValue = 15.0f;           // 内圈进度值，insideValue／maxValue
-    circular.outsideValue = 28.0f;          // 外圈进度值，outsideValue／maxValue
-    circular.maxValue = 30.0f;              // 进度最大值
-    circular.targetValue = 30;              // 圆圈结尾处目标值
-    circular.valueFontSize = -1;
-    circular.valueFontName = @"HelveticaNeue-Thin";
-    circular.valueFontColor = [UIColor blackColor];
-    circular.valueOffset = CGPointMake(0, 0);
-    circular.showValueDecimal = NO;
-    circular.valueDecimalPlaces = 0;
-    circular.valueDecimalFontSize = -1;
-    circular.countdown = NO;
+    self.circular.showValueString = YES;
+    self.circular.showTargetValueString = YES;
+    self.circular.showMarkValueString = YES;
+    self.circular.value = 0.0f;                     // 圆圈中心值
+    self.circular.insideValue = 0.0f;               // 内圈进度值，insideValue／maxValue
+    self.circular.outsideValue = 0.0f;              // 外圈进度值，outsideValue／maxValue
+    self.circular.maxValue = 30.0f;                 // 进度最大值
+    self.circular.targetValue = 30;                 // 圆圈结尾处目标值
+    self.circular.valueFontSize = -1;
+    self.circular.valueFontName = @"HelveticaNeue-Thin";
+    self.circular.valueFontColor = [UIColor blackColor];
+    self.circular.valueOffset = CGPointMake(0, 0);
+    self.circular.showValueDecimal = NO;
+    self.circular.valueDecimalPlaces = 0;
+    self.circular.valueDecimalFontSize = -1;
+    self.circular.countdown = NO;
     
-    circular.showUnitString = NO;
-    circular.unitString = @"%";
-    circular.unitFontSize = -1;
-    circular.unitFontName = @"HelveticaNeue-Thin";
-    circular.unitFontColor = [UIColor blackColor];
-    circular.unitOffset = CGPointMake(0, 0);
+    self.circular.showUnitString = NO;
+    self.circular.unitString = @"%";
+    self.circular.unitFontSize = -1;
+    self.circular.unitFontName = @"HelveticaNeue-Thin";
+    self.circular.unitFontColor = [UIColor blackColor];
+    self.circular.unitOffset = CGPointMake(0, 0);
     
-    circular.emptyLineWidth = 6.0f;
-    circular.emptyLineColor = [UIColor colorWithRed:208/255.0 green:218/255.0 blue:218/255.0 alpha:1];
-    circular.emptyLineStrokeColor = [UIColor colorWithRed:88/255.0 green:89/255.0 blue:91/255.0 alpha:1];
-    circular.emptyLineCapType = kCGLineCapRound;
+    self.circular.emptyLineWidth = 6.0f;
+    self.circular.emptyLineColor = [UIColor colorWithRed:208/255.0 green:218/255.0 blue:218/255.0 alpha:1];
+    self.circular.emptyLineStrokeColor = [UIColor colorWithRed:88/255.0 green:89/255.0 blue:91/255.0 alpha:1];
+    self.circular.emptyLineCapType = kCGLineCapRound;
     
-    circular.insideLineWidth = 10.0f;
-    circular.insideLineColor = [UIColor colorWithRed:55/255.0 green:146/255.0 blue:207/255.0 alpha:1];
-    circular.insideLineStrokeColor = [UIColor colorWithRed:55/255.0 green:146/255.0 blue:207/255.0 alpha:1];
-    circular.insideLineCapType = kCGLineCapRound;
+    self.circular.insideLineWidth = 10.0f;
+    self.circular.insideLineColor = [UIColor colorWithRed:55/255.0 green:146/255.0 blue:207/255.0 alpha:1];
+    self.circular.insideLineStrokeColor = [UIColor colorWithRed:55/255.0 green:146/255.0 blue:207/255.0 alpha:1];
+    self.circular.insideLineCapType = kCGLineCapRound;
     
-    circular.outsideLineWidth = 14.0f;
-    circular.outsideLineColor = [UIColor colorWithRed:245/255.0 green:175/255.0 blue:63/255.0 alpha:1];
-    circular.outsideLineStrokeColor = [UIColor colorWithRed:245/255.0 green:175/255.0 blue:63/255.0 alpha:1];
-    circular.outsideLineCapType = kCGLineCapRound;
+    self.circular.outsideLineWidth = 14.0f;
+    self.circular.outsideLineColor = [UIColor colorWithRed:245/255.0 green:175/255.0 blue:63/255.0 alpha:1];
+    self.circular.outsideLineStrokeColor = [UIColor colorWithRed:245/255.0 green:175/255.0 blue:63/255.0 alpha:1];
+    self.circular.outsideLineCapType = kCGLineCapRound;
+    
+    [NSTimer scheduledTimerWithTimeInterval:0.01
+                                     target:self
+                                   selector:@selector(dateUpdate1:)
+                                   userInfo:nil
+                                    repeats:YES];
+}
+
+- (void)dateUpdate1:(NSTimer *)timer {
+    
+    static float progress1 = 0;
+    static float progress2 = 0;
+    
+    if (progress1 < 30) {
+        
+        progress1 += 0.02;
+        
+        self.circular.insideValue = progress1;          // 内圈进度值，insideValue／maxValue
+    }
+    
+    if (progress2 < 30) {
+        
+        progress2 += 0.01;
+        
+        self.circular.value = progress2;                // 圆圈中心值
+        self.circular.outsideValue = progress2;         // 外圈进度值，outsideValue／maxValue
+        
+    } else {
+        
+        [timer invalidate];
+    }
 }
 
 #pragma mark QChartView

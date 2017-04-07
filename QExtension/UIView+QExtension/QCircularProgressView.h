@@ -39,6 +39,9 @@ IB_DESIGNABLE
 /// Should show target value string
 @property (nonatomic, assign) IBInspectable BOOL        showTargetValueString;
 
+/// Should show mark value string
+@property (nonatomic, assign) IBInspectable BOOL        showMarkValueString;
+
 /// The value of the progress bar (Animatable property using [UIView animateWithDuration:])
 @property (nonatomic, assign) IBInspectable CGFloat     value;
 
@@ -53,6 +56,9 @@ IB_DESIGNABLE
 
 /// The target value of the progress bar
 @property (nonatomic, assign) IBInspectable CGFloat     targetValue;
+
+/// The mark value of the progress bar
+@property (nonatomic, assign) IBInspectable CGFloat     markValue;
 
 /// The font size of the value text, Range [0, ∞)
 @property (nonatomic, assign) IBInspectable CGFloat     valueFontSize;
@@ -174,6 +180,9 @@ IB_DESIGNABLE
 /// Should show target value string
 @property (nonatomic, assign) BOOL      showTargetValueString;
 
+/// Should show mark value string
+@property (nonatomic, assign) BOOL      showMarkValueString;
+
 /// The value of the progress bar
 @property (nonatomic, assign) CGFloat   value;
 
@@ -188,6 +197,9 @@ IB_DESIGNABLE
 
 /// The target value of the progress bar
 @property (nonatomic, assign) CGFloat   targetValue;
+
+/// The mark value of the progress bar
+@property (nonatomic, assign) CGFloat   markValue;
 
 /// The font size of the value text, Range [0, ∞)
 @property (nonatomic, assign) CGFloat   valueFontSize;

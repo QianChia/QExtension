@@ -48,6 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 //    
 //    [self setShowValueString:YES];
 //    [self setShowTargetValueString:YES];
+//    [self setShowMarkValueString:YES];
 //    [self setValue:0.0f];
 //    [self setInsideValue:0.0f];
 //    [self setOutsideValue:0.0f];
@@ -143,6 +144,15 @@ NS_ASSUME_NONNULL_BEGIN
     return self.progressLayer.showTargetValueString;
 }
 
+- (void)setShowMarkValueString:(BOOL)showMarkValueString {
+    self.progressLayer.showMarkValueString = showMarkValueString;
+    [self.layer setNeedsDisplay];
+}
+
+- (BOOL)showMarkValueString {
+    return self.progressLayer.showMarkValueString;
+}
+
 - (void)setValue:(CGFloat)value {
     self.progressLayer.value = value;
     
@@ -188,6 +198,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (CGFloat)targetValue {
     return self.progressLayer.targetValue;
+}
+
+- (void)setMarkValue:(CGFloat)markValue {
+    self.progressLayer.markValue = markValue;
+    if (markValue == 0) [self.layer setNeedsDisplay];
+}
+
+- (CGFloat)markValue {
+    return self.progressLayer.markValue;
 }
 
 - (void)setValueFontSize:(CGFloat)valueFontSize {
@@ -415,10 +434,12 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - QCircularProgressLayer
 
 
-#define CENTER_X        (rectSize.width / 2)
-#define CENTER_Y        (rectSize.height / 2)
-#define STA_ANGLE       ( (self.progressAngle / 100.f) * M_PI - ((-self.progressRotationAngle / 100.f) * 2.f + 0.5) * M_PI)
-#define END_ANGLE       (-(self.progressAngle / 100.f) * M_PI - ((-self.progressRotationAngle / 100.f) * 2.f + 0.5) * M_PI)
+#define CENTER_X            (rectSize.width / 2)
+#define CENTER_Y            (rectSize.height / 2)
+#define STA_ANGLE           ( (self.progressAngle / 100.f) * M_PI - ((-self.progressRotationAngle / 100.f) * 2.f + 0.5) * M_PI)
+#define END_ANGLE           (-(self.progressAngle / 100.f) * M_PI - ((-self.progressRotationAngle / 100.f) * 2.f + 0.5) * M_PI)
+
+#define MARK_VALUE_WIDTH    (self.showMarkValueString ? 20 : 0)
 
 @implementation QCircularProgressLayer
 
@@ -427,11 +448,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @dynamic showValueString;
 @dynamic showTargetValueString;
+@dynamic showMarkValueString;
 @dynamic value;
 @dynamic insideValue;
 @dynamic outsideValue;
 @dynamic maxValue;
 @dynamic targetValue;
+@dynamic markValue;
 @dynamic valueFontSize;
 @dynamic valueFontName;
 @dynamic valueFontColor;
@@ -481,7 +504,6 @@ NS_ASSUME_NONNULL_BEGIN
     [self drawInsideProgressBar:size  context:context];
     [self drawOutsideProgressBar:size context:context];
     [self drawEmptyProgressBar:size   context:context];
-    [self drawEmptyMarkLine:size      context:context];
     
     if (self.showValueString) {
         
@@ -496,6 +518,10 @@ NS_ASSUME_NONNULL_BEGIN
         [self drawTargetValue:size context:context];
     }
     
+    if (self.showMarkValueString) {
+        [self drawMarkVlaue:size context:context];
+    }
+    
     UIGraphicsPopContext();
 }
 
@@ -505,7 +531,7 @@ NS_ASSUME_NONNULL_BEGIN
     
     if (self.insideLineWidth <= 0) return;
     
-    CGFloat radius     = MIN(CENTER_X, CENTER_Y) - self.insideLineWidth - self.outsideLineWidth;
+    CGFloat radius     = MIN(CENTER_X, CENTER_Y) - self.insideLineWidth - self.outsideLineWidth - MARK_VALUE_WIDTH;
     CGFloat startAngle = STA_ANGLE - (2.f * M_PI) * (self.progressAngle / 100.f) *
                                      (100.f - 100.f * self.insideValue / self.maxValue) / 100.f;
     CGFloat endAngle   = END_ANGLE;
@@ -526,7 +552,7 @@ NS_ASSUME_NONNULL_BEGIN
     
     if (self.outsideLineWidth <= 0) return;
     
-    CGFloat radius     = MIN(CENTER_X, CENTER_Y) - self.outsideLineWidth;
+    CGFloat radius     = MIN(CENTER_X, CENTER_Y) - self.outsideLineWidth - MARK_VALUE_WIDTH;
     CGFloat startAngle = STA_ANGLE - (2.f * M_PI) * (self.progressAngle / 100.f) *
                                      (100.f - 100.f * self.outsideValue / self.maxValue) / 100.f;
     CGFloat endAngle   = END_ANGLE;
@@ -547,9 +573,9 @@ NS_ASSUME_NONNULL_BEGIN
     
     if (self.emptyLineWidth <= 0) return;
     
-    CGFloat radius     = MIN(CENTER_X, CENTER_Y) - self.emptyLineWidth - self.outsideLineWidth;
-    CGFloat startAngle = STA_ANGLE + 0.012 * M_PI;
-    CGFloat endAngle   = END_ANGLE - 0.012 * M_PI;
+    CGFloat radius     = MIN(CENTER_X, CENTER_Y) - self.emptyLineWidth - self.outsideLineWidth - MARK_VALUE_WIDTH;
+    CGFloat startAngle = STA_ANGLE + (0.01622 - radius * 0.00006) * M_PI;
+    CGFloat endAngle   = END_ANGLE - (0.01622 - radius * 0.00006) * M_PI;
     
     [self drawProgressBarWithContext:context
                            lineWidth:self.emptyLineWidth
@@ -585,71 +611,6 @@ NS_ASSUME_NONNULL_BEGIN
     
     CGPathRelease(arc);
     CGPathRelease(strokedArc);
-}
-
-#pragma mark Mark Line
-
-- (void)drawEmptyMarkLine:(CGSize)rectSize context:(CGContextRef)context {
-    
-    if (self.emptyLineWidth <= 0) return;
-    
-    CGFloat radius     = MIN(CENTER_X, CENTER_Y) - self.emptyLineWidth - self.outsideLineWidth;
-    
-    CGFloat leftStartX = CENTER_X - radius - self.emptyLineWidth * 0.5;
-    CGFloat leftEndX   = CENTER_X - radius - self.emptyLineWidth * 0.5 - self.outsideLineWidth;
-    [self drawMarkLineWithStartX:leftStartX endX:leftEndX startY:CENTER_Y endY:CENTER_Y position:@"left"];
-    
-    CGFloat rightStartX = CENTER_X + radius + self.emptyLineWidth * 0.5;
-    CGFloat rightEndX   = CENTER_X + radius + self.emptyLineWidth * 0.5 + self.outsideLineWidth;
-    [self drawMarkLineWithStartX:rightStartX endX:rightEndX startY:CENTER_Y endY:CENTER_Y position:@"right"];
-    
-    CGFloat topStartY = CENTER_Y - radius - self.emptyLineWidth * 0.5;
-    CGFloat topEndY   = CENTER_Y - radius - self.emptyLineWidth * 0.5 - self.outsideLineWidth;
-    [self drawMarkLineWithStartX:CENTER_X endX:CENTER_X startY:topStartY endY:topEndY position:@"top"];
-}
-
-- (void)drawMarkLineWithStartX:(CGFloat)startX
-                          endX:(CGFloat)endX
-                        startY:(CGFloat)startY
-                          endY:(CGFloat)endY
-                      position:(NSString *)position {
-    
-    UIBezierPath *line = [UIBezierPath bezierPath];
-    [[UIColor blackColor] set];
-    [line moveToPoint:CGPointMake(startX, startY)];
-    [line addLineToPoint:CGPointMake(endX, endY)];
-    [line setLineWidth:0.5];
-    [line stroke];
-    
-//    NSMutableParagraphStyle *textStyle = NSMutableParagraphStyle.defaultParagraphStyle.mutableCopy;
-//    textStyle.alignment = NSTextAlignmentCenter;
-//    NSDictionary *valueFontAttributes = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:14],
-//                                          NSForegroundColorAttributeName:[UIColor redColor],
-//                                          NSParagraphStyleAttributeName:textStyle};
-//    
-//    if ([position isEqualToString:@"left"]) {
-//        
-//        NSString *valueStr = [NSString stringWithFormat:@"%02.0f", (90 - self.progressAngle / 2) / 280.0 * self.targetValue];
-//        NSAttributedString *value = [[NSAttributedString alloc] initWithString:valueStr attributes:valueFontAttributes];
-//        NSMutableAttributedString *text = [NSMutableAttributedString new];
-//        [text appendAttributedString:value];
-//        CGSize percentSize = [text size];
-//        CGPoint textCenter = CGPointMake(
-//                                         endX - percentSize.width,
-//                                         startY - percentSize.height / 2
-//                                        );
-//        [text drawAtPoint:textCenter];
-//        
-//    } else if ([position isEqualToString:@"top"]) {
-//        
-//        NSString *valueStr = [NSString stringWithFormat:@"%02.0f", (90 + 90 - self.progressAngle / 2) / 280.0 * self.targetValue];
-//        
-//        
-//    } else {
-//        
-//        NSString *valueStr = [NSString stringWithFormat:@"%02.0f", (180 + 90 - self.progressAngle / 2) / 280.0 * self.targetValue];
-//        
-//    }
 }
 
 #pragma mark Value String
@@ -702,18 +663,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)drawTargetValue:(CGSize)rectSize context:(CGContextRef)c {
     
+    CGFloat radius = MIN(CENTER_X, CENTER_Y) - MARK_VALUE_WIDTH;
     UIColor *valueFontColor = self.valueFontColor;
     
     // value
     NSString *valueStr = @"0";
     CGFloat valueFontSize = (self.valueFontSize == -1) ? rectSize.height / 14 : self.valueFontSize;
-    CGPoint offset = CGPointMake(0.5, 4);
+    CGPoint offset = CGPointMake(1, 4 / 157.0 * radius);
     [self drawTargetValue:valueStr fontSize:valueFontSize fontColor:valueFontColor rect:rectSize offset:offset];
     
     // description
     NSString *valueStr1 = [NSString stringWithFormat:@"%ld", (long)self.targetValue];
     CGFloat valueFontSize1 = (self.valueFontSize == -1) ? rectSize.height / 14 : self.valueFontSize;
-    CGPoint offset1 = CGPointMake(0.68, 1);
+    CGPoint offset1 = CGPointMake(-1, - (4.57 - 0.01 * radius) / 157.0 * radius);
     [self drawTargetValue:valueStr1 fontSize:valueFontSize1 fontColor:valueFontColor rect:rectSize offset:offset1];
 }
 
@@ -736,12 +698,94 @@ NS_ASSUME_NONNULL_BEGIN
     [text appendAttributedString:value];
     
     CGSize percentSize = [text size];
-    CGPoint textCenter = CGPointMake(
-                                     rectSize.width * offset.x - percentSize.width * offset.y + self.valueOffset.x,
-                                     rectSize.height - percentSize.height * 2 + self.valueOffset.y
-                                    );
+    CGFloat radius = MIN(CENTER_X, CENTER_Y) - MARK_VALUE_WIDTH;
     
+    CGPoint textCenter = CGPointMake(
+                                     CENTER_X - radius * sin(40) * offset.x + percentSize.width * offset.y + self.valueOffset.x,
+                                     CENTER_Y - radius * cos(40) * (0.0044 * radius + 0.0592) + percentSize.height + self.valueOffset.y
+                                     );
     [text drawAtPoint:textCenter];
+}
+
+#pragma mark Mark Vlaue
+
+- (void)drawMarkVlaue:(CGSize)rectSize context:(CGContextRef)context {
+    
+    if (self.emptyLineWidth <= 0) return;
+    
+    CGFloat radius     = MIN(CENTER_X, CENTER_Y) - self.emptyLineWidth - self.outsideLineWidth - MARK_VALUE_WIDTH;
+    
+    CGFloat leftStartX = CENTER_X - radius - self.emptyLineWidth * 0.5;
+    CGFloat leftEndX   = CENTER_X - radius - self.emptyLineWidth * 0.5 - self.outsideLineWidth;
+    [self drawMarkVlaueWithStartX:leftStartX endX:leftEndX startY:CENTER_Y endY:CENTER_Y position:@"left"];
+    
+    CGFloat rightStartX = CENTER_X + radius + self.emptyLineWidth * 0.5;
+    CGFloat rightEndX   = CENTER_X + radius + self.emptyLineWidth * 0.5 + self.outsideLineWidth;
+    [self drawMarkVlaueWithStartX:rightStartX endX:rightEndX startY:CENTER_Y endY:CENTER_Y position:@"right"];
+    
+    CGFloat topStartY = CENTER_Y - radius - self.emptyLineWidth * 0.5;
+    CGFloat topEndY   = CENTER_Y - radius - self.emptyLineWidth * 0.5 - self.outsideLineWidth;
+    [self drawMarkVlaueWithStartX:CENTER_X endX:CENTER_X startY:topStartY endY:topEndY position:@"top"];
+}
+
+- (void)drawMarkVlaueWithStartX:(CGFloat)startX
+                          endX:(CGFloat)endX
+                        startY:(CGFloat)startY
+                          endY:(CGFloat)endY
+                      position:(NSString *)position {
+    
+    UIBezierPath *line = [UIBezierPath bezierPath];
+    [[UIColor blackColor] set];
+    [line moveToPoint:CGPointMake(startX, startY)];
+    [line addLineToPoint:CGPointMake(endX, endY)];
+    [line setLineWidth:0.5];
+    [line stroke];
+    
+    NSMutableParagraphStyle *textStyle = NSMutableParagraphStyle.defaultParagraphStyle.mutableCopy;
+    textStyle.alignment = NSTextAlignmentCenter;
+    NSDictionary *valueFontAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:14],
+                                          NSForegroundColorAttributeName:self.outsideLineStrokeColor,
+                                          NSParagraphStyleAttributeName:textStyle};
+    
+    if ([position isEqualToString:@"left"]) {
+        
+        NSString *valueStr = [NSString stringWithFormat:@"%02.0f", (90 - self.progressAngle / 2) / 280.0 * self.targetValue];
+        NSAttributedString *value = [[NSAttributedString alloc] initWithString:valueStr attributes:valueFontAttributes];
+        NSMutableAttributedString *text = [NSMutableAttributedString new];
+        [text appendAttributedString:value];
+        CGSize percentSize = [text size];
+        CGPoint textCenter = CGPointMake(
+                                         endX - percentSize.width,
+                                         startY - percentSize.height / 2
+                                        );
+        [text drawAtPoint:textCenter];
+        
+    } else if ([position isEqualToString:@"top"]) {
+
+        NSString *valueStr = [NSString stringWithFormat:@"%02.0f", (90 + 90 - self.progressAngle / 2) / 280.0 * self.targetValue];
+        NSAttributedString *value = [[NSAttributedString alloc] initWithString:valueStr attributes:valueFontAttributes];
+        NSMutableAttributedString *text = [NSMutableAttributedString new];
+        [text appendAttributedString:value];
+        CGSize percentSize = [text size];
+        CGPoint textCenter = CGPointMake(
+                                         startX - percentSize.width / 2,
+                                         endY - percentSize.height
+                                        );
+        [text drawAtPoint:textCenter];
+        
+    } else {
+
+        NSString *valueStr = [NSString stringWithFormat:@"%02.0f", (180 + 90 - self.progressAngle / 2) / 280.0 * self.targetValue];
+        NSAttributedString *value = [[NSAttributedString alloc] initWithString:valueStr attributes:valueFontAttributes];
+        NSMutableAttributedString *text = [NSMutableAttributedString new];
+        [text appendAttributedString:value];
+        CGSize percentSize = [text size];
+        CGPoint textCenter = CGPointMake(
+                                         endX,
+                                         startY - percentSize.height / 2
+                                        );
+        [text drawAtPoint:textCenter];
+    }
 }
 
 #pragma mark Draw Text
