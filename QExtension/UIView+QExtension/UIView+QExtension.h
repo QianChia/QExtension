@@ -18,6 +18,7 @@
 #import "QTouchClipView.h"
 #import "QTouchLockView.h"
 #import "QCircularProgressView.h"
+#import "QChartView.h"
 
 
 #endif /* UIView_QExtension_h */

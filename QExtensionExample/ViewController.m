@@ -60,7 +60,7 @@
 //    [self uiButtonQProgressButtonDemo];
     
 //    [self uiColorHexDemo];
-    [self uiColorRGBDemo];
+//    [self uiColorRGBDemo];
     
 //    [self uiImageDrawDemo];
 //    [self uiImageGIFDemo];
@@ -76,6 +76,7 @@
 //    [self uiViewQMarqueeViewDemo];
 //    [self uiViewQBulletScreenViewDemo];
 //    [self uiViewQCircularProgressViewDemo];
+    [self uiViewQChartViewDemo];
     
 //    [self uiViewControllerQQRCodeDemo];
     
@@ -1954,6 +1955,68 @@
     circular.outsideLineColor = [UIColor colorWithRed:245/255.0 green:175/255.0 blue:63/255.0 alpha:1];
     circular.outsideLineStrokeColor = [UIColor colorWithRed:245/255.0 green:175/255.0 blue:63/255.0 alpha:1];
     circular.outsideLineCapType = kCGLineCapRound;
+}
+
+#pragma mark QChartView
+
+- (void)uiViewQChartViewDemo {
+    
+//    [self qChartViewDemo1];
+//    [self qChartViewDemo2];
+    [self qChartViewDemo3];
+}
+
+- (void)qChartViewDemo1 {
+    
+    BarChartView *barChatView = [[BarChartView alloc] initWithFrame:CGRectMake(10, 100, 300, 300)];
+    barChatView.backgroundColor = [UIColor cyanColor];
+    [self.view addSubview:barChatView];
+}
+
+- (void)qChartViewDemo2 {
+    
+    CGRect frame = CGRectMake(20, 100, WIDTH - 40, 50);
+    UIView *backView = [[UIView alloc] initWithFrame:frame];
+    backView.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:backView];
+    
+    CGRect barFrame = CGRectMake(0, 0, frame.size.width, frame.size.height);
+    
+    [QChartView q_horizontalSingleBarChartViewWithFrame:barFrame
+                                                 toView:backView
+                                               barColor:[UIColor orangeColor]
+                                        backgroundColor:[UIColor lightGrayColor]
+                                            actualValue:80.0f
+                                            targetValue:100.0f
+                                         valueFormatter:QChartValuePercentFormatter
+                                        animateDuration:1.0f];
+}
+
+- (void)qChartViewDemo3 {
+    
+    CGRect frame = CGRectMake(20, HEIGHT / 2 - 100, WIDTH - 40, 200);
+    UIView *backView = [[UIView alloc] initWithFrame:frame];
+    backView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:backView];
+    
+    NSMutableDictionary *dicM = [NSMutableDictionary dictionaryWithCapacity:20];
+    for (int i = 0; i < 20; i++) {
+        [dicM setObject:@(arc4random()%100 + 10) forKey:@(i + 1)];
+    }
+    NSDictionary *values = [dicM copy];
+    
+    CGRect barFrame = CGRectMake(0, 0, frame.size.width, frame.size.height);
+    
+    [QChartView q_barChartViewWithFrame:barFrame
+                                 toView:backView
+                              barColors:ChartColorTemplates.material
+                        backgroundColor:[UIColor clearColor]
+                                 values:values
+                         valueFormatter:QChartValueIntegerFormatter
+                      maxValueFormatter:QChartValueNoneFormatter
+                    xAxisValueFormatter:QChartValueIntegerFormatter
+                    yAxisValueFormatter:QChartValueIntegerFormatter
+                        animateDuration:1.0f];
 }
 
 

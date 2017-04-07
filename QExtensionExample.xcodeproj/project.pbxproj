@@ -37,6 +37,10 @@
 		1AE5F90A1D3CF1EA0067811A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AE5F9091D3CF1EA0067811A /* Assets.xcassets */; };
 		1AE5F90D1D3CF1EA0067811A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE5F90B1D3CF1EA0067811A /* LaunchScreen.storyboard */; };
 		1AE5F9231D3CF1EA0067811A /* QExtensionExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F9221D3CF1EA0067811A /* QExtensionExampleUITests.m */; };
+		A40AFBD71E9746CC0066B1C5 /* QChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A40AFBD61E9746CC0066B1C5 /* QChartView.m */; };
+		A40AFBDC1E9747680066B1C5 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40AFBDB1E9747680066B1C5 /* Charts.framework */; };
+		A40AFBDD1E97476F0066B1C5 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40AFBDB1E9747680066B1C5 /* Charts.framework */; };
+		A40AFBDE1E97476F0066B1C5 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A40AFBDB1E9747680066B1C5 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A430D2111E97298300561BBA /* NSArray+LocaleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = A430D1AF1E97298300561BBA /* NSArray+LocaleLog.m */; };
 		A430D2121E97298300561BBA /* NSData+FormData.m in Sources */ = {isa = PBXBuildFile; fileRef = A430D1B31E97298300561BBA /* NSData+FormData.m */; };
 		A430D2131E97298300561BBA /* NSDate+Calculation.m in Sources */ = {isa = PBXBuildFile; fileRef = A430D1B71E97298300561BBA /* NSDate+Calculation.m */; };
@@ -95,6 +99,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A40AFBDF1E97476F0066B1C5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A40AFBDE1E97476F0066B1C5 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1A21535C1E3CEB8400D47CAC /* demoBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = demoBundle.bundle; sourceTree = "<group>"; };
 		1A216FC41E3C9E6B00669B32 /* demo10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo10.png; sourceTree = "<group>"; };
@@ -135,6 +153,9 @@
 		1AE5F91E1D3CF1EA0067811A /* QExtensionExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QExtensionExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE5F9221D3CF1EA0067811A /* QExtensionExampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QExtensionExampleUITests.m; sourceTree = "<group>"; };
 		1AE5F9241D3CF1EA0067811A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A40AFBD51E9746CC0066B1C5 /* QChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QChartView.h; sourceTree = "<group>"; };
+		A40AFBD61E9746CC0066B1C5 /* QChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QChartView.m; sourceTree = "<group>"; };
+		A40AFBDB1E9747680066B1C5 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Charts.framework; sourceTree = "<group>"; };
 		A430D1AE1E97298300561BBA /* NSArray+LocaleLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+LocaleLog.h"; sourceTree = "<group>"; };
 		A430D1AF1E97298300561BBA /* NSArray+LocaleLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LocaleLog.m"; sourceTree = "<group>"; };
 		A430D1B01E97298300561BBA /* NSArray+QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+QExtension.h"; sourceTree = "<group>"; };
@@ -230,6 +251,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A40AFBDC1E9747680066B1C5 /* Charts.framework in Frameworks */,
+				A40AFBDD1E97476F0066B1C5 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +532,9 @@
 		A430D1F81E97298300561BBA /* UIView+QExtension */ = {
 			isa = PBXGroup;
 			children = (
+				A40AFBDB1E9747680066B1C5 /* Charts.framework */,
+				A40AFBD51E9746CC0066B1C5 /* QChartView.h */,
+				A40AFBD61E9746CC0066B1C5 /* QChartView.m */,
 				A430D1F91E97298300561BBA /* QBulletScreenView.h */,
 				A430D1FA1E97298300561BBA /* QBulletScreenView.m */,
 				A430D1FB1E97298300561BBA /* QCircularProgressView.h */,
@@ -553,6 +579,7 @@
 				1AE5F8F61D3CF1EA0067811A /* Sources */,
 				1AE5F8F71D3CF1EA0067811A /* Frameworks */,
 				1AE5F8F81D3CF1EA0067811A /* Resources */,
+				A40AFBDF1E97476F0066B1C5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -610,7 +637,7 @@
 				TargetAttributes = {
 					1AE5F8F91D3CF1EA0067811A = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 4L6EZSBXC4;
+						DevelopmentTeam = 58PYW7832U;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -723,6 +750,7 @@
 				A430D2191E97298300561BBA /* QJSONValidator.m in Sources */,
 				A430D2241E97298300561BBA /* UIColor+Hex.m in Sources */,
 				A430D2311E97298300561BBA /* QPaintBoardView.m in Sources */,
+				A40AFBD71E9746CC0066B1C5 /* QChartView.m in Sources */,
 				A430D22A1E97298300561BBA /* QCountingLabel.m in Sources */,
 				A430D2141E97298300561BBA /* NSDate+Formatter.m in Sources */,
 				A430D21B1E97298300561BBA /* NSString+Base64.m in Sources */,
@@ -888,12 +916,19 @@
 		1AE5F9281D3CF1EA0067811A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = QExtensionExample/QExtensionExample.entitlements;
-				DEVELOPMENT_TEAM = 4L6EZSBXC4;
+				DEVELOPMENT_TEAM = 58PYW7832U;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/QExtension/UIView+QExtension",
+				);
 				INFOPLIST_FILE = QExtensionExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACH_O_TYPE = mh_execute;
 				PRODUCT_BUNDLE_IDENTIFIER = com.qianqianstudio.QExtensionExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -902,12 +937,19 @@
 		1AE5F9291D3CF1EA0067811A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = QExtensionExample/QExtensionExample.entitlements;
-				DEVELOPMENT_TEAM = 4L6EZSBXC4;
+				DEVELOPMENT_TEAM = 58PYW7832U;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/QExtension/UIView+QExtension",
+				);
 				INFOPLIST_FILE = QExtensionExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACH_O_TYPE = mh_execute;
 				PRODUCT_BUNDLE_IDENTIFIER = com.qianqianstudio.QExtensionExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
