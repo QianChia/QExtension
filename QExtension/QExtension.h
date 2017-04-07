@@ -26,6 +26,10 @@
 #ifndef QExtension_h
 #define QExtension_h
 
+// Macro
+
+#import "QMacroDefinition.h"
+
 // Foundation
 
 #import "NSArray+QExtension.h"

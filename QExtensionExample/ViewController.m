@@ -10,9 +10,6 @@
 
 #import "QExtension.h"
 
-#define WIDTH   [UIScreen mainScreen].bounds.size.width
-#define HEIGHT  [UIScreen mainScreen].bounds.size.height
-
 @interface ViewController () <QMarqueeViewDelegate>
 
 @property (nonatomic, strong) QProgressButton *progressButton;
@@ -831,13 +828,13 @@
 - (void)uiImageDrawDemo {
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(20, HEIGHT - 100, 100, 50);
+    button.frame = CGRectMake(20, Q_SCREEN_HEIGHT_FLOAT - 100, 100, 50);
     [button setTitle:@"开始" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(drawButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
-    CGRect frame1 = CGRectMake(20, 40, WIDTH - 40, WIDTH - 40);
+    CGRect frame1 = CGRectMake(20, 40, Q_SCREEN_WIDTH_FLOAT - 40, Q_SCREEN_WIDTH_FLOAT - 40);
     UIImageView *imv1 = [[UIImageView alloc] initWithFrame:frame1];
     imv1.layer.borderWidth = 1;
 //    imv1.image = [UIImage imageNamed:@"demo5"];
@@ -845,7 +842,7 @@
     [self.view addSubview:imv1];
     self.imageView1 = imv1;
     
-    CGRect frame2 = CGRectMake(20, 40, WIDTH - 40, (WIDTH - 40) * 1.5);
+    CGRect frame2 = CGRectMake(20, 40, Q_SCREEN_WIDTH_FLOAT - 40, (Q_SCREEN_WIDTH_FLOAT - 40) * 1.5);
     UIImageView *imv2 = [[UIImageView alloc] initWithFrame:frame2];
     imv2.layer.borderWidth = 1;
     imv2.hidden = YES;
@@ -940,7 +937,7 @@
 
 - (void)uiImageGIFDemo {
     
-    CGRect frame1 = CGRectMake(20, 200, WIDTH - 40, (WIDTH - 40) / 3 * 2);
+    CGRect frame1 = CGRectMake(20, 200, Q_SCREEN_WIDTH_FLOAT - 40, (Q_SCREEN_WIDTH_FLOAT - 40) / 3 * 2);
     UIImageView *imv1 = [[UIImageView alloc] initWithFrame:frame1];
     imv1.layer.borderWidth = 1;
     [self.view addSubview:imv1];
@@ -969,13 +966,13 @@
 - (void)uiImageQRCodeDemo {
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(20, HEIGHT - 100, 200, 50);
+    button.frame = CGRectMake(20, Q_SCREEN_HEIGHT_FLOAT - 100, 200, 50);
     [button setTitle:@"生成/识别" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(qrCodeButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
-    CGRect frame1 = CGRectMake(20, 40, WIDTH - 40, WIDTH - 40);
+    CGRect frame1 = CGRectMake(20, 40, Q_SCREEN_WIDTH_FLOAT - 40, Q_SCREEN_WIDTH_FLOAT - 40);
     UIImageView *imv1 = [[UIImageView alloc] initWithFrame:frame1];
     imv1.layer.borderWidth = 1;
     [self.view addSubview:imv1];
@@ -1102,7 +1099,7 @@
 
 - (void)uiImageBundleDemo {
     
-    CGRect frame1 = CGRectMake(20, 40, WIDTH - 40, WIDTH - 40);
+    CGRect frame1 = CGRectMake(20, 40, Q_SCREEN_WIDTH_FLOAT - 40, Q_SCREEN_WIDTH_FLOAT - 40);
     UIImageView *imv1 = [[UIImageView alloc] initWithFrame:frame1];
     imv1.layer.borderWidth = 1;
     [self.view addSubview:imv1];
@@ -1157,7 +1154,7 @@
 - (void)qPageViewDemo1 {
     
     // 创建分页视图控件
-    CGRect frame = CGRectMake(0, 20, WIDTH, WIDTH / 2);
+    CGRect frame = CGRectMake(0, 20, Q_SCREEN_WIDTH_FLOAT, Q_SCREEN_WIDTH_FLOAT / 2);
     
     QPageView *pageView = [[QPageView alloc] initWithFrame:frame];
     
@@ -1186,7 +1183,7 @@
     NSArray *imageNameArr = @[@"page_00", @"page_01", @"page_02", @"page_03", @"page_04"];
     
     // 创建分页视图控件
-    CGRect frame = CGRectMake(0, 50 + WIDTH / 2, WIDTH, WIDTH / 2);
+    CGRect frame = CGRectMake(0, 50 + Q_SCREEN_WIDTH_FLOAT / 2, Q_SCREEN_WIDTH_FLOAT, Q_SCREEN_WIDTH_FLOAT / 2);
     
     QPageView *pageView = [QPageView q_pageViewWithFrame:frame
                                               imageNames:imageNameArr
@@ -1230,7 +1227,7 @@
     
     // 创建简单画板
     
-    CGRect frame = CGRectMake(20, 50, WIDTH - 40, 200);
+    CGRect frame = CGRectMake(20, 50, Q_SCREEN_WIDTH_FLOAT - 40, 200);
     
     QPaintBoardView *paintBoardView = [QPaintBoardView q_paintBoardViewWithFrame:frame];
     
@@ -1290,13 +1287,13 @@
 
 - (void)uiViewQTouchClipViewDemo {
     
-    CGRect ivFrame = CGRectMake(0, 0, WIDTH, HEIGHT - 44);
+    CGRect ivFrame = CGRectMake(0, 0, Q_SCREEN_WIDTH_FLOAT, Q_SCREEN_HEIGHT_FLOAT - 44);
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:ivFrame];
     imageView.image = [UIImage imageNamed:@"demo9.jpg"];
     [self.view addSubview:imageView];
     self.imageView = imageView;
     
-    CGRect toolFrame = CGRectMake(0, HEIGHT - 44, WIDTH, 44);
+    CGRect toolFrame = CGRectMake(0, Q_SCREEN_HEIGHT_FLOAT - 44, Q_SCREEN_WIDTH_FLOAT, 44);
     UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:toolFrame];
     UIBarButtonItem *clipButton = [[UIBarButtonItem alloc] initWithTitle:@"选择截屏"
                                                                    style:UIBarButtonItemStylePlain
@@ -1351,7 +1348,7 @@
 - (void)uiViewQTouchLockViewDemo {
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(20, HEIGHT - 50, 50, 30);
+    button.frame = CGRectMake(20, Q_SCREEN_HEIGHT_FLOAT - 50, 50, 30);
     [button setTitle:@"清除" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
@@ -1359,7 +1356,7 @@
     [self.view addSubview:button];
     
     UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    button1.frame = CGRectMake(100, HEIGHT - 50, 50, 30);
+    button1.frame = CGRectMake(100, Q_SCREEN_HEIGHT_FLOAT - 50, 50, 30);
     [button1 setTitle:@"查看" forState:UIControlStateNormal];
     [button1 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [button1 setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
@@ -1395,7 +1392,7 @@
     
     // 设置 frame
     CGFloat margin = 50;
-    CGFloat width = WIDTH - margin * 2;
+    CGFloat width = Q_SCREEN_WIDTH_FLOAT - margin * 2;
     CGRect frame = CGRectMake(margin, 200, width, width);
     
     // 创建手势锁视图界面，获取滑动结果
@@ -1486,7 +1483,7 @@
 - (void)qMarqueeViewDemo1 {
     
     // 创建跑马灯视图控件
-    CGRect frame = CGRectMake(0, 50, WIDTH, 30);
+    CGRect frame = CGRectMake(0, 50, Q_SCREEN_WIDTH_FLOAT, 30);
     QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
     
     // 设置显示的内容
@@ -1514,7 +1511,7 @@
 - (void)qMarqueeViewDemo2 {
     
     // 创建跑马灯视图控件
-    CGRect frame = CGRectMake(0, 100, WIDTH, 30);
+    CGRect frame = CGRectMake(0, 100, Q_SCREEN_WIDTH_FLOAT, 30);
     QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
     
     // 设置显示的内容
@@ -1545,7 +1542,7 @@
 - (void)qMarqueeViewDemo3 {
     
     // 创建跑马灯视图控件
-    CGRect frame = CGRectMake(30, 150, WIDTH - 150, 30);
+    CGRect frame = CGRectMake(30, 150, Q_SCREEN_WIDTH_FLOAT - 150, 30);
     QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
     
     // 设置显示的内容
@@ -1572,7 +1569,7 @@
 - (void)qMarqueeViewDemo4 {
     
     // 创建跑马灯视图控件
-    CGRect frame = CGRectMake(30, 200, WIDTH - 150, 30);
+    CGRect frame = CGRectMake(30, 200, Q_SCREEN_WIDTH_FLOAT - 150, 30);
     QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
     
     // 设置显示的内容
@@ -1603,7 +1600,7 @@
     NSArray *showList = @[@"1. Hello World"];
     
     // 创建跑马灯视图控件，开始滚动
-    CGRect frame = CGRectMake(30, 250, WIDTH - 100, 30);
+    CGRect frame = CGRectMake(30, 250, Q_SCREEN_WIDTH_FLOAT - 100, 30);
     QMarqueeView *marqueeView = [QMarqueeView q_marqueeViewWithFrame:frame
                                                                texts:showList
                                                                color:[UIColor whiteColor]
@@ -1632,7 +1629,7 @@
                           @"5. 个人博客：cnblogs.com/QianChia"];
     
     // 创建跑马灯视图控件，开始滚动
-    CGRect frame = CGRectMake(30, 300, WIDTH - 60, 30);
+    CGRect frame = CGRectMake(30, 300, Q_SCREEN_WIDTH_FLOAT - 60, 30);
     QMarqueeView *marqueeView = [QMarqueeView q_marqueeViewWithFrame:frame
                                                                texts:showList
                                                                color:[UIColor whiteColor]
@@ -1654,7 +1651,7 @@
 - (void)qMarqueeViewDemo7 {
     
     // 创建跑马灯视图控件
-    CGRect frame = CGRectMake(50, 350, WIDTH - 100, 30);
+    CGRect frame = CGRectMake(50, 350, Q_SCREEN_WIDTH_FLOAT - 100, 30);
     QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
     
     // 设置显示的内容
@@ -1688,7 +1685,7 @@
 - (void)qMarqueeViewDemo8 {
     
     // 创建跑马灯视图控件
-    CGRect frame = CGRectMake(50, 400, WIDTH - 100, 30);
+    CGRect frame = CGRectMake(50, 400, Q_SCREEN_WIDTH_FLOAT - 100, 30);
     QMarqueeView *marqueeView = [[QMarqueeView alloc] initWithFrame:frame];
     
     // 设置显示的内容
@@ -1729,7 +1726,7 @@
                           @"5. 个人博客：cnblogs.com/QianChia"];
     
     // 创建跑马灯视图控件，开始滚动
-    CGRect frame = CGRectMake(30, 450, WIDTH - 60, 30);
+    CGRect frame = CGRectMake(30, 450, Q_SCREEN_WIDTH_FLOAT - 60, 30);
     QMarqueeView *marqueeView = [QMarqueeView q_marqueeViewWithFrame:frame
                                                                texts:showList
                                                                color:nil
@@ -1834,7 +1831,7 @@
 
 - (void)qBulletScreenViewDemo3 {
     
-    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT - 500, HEIGHT, 200)];
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, Q_SCREEN_HEIGHT_FLOAT - 500, Q_SCREEN_HEIGHT_FLOAT, 200)];
     backView.backgroundColor = [UIColor yellowColor];
     backView.clipsToBounds = YES;
     [self.view addSubview:backView];
@@ -1873,7 +1870,7 @@
 
 - (void)qBulletScreenViewDemo4 {
     
-    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT - 500, HEIGHT, 200)];
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, Q_SCREEN_HEIGHT_FLOAT - 500, Q_SCREEN_HEIGHT_FLOAT, 200)];
     backView.backgroundColor = [UIColor yellowColor];
     backView.clipsToBounds = YES;
     [self.view addSubview:backView];
@@ -1910,7 +1907,7 @@
 
 - (void)uiViewQCircularProgressViewDemo {
     
-    CGRect frame = CGRectMake(50, 100, WIDTH - 100, WIDTH - 100);
+    CGRect frame = CGRectMake(50, 100, Q_SCREEN_WIDTH_FLOAT - 100, Q_SCREEN_WIDTH_FLOAT - 100);
     QCircularProgressView *circular = [[QCircularProgressView alloc] initWithFrame:frame];
     circular.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:circular];
@@ -1975,7 +1972,7 @@
 
 - (void)qChartViewDemo2 {
     
-    CGRect frame = CGRectMake(20, 100, WIDTH - 40, 50);
+    CGRect frame = CGRectMake(20, 100, Q_SCREEN_WIDTH_FLOAT - 40, 50);
     UIView *backView = [[UIView alloc] initWithFrame:frame];
     backView.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:backView];
@@ -1994,7 +1991,7 @@
 
 - (void)qChartViewDemo3 {
     
-    CGRect frame = CGRectMake(20, HEIGHT / 2 - 100, WIDTH - 40, 200);
+    CGRect frame = CGRectMake(20, Q_SCREEN_HEIGHT_FLOAT / 2 - 100, Q_SCREEN_WIDTH_FLOAT - 40, 200);
     UIView *backView = [[UIView alloc] initWithFrame:frame];
     backView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:backView];
@@ -2027,7 +2024,7 @@
 - (void)uiViewControllerQQRCodeDemo {
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(20, HEIGHT - 50, 100, 30);
+    button.frame = CGRectMake(20, Q_SCREEN_HEIGHT_FLOAT - 50, 100, 30);
     [button setTitle:@"二维码" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];

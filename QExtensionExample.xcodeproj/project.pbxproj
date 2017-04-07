@@ -244,6 +244,7 @@
 		A430D20E1E97298300561BBA /* QQRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQRCode.h; sourceTree = "<group>"; };
 		A430D20F1E97298300561BBA /* QQRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQRCode.m; sourceTree = "<group>"; };
 		A430D2101E97298300561BBA /* UIViewController+QExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+QExtension.h"; sourceTree = "<group>"; };
+		A4B20FAE1E976BAD00EE3A6D /* QMacroDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QMacroDefinition.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -359,8 +360,8 @@
 			isa = PBXGroup;
 			children = (
 				1A2CFAAB1E4CD7170069B469 /* NSArray+LocaleLogTests.m */,
-				1A2CFAAD1E4CD7820069B469 /* NSData+FormDataTests.m */,
 				1A2CFAAF1E4CEBF50069B469 /* NSDictionary+LocaleLogTests.m */,
+				1A2CFAAD1E4CD7820069B469 /* NSData+FormDataTests.m */,
 				1AE5F9191D3CF1EA0067811A /* Info.plist */,
 			);
 			path = QExtensionExampleTests;
@@ -379,6 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				A430D1DB1E97298300561BBA /* QExtension.h */,
+				A4B20FAE1E976BAD00EE3A6D /* QMacroDefinition.h */,
 				A430D1AD1E97298300561BBA /* NSArray+QExtension */,
 				A430D1B11E97298300561BBA /* NSData+QExtension */,
 				A430D1B51E97298300561BBA /* NSDate+QExtension */,
