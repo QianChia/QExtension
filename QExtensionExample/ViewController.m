@@ -713,7 +713,7 @@
     UIButton *button = [[UIButton alloc] init];
     button.q_indexPath = [NSIndexPath indexPathForRow:2 inSection:1];
 
-    NSLog(@"section: %d, row: %d", button.q_indexPath.section, button.q_indexPath.row);
+    NSLog(@"section: %ld, row: %ld", (long)button.q_indexPath.section, (long)button.q_indexPath.row);
 }
 
 #pragma mark QProgressButton
