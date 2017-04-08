@@ -459,7 +459,7 @@
     NSLog(@"%@", [endDate q_stringWithFormat:@"yyyy-MM-dd HH:mm:ss.sss"]);
     
     NSInteger n = [date2 q_weekday];
-    NSLog(@"%ld", n);
+    NSLog(@"%ld", (long)n);
 }
 
 
@@ -713,7 +713,7 @@
     UIButton *button = [[UIButton alloc] init];
     button.q_indexPath = [NSIndexPath indexPathForRow:2 inSection:1];
 
-    NSLog(@"section: %ld, row: %ld", button.q_indexPath.section, button.q_indexPath.row);
+    NSLog(@"section: %d, row: %d", button.q_indexPath.section, button.q_indexPath.row);
 }
 
 #pragma mark QProgressButton
@@ -1750,7 +1750,7 @@
 /// 跑马灯内容点击协议方法
 - (void)didClickContentAtIndex:(NSInteger)index {
     
-    NSLog(@"%ld", index);
+    NSLog(@"%ld", (long)index);
 }
 
 

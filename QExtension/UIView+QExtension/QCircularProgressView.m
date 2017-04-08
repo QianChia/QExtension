@@ -610,13 +610,13 @@ NS_ASSUME_NONNULL_BEGIN
     
     // value
     NSString *valueStr    = [NSString stringWithFormat:@"%02ld:%02ld", (long)self.value / 60, (long)self.value % 60];
-    CGFloat valueFontSize = (self.valueFontSize == -1) ? rectSize.height / 10 : self.valueFontSize;
+    CGFloat valueFontSize = (self.valueFontSize == -1) ? rectSize.height / 9 : self.valueFontSize;
     CGPoint offset        = CGPointMake(0, 0);
     [self drawValue:valueStr fontSize:valueFontSize fontColor:valueFontColor rect:rectSize offset:offset];
     
     // description
     valueStr      = @"Elapsed Time";
-    valueFontSize = (self.valueFontSize == -1) ? rectSize.height / 20 : self.valueFontSize;
+    valueFontSize = (self.valueFontSize == -1) ? rectSize.height / 18 : self.valueFontSize;
     offset        = CGPointMake(0, 1.3);
     [self drawValue:valueStr fontSize:valueFontSize fontColor:valueFontColor rect:rectSize offset:offset];
 }
