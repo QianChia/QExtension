@@ -1909,7 +1909,7 @@
 
 - (void)uiViewQCircularProgressViewDemo {
     
-    CGRect frame = CGRectMake(50, 100, Q_SCREEN_WIDTH_FLOAT - 100, Q_SCREEN_WIDTH_FLOAT - 100);
+    CGRect frame = CGRectMake(10, 100, Q_SCREEN_WIDTH_FLOAT - 100, Q_SCREEN_WIDTH_FLOAT - 100);
     self.circular = [[QCircularProgressView alloc] initWithFrame:frame];
     self.circular.backgroundColor = Q_COLOR_LIGHTGRAY;
     [self.view addSubview:self.circular];

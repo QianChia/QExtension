@@ -57,9 +57,6 @@ IB_DESIGNABLE
 /// The target value of the progress bar
 @property (nonatomic, assign) IBInspectable CGFloat     targetValue;
 
-/// The mark value of the progress bar
-@property (nonatomic, assign) IBInspectable CGFloat     markValue;
-
 /// The font size of the value text, Range [0, ∞)
 @property (nonatomic, assign) IBInspectable CGFloat     valueFontSize;
 
@@ -197,9 +194,6 @@ IB_DESIGNABLE
 
 /// The target value of the progress bar
 @property (nonatomic, assign) CGFloat   targetValue;
-
-/// The mark value of the progress bar
-@property (nonatomic, assign) CGFloat   markValue;
 
 /// The font size of the value text, Range [0, ∞)
 @property (nonatomic, assign) CGFloat   valueFontSize;
