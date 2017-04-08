@@ -771,7 +771,7 @@ NS_ASSUME_NONNULL_BEGIN
     textStyle.alignment = NSTextAlignmentCenter;
     UIColor *textColor = [UIColor colorWithRed:241/255.0 green:147/255.0 blue:51/255.0 alpha:1];
     
-    NSDictionary *valueFontAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:14],
+    NSDictionary *valueFontAttributes = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:14],
                                           NSForegroundColorAttributeName:textColor,
                                           NSParagraphStyleAttributeName:textStyle};
     NSAttributedString *value = [[NSAttributedString alloc] initWithString:valueStr attributes:valueFontAttributes];
