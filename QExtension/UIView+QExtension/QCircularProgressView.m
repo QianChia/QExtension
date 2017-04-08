@@ -608,15 +608,27 @@ NS_ASSUME_NONNULL_BEGIN
     
     UIColor *valueFontColor = self.valueFontColor;
     
+    CGFloat multiple;
+    
+    if (([UIScreen mainScreen].bounds.size.width == 320) && MARK_VALUE_WIDTH) {
+        multiple = 10;
+    } else if (([UIScreen mainScreen].bounds.size.width == 375) && MARK_VALUE_WIDTH) {
+        multiple = 9;
+    } else if (([UIScreen mainScreen].bounds.size.width == 414) && MARK_VALUE_WIDTH) {
+        multiple = 8;
+    } else {
+        multiple = 8;
+    }
+    
     // value
     NSString *valueStr    = [NSString stringWithFormat:@"%02ld:%02ld", (long)self.value / 60, (long)self.value % 60];
-    CGFloat valueFontSize = (self.valueFontSize == -1) ? rectSize.height / 9 : self.valueFontSize;
+    CGFloat valueFontSize = (self.valueFontSize == -1) ? rectSize.height / multiple : self.valueFontSize;
     CGPoint offset        = CGPointMake(0, 0);
     [self drawValue:valueStr fontSize:valueFontSize fontColor:valueFontColor rect:rectSize offset:offset];
     
     // description
     valueStr      = @"Elapsed Time";
-    valueFontSize = (self.valueFontSize == -1) ? rectSize.height / 18 : self.valueFontSize;
+    valueFontSize = (self.valueFontSize == -1) ? rectSize.height / (multiple * 2) : self.valueFontSize;
     offset        = CGPointMake(0, 1.3);
     [self drawValue:valueStr fontSize:valueFontSize fontColor:valueFontColor rect:rectSize offset:offset];
 }
