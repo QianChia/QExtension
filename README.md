@@ -3,7 +3,7 @@
 
 - The extension method for Foundation & UIKit Class.
 
-GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia(Chinese)](http://www.cnblogs.com/QianChia)
+GitHub：[QianChia](https://github.com/QianChia) ｜ Blog：[QianChia](https://blog.qianchia.com)
 
 ---
 ## Installation
